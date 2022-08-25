@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { TriStateSwitch } from './components/TriStateSwitch'
+import { TriStateSwitch } from '../components/TriStateSwitch'
 
 const Home: NextPage = () => {
   return (
