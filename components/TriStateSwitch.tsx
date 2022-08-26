@@ -1,23 +1,21 @@
-import { useState } from 'react'
-
-
 interface TriStateSwitchProps {
-  name: string;
+  text: string;
+  state: TriStateSwitchState;
+  setState: ( state: TriStateSwitchState ) => void;
 }
 
 
-type TriStateSwitchState = 'REQUIRE' | 'IGNORE' | 'PROHIBIT'
+export type TriStateSwitchState = 'REQUIRE' | 'IGNORE' | 'PROHIBIT'
 const colors: Record<TriStateSwitchState, string> = {
   'REQUIRE': 'bg-green-200',
   'IGNORE': 'bg-gray-200',
   'PROHIBIT': 'bg-red-200'
 }
 
-export const TriStateSwitch = ( { name }: TriStateSwitchProps ): JSX.Element => {
-  const [state, setState] = useState<TriStateSwitchState>( 'IGNORE' )
+export const TriStateSwitch = ( { text, state, setState }: TriStateSwitchProps ): JSX.Element => {
 
   const elementRequire = <p className="block px-3 text-center" onClick={(): void => setState( 'REQUIRE' )}>✔️</p>
-  const elementIgnore = <p className="block px-3 text-center" onClick={(): void => setState( 'IGNORE' )}>{name}</p>
+  const elementIgnore = <p className="block px-3 text-center" onClick={(): void => setState( 'IGNORE' )}>{text}</p>
   const elementProhibit = <p className="block px-3 text-center" onClick={(): void => setState( 'PROHIBIT' )}>❌</p>
 
   switch ( state ) {
