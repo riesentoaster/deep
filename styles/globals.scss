@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './colors';
+
+
+html {
+    background-color: $htmlBackgroundColor;
+    height: 100%;
+}
+
+body {
+    background: $backgroundColor;
+    color: $bodyColor;
+    font-family: $bodyFont;
+}
+
+body {
+    background-color: $backgroundColor;
+    color: $bodyColor;
+    width: unquote("max(800px, 80%)");
+    margin: 0 auto;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@media only screen and (max-width: 480px) {
+    body {
+        width: 100%;
+    }
+}
+
+h2 {
+    font-size: xx-large;
+}
+
+h3 {
+    font-size: x-large;
+}
+
+h4 {
+    font-size: larger;
+}
+
+main {
+    padding: 30px;
+}
+
+main a {
+    color: inherit;
+}
+
+hr {
+    margin-top: 4em;
+    margin-bottom: 1em;
+}
+
+select {
+    background-color: $backgroundColor;
+    margin-top: 0.3em;
+}

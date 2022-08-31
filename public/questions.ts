@@ -1,32 +1,23 @@
 export interface Question {
-    translations: Record<string, string>;
-    tags?: string[]
-}
-
-export const languages = {
-  'de': 'Deutsch',
-  'en': 'English'
+  index: string;
+  tags: string[];
+  deepness: number;
 }
 
 export const questions: Question[] = [
   {
-    translations: {
-      'de': 'Frage 1',
-      'en': 'Question 1'
-    }
+    index: 'q1',
+    tags: [],
+    deepness: 1,
   },
   {
-    translations: {
-      'de': 'Frage 2',
-      'en': 'Question 2'
-    },
-    tags: ['tag1', 'tag2']
+    index: 'q2',
+    tags: ['tag1'],
+    deepness: 3
   },
   {
-    translations: {
-      'de': 'Frage 3',
-      'en': 'Question 3'
-    },
-    tags: ['tag1']
-  }
+    index: 'q3',
+    tags: ['tag2, tag3'],
+    deepness: 5
+  },
 ]

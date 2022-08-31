@@ -1,57 +1,48 @@
-import type { NextPage } from 'next'
+import type { NextPage, GetStaticProps } from 'next'
 import { useState } from 'react'
-import { TriStateSwitch, TriStateSwitchState } from '../components/TriStateSwitch'
-import { languages, Question, questions } from '../public/questions'
+import { Filters } from '../components/Filters'
+import { TriStateSwitchState } from '../components/TriStateSwitch'
+import { Question, questions } from '../public/questions'
+import { LanguageSettings } from '../components/LanguageSettings'
+import tags from '../public/tags.json'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const Home: NextPage = () => {
-  const [lang, setLang] = useState( 'de' )
-
-  const tags = questions
-    .filter( e => e.tags )
-    .map( e => e.tags )
-    .flat()
-    .filter( ( e,i,a ) => a.indexOf( e ) === i ) as string[]
-
+  const { t: t_common } = useTranslation( 'common' )
+  const { t: t_questions } = useTranslation( 'questions' )
   const [tagStates, setTagStates] = useState<TriStateSwitchState[]>( tags.map( e => e ).fill( 'IGNORE' ) as TriStateSwitchState[] )
+  const [deepnessLower,setDeepnessLower] = useState( 1 )
+  const [deepnessUpper,setDeepnessUpper] = useState( 10 )
 
   return (
-    <div>
-      <header>
-        <ul className='flex flex-row' >
-          {Object.entries( languages ).map( ( [k,v] ) =>(
-            <li
-              className={`px-1 border-2 ${lang === k ? 'bg-gray-200': ''}`}
-              key={k}
-              onClick={(): void => setLang( k )}
-            >
-              {v}
-            </li>
-          ) )
-          }
-        </ul>
-      </header>
+    <>
       <main>
-        <h2>Filters</h2>
-        {tags.map( ( e,i ) => (
-          <TriStateSwitch
-            key={e}
-            text={e}
-            state={tagStates[i]}
-            setState={( newState: TriStateSwitchState ): void => {
-              const newTagStates = tagStates.map( e => e )
-              newTagStates[i] = newState
-              setTagStates( newTagStates )
-            }}
-          /> )
-        )}
-        <h2>Fragen</h2>
+        <Filters
+          tags={tags}
+          tagStates={tagStates}
+          setTagStates={setTagStates}
+          minDeepness={deepnessLower}
+          setMinDeepness={setDeepnessLower}
+          maxDeepness={deepnessUpper}
+          setMaxDeepness={setDeepnessUpper }
+        />
+        <hr />
+        <h2 className='text-center'>{t_common( 'questions' )}</h2>
         <ul>
           {questions.filter( reduceFilter(
-            tags.map( ( e,i ) => getFilter( tagStates[i], e ) ) ) )
-            .map( e => <li key={e.translations[lang]}>{e.translations[lang]}</li> )}
+            tags.map( ( e, i ) => getFilter( tagStates[i], e ) ) ) )
+            .map( e =>
+              <li
+                className='px-20 py-2'
+                key={e.index}>
+                {t_questions( e.index )}
+              </li>
+            )}
         </ul>
       </main>
-    </div>
+      <footer><LanguageSettings/></footer>
+    </>
   )
 }
 
@@ -73,3 +64,10 @@ const getFilter = ( state: TriStateSwitchState, tag: string ): ( question: Quest
       return ( question: Question ): boolean => !question.tags || !question.tags.includes( tag )
   }
 }
+
+
+export const getStaticProps: GetStaticProps = async ( { locale } ) => ( {
+  props: {
+    ...await serverSideTranslations( locale || 'en', ['common', 'tags', 'questions'] ),
+  },
+} )
