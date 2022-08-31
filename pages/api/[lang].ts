@@ -12,7 +12,7 @@ export default apiify(
       }
       res.json( { questions: questions, translations } )
     } catch ( e ) {
-      res.status( 500 ).json( { 'message': 'language not found' } )
+      res.status( 500 ).json( { message: 'Language not found.', details: e } )
     }
   }
 )
