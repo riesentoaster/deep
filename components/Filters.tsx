@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next'
 import { useState } from 'react'
 import { TriStateSwitch, TriStateSwitchState } from './TriStateSwitch'
 
-const possibleDeepnessLevels = Array( 10 ).fill( 0 ).map( ( _, i ) => i+1 )
+const possibleDeepnessLevels = Array( 5 ).fill( 0 ).map( ( _, i ) => i+1 )
 
 interface FiltersProps {
     tags: string[];
