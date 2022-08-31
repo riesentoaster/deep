@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import Cors from 'cors'
-import { questions } from './questions'
+
+// import { questions } from './questions'
 
 // Initializing the cors middleware
 // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
@@ -24,10 +25,9 @@ function runMiddleware(
   } )
 }
 
-export default async function handler( req: NextApiRequest, res: NextApiResponse ): Promise<void> {
-  // Run the middleware
-  await runMiddleware( req, res, cors )
-
-  // Rest of the API logic
-  res.json( questions )
-}
+export const apiify = ( doSomething: ( req: NextApiRequest, res: NextApiResponse ) => Promise<void>|void ): ( req: NextApiRequest, res: NextApiResponse ) => Promise<void> =>
+  async ( req: NextApiRequest, res: NextApiResponse ): Promise<void> => {
+    // Run the middleware
+    await runMiddleware( req, res, cors )
+    return doSomething( req, res )
+  }
