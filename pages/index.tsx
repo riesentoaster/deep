@@ -1,12 +1,16 @@
-import type { NextPage, GetStaticProps } from 'next'
+import type { GetStaticProps } from 'next'
 import { defaultFiltersObject, Filters } from '../components/Filters'
-import { Question, questions as allQuestions } from '../public/questions'
+import { Question, questions as allQuestionsImport } from '../public/questions'
 import { LanguageSettings } from '../components/LanguageSettings'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useState } from 'react'
 
-const Home: NextPage = () => {
+interface HomeProps {
+  questions: Question[]
+}
+
+const Home = ( { questions }: HomeProps ): JSX.Element => {
   const { t: t_common } = useTranslation( 'common' )
   const { t: t_questions } = useTranslation( 'questions' )
 
@@ -20,12 +24,12 @@ const Home: NextPage = () => {
           setFilters={setFilters }/>
         <hr />
         <h2 className='text-center'>{t_common( 'questions' )}</h2>
-        <ul>
-          {allQuestions
+        <ul className='w-max mx-auto'>
+          {questions
             .filter( filters.filterFunction )
             .map( e =>
               <li
-                className='px-20 py-2'
+                className='py-2'
                 key={e.index}>
                 {t_questions( e.index )}
               </li>
@@ -40,10 +44,18 @@ const Home: NextPage = () => {
 export default Home
 
 
-export const getStaticProps: GetStaticProps = async ( { locale } ) => ( {
-  props: {
-    ...await serverSideTranslations( locale || 'en', ['common', 'tags', 'questions'] ),
-  },
-} )
+export const getStaticProps: GetStaticProps = async ( { locale } ) => {
+  // const res = await fetch( `${process.env.BASE_URL}/api` )
+  // const data = await res.json()
+
+  // console.log( data )
+
+  return ( {
+    props: {
+      ...await serverSideTranslations( locale || 'en', ['common', 'tags', 'questions'] ),
+      questions: allQuestionsImport.sort( () => 0.5-Math.random() )
+    },
+  } )
+}
 
 export type QuestionFilter = ( q: Question ) => boolean
