@@ -100,14 +100,10 @@ const reduceFilters = ( filters: Array<( q: Question ) => boolean> ): ( q: Quest
 const getFiltersForTags = ( tags: Record<string, TriStateSwitchState> ): Array<( q: Question ) => boolean> =>
   Object.entries( tags )
     .filter( ( e ) => e[1] !== 'IGNORE' )
-    .map( e => {
-      console.log( JSON.stringify( e ) );return e
-    } )
     .map( ( [tag, state] ) => getFilterForTag( tag, state ) )
 
 
 const getFilterForTag = ( tag: string, state: TriStateSwitchState ): QuestionFilter => {
-  console.log( tag, state )
   switch ( state ) {
     case 'IGNORE':
       return () => true
