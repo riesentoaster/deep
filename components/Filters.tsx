@@ -50,14 +50,14 @@ export const Filters = ( {
         )}
       </div>
 
-      <form className='mx-auto w-fit flex flex-row flex-wrap justify-center'>
+      <form className='mx-auto flex flex-row flex-wrap justify-center'>
         <div className='flex flex-col m-3'>
           <p className='w-max'>{t( 'minDeepness' )}</p>
           <select defaultValue={minDeepness} onChange={( e ): void => setMinDeepness( Number.parseInt( e.target.value ) )}>
             {possibleDeepnessLevels.map( e => ( <option key={e} disabled={e > maxDeepness}>{e}</option> ) )}
           </select>
         </div>
-        <div className='flex flex-col mx-3'>
+        <div className='flex flex-col m-3'>
           <p className='w-max'>{t( 'maxDeepness' )}</p>
           <select defaultValue={maxDeepness} onChange={( e ): void => setMaxDeepness( Number.parseInt( e.target.value ) )}>
             {possibleDeepnessLevels.map( e => ( <option key={e} disabled={e < minDeepness}>{e}</option> ) )}
