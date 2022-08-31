@@ -7,7 +7,7 @@ export interface Question {
 export const questions: Question[] = [
   {
     index: 'q1',
-    tags: [],
+    tags: ['tag1'],
     deepness: 1,
   },
   {
@@ -17,7 +17,7 @@ export const questions: Question[] = [
   },
   {
     index: 'q3',
-    tags: ['tag2, tag3'],
+    tags: ['tag2', 'tag3'],
     deepness: 5
   },
 ]
