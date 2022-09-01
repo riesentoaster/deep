@@ -258,7 +258,7 @@ export const questions: Question[] = [
   {
     'index':  'Which trait of Jesus do you appreciate most?',
     'deepness': 3,
-    'tags': [],
+    'tags': ['christians'],
   },
   {
     'index':  'What opinion of yours is unpopular with your friends?',

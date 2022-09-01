@@ -3,11 +3,19 @@ import { Question } from '../public/questions'
 import { TriStateSwitch, TriStateSwitchState } from './TriStateSwitch'
 import { questions as allQuestions } from '../public/questions'
 import { Dropdown } from './Dropdown'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 const possibleDeepnessLevels = Array( 5 ).fill( 0 ).map( ( _, i ) => i+1 )
 const allTags = allQuestions.map( e => e.tags ).flat().filter( ( e,i,a ) => a.indexOf( e ) === i )
 const DEFAULT_TAG_STATE: TriStateSwitchState = 'IGNORE'
-// const QUERY_TAG_FILTER_PREFIX = 'tag_'
+export const defaultFiltersObject: QuestionFilters = {
+  loadedQuery: false,
+  tags: allTags.map( e => ( { [e]: DEFAULT_TAG_STATE } ) ).reduce( ( acc, cur ) => Object.assign( acc, cur ), {} ),
+  minDeepness: possibleDeepnessLevels[0],
+  maxDeepness: possibleDeepnessLevels[possibleDeepnessLevels.length-1],
+  filterFunction: () => true
+}
 
 type QuestionFilter = ( q: Question ) => boolean
 
@@ -15,80 +23,15 @@ interface FiltersProps {
   filters: QuestionFilters
   setFilters: ( f: QuestionFilters ) => void
 }
-
-interface QuestionFilters extends QuestionFiltersData {
-  filterFunction: QuestionFilter;
-}
-
 interface QuestionFiltersData {
   tags: Record<string, TriStateSwitchState>;
   minDeepness: number;
   maxDeepness: number;
+  loadedQuery: boolean;
 }
 
-export const defaultFiltersObject: QuestionFilters = {
-  tags: allTags.map( e => ( { [e]: DEFAULT_TAG_STATE } ) ).reduce( ( acc, cur ) => Object.assign( acc, cur ), {} ),
-  minDeepness: possibleDeepnessLevels[0],
-  maxDeepness: possibleDeepnessLevels[possibleDeepnessLevels.length-1],
-  filterFunction: () => true
-}
-
-export const Filters = ( { filters, setFilters }: FiltersProps ): JSX.Element => {
-
-  const { t } = useTranslation( )
-
-  const updateFilters = ( state: QuestionFiltersData ): void => {
-    const filters: QuestionFilter[] = []
-    filters.push( ...getFiltersForTags( state.tags ) )
-    filters.push( q => q.deepness >= state.minDeepness )
-    filters.push( q => q.deepness <= state.maxDeepness )
-    setFilters( {
-      ...state,
-      filterFunction: reduceFilters( filters )
-    } )
-  }
-
-
-
-  return (
-    <Dropdown title='filters'>
-      <>
-        {allTags.map( ( e ) => (
-          <TriStateSwitch
-            key={e}
-            text={e}
-            state={filters.tags[e]}
-            setState={( newState: TriStateSwitchState ): void => {
-              if ( filters.tags[e] !== newState ) {
-                updateFilters( { ...filters, tags: { ...filters.tags, [e]: newState } } )
-              }
-            }}
-          /> )
-        )}
-
-        <form className={`mx-auto flex flex-row flex-wrap justify-center`}>
-          <div className='flex flex-col m-3'>
-            <p className='w-max'>{t( 'minDeepness' )}</p>
-            <select
-              value={filters.minDeepness}
-              onChange={( e ): void => updateFilters( { ...filters, minDeepness: Number.parseInt( e.target.value ) } )}
-            >
-              {possibleDeepnessLevels.map( e => ( <option key={e} disabled={e > filters.maxDeepness}>{e}</option> ) )}
-            </select>
-          </div>
-          <div className='flex flex-col m-3'>
-            <p className='w-max'>{t( 'maxDeepness' )}</p>
-            <select
-              value={filters.maxDeepness}
-              onChange={( e ): void => updateFilters( { ...filters, maxDeepness: Number.parseInt( e.target.value ) } )}
-            >
-              {possibleDeepnessLevels.map( e => ( <option key={e} disabled={e < filters.minDeepness}>{e}</option> ) )}
-            </select>
-          </div>
-        </form>
-      </>
-    </Dropdown>
-  )
+interface QuestionFilters extends QuestionFiltersData {
+  filterFunction: QuestionFilter;
 }
 
 const reduceFilters = ( filters: Array<( q: Question ) => boolean> ): ( q: Question ) => boolean =>
@@ -114,3 +57,103 @@ const getFilterForTag = ( tag: string, state: TriStateSwitchState ): QuestionFil
   }
 }
 
+const getNonDefaultFilters = ( state: QuestionFiltersData ): any => {
+  const filteredState = {}
+  const tags = Object.entries( state.tags ).filter( filterIgnoredTags ).map( ( [k,v] ) => ( { [k]:v } ) ).reduce( ( acc, cur ) => Object.assign( acc, cur ), {} )
+  if ( Object.keys( tags ).length > 0 ) Object.assign( filteredState, { tags: tags } )
+  if ( state.maxDeepness !== defaultFiltersObject.maxDeepness ) Object.assign( filteredState, { maxDeepness: state.maxDeepness } )
+  if ( state.minDeepness !== defaultFiltersObject.minDeepness ) Object.assign( filteredState, { minDeepness: state.minDeepness } )
+  return filteredState
+}
+
+
+export const Filters = ( { filters, setFilters }: FiltersProps ): JSX.Element => {
+
+  const { t } = useTranslation( )
+
+  const router = useRouter()
+
+  const updateFilters = ( state: QuestionFiltersData ): void => {
+    const nonDefaultFilters = getNonDefaultFilters( state )
+    const query = { ...router.query }
+    if ( Object.keys( nonDefaultFilters ).length > 0 ) Object.assign( query, { filters: JSON.stringify( nonDefaultFilters ) } )
+    else ( delete query.filters )
+    router.replace( { pathname: router.pathname, query: query } )
+    const filters: QuestionFilter[] = []
+    filters.push( ...getFiltersForTags( state.tags ) )
+    filters.push( q => q.deepness >= state.minDeepness )
+    filters.push( q => q.deepness <= state.maxDeepness )
+    setFilters( {
+      ...state,
+      filterFunction: reduceFilters( filters )
+    } )
+  }
+
+  useEffect( () => {
+    if ( !router.isReady ) return
+    if ( router.query.filters ) {
+      const queryFilters = JSON.parse( router.query.filters as string )
+      const state = {
+        ...defaultFiltersObject,
+        ...queryFilters,
+        loadedQuery: true,
+        tags:  { ...defaultFiltersObject.tags, ...queryFilters?.tags }
+      }
+      const filters: QuestionFilter[] = []
+      filters.push( ...getFiltersForTags( state.tags ) )
+      filters.push( q => q.deepness >= state.minDeepness )
+      filters.push( q => q.deepness <= state.maxDeepness )
+      setFilters( {
+        ...state,
+        filterFunction: reduceFilters( filters )
+      } )
+
+    }
+  }, [router.isReady, router.query, setFilters] )
+
+
+
+  return (
+    <Dropdown title='filters'>
+      <>
+        {allTags.map( ( e ) => (
+          <TriStateSwitch
+            key={e}
+            text={e}
+            state={filters.tags[e]}
+            setState={( newState: TriStateSwitchState ): void => {
+              if ( filters.tags[e] !== newState ) updateFilters( { ...filters, tags: { ...filters.tags, [e]: newState } } )
+            }}
+          /> )
+        )}
+
+        <form className={`mx-auto flex flex-row flex-wrap justify-center`}>
+          <div className='flex flex-col m-3'>
+            <p className='w-max'>{t( 'minDeepness' )}</p>
+            <select
+              value={filters.minDeepness}
+              onChange={( e ): void => {
+                const newValue = Number.parseInt( e.target.value )
+                if ( newValue !== filters.minDeepness ) updateFilters( { ...filters, minDeepness: newValue } )
+              }}
+            >
+              {possibleDeepnessLevels.map( e => ( <option key={e} disabled={e > filters.maxDeepness}>{e}</option> ) )}
+            </select>
+          </div>
+          <div className='flex flex-col m-3'>
+            <p className='w-max'>{t( 'maxDeepness' )}</p>
+            <select
+              value={filters.maxDeepness}
+              onChange={( e ): void => {
+                const newValue = Number.parseInt( e.target.value )
+                if ( newValue !== filters.maxDeepness ) updateFilters( { ...filters, maxDeepness: newValue } )
+              }}
+            >
+              {possibleDeepnessLevels.map( e => ( <option key={e} disabled={e < filters.minDeepness}>{e}</option> ) )}
+            </select>
+          </div>
+        </form>
+      </>
+    </Dropdown>
+  )
+}

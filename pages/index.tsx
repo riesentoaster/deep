@@ -7,10 +7,10 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useState } from 'react'
 
 interface HomeProps {
-  questions: Question[]
+  allQuestions: Question[]
 }
 
-const Home = ( { questions }: HomeProps ): JSX.Element => {
+const Home = ( { allQuestions }: HomeProps ): JSX.Element => {
   const { t: t_common } = useTranslation( 'common' )
   const { t: t_questions } = useTranslation( 'questions' )
 
@@ -21,11 +21,11 @@ const Home = ( { questions }: HomeProps ): JSX.Element => {
       <main>
         <Filters
           filters={filters}
-          setFilters={setFilters }/>
+          setFilters={setFilters}/>
         <hr />
         <h2 className='text-center'>{t_common( 'questions' )}</h2>
         <ul className='w-max mx-auto'>
-          {questions
+          {allQuestions
             .filter( filters.filterFunction )
             .map( e =>
               <li
@@ -46,6 +46,6 @@ export default Home
 export const getStaticProps: GetStaticProps = async ( { locale } ) => ( {
   props: {
     ...await serverSideTranslations( locale || 'en', ['common', 'tags', 'questions'] ),
-    questions: allQuestionsImport.sort( () => 0.5-Math.random() )
+    allQuestions: allQuestionsImport.sort( () => 0.5-Math.random() )
   },
 } )
