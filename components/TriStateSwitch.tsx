@@ -11,12 +11,6 @@ setState: ( state: TriStateSwitchState ) => void;
 
 export type TriStateSwitchState = 'REQUIRE' | 'IGNORE' | 'PROHIBIT';
 
-// const colors: Record<TriStateSwitchState, string> = {
-//   'REQUIRE': 'bg-green-200',
-//   'IGNORE': 'bg-gray-200',
-//   'PROHIBIT': 'bg-red-200'
-// }
-
 export const TriStateSwitch = ( { text, state, setState }: TriStateSwitchProps ): JSX.Element => {
   const { t } = useTranslation( 'tags' )
   return (

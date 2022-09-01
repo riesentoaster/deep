@@ -43,19 +43,9 @@ const Home = ( { questions }: HomeProps ): JSX.Element => {
 
 export default Home
 
-
-export const getStaticProps: GetStaticProps = async ( { locale } ) => {
-  // const res = await fetch( `${process.env.BASE_URL}/api` )
-  // const data = await res.json()
-
-  // console.log( data )
-
-  return ( {
-    props: {
-      ...await serverSideTranslations( locale || 'en', ['common', 'tags', 'questions'] ),
-      questions: allQuestionsImport.sort( () => 0.5-Math.random() )
-    },
-  } )
-}
-
-export type QuestionFilter = ( q: Question ) => boolean
+export const getStaticProps: GetStaticProps = async ( { locale } ) => ( {
+  props: {
+    ...await serverSideTranslations( locale || 'en', ['common', 'tags', 'questions'] ),
+    questions: allQuestionsImport.sort( () => 0.5-Math.random() )
+  },
+} )
