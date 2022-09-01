@@ -5,11 +5,12 @@ import { useState } from 'react'
 interface DropdownProps {
     children: JSX.Element
     title: string
+    defaultHiddenState?: boolean
 }
 
-export const Dropdown = ( { children, title }: DropdownProps ): JSX.Element => {
+export const Dropdown = ( { children, title, defaultHiddenState=false }: DropdownProps ): JSX.Element => {
   const { t } = useTranslation()
-  const [hidden, setHidden] = useState( false )
+  const [hidden, setHidden] = useState( defaultHiddenState )
   return (
     <div className='mx-auto'>
       <div className='flex flex-row mx-auto w-min justify-center border px-7 rounded-full' onClick={(): void => setHidden( !hidden )}>

@@ -114,7 +114,7 @@ export const Filters = ( { filters, setFilters }: FiltersProps ): JSX.Element =>
 
 
   return (
-    <Dropdown title='filters'>
+    <Dropdown title='filters' defaultHiddenState={true}>
       <>
         {allTags.map( ( e ) => (
           <TriStateSwitch
