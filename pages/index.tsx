@@ -26,6 +26,8 @@ const Home = ( { allQuestions }: HomeProps ): JSX.Element => {
 
   const [filters, setFilters] = useState( defaultFiltersObject )
 
+  const filteredQuestions = allQuestions.filter( filters.filterFunction )
+
   const modeComponents = Object.entries( modes )
     .map( ( [k,v] ) => ( { [k]: v( { questions: allQuestions.filter( filters.filterFunction ) } ) } ) )
     .reduce( ( acc, cur ) => Object.assign( acc, cur ), {} )
@@ -38,7 +40,8 @@ const Home = ( { allQuestions }: HomeProps ): JSX.Element => {
           setFilters={setFilters}/>
         <hr />
         <h2 className='text-center'>{t( filters.mode )}</h2>
-        {modeComponents[filters.mode]}
+        {filteredQuestions.length > 0 && modeComponents[filters.mode]}
+        {filteredQuestions.length === 0 && <p className='mx-auto w-max'>{t( 'noQuestionsLeft' )}</p>}
       </main>
     </>
   )

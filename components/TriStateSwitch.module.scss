@@ -15,7 +15,6 @@ $borderStyle: 2px solid $accentColorOffWhite;
 
 .switch__element {
     padding: 0.5em 1em;
-    // background: lightgray;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,7 +27,6 @@ $borderStyle: 2px solid $accentColorOffWhite;
 .switch__element:first-child {
     border-radius: 100vh 0 0 100vh;
     border-right: none;
-    // filter: brightness(200%);
 }
 
 .switch__element:last-child {

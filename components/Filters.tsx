@@ -10,6 +10,7 @@ import { modes } from '../pages'
 const possibleDeepnessLevels = Array( 5 ).fill( 0 ).map( ( _, i ) => i+1 )
 const allTags = allQuestions.map( e => e.tags ).flat().filter( ( e,i,a ) => a.indexOf( e ) === i )
 const DEFAULT_TAG_STATE: TriStateSwitchState = 'IGNORE'
+
 export const defaultFiltersObject: QuestionFilters = {
   loadedQuery: false,
   tags: allTags.map( e => ( { [e]: DEFAULT_TAG_STATE } ) ).reduce( ( acc, cur ) => Object.assign( acc, cur ), {} ),
@@ -78,7 +79,6 @@ export const Filters = ( { filters, setFilters }: FiltersProps ): JSX.Element =>
   const router = useRouter()
 
   const updateFilters = ( state: QuestionFiltersData ): void => {
-    console.log( state )
     const nonDefaultFilters = getNonDefaultFilters( state )
     const query = { ...router.query }
     if ( Object.keys( nonDefaultFilters ).length > 0 ) Object.assign( query, { filters: JSON.stringify( nonDefaultFilters ) } )
@@ -161,8 +161,9 @@ export const Filters = ( { filters, setFilters }: FiltersProps ): JSX.Element =>
         <form className='mx-auto w-max'>
           <p className='w-max mx-auto'>{t( 'mode' )}</p>
           <select
-            value={filters.mode}
+            value={t( filters.mode )}
             onChange={( e ): void => {
+              console.log( Object.keys( modes )[e.target.selectedIndex] )
               if ( e.target.selectedIndex !== Object.keys( modes ).indexOf( filters.mode ) )
                 updateFilters( { ...filters, mode: Object.keys( modes )[e.target.selectedIndex] } )
             }}

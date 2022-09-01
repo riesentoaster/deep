@@ -1,8 +1,9 @@
 {
+    "filters": "Filter",
+    "minDeepness": "Minimale Deepness",
+    "maxDeepness": "Maximale Deepness",
     "mode": "Modus",
     "allQuestions": "Alle Fragen",
     "randomQuestion": "Zufällige Frage",
-    "filters": "Filter",
-    "minDeepness": "Minimale Deepness",
-    "maxDeepness": "Maximale Deepness"
+    "noQuestionsLeft": "Diese Filter lassen keine Frage übrig."
 }
