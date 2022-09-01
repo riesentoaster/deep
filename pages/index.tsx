@@ -24,7 +24,7 @@ const Home = ( { allQuestions }: HomeProps ): JSX.Element => {
           setFilters={setFilters}/>
         <hr />
         <h2 className='text-center'>{t_common( 'questions' )}</h2>
-        <ul className='w-max mx-auto'>
+        <ul className='w-fit mx-auto'>
           {allQuestions
             .filter( filters.filterFunction )
             .map( e =>
