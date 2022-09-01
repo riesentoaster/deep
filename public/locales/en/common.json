@@ -1,5 +1,7 @@
 {
-    "questions": "Questions",
+    "mode": "Mode",
+    "allQuestions": "All Questions",
+    "randomQuestion": "Random Question",
     "filters": "Filters",
     "minDeepness": "Minimal Deepness",
     "maxDeepness": "Maximal Deepness"

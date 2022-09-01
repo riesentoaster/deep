@@ -5,6 +5,7 @@ import { questions as allQuestions } from '../public/questions'
 import { Dropdown } from './Dropdown'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import { modes } from '../pages'
 
 const possibleDeepnessLevels = Array( 5 ).fill( 0 ).map( ( _, i ) => i+1 )
 const allTags = allQuestions.map( e => e.tags ).flat().filter( ( e,i,a ) => a.indexOf( e ) === i )
@@ -14,6 +15,7 @@ export const defaultFiltersObject: QuestionFilters = {
   tags: allTags.map( e => ( { [e]: DEFAULT_TAG_STATE } ) ).reduce( ( acc, cur ) => Object.assign( acc, cur ), {} ),
   minDeepness: possibleDeepnessLevels[0],
   maxDeepness: possibleDeepnessLevels[possibleDeepnessLevels.length-1],
+  mode: 'allQuestions',
   filterFunction: () => true
 }
 
@@ -28,6 +30,7 @@ interface QuestionFiltersData {
   minDeepness: number;
   maxDeepness: number;
   loadedQuery: boolean;
+  mode: string;
 }
 
 interface QuestionFilters extends QuestionFiltersData {
@@ -63,6 +66,7 @@ const getNonDefaultFilters = ( state: QuestionFiltersData ): any => {
   if ( Object.keys( tags ).length > 0 ) Object.assign( filteredState, { tags: tags } )
   if ( state.maxDeepness !== defaultFiltersObject.maxDeepness ) Object.assign( filteredState, { maxDeepness: state.maxDeepness } )
   if ( state.minDeepness !== defaultFiltersObject.minDeepness ) Object.assign( filteredState, { minDeepness: state.minDeepness } )
+  if ( state.mode !== defaultFiltersObject.mode ) Object.assign( filteredState, { mode: state.mode } )
   return filteredState
 }
 
@@ -74,6 +78,7 @@ export const Filters = ( { filters, setFilters }: FiltersProps ): JSX.Element =>
   const router = useRouter()
 
   const updateFilters = ( state: QuestionFiltersData ): void => {
+    console.log( state )
     const nonDefaultFilters = getNonDefaultFilters( state )
     const query = { ...router.query }
     if ( Object.keys( nonDefaultFilters ).length > 0 ) Object.assign( query, { filters: JSON.stringify( nonDefaultFilters ) } )
@@ -152,6 +157,18 @@ export const Filters = ( { filters, setFilters }: FiltersProps ): JSX.Element =>
               {possibleDeepnessLevels.map( e => ( <option key={e} disabled={e < filters.minDeepness}>{e}</option> ) )}
             </select>
           </div>
+        </form>
+        <form className='mx-auto w-max'>
+          <p className='w-max mx-auto'>{t( 'mode' )}</p>
+          <select
+            value={filters.mode}
+            onChange={( e ): void => {
+              if ( e.target.selectedIndex !== Object.keys( modes ).indexOf( filters.mode ) )
+                updateFilters( { ...filters, mode: Object.keys( modes )[e.target.selectedIndex] } )
+            }}
+          >
+            {Object.keys( modes ).map( e => ( <option key={e}>{t( e )}</option> ) )}
+          </select>
         </form>
       </>
     </Dropdown>
