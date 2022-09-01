@@ -9,7 +9,7 @@ export const LanguageSettings = (): JSX.Element => {
   const router = useRouter()
   const { pathname, asPath, query, locales, locale } = router
   return (
-    <ul className='flex flex-row ml-auto mr-10 w-min border-2 rounded-full'>
+    <ul className='flex flex-row border rounded-full m-5'>
       {locales?.sort().map( e =>
         <li
           className={`px-5 rounded-full ${locale === e && 'bg-accentColorLightBlue'}`}
