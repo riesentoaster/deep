@@ -4,22 +4,22 @@
 
 ## Development
 
-Install [node](https://nodejs.org/)
+1. Install [NodeJS](https://nodejs.org/).
 
-Clone the repository:
+2. Clone the repository:
 ```bash
 git clone https://github.com/riesentoaster/deep.git
 ```
 
-Open the folder:
+3. Open the folder:
 ```bash
 cd deep
 ```
 
-Run the development server:
+4. Run the development server:
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
