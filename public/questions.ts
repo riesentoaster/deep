@@ -384,4 +384,10 @@ export const questions: Question[] = [
     'index':  'What are you ashamed of?',
     'deepness': 5,
     'tags': []
-  }]
+  },
+  {
+    'index': 'What is a decision you are struggling with? What is keeping you from making it?',
+    'deepness': 5,
+    'tags': []
+  }
+]
