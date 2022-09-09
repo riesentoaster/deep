@@ -11,6 +11,11 @@ export const questions: Question[] = [
     'tags': [],
   },
   {
+    'index': 'What is the last song you listened to?',
+    'deepness': 1,
+    'tags': [],
+  },
+  {
     'index': 'What is something you like doing in particular?',
     'deepness': 1,
     'tags': [],
