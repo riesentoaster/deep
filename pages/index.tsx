@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { AllQuestions } from '../components/AllQuestions'
 import { useTranslation } from 'next-i18next'
 import { RandomQuestion } from '../components/RandomQuestion'
+import { LanguageSettings } from '../components/LanguageSettings'
 
 interface HomeProps {
   allQuestions: Question[]
@@ -33,8 +34,8 @@ const Home = ( { allQuestions }: HomeProps ): JSX.Element => {
     .reduce( ( acc, cur ) => Object.assign( acc, cur ), {} )
 
   return (
-    <>
-      <main>
+    <div hidden={!filters.loadedQuery}>
+      <main >
         <Filters
           filters={filters}
           setFilters={setFilters}/>
@@ -43,7 +44,11 @@ const Home = ( { allQuestions }: HomeProps ): JSX.Element => {
         {filteredQuestions.length > 0 && modeComponents[filters.mode]}
         {filteredQuestions.length === 0 && <p className='mx-auto w-max'>{t( 'noQuestionsLeft' )}</p>}
       </main>
-    </>
+      <footer className='flex flex-row justify-space flex-wrap justify-center'>
+        <LanguageSettings/>
+        <p className='border rounded-full px-5 m-5'>Visit this project on <a href='https://github.com/riesentoaster/deep'>GitHub</a></p>
+      </footer>
+    </div>
   )
 }
 

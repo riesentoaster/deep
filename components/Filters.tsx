@@ -96,24 +96,23 @@ export const Filters = ( { filters, setFilters }: FiltersProps ): JSX.Element =>
 
   useEffect( () => {
     if ( !router.isReady ) return
+    const state = {
+      ...defaultFiltersObject,
+      loadedQuery: true
+    }
     if ( router.query.filters ) {
       const queryFilters = JSON.parse( router.query.filters as string )
-      const state = {
-        ...defaultFiltersObject,
+      Object.assign( state, {
         ...queryFilters,
-        loadedQuery: true,
         tags:  { ...defaultFiltersObject.tags, ...queryFilters?.tags }
-      }
+      } )
       const filters: QuestionFilter[] = []
       filters.push( ...getFiltersForTags( state.tags ) )
       filters.push( q => q.deepness >= state.minDeepness )
       filters.push( q => q.deepness <= state.maxDeepness )
-      setFilters( {
-        ...state,
-        filterFunction: reduceFilters( filters )
-      } )
-
+      Object.assign( state, { filterFunction: reduceFilters( filters ) } )
     }
+    setFilters( state )
   }, [router.isReady, router.query, setFilters] )
 
 
