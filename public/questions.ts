@@ -166,6 +166,11 @@ export const questions: Question[] = [
     'tags': [],
   },
   {
+    'index':  'When do you feel at home?',
+    'deepness': 3,
+    'tags': [],
+  },
+  {
     'index':  'When was the last time you felt misunderstood?',
     'deepness': 3,
     'tags': [],
@@ -277,6 +282,11 @@ export const questions: Question[] = [
   },
   {
     'index':  'Who is your best friend? Why?',
+    'deepness': 3,
+    'tags': [],
+  },
+  {
+    'index':  'When did you last cry? Why?',
     'deepness': 3,
     'tags': [],
   },

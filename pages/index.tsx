@@ -57,6 +57,6 @@ export default Home
 export const getStaticProps: GetStaticProps = async ( { locale } ) => ( {
   props: {
     ...await serverSideTranslations( locale || 'en', ['common', 'tags', 'questions'] ),
-    allQuestions: allQuestionsImport.sort( () => 0.5-Math.random() )
+    allQuestions: allQuestionsImport.sort( ( a,b ) => Math.random() - 0.5 + ( ( a.deepness - b.deepness ) / 5 ) ** ( 4/5 ) )
   },
 } )
