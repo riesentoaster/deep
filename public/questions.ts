@@ -376,6 +376,11 @@ export const questions: Question[] = [
     'tags': [],
   },
   {
+    'index':  'Where are you deceiving yourself?',
+    'deepness': 5,
+    'tags': [],
+  },
+  {
     'index':  'What decision of yours do you regret the most?',
     'deepness': 5,
     'tags': [],
