@@ -6,7 +6,7 @@ export interface Question {
 
 export const questions: Question[] = [
   {
-    'index': 'Is there an Ability you\'d like to master?',
+    'index': 'Is there an ability you\'d like to master?',
     'deepness': 1,
     'tags': [],
   },
@@ -277,6 +277,11 @@ export const questions: Question[] = [
   },
   {
     'index':  'Who are you in 10 years?',
+    'deepness': 3,
+    'tags': [],
+  },
+  {
+    'index':  'What is out of balance in your life right now?',
     'deepness': 3,
     'tags': [],
   },
