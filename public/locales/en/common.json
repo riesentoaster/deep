@@ -3,6 +3,9 @@
     "minDeepness": "Minimal Deepness",
     "maxDeepness": "Maximal Deepness",
     "mode": "Mode",
+    "order": "Order",
+    "byDeepness": "By Deepness",
+    "trueRandom": "Random",
     "allQuestions": "All Questions",
     "randomQuestion": "Random Question",
     "noQuestionsLeft": "Your filters left no questions to display."

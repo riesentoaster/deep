@@ -17,6 +17,7 @@ export const defaultFiltersObject: QuestionFilters = {
   minDeepness: possibleDeepnessLevels[0],
   maxDeepness: possibleDeepnessLevels[possibleDeepnessLevels.length-1],
   mode: 'allQuestions',
+  randomness: 0,
   filterFunction: () => true
 }
 
@@ -32,6 +33,7 @@ interface QuestionFiltersData {
   maxDeepness: number;
   loadedQuery: boolean;
   mode: string;
+  randomness: number;
 }
 
 interface QuestionFilters extends QuestionFiltersData {
@@ -68,6 +70,7 @@ const getNonDefaultFilters = ( state: QuestionFiltersData ): any => {
   if ( state.maxDeepness !== defaultFiltersObject.maxDeepness ) Object.assign( filteredState, { maxDeepness: state.maxDeepness } )
   if ( state.minDeepness !== defaultFiltersObject.minDeepness ) Object.assign( filteredState, { minDeepness: state.minDeepness } )
   if ( state.mode !== defaultFiltersObject.mode ) Object.assign( filteredState, { mode: state.mode } )
+  if ( state.randomness !== defaultFiltersObject.randomness ) Object.assign( filteredState, { randomness: state.randomness } )
   return filteredState
 }
 
@@ -118,7 +121,7 @@ export const Filters = ( { filters, setFilters }: FiltersProps ): JSX.Element =>
 
 
   return (
-    <Dropdown title='filters' defaultHiddenState={true}>
+    <Dropdown title='filters' defaultHiddenState={false /* TODO: set true */ }>
       <>
         {allTags.map( ( e ) => (
           <TriStateSwitch
@@ -162,13 +165,28 @@ export const Filters = ( { filters, setFilters }: FiltersProps ): JSX.Element =>
           <select
             value={t( filters.mode )}
             onChange={( e ): void => {
-              console.log( Object.keys( modes )[e.target.selectedIndex] )
               if ( e.target.selectedIndex !== Object.keys( modes ).indexOf( filters.mode ) )
                 updateFilters( { ...filters, mode: Object.keys( modes )[e.target.selectedIndex] } )
             }}
           >
             {Object.keys( modes ).map( e => ( <option key={e}>{t( e )}</option> ) )}
           </select>
+        </form>
+        <form className='mx-auto mt-3 w-max'>
+          <p className='w-max mx-auto'>{t( 'order' )}</p>
+          <div className='flex items-center justify-between'>
+            <p className='mr-10'>{t( 'byDeepness' )}</p>
+            <p className='ml-auto'>{t( 'trueRandom' )}</p>
+          </div>
+          <input
+            type="range"
+            step="any"
+            min="0"
+            max="1"
+            value={filters.randomness}
+            className='h-1 bg-white rounded appearance-none w-full'
+            onChange={( e ): void => updateFilters( { ...filters, randomness:  e.target.valueAsNumber } )}
+          />
         </form>
       </>
     </Dropdown>
