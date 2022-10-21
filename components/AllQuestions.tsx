@@ -1,16 +1,14 @@
-import { useTranslation } from 'next-i18next'
 import { QuestionDisplayProps } from '../pages'
+import { Question } from './Question'
 
-export const AllQuestions = ( { questions }: QuestionDisplayProps ): JSX.Element => {
-  const { t: t_questions } = useTranslation( 'questions' )
-
+export const AllQuestions = ( { questions, showAuthors }: QuestionDisplayProps ): JSX.Element => {
   return (
     <ul className='w-fit mx-auto'>
       {questions.map( e =>
         <li
           className='py-2'
           key={e.index}>
-          {t_questions( e.index )}
+          <Question question={e} showAuthor={showAuthors}/>
         </li>
       )}
     </ul>

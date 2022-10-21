@@ -2,6 +2,7 @@ export interface Question {
   index: string;
   tags: string[];
   deepness: number;
+  author?: string;
 }
 
 export const questions: Question[] = [
@@ -189,6 +190,12 @@ export const questions: Question[] = [
     'index':  'What wrong belief did you hold in the past?',
     'deepness': 3,
     'tags': ['christians'],
+  },
+  {
+    'index':  'What is love?',
+    'deepness': 3,
+    'tags': [],
+    'author': 'Alex No'
   },
   {
     'index':  'What is your best (secret) advice for working relationships?',

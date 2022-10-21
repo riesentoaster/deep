@@ -18,6 +18,7 @@ export const defaultFiltersObject: QuestionFilters = {
   maxDeepness: possibleDeepnessLevels[possibleDeepnessLevels.length-1],
   mode: 'allQuestions',
   randomness: 0,
+  showAuthors: true,
   filterFunction: () => true
 }
 
@@ -34,6 +35,7 @@ interface QuestionFiltersData {
   loadedQuery: boolean;
   mode: string;
   randomness: number;
+  showAuthors: boolean;
 }
 
 interface QuestionFilters extends QuestionFiltersData {
@@ -71,6 +73,7 @@ const getNonDefaultFilters = ( state: QuestionFiltersData ): any => {
   if ( state.minDeepness !== defaultFiltersObject.minDeepness ) Object.assign( filteredState, { minDeepness: state.minDeepness } )
   if ( state.mode !== defaultFiltersObject.mode ) Object.assign( filteredState, { mode: state.mode } )
   if ( state.randomness !== defaultFiltersObject.randomness ) Object.assign( filteredState, { randomness: state.randomness } )
+  if ( state.showAuthors !== defaultFiltersObject.showAuthors ) Object.assign( filteredState, { showAuthors: state.showAuthors } )
   return filteredState
 }
 
@@ -187,6 +190,16 @@ export const Filters = ( { filters, setFilters }: FiltersProps ): JSX.Element =>
             className='h-1 bg-white rounded appearance-none w-full'
             onChange={( e ): void => updateFilters( { ...filters, randomness:  e.target.valueAsNumber } )}
           />
+        </form>
+        <form className='mx-auto mt-3 w-max'>
+          <p className='w-max'>{t( 'showAuthors' )}
+            <input
+              className='ml-3'
+              type="checkbox"
+              checked={filters.showAuthors}
+              onChange={( e ): void => updateFilters( { ...filters, showAuthors: e.target.checked } )}
+            />
+          </p>
         </form>
       </>
     </Dropdown>

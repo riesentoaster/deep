@@ -14,6 +14,7 @@ interface HomeProps {
 
 export interface QuestionDisplayProps {
   questions: Question[];
+  showAuthors: boolean;
 }
 
 export const modes: Record<string, ( p: QuestionDisplayProps ) => JSX.Element> = {
@@ -39,7 +40,7 @@ const Home = ( { allQuestions }: HomeProps ): JSX.Element => {
   }, [filters, allQuestions] )
 
   const modeComponents = Object.entries( modes )
-    .map( ( [k,v] ) => ( { [k]: v( { questions } ) } ) )
+    .map( ( [k,v] ) => ( { [k]: v( { questions, showAuthors:filters.showAuthors } ) } ) )
     .reduce( ( acc, cur ) => Object.assign( acc, cur ), {} )
 
   return (

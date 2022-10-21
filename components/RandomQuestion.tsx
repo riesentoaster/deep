@@ -1,15 +1,15 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
-import { useTranslation } from 'next-i18next'
 import { useState } from 'react'
 import { QuestionDisplayProps } from '../pages'
+import { Question } from './Question'
 
-export const RandomQuestion = ( { questions }: QuestionDisplayProps ): JSX.Element => {
+export const RandomQuestion = ( { questions, showAuthors }: QuestionDisplayProps ): JSX.Element => {
   const [index, setIndex] = useState( 0 )
-  const { t } = useTranslation( 'questions' )
+
   return (
     <div className='py-5 flex flex-row'>
       <ChevronLeftIcon className='h-6 w-6 grow shrink-0' onClick={(): void => setIndex( ( questions.length + index - 1 ) % questions.length )}/>
-      <p>{questions[index % questions.length] && t( questions[index % questions.length]?.index )}</p>
+      {questions[index % questions.length] && ( <Question question={questions[index % questions.length]} showAuthor={showAuthors}/> )}
       <ChevronRightIcon className='h-6 w-6 grow shrink-0' onClick={(): void => setIndex( index + 1 )}/>
     </div>
   )
