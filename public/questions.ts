@@ -408,8 +408,8 @@ export const questions: Question[] = [
     'tags': [],
   },
   {
-    'index':  'What are your greatest fears?',
-    'deepness': 5,
+    'index':  'What scares you?',
+    'deepness': 4,
     'tags': [],
   },
   {
