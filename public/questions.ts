@@ -323,6 +323,11 @@ export const questions: Question[] = [
     'tags': [],
   },
   {
+    'index':  'What is something that you do differently from your parents? Why?',
+    'deepness': 3,
+    'tags': [],
+  },
+  {
     'index':  'From what mistakes of yours can people learn?',
     'deepness': 4,
     'tags': [],
