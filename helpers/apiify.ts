@@ -1,8 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import Cors from 'cors'
 
-// import { questions } from './questions'
-
 // Initializing the cors middleware
 // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
 const cors = Cors( { methods: ['GET'] } )
@@ -19,7 +17,6 @@ function runMiddleware(
       if ( result instanceof Error ) {
         return reject( result )
       }
-
       return resolve( result )
     } )
   } )
