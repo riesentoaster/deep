@@ -142,6 +142,11 @@ export const questions: Question[] = [
     'tags': [],
   },
   {
+    'index':  'What is the best compliment somebody ever gave you?',
+    'deepness': 2,
+    'tags': [],
+  },
+  {
     'index':  'On a scale from 1 through 10, how would you rate your life? What could you do to improve it?',
     'deepness': 3,
     'tags': [],
