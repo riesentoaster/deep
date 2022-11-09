@@ -363,6 +363,12 @@ export const questions: Question[] = [
     'tags': [],
   },
   {
+    'index':  'How do you show love? How do you like being shown love?',
+    'deepness': 4,
+    'tags': [],
+    'author': 'Alex No'
+  },
+  {
     'index':  'What is something that I have to experience?',
     'deepness': 4,
     'tags': [],
