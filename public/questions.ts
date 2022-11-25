@@ -72,6 +72,18 @@ export const questions: Question[] = [
     'tags': ['twoPeople'],
   },
   {
+    'index':  'What sound or song would summon you?',
+    'deepness': 1,
+    'tags': [],
+    'author': 'Alex No'
+  },
+  {
+    'index':  'What song is playing in your head?',
+    'deepness': 1,
+    'tags': [],
+    'author': 'Alex No'
+  },
+  {
     'index':  'What is a property/habit of yours that annoys other people?',
     'deepness': 2,
     'tags': [],
@@ -145,6 +157,16 @@ export const questions: Question[] = [
     'index':  'What is the best compliment somebody ever gave you?',
     'deepness': 2,
     'tags': [],
+  },
+  {
+    'index':  'Are there evil humans?',
+    'deepness': 2,
+    'tags': ['philosophy'],
+  },
+  {
+    'index':  'What role did music play in the household you grew up in?',
+    'deepness': 2,
+    'tags': ['philosophy'],
   },
   {
     'index':  'On a scale from 1 through 10, how would you rate your life? What could you do to improve it?',
@@ -333,6 +355,16 @@ export const questions: Question[] = [
     'tags': [],
   },
   {
+    'index':  'What is something that you took after your grandparents? What is something you took after your parents?',
+    'deepness': 3,
+    'tags': [],
+  },
+  {
+    'index':  'What line from a song or poem means a lot to you?',
+    'deepness': 3,
+    'tags': [],
+  },
+  {
     'index':  'From what mistakes of yours can people learn?',
     'deepness': 4,
     'tags': [],
@@ -375,6 +407,11 @@ export const questions: Question[] = [
   },
   {
     'index':  'What must I never forget?',
+    'deepness': 4,
+    'tags': [],
+  },
+  {
+    'index':  'What needs to happen in your life for it to have gone right?',
     'deepness': 4,
     'tags': [],
   },
