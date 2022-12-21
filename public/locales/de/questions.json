@@ -30,6 +30,7 @@
     "What is the best compliment somebody ever gave you?": "Was ist das beste Kompliment, das du je bekommen hast?",
     "Are there evil humans?": "Gibt es böse Menschen?",
     "What role did music play in the household you grew up in?": "Was für eine Rolle hat Musik gespielt im Haushalt wo du aufgewachsen bist?",
+    "What are your pet peeves?": "Was kannst du nicht leiden in anderen Menschen? Was sind deine pet peeves?",
     "On a scale from 1 through 10, how would you rate your life? What could you do to improve it?": "Auf einer Skala von 1–10, wie bewertest du dein Leben? Was könntest du tun, um es zu verbessern?",
     "Of what friend are you particularly proud? Why?": "Auf welchen deiner Freunde bist du am meisten stolz? Warum?",
     "Tell me/us something about you that only few people know!": "Erzähle etwas Spannendes über dich, das nur wenige wissen.",
@@ -69,6 +70,8 @@
     "What is something that you do differently from your parents? Why?": "Was machst du anders als deine Eltern? Warum?",
     "What is something that you took after your grandparents? What is something you took after your parents?": "Wo bist du wie deine Grosseltern? Wo bist du wie deine Eltern?",
     "What line from a song or poem means a lot to you?": "Was ist eine Zeile aus einem Gedicht oder Lied die dir viel bedeutet?",
+    "What is something you're distracted from?": "Wo bist du von etwas abelenkt, dass du eigentlich machen möchtest?",
+    "'What is a coping mechanism you used to rely on? What for?": "Was ist ein coping mechanism, den du in der Vergangenheit misbrauchst hast? Wofür?",
     "From what mistakes of yours can people learn?": "Von welchen Fehlern, die du gemacht hast, können andere lernen?",
     "What is my best quality that I don't see?": "Was ist meine beste Qualität, die ich selber nicht sehe?",
     "What part of getting older worries you? What are you looking forward to?": "Welcher Aspekt des Älterwerdens bereitet dir Sorgen? Auf was freust du dich?",
@@ -91,5 +94,6 @@
     "What scares you?": "Was macht dir Angst?",
     "What are you ashamed of?": "Wofür schämst du dich?",
     "What is a decision you are struggling with? What is keeping you from making it?": "Was für eine Entscheidung fällt dir schwer zu treffen? Was hält dich davon ab?",
-    "What is the last song you listened to?": "Welchen Song hast du zuletzt angehört?"
+    "What is the last song you listened to?": "Welchen Song hast du zuletzt angehört?",
+    "Where are you choosing wrong? Where am I choosing wrong?": "Wo wählst du falsch? Wo wähle ich falsch?"
 }

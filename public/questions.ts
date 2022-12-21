@@ -166,7 +166,12 @@ export const questions: Question[] = [
   {
     'index':  'What role did music play in the household you grew up in?',
     'deepness': 2,
-    'tags': ['philosophy'],
+    'tags': [],
+  },
+  {
+    'index':  'What are your pet peeves?',
+    'deepness': 2,
+    'tags': [],
   },
   {
     'index':  'On a scale from 1 through 10, how would you rate your life? What could you do to improve it?',
@@ -365,6 +370,17 @@ export const questions: Question[] = [
     'tags': [],
   },
   {
+    'index':  'What is something you\'re distracted from?',
+    'deepness': 3,
+    'tags': [],
+    'author': 'Samer Massad'
+  },
+  {
+    'index':  'What is a coping mechanism you used to rely on? What for?',
+    'deepness': 3,
+    'tags': [],
+  },
+  {
     'index':  'From what mistakes of yours can people learn?',
     'deepness': 4,
     'tags': [],
@@ -474,5 +490,11 @@ export const questions: Question[] = [
     'index': 'What is a decision you are struggling with? What is keeping you from making it?',
     'deepness': 5,
     'tags': []
+  },
+  {
+    'index': 'Where are you choosing wrong? Where am I choosing wrong?',
+    'deepness': 5,
+    'tags': ['twoPeople'],
+    'author': 'Samer Massad'
   }
 ]
