@@ -1,6 +1,6 @@
 # Deep
 
-> Increasing conversation depth
+> Getting people to talk about the stuff that really matters
 
 ## Development
 
