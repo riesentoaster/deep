@@ -496,5 +496,142 @@ export const questions: Question[] = [
     'deepness': 5,
     'tags': ['twoPeople'],
     'author': 'Samer Massad'
-  }
+  },
+  {
+    'index':  'What\'s something you\'ve done to try and be cool?',
+    'deepness': 2,
+    'tags': [],
+  },
+  {
+    'index':  'What would you never, ever want my help with?',
+    'deepness': 2,
+    'tags': [],
+  },
+  {
+    'index':  'What do you want to be known for?',
+    'deepness': 3,
+    'tags': [],
+    'author': 'Andy Stanley'
+  },
+  {
+    'index':  'When did you feel closest to me?',
+    'deepness': 3,
+    'tags': ['twoPeople'],
+  },
+  {
+    'index':  'What would your last partner warn me about?',
+    'deepness': 4,
+    'tags': ['couples'],
+  },
+  {
+    'index':  'What about me would make you come back for more?',
+    'deepness': 3,
+    'tags': ['twoPeople', 'couples'],
+  },
+  {
+    'index':  'What do you think is my sexiest quality?',
+    'deepness': 3,
+    'tags': ['couples'],
+  },
+  {
+    'index':  'Who has more power in this relationship?',
+    'deepness': 3,
+    'tags': ['twoPeople'],
+  },
+  {
+    'index':  'If this was our last conversation, what\'s something you\'d never want me to forget?',
+    'deepness': 4,
+    'tags': ['twoPeople'],
+  },
+  {
+    'index':  'What is the pain in me you wish you could heal?',
+    'deepness': 5,
+    'tags': ['twoPeople'],
+  },
+  {
+    'index':  'How were you raised differently and how do you think it affects our relationship?',
+    'deepness': 3,
+    'tags': ['twoPeople'],
+  },
+  {
+    'index':  'What is a possible challenge for me in the future? What can I do about it now?',
+    'deepness': 4,
+    'tags': [],
+  },
+  {
+    'index':  'What\'s something you think I\'m really good at?',
+    'deepness': 2,
+    'tags': [],
+  },
+  {
+    'index':  'What\'s one experience you hope we share in the future?',
+    'deepness': 2,
+    'tags': ['twoPeople'],
+  },
+  {
+    'index':  'What\'s something you learned from me that changed you?',
+    'deepness': 3,
+    'tags': ['twoPeople'],
+  },
+  {
+    'index':  'When do you feel most empowered in your body?',
+    'deepness': 3,
+    'tags': [],
+  },
+  {
+    'index':  'What\'s one thing I could do to improve our relationship?',
+    'deepness': 3,
+    'tags': ['twoPeople'],
+  },
+  {
+    'index':  'When are you most worried about me?',
+    'deepness': 4,
+    'tags': ['twoPeople'],
+  },
+  {
+    'index':  'What do you think I\'m hesitant to tell you?',
+    'deepness': 4,
+    'tags': ['twoPeople'],
+  },
+  {
+    'index':  'What are you hesitant to talk to me about?',
+    'deepness': 4,
+    'tags': ['twoPeople'],
+  },
+  {
+    'index':  'What\'s a question you\'ve always wanted to ask me?',
+    'deepness': 3,
+    'tags': [],
+  },
+  {
+    'index':  'What\'s your biggest fear and how can I help you to face it?',
+    'deepness': 4,
+    'tags': ['twoPeople'],
+  },
+  {
+    'index':  'What is your favourite imperfection of mine?',
+    'deepness': 4,
+    'tags': ['twoPeople'],
+  },
+  {
+    'index':  'What do you think I need to hear?',
+    'deepness': 4,
+    'tags': [],
+  },
+  {
+    'index':  'What do you like about your parents?',
+    'deepness': 3,
+    'tags': [],
+    'author': 'Sofia'
+  },
+  {
+    'index':  'When have you seen me the most vulnerable and what did it teach you about me?',
+    'deepness': 5,
+    'tags': [],
+  },
+  {
+    'index':  'When you look into my eyes, what do you see?',
+    'deepness': 3,
+    'tags': ['twoPeople'],
+  },
 ]
