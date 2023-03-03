@@ -7,6 +7,7 @@ import { AllQuestions } from '../components/AllQuestions'
 import { useTranslation } from 'next-i18next'
 import { RandomQuestion } from '../components/RandomQuestion'
 import { LanguageSettings } from '../components/LanguageSettings'
+import { BestOf3 } from '../components/BestOf3'
 
 interface HomeProps {
   allQuestions: Question[]
@@ -19,7 +20,8 @@ export interface QuestionDisplayProps {
 
 export const modes: Record<string, ( p: QuestionDisplayProps ) => JSX.Element> = {
   'allQuestions': AllQuestions,
-  'randomQuestion': RandomQuestion
+  'randomQuestion': RandomQuestion,
+  'bestOf3': BestOf3
 }
 
 
@@ -29,12 +31,9 @@ const Home = ( { allQuestions }: HomeProps ): JSX.Element => {
   const [filters, setFilters] = useState( defaultFiltersObject )
 
   useEffect( () => {
-    console.log( filters.randomness )
-
     const sortedQuestions = allQuestions
       .sort( ( ) => Math.random()-0.5 )
-      // .sort( ( a,b ) => filters.randomness * ( Math.random() - 0.5 ) + ( 1 - filters.randomness ) * ( a.deepness - b.deepness )/10 )
-      .sort( ( a,b ) => filters.randomness > Math.random() ? Math.random()-0.5: a.deepness -b.deepness )
+      .sort( ( a,b ) => filters.randomness > Math.random() ? Math.random() - 0.5 : a.deepness - b.deepness )
     const filteredQuestions = sortedQuestions.filter( filters.filterFunction )
     setQuestions( filteredQuestions )
   }, [filters, allQuestions] )

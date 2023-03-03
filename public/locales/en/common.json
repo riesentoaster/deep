@@ -8,6 +8,7 @@
     "trueRandom": "Random",
     "allQuestions": "All Questions",
     "randomQuestion": "Random Question",
+    "bestOf3": "3 Random Questions",
     "showAuthors": "Show Authors",
     "noQuestionsLeft": "Your filters left no questions to display."
 }
