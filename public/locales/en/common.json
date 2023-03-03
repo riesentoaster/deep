@@ -9,6 +9,7 @@
     "allQuestions": "All Questions",
     "randomQuestion": "Random Question",
     "bestOf3": "3 Random Questions",
+    "bestOf5": "5 Random Questions",
     "showAuthors": "Show Authors",
     "noQuestionsLeft": "Your filters left no questions to display."
 }
