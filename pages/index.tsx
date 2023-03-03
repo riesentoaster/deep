@@ -33,7 +33,7 @@ const Home = ( { allQuestions }: HomeProps ): JSX.Element => {
   useEffect( () => {
     const sortedQuestions = allQuestions
       .sort( ( ) => Math.random()-0.5 )
-      .sort( ( a,b ) => filters.randomness > Math.random() ? Math.random() - 0.5 : a.deepness - b.deepness )
+      .sort( ( a,b ) => filters.randomness > Math.random() ? Math.random() - 0.5 : a.deepness - b.deepness + ( Math.random() / 10 - 0.05 ) )
     const filteredQuestions = sortedQuestions.filter( filters.filterFunction )
     setQuestions( filteredQuestions )
   }, [filters, allQuestions] )
