@@ -27,7 +27,7 @@ export const BestOfN = ( { n, qdp:{ questions, showAuthors } }: BestOfNProps ): 
   return (
     <div className='py-5 flex flex-row'>
       <ChevronLeftIcon className='h-6 w-6 grow shrink-0 my-auto' onClick={(): void => setIndex( index-1 )}/>
-      <ul className='w-fit mx-auto'>
+      <ul className='w-fit mx-auto text-center'>
         {filterQuestions( questions, index, n ).map( e =>
           <li
             className='py-2'
