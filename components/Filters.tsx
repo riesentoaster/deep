@@ -16,7 +16,7 @@ export const defaultFiltersObject: QuestionFilters = {
   tags: allTags.map( e => ( { [e]: DEFAULT_TAG_STATE } ) ).reduce( ( acc, cur ) => Object.assign( acc, cur ), {} ),
   minDeepness: possibleDeepnessLevels[0],
   maxDeepness: possibleDeepnessLevels[possibleDeepnessLevels.length-1],
-  mode: 'allQuestions',
+  mode: 'bestOf3',
   randomness: 0,
   showAuthors: true,
   filterFunction: () => true
