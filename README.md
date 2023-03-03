@@ -16,10 +16,14 @@ git clone https://github.com/riesentoaster/deep.git
 cd deep
 ```
 
-4. Run the development server:
+4. Install dependencies
+```bash
+npm install
+```
 
+5. Run the development server:
 ```bash
 npm run dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
