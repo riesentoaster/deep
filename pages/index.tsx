@@ -19,9 +19,9 @@ export interface QuestionDisplayProps {
 }
 
 export const modes: Record<string, ( p: QuestionDisplayProps ) => JSX.Element> = {
-  'allQuestions': AllQuestions,
+  'bestOf3': BestOf3,
   'randomQuestion': RandomQuestion,
-  'bestOf3': BestOf3
+  'allQuestions': AllQuestions,
 }
 
 
