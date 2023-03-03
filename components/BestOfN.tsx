@@ -21,7 +21,7 @@ const filterQuestions = ( questions: Question[], index: number, n: number ): Que
   return allowedNumbers.map( e => questions[e] )
 }
 
-export const BestOfN = ( { n, qdp:{ questions, showAuthors } }: BestOfNProps ): JSX.Element => {
+const BestOfN = ( { n, qdp:{ questions, showAuthors } }: BestOfNProps ): JSX.Element => {
   const [index, setIndex] = useState( 0 )
 
   return (
@@ -40,3 +40,7 @@ export const BestOfN = ( { n, qdp:{ questions, showAuthors } }: BestOfNProps ): 
     </div>
   )
 }
+
+export const BestOf3 = ( qdp: QuestionDisplayProps ): JSX.Element => BestOfN( { n:3, qdp } )
+export const BestOf5 = ( qdp: QuestionDisplayProps ): JSX.Element => BestOfN( { n:5, qdp } )
+export const RandomQuestion = ( qdp: QuestionDisplayProps ): JSX.Element => BestOfN( { n:1,qdp } )

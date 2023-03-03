@@ -5,9 +5,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useEffect, useState } from 'react'
 import { AllQuestions } from '../components/AllQuestions'
 import { useTranslation } from 'next-i18next'
-import { RandomQuestion } from '../components/RandomQuestion'
 import { LanguageSettings } from '../components/LanguageSettings'
-import { BestOf3 } from '../components/BestOf3'
+import { BestOf3, BestOf5, RandomQuestion } from '../components/BestOfN'
 
 interface HomeProps {
   allQuestions: Question[]
@@ -19,8 +18,9 @@ export interface QuestionDisplayProps {
 }
 
 export const modes: Record<string, ( p: QuestionDisplayProps ) => JSX.Element> = {
-  'bestOf3': BestOf3,
   'randomQuestion': RandomQuestion,
+  'bestOf3': BestOf3,
+  'bestOf5': BestOf5,
   'allQuestions': AllQuestions,
 }
 
