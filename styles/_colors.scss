@@ -3,7 +3,7 @@ $backgroundColor: #010c1e;
 $bodyColor: #d5d9e0;
 $bodyFont: Avenir, Helvetica, Arial, sans-serif;
 $accentColorDarkBlue: #062048;
-$accentColorLightBlue: #4a6d88;
+$accentColorLightBlue: #052049;
 $accentColorOffWhite: #c6cdd7;
 $accentColorRed: #600000;
 $accentColorGreen: #004000;
@@ -12,6 +12,6 @@ $accentColorGreen: #004000;
     background-color: $accentColorRed;
 }
 
-.bg-accentColorLightBlue {
-    background-color: $accentColorLightBlue;
+.bg-accentColorDarkBlue {
+    background-color: $accentColorDarkBlue;
 }

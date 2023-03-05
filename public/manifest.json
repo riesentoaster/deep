@@ -6,6 +6,7 @@
         {
             "src": "favicon.svg",
             "type": "image/svg+xml",
+            "purpose": "any maskable",
             "sizes": "200x200"
         },
         {

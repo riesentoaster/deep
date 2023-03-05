@@ -12,7 +12,7 @@ export const LanguageSettings = (): JSX.Element => {
     <ul className='flex flex-row border rounded-full m-5'>
       {locales?.sort().map( e =>
         <li
-          className={`px-5 rounded-full ${locale === e && 'bg-accentColorLightBlue'}`}
+          className={`px-5 rounded-full ${locale === e && 'bg-accentColorDarkBlue border rounded-full'}`}
           key={e}
           onClick={(): Promise<boolean> => router.push( { pathname, query }, asPath, { locale: e } )}>
           {localeInLocale[e]}
