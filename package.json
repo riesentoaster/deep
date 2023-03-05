@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap --config awesome.config.js",
     "start": "next start",
     "lint": "next lint"
   },
@@ -14,6 +15,7 @@
     "fs": "^0.0.1-security",
     "next": "^13.1.1",
     "next-i18next": "^12.0.0",
+    "next-sitemap": "^4.0.2",
     "prop-types": "^15.8.1",
     "rc-slider": "^10.0.1",
     "react": "^18.2.0",
