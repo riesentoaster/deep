@@ -412,6 +412,12 @@ export const questions: Question[] = [
     tags: []
   },
   {
+    index: 'What should people think and say about you after your death?',
+    deepness: 3,
+    tags: [],
+    author: 'Franziska von Grünigen'
+  },
+  {
     index: 'What treats show mature christians?',
     deepness: 3,
     tags: [
