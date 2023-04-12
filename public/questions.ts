@@ -224,11 +224,22 @@ export const questions: Question[] = [
     tags: []
   },
   {
+    index: 'How stressed are you right now?',
+    deepness: 3,
+    tags: []
+  },
+  {
     index: 'How were you raised differently and how do you think it affects our relationship?',
     deepness: 3,
     tags: [
       'twoPeople'
     ]
+  },
+  {
+    index: 'How would you describe your parents with three words each?',
+    deepness: 3,
+    tags: [],
+    author: 'Felizitas Ambauen'
   },
   {
     index: 'In which direction would you like to change the world?',
@@ -412,6 +423,12 @@ export const questions: Question[] = [
     tags: []
   },
   {
+    index: 'What should never change about your environment?',
+    deepness: 3,
+    tags: [],
+    author: 'Robert'
+  },
+  {
     index: 'What should people think and say about you after your death?',
     deepness: 3,
     tags: [],
@@ -519,9 +536,20 @@ export const questions: Question[] = [
     tags: []
   },
   {
+    index: 'Did you recently need courage? What for?',
+    deepness: 4,
+    tags: []
+  },
+  {
     index: 'From what mistakes of yours can people learn?',
     deepness: 4,
     tags: []
+  },
+  {
+    index: 'Have you ever broken anyone\'s heart?',
+    deepness: 4,
+    tags: [],
+    author: 'Tim Harford'
   },
   {
     index: 'How do you reach a decision?',
