@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 import { modes } from '../pages'
 
 const possibleDeepnessLevels = Array( 5 ).fill( 0 ).map( ( _, i ) => i+1 )
-const allTags = allQuestions.map( e => e.tags ).flat().filter( ( e,i,a ) => a.indexOf( e ) === i )
+const allTags = allQuestions.filter( e => Array.isArray( e.tags ) ).map( e => e.tags as string[] ).flat().filter( ( e,i,a ) => a.indexOf( e ) === i )
 const DEFAULT_TAG_STATE: TriStateSwitchState = 'IGNORE'
 
 export const defaultFiltersObject: QuestionFilters = {
@@ -59,9 +59,9 @@ const getFilterForTag = ( tag: string, state: TriStateSwitchState ): QuestionFil
     case 'IGNORE':
       return () => true
     case 'REQUIRE':
-      return ( q ) => q.tags?.includes( tag )
+      return ( q ) => !!q.tags?.includes( tag )
     case 'PROHIBIT':
-      return ( q ) => !q.tags.includes( tag )
+      return ( q ) => !q.tags?.includes( tag )
   }
 }
 
