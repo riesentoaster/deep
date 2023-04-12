@@ -12,11 +12,11 @@ setState: ( state: TriStateSwitchState ) => void;
 export type TriStateSwitchState = 'REQUIRE' | 'IGNORE' | 'PROHIBIT';
 
 export const TriStateSwitch = ( { text, state, setState }: TriStateSwitchProps ): JSX.Element => {
-  const { t } = useTranslation( 'tags' )
+  const { t } = useTranslation( 'common' )
   return (
     <div className={styles[`switch__container--${state.toLocaleLowerCase()}`]}>
       <TriStateElement setElement={(): void => setState( 'REQUIRE' ) }><CheckIcon className='h-6'/></TriStateElement>
-      <TriStateElement setElement={(): void => setState( 'IGNORE' )}>{t( text )}</TriStateElement>
+      <TriStateElement setElement={(): void => setState( 'IGNORE' )}>{t( text, { keyPrefix: 'tags' } )}</TriStateElement>
       <TriStateElement setElement={(): void => setState( 'PROHIBIT' )}><XMarkIcon className='h-6'/></TriStateElement>
     </div>
   )

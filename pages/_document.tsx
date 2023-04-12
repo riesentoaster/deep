@@ -1,4 +1,4 @@
-import { Html, Head, NextScript } from 'next/document'
+import { Html, Head, NextScript, Main } from 'next/document'
 
 export default function Document(): JSX.Element {
   return (
@@ -11,6 +11,7 @@ export default function Document(): JSX.Element {
         <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
         <link rel="manifest" href="manifest.json"/>
       </Head>
+      <Main/>
       <NextScript />
     </Html>
   )

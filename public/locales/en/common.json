@@ -11,5 +11,17 @@
     "bestOf3": "3 Random Questions",
     "bestOf5": "5 Random Questions",
     "showAuthors": "Show Authors",
-    "noQuestionsLeft": "Your filters left no questions to display."
+    "noQuestionsLeft": "Your filters left no questions to display.",
+    "stats": {
+        "title": "deep — Stats",
+        "deepnesses": "Deepnesses",
+        "tags": "Tags",
+        "time": "Time"
+    },
+    "tags": {
+        "christians": "For Christians",
+        "twoPeople": "For 2 People",
+        "philosophy": "Philosophy",
+        "couples": "For Couples"
+    }
 }

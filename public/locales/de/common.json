@@ -11,5 +11,17 @@
     "bestOf3": "3 zufällige Fragen",
     "bestOf5": "5 zufällige Fragen",
     "showAuthors": "Autoren anzeigen",
-    "noQuestionsLeft": "Diese Filter lassen keine Frage übrig."
+    "noQuestionsLeft": "Diese Filter lassen keine Frage übrig.",
+    "stats": {
+        "title": "deep – Statistiken",
+        "deepnesses": "Deepnesse",
+        "tags": "Tags",
+        "time": "Zeit"
+    },
+    "tags": {
+        "christians": "Für Christen",
+        "twoPeople": "Für 2 Personen",
+        "philosophy": "Philosophie",
+        "couples": "Für Paare"
+    }
 }
