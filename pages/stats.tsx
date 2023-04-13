@@ -2,16 +2,20 @@ import type { GetStaticProps } from 'next'
 import { Question, questions as allQuestionsImport } from '../public/questions'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
-import { LanguageSettings } from '../components/LanguageSettings'
 import Head from 'next/head'
 import { useMemo } from 'react'
 import { BarPlot } from '../components/plots/BarPlot'
 import { PiePlot } from '../components/plots/PiePlot'
 import { ScatterPlot } from '../components/plots/ScatterPlot'
+import { Footer } from '../components/Footer'
+import { PlotDataProp } from '../components/plots/Plot'
 
 interface StatsProps {
     allQuestions: Question[]
 }
+
+const cumsumPlotDataProp = ( sum => ( e: PlotDataProp ): PlotDataProp => ( { ...e, value: sum += e.value } ) )( 0 )
+const unique: <Type>( e: Type, i: number, a: Type[] ) => boolean = ( e,i,a ) => a.indexOf( e ) === i
 
 
 const Stats = ( { allQuestions }: StatsProps ): JSX.Element=> {
@@ -21,7 +25,7 @@ const Stats = ( { allQuestions }: StatsProps ): JSX.Element=> {
   const deepnessData = useMemo( () =>
     allQuestions
       .map( e => e.deepness )
-      .filter( ( e,i,a ) => a.indexOf( e ) === i )
+      .filter( unique )
       .sort()
       .map( e => ( {
         label: e,
@@ -35,7 +39,7 @@ const Stats = ( { allQuestions }: StatsProps ): JSX.Element=> {
       .map( e => e.tags as string[] )
       .flat()
     return allTags
-      .filter( ( e,i,a ) => a.indexOf( e ) === i )
+      .filter( unique )
       .map( e => ( { label: e , value: allTags.filter( f => f ===e ).length } ) )
       .sort( ( a,b ) => b.value - a.value )
   }
@@ -44,13 +48,13 @@ const Stats = ( { allQuestions }: StatsProps ): JSX.Element=> {
   const dateData = useMemo( () =>
     allQuestions
       .map( e => e.date )
-      .filter( ( e,i,a ) => a.indexOf( e ) === i )
+      .filter( unique )
       .sort()
       .map( e => ( {
         label: new Date( e ).toDateString(),
         value: allQuestions.filter( f => f.date === e ).length
       } ) )
-      .map( ( sum => e => ( { ...e, value: sum += e.value } ) )( 0 ) )
+      .map( cumsumPlotDataProp )
   , [allQuestions] )
 
   return (
@@ -66,10 +70,7 @@ const Stats = ( { allQuestions }: StatsProps ): JSX.Element=> {
         <h2>{t( 'tags' , { keyPrefix: 'stats' } )}</h2>
         <BarPlot data={tagData} />
       </main>
-      <footer className='flex flex-row justify-space flex-wrap justify-center'>
-        <LanguageSettings/>
-        <p className='border rounded-full px-5 m-5'>Visit this project on <a href='https://github.com/riesentoaster/deep'>GitHub</a></p>
-      </footer>
+      <Footer/>
     </>
   )
 }

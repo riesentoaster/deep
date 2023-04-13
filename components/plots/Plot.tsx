@@ -13,7 +13,8 @@ const defaultLayout: Partial<Layout> = {
   yaxis: { showgrid: false, rangemode: 'tozero', automargin: true },
 }
 
-export type PlotDataProps = {label: string|number; value: number}[]
+export type PlotDataProp = {label: string|number; value: number}
+export type PlotDataProps = PlotDataProp[]
 
 interface PlotParams {
   data: Plotly.Data[];
