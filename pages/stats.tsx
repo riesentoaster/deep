@@ -3,59 +3,33 @@ import { Question, questions as allQuestionsImport } from '../public/questions'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import Head from 'next/head'
-import { useMemo } from 'react'
-import { BarPlot } from '../components/plots/BarPlot'
-import { PiePlot } from '../components/plots/PiePlot'
-import { ScatterPlot } from '../components/plots/ScatterPlot'
 import { Footer } from '../components/Footer'
-import { PlotDataProp } from '../components/plots/Plot'
+import { StackedTimeSeriesPlot } from '../components/plots/StackedTimeSeriesPlot'
+import { useMemo } from 'react'
 
 interface StatsProps {
     allQuestions: Question[]
 }
 
-const cumsumPlotDataProp = ( sum => ( e: PlotDataProp ): PlotDataProp => ( { ...e, value: sum += e.value } ) )( 0 )
-const unique: <Type>( e: Type, i: number, a: Type[] ) => boolean = ( e,i,a ) => a.indexOf( e ) === i
 
 
 const Stats = ( { allQuestions }: StatsProps ): JSX.Element=> {
 
   const { t } = useTranslation( 'common' )
 
-  const deepnessData = useMemo( () =>
-    allQuestions
-      .map( e => e.deepness )
-      .filter( unique )
-      .sort()
-      .map( e => ( {
-        label: e,
-        value: allQuestions.filter( f => f.deepness === e ).length
-      } ) )
-  , [allQuestions] )
+  const deepnessEntries = useMemo( () =>
+    allQuestions.map( e => ( { date: e.date, series: e.deepness, value: 1 } ) ),
+  [allQuestions] )
 
-  const tagData = useMemo( () => {
-    const allTags = allQuestions
-      .filter( e => Array.isArray( e.tags ) )
-      .map( e => e.tags as string[] )
-      .flat()
-    return allTags
-      .filter( unique )
-      .map( e => ( { label: e , value: allTags.filter( f => f ===e ).length } ) )
-      .sort( ( a,b ) => b.value - a.value )
-  }
-  ,[allQuestions] ).map( e => ( { ...e,label: t( e.label, { keyPrefix: 'tags' } ) } ) )
-
-  const dateData = useMemo( () =>
-    allQuestions
-      .map( e => e.date )
-      .filter( unique )
-      .sort()
-      .map( e => ( {
-        label: new Date( e ).toDateString(),
-        value: allQuestions.filter( f => f.date === e ).length
-      } ) )
-      .map( cumsumPlotDataProp )
-  , [allQuestions] )
+  const tagsEntries = useMemo( () => {
+    const res = []
+    for ( const q of allQuestions )
+      if ( q.tags )
+        for ( const tag of q.tags )
+          res.push( { date: q.date, series: t( tag, { keyPrefix: 'tags' } ), value: 1 } )
+    return res
+  },
+  [allQuestions, t] )
 
   return (
     <>
@@ -63,12 +37,17 @@ const Stats = ( { allQuestions }: StatsProps ): JSX.Element=> {
       <main>
         <h1>{t( 'title' , { keyPrefix: 'stats' } )}</h1>
         <hr/>
-        <h2>{t( 'time' , { keyPrefix: 'stats' } )}</h2>
-        <ScatterPlot data={dateData}/>
         <h2>{t( 'deepnesses' , { keyPrefix: 'stats' } )}</h2>
-        <PiePlot data={deepnessData} />
+        <h3>{t( 'added' , { keyPrefix: 'stats' } )}</h3>
+        <StackedTimeSeriesPlot entries={deepnessEntries} />
+        <h3>{t( 'cumulative' , { keyPrefix: 'stats' } )}</h3>
+        <StackedTimeSeriesPlot entries={deepnessEntries} cumsum={true} />
+        <hr/>
         <h2>{t( 'tags' , { keyPrefix: 'stats' } )}</h2>
-        <BarPlot data={tagData} />
+        <h3>{t( 'added' , { keyPrefix: 'stats' } )}</h3>
+        <StackedTimeSeriesPlot entries={tagsEntries} />
+        <h3>{t( 'cumulative' , { keyPrefix: 'stats' } )}</h3>
+        <StackedTimeSeriesPlot entries={tagsEntries} cumsum={true} />
       </main>
       <Footer/>
     </>

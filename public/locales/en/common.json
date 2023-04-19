@@ -14,9 +14,10 @@
     "noQuestionsLeft": "Your filters left no questions to display.",
     "stats": {
         "title": "deep — Stats",
+        "added": "Added",
+        "cumulative": "Cumulative",
         "deepnesses": "Deepnesses",
-        "tags": "Tags",
-        "time": "Time"
+        "tags": "Tags"
     },
     "tags": {
         "christians": "For Christians",

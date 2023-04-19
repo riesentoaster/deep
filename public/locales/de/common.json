@@ -14,9 +14,10 @@
     "noQuestionsLeft": "Diese Filter lassen keine Frage übrig.",
     "stats": {
         "title": "deep – Statistiken",
+        "added": "Hinzugefügt",
+        "cumulative": "Kumulativ",
         "deepnesses": "Deepnesse",
-        "tags": "Tags",
-        "time": "Zeit"
+        "tags": "Tags"
     },
     "tags": {
         "christians": "Für Christen",
