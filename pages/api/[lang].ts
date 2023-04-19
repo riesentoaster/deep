@@ -21,7 +21,7 @@ export default apiify(
     try {
       const translations = {
         questions: JSON.parse( '' + fs.readFileSync( path.join( dir, 'questions.json' ) ) ),
-        tags: JSON.parse( '' + fs.readFileSync( path.join( dir, 'tags.json' ) ) )
+        tags: JSON.parse( '' + fs.readFileSync( path.join( dir, 'common.json' ) ) ).tags
       }
       res.json( { questions: questions, translations } )
     } catch ( e ) {
