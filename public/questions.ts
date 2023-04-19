@@ -93,6 +93,12 @@ export const questions: Question[] = [
     tags: ['philosophy']
   },
   {
+    index: 'How do you describe me to others?',
+    deepness: 2,
+    date: '2023-04-19',
+    tags: ['twoPeople']
+  },
+  {
     index: 'What 3 traits would a person that is an exact opposite of you have?',
     deepness: 2,
     date: '2022-08-31',
@@ -180,6 +186,12 @@ export const questions: Question[] = [
     tags: ['twoPeople']
   },
   {
+    index: 'What\'s something I do that turns you on that I don\'t realize?',
+    deepness: 2,
+    date: '2023-04-19',
+    tags: ['love', 'twoPeople']
+  },
+  {
     index: 'What\'s something you think I\'m really good at?',
     deepness: 2,
     date: '2023-02-02',
@@ -199,6 +211,12 @@ export const questions: Question[] = [
     deepness: 2,
     date: '2022-08-31',
     tags: ['christians']
+  },
+  {
+    index: 'When did you realize I was in love with you?',
+    deepness: 2,
+    date: '2023-04-19',
+    tags: ['love', 'twoPeople']
   },
   {
     index: 'How are you inspiring other people?',
@@ -263,7 +281,7 @@ export const questions: Question[] = [
     index: 'What about me would make you come back for more?',
     deepness: 3,
     date: '2023-02-02',
-    tags: ['twoPeople', 'couples']
+    tags: ['twoPeople', 'love']
   },
   {
     index: 'What advice would you give to a recently converted christian?',
@@ -324,7 +342,7 @@ export const questions: Question[] = [
     index: 'What do you think is my sexiest quality?',
     deepness: 3,
     date: '2023-02-02',
-    tags: ['couples']
+    tags: ['love']
   },
   {
     index: 'What do you want to be known for?',
@@ -478,6 +496,12 @@ export const questions: Question[] = [
     date: '2023-02-02',
   },
   {
+    index: 'When have you felt sexiest around me and what did it teach you about yourself?',
+    deepness: 3,
+    date: '2023-04-19',
+    tags: ['love', 'twoPeople'],
+  },
+  {
     index: 'When was the last time you felt misunderstood?',
     deepness: 3,
     date: '2022-08-31',
@@ -486,6 +510,12 @@ export const questions: Question[] = [
     index: 'When you look into my eyes, what do you see?',
     deepness: 3,
     date: '2023-02-02',
+    tags: ['twoPeople']
+  },
+  {
+    index: 'Where do we misunderstand each other most? Why do you think that is?',
+    deepness: 3,
+    date:'2023-04-19',
     tags: ['twoPeople']
   },
   {
@@ -555,6 +585,12 @@ export const questions: Question[] = [
     tags: ['twoPeople']
   },
   {
+    index: 'What could be the reason for us to break up? What can we do about it now?',
+    deepness: 4,
+    date: '2023-04-19',
+    tags: ['love', 'twoPeople']
+  },
+  {
     index: 'What do you think I need to hear?',
     deepness: 4,
     date: '2023-02-02',
@@ -592,6 +628,12 @@ export const questions: Question[] = [
     date: '2022-08-31',
   },
   {
+    index: 'What\'s something you are missing out on for being in this relationship?',
+    deepness: 4,
+    date: '2023-04-19',
+    tags: ['love', 'twoPeople']
+  },
+  {
     index: 'What is your favourite imperfection of mine?',
     deepness: 4,
     date: '2023-02-02',
@@ -621,7 +663,13 @@ export const questions: Question[] = [
     index: 'What would your last partner warn me about?',
     deepness: 4,
     date: '2023-02-02',
-    tags: ['couples']
+    tags: ['love']
+  },
+  {
+    index: 'What\'s one experience you wish we never shared?',
+    deepness: 4,
+    date: '2023-04-19',
+    tags: ['twoPeople']
   },
   {
     index: 'What\'s your biggest fear and how can I help you to face it?',
@@ -634,6 +682,12 @@ export const questions: Question[] = [
     deepness: 4,
     date: '2023-02-02',
     tags: ['twoPeople']
+  },
+  {
+    index: 'Why do you love me?',
+    deepness: 4,
+    date: '2023-04-19',
+    tags: ['love', 'twoPeople']
   },
   {
     index: 'Tell me an embarrassing story from your life!',
@@ -685,6 +739,12 @@ export const questions: Question[] = [
     index: 'What was the most difficult decision of your life?',
     deepness: 5,
     date: '2022-08-31',
+  },
+  {
+    index: 'When did I disappoint you? How do you feel about it now?',
+    deepness: 5,
+    date: '2023-04-19',
+    tags: ['twoPeople']
   },
   {
     index: 'When did you fail the hardest in your life? What was your biggest triumph?',
