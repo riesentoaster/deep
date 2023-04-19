@@ -25,7 +25,6 @@ export const modes: Record<string, ( p: QuestionDisplayProps ) => JSX.Element> =
   'allQuestions': AllQuestions,
 }
 
-
 const Home = ( { allQuestions }: HomeProps ): JSX.Element => {
   const { t } = useTranslation( 'common' )
   const [questions, setQuestions] = useState<Question[]>( [] )

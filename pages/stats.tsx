@@ -11,8 +11,6 @@ interface StatsProps {
     allQuestions: Question[]
 }
 
-
-
 const Stats = ( { allQuestions }: StatsProps ): JSX.Element=> {
 
   const { t } = useTranslation( 'common' )

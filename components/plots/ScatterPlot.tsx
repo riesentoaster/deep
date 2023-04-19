@@ -1,4 +1,3 @@
-
 import { Plot, PlotDataProps } from './Plot'
 
 interface ScatterPlotProps {

@@ -53,7 +53,6 @@ const getFiltersForTags = ( tags: Record<string, TriStateSwitchState> ): Array<(
     .filter( filterIgnoredTags )
     .map( ( [tag, state] ) => getFilterForTag( tag, state ) )
 
-
 const getFilterForTag = ( tag: string, state: TriStateSwitchState ): QuestionFilter => {
   switch ( state ) {
     case 'IGNORE':
@@ -76,7 +75,6 @@ const getNonDefaultFilters = ( state: QuestionFiltersData ): any => {
   if ( state.showAuthors !== defaultFiltersObject.showAuthors ) Object.assign( filteredState, { showAuthors: state.showAuthors } )
   return filteredState
 }
-
 
 export const Filters = ( { filters, setFilters }: FiltersProps ): JSX.Element => {
 
@@ -120,8 +118,6 @@ export const Filters = ( { filters, setFilters }: FiltersProps ): JSX.Element =>
     }
     setFilters( state )
   }, [router.isReady, router.query, setFilters] )
-
-
 
   return (
     <Dropdown title='filters' defaultHiddenState={true}>

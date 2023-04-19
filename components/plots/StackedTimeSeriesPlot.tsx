@@ -1,4 +1,3 @@
-
 import { useMemo } from 'react'
 import { getCumSumNumberMapper, unique } from '../../helpers/helpers'
 import { Plot } from './Plot'
@@ -34,8 +33,5 @@ export const StackedTimeSeriesPlot = ( { entries, cumsum=false }: StackedTimeSer
     } ) )
   } , [entries, cumsum] )
 
-
   return <Plot data={ plotData } />
 }
-
-

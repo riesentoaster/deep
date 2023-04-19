@@ -4,7 +4,6 @@ const localeInLocale: Record<string, string> = {
   en: 'English'
 }
 
-
 export const LanguageSettings = (): JSX.Element => {
   const router = useRouter()
   const { pathname, asPath, query, locales, locale } = router

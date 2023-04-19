@@ -6,7 +6,6 @@ interface QuestionProps {
     showAuthor: boolean
 }
 
-
 export const Question = ( { question, showAuthor }: QuestionProps ): JSX.Element => {
   const { t } = useTranslation( 'questions' )
 
