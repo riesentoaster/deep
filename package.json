@@ -12,6 +12,7 @@
   "dependencies": {
     "@heroicons/react": "^2.0.10",
     "@types/react-plotly.js": "^2.6.0",
+    "@vercel/analytics": "^1.0.0",
     "cors": "^2.8.5",
     "fs": "^0.0.1-security",
     "next": "^13.1.1",
