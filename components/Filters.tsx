@@ -25,7 +25,7 @@ interface FiltersObject {
   showAuthors: boolean
 }
 
-export const defaultFiltersObject: FiltersObject = {
+const defaultFiltersObject: FiltersObject = {
   tags: allTags.map( e => ( { [e]: DEFAULT_TAG_STATE } ) ).reduce( reduceToObject, {} ),
   minDeepness: possibleDeepnessLevels[0].toString(),
   maxDeepness: possibleDeepnessLevels[possibleDeepnessLevels.length-1].toString(),

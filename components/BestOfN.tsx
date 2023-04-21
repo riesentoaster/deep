@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Question } from '../public/questions'
 import { Question as QuestionElement } from './Question'
 
-export interface BestOfNProps {
+interface BestOfNProps {
     questions: Question[]
     showAuthors: boolean
     n: number
