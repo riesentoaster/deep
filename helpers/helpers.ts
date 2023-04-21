@@ -16,3 +16,7 @@ export const reduceToObject = ( acc: Record<string,any>, cur: Record<string,any>
 export type DeepPartial<T> = {
   [K in keyof T]?: T[K] extends object ? DeepPartial<T[K]> : T[K]
 }
+
+export const mod = ( n: number, m: number ): number => {
+  return ( ( n % m ) + m ) % m
+}

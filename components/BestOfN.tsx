@@ -2,15 +2,12 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 import { useState } from 'react'
 import { Question } from '../public/questions'
 import { Question as QuestionElement } from './Question'
+import { mod } from '../helpers/helpers'
 
 interface BestOfNProps {
     questions: Question[]
     showAuthors: boolean
     n: number
-}
-
-function mod( n: number, m: number ): number {
-  return ( ( n % m ) + m ) % m
 }
 
 const filterQuestions = ( questions: Question[], index: number, n: number ): Question[] => {
@@ -24,6 +21,7 @@ const filterQuestions = ( questions: Question[], index: number, n: number ): Que
 export const BestOfN = ( { n, questions, showAuthors }: BestOfNProps ): JSX.Element => {
 
   const [index, setIndex] = useState( 0 )
+
   if ( questions.length <= n ) {
     return (
       <ul className='w-fit mx-auto text-center'>

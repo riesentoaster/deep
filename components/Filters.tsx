@@ -45,7 +45,11 @@ const filterQuestions = ( questions: Question[], value: DeepPartial<FiltersObjec
   if ( randomness )
     filtered = filtered
       .sort( ( ) => Math.random()-0.5 )
-      .sort( ( a,b ) => Number.parseInt( randomness ) > Math.random() ? Math.random() - 0.5 : a.deepness - b.deepness + ( Math.random() / 10 - 0.05 ) )
+      .sort( ( a,b ) =>
+        Number.parseInt( randomness ) > Math.random() ?
+          Math.random() - 0.5 :
+          a.deepness - b.deepness + ( Math.random() / 10 - 0.05 )
+      )
 
   return filtered
 }
@@ -75,7 +79,9 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
     <form onSubmit={handleSubmit( () => {} )}>
       <fieldset>
         <h2 className='mx-auto w-fit'>{t( 'title' )}</h2>
-        <p className={`mx-auto w-fit ${currentQuestions.length === 0 && 'text-red-400'}`}>{currentQuestions.length} {t( 'questionsLeft' )}</p>
+        <p className={`mx-auto w-fit ${currentQuestions.length === 0 && 'text-red-400'}`}>
+          {currentQuestions.length} {t( 'questionsLeft' )}
+        </p>
       </fieldset>
       <fieldset>
         <h3>{t( 'tags' )}</h3>
@@ -99,13 +105,25 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
           <label className='flex flex-col m-3'>
             <p className='w-max'>{t( 'minDeepness' )}</p>
             <select {...register( 'minDeepness' )}>
-              {possibleDeepnessLevels.map( e => ( <option key={e} disabled={e > Number.parseInt( watch( 'maxDeepness' ) )}>{e}</option> ) )}
+              {
+                possibleDeepnessLevels.map( e => (
+                  <option key={e} disabled={e > Number.parseInt( watch( 'maxDeepness' ) )}>
+                    {e}
+                  </option>
+                ) )
+              }
             </select>
           </label>
           <label className='flex flex-col m-3'>
             <p className='w-max'>{t( 'maxDeepness' )}</p>
             <select {...register( 'maxDeepness' )}>
-              {possibleDeepnessLevels.map( e => ( <option key={e} disabled={e < Number.parseInt( watch( 'minDeepness' ) )}>{e}</option> ) )}
+              {
+                possibleDeepnessLevels.map( e => (
+                  <option key={e} disabled={e < Number.parseInt( watch( 'minDeepness' ) )}>
+                    {e}
+                  </option>
+                ) )
+              }
             </select>
           </label>
         </div>
