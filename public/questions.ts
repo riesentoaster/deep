@@ -8,11 +8,6 @@ export interface Question {
 
 export const questions: Question[] = [
   {
-    index: 'About what do you know especially much?',
-    deepness: 1,
-    date: '2022-08-31',
-  },
-  {
     index: 'If you would be able to change your first name, how would you like to be called?',
     deepness: 1,
     date: '2022-08-31',
@@ -30,6 +25,11 @@ export const questions: Question[] = [
   },
   {
     index: 'What are your trademarks?',
+    deepness: 1,
+    date: '2022-08-31',
+  },
+  {
+    index: 'What do you know especially much about?',
     deepness: 1,
     date: '2022-08-31',
   },
