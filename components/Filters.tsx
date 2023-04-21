@@ -65,7 +65,7 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
   useEffect( () => {
     const subscription = watch( ( value ) => {
       setQuestions( filterQuestions( allQuestions, value ) )
-      if ( value.showAuthors ) setShowAuthors( value.showAuthors )
+      if ( value.showAuthors !== undefined ) setShowAuthors( value.showAuthors )
       // const diff = updatedDiff( defaultFiltersObject, value )
     } )
     return () => subscription.unsubscribe()
