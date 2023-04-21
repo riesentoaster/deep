@@ -1,6 +1,6 @@
 import { Html, Head, NextScript, Main } from 'next/document'
 
-export default function Document(): JSX.Element {
+const Document = (): JSX.Element => {
   return (
     <Html>
       <Head>
@@ -16,3 +16,5 @@ export default function Document(): JSX.Element {
     </Html>
   )
 }
+
+export default Document

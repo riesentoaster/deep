@@ -1,23 +1,25 @@
 import { Bars3Icon } from '@heroicons/react/20/solid'
-import { useTranslation } from 'next-i18next'
 import { useState } from 'react'
+import { Ellipsis } from './Ellipsis'
 
 interface DropdownProps {
-    children: JSX.Element
-    title: string
-    defaultHiddenState?: boolean
+  title: string
+  children?: JSX.Element
+  defaultHiddenState?: boolean
+  className?: string
 }
 
-export const Dropdown = ( { children, title, defaultHiddenState=false }: DropdownProps ): JSX.Element => {
-  const { t } = useTranslation()
+export const Dropdown = ( { children, title, className='', defaultHiddenState=false }: DropdownProps ): JSX.Element => {
   const [hidden, setHidden] = useState( defaultHiddenState )
   return (
-    <div className='mx-auto'>
-      <div className='flex flex-row mx-auto w-min justify-center border px-7 rounded-full' onClick={(): void => setHidden( !hidden )}>
-        <h2>{t( title )}</h2>
-        <Bars3Icon className='h-8 inline pl-5 my-auto'/>
-      </div>
-      <div className={`mx-auto w-max ${hidden && 'hidden'}`}>
+    <div className={`mx-auto ${className}`}>
+      <Ellipsis className='mx-auto mb-2'>
+        <div className='flex flex-row' onClick={(): void => setHidden( !hidden )}>
+          <h2>{title}</h2>
+          <Bars3Icon className='h-6 inline pl-5 my-auto'/>
+        </div>
+      </Ellipsis>
+      <div className={`w-full ${hidden && 'hidden'}`}>
         {children}
       </div>
     </div>

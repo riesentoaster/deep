@@ -1,26 +1,27 @@
 @import './../styles/colors';
 
-$borderStyle: 2px solid $accentColorOffWhite;
+$borderStyle: 1px solid $accentColorOffWhite;
 
 .switch__container--ignore,
 .switch__container--require,
 .switch__container--prohibit {
-    margin: 1em auto;
+    margin: 0.4rem auto;
     display: flex;
     justify-content: center;
     flex-direction: row;
     border-radius: 100vh;
-    border: 2px solid $bodyColor;
+    border: 1px solid $bodyColor;
 }
 
 .switch__element {
-    padding: 0.5em 1em;
+    padding: 0.3rem 0.7rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .switch__element:nth-child(2) {
+    flex-shrink: 0;
     flex-grow: 1;
 }
 
