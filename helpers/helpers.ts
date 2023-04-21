@@ -11,3 +11,8 @@ export const getCumSumNumberMapper: ( ) => ( n: number ) => number = () => {
   const m = ( ( sum: number ) => ( value: number ): number => sum += value )
   return m( 0 )
 }
+export const reduceToObject = ( acc: Record<string,any>, cur: Record<string,any> ): Record<string,any> => Object.assign( acc, cur )
+
+export type DeepPartial<T> = {
+  [K in keyof T]?: T[K] extends object ? DeepPartial<T[K]> : T[K]
+}

@@ -1,11 +1,11 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 import { useState } from 'react'
-import { QuestionDisplayProps } from '../pages'
 import { Question } from '../public/questions'
 import { Question as QuestionElement } from './Question'
 
 export interface BestOfNProps {
-    qdp: QuestionDisplayProps;
+    questions: Question[]
+    showAuthors: boolean
     n: number
 }
 
@@ -21,14 +21,13 @@ const filterQuestions = ( questions: Question[], index: number, n: number ): Que
   return allowedNumbers.map( e => questions[e] )
 }
 
-const BestOfN = ( { n, qdp:{ questions, showAuthors } }: BestOfNProps ): JSX.Element => {
-  const [index, setIndex] = useState( 0 )
+export const BestOfN = ( { n, questions, showAuthors }: BestOfNProps ): JSX.Element => {
 
-  return (
-    <div className='py-5 flex flex-row'>
-      <ChevronLeftIcon className='h-6 w-6 grow shrink-0 my-auto' onClick={(): void => setIndex( index-1 )}/>
+  const [index, setIndex] = useState( 0 )
+  if ( questions.length <= n ) {
+    return (
       <ul className='w-fit mx-auto text-center'>
-        {filterQuestions( questions, index, n ).map( e =>
+        {questions.map( e =>
           <li
             className='py-2'
             key={e.index}>
@@ -36,11 +35,23 @@ const BestOfN = ( { n, qdp:{ questions, showAuthors } }: BestOfNProps ): JSX.Ele
           </li>
         )}
       </ul>
-      <ChevronRightIcon className='h-6 w-6 grow shrink-0 my-auto' onClick={(): void => setIndex( index + 1 )}/>
-    </div>
-  )
+    )
+  } else {
+    return (
+      <div className='py-5 flex flex-row'>
+        <ChevronLeftIcon className='h-6 w-6 grow shrink-0 my-auto' onClick={(): void => setIndex( index-1 )}/>
+        <ul className='w-fit mx-auto text-center'>
+          {filterQuestions( questions, index, n ).map( e =>
+            <li
+              className='py-2'
+              key={e.index}>
+              <QuestionElement question={e} showAuthor={showAuthors}/>
+            </li>
+          )}
+        </ul>
+        <ChevronRightIcon className='h-6 w-6 grow shrink-0 my-auto' onClick={(): void => setIndex( index + 1 )}/>
+      </div>
+    )
+  }
 }
 
-export const BestOf3 = ( qdp: QuestionDisplayProps ): JSX.Element => BestOfN( { n:3, qdp } )
-export const BestOf5 = ( qdp: QuestionDisplayProps ): JSX.Element => BestOfN( { n:5, qdp } )
-export const RandomQuestion = ( qdp: QuestionDisplayProps ): JSX.Element => BestOfN( { n:1,qdp } )

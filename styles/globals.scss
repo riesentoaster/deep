@@ -33,19 +33,19 @@ body {
 }
 
 h1 {
-    font-size: xx-large;
+    font-size: 2.6rem;
 }
 
 h2 {
-    font-size: xx-large;
+    font-size: 1.6rem;
 }
 
 h3 {
-    font-size: x-large;
+    font-size: 1.4rem;
 }
 
 h4 {
-    font-size: larger;
+    font-size: 1.2rem;
 }
 
 main {
@@ -69,4 +69,26 @@ select {
 
 a {
     text-decoration: underline;
+}
+
+header {
+    a {
+        text-decoration: none;
+    }
+
+    form {
+        label {
+            display: block;
+        }
+
+        fieldset {
+            display: block;
+            padding: 0.5rem 0 0.3rem 0;
+        }
+        
+        h2, h3{
+            margin: 0 auto;
+            width: fit-content;
+        }
+    }
 }

@@ -5,46 +5,53 @@ import { useTranslation } from 'next-i18next'
 import Head from 'next/head'
 import { Footer } from '../components/Footer'
 import { StackedTimeSeriesPlot } from '../components/plots/StackedTimeSeriesPlot'
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
+import { Header } from '../components/Header'
 
 interface StatsProps {
     allQuestions: Question[]
 }
 
 const Stats = ( { allQuestions }: StatsProps ): JSX.Element=> {
+  const [currentQuestions, setQuestions] = useState( allQuestions )
 
-  const { t } = useTranslation( 'common' )
+  const { t: tagsT } = useTranslation( 'common' )
+  const { t: statsT } = useTranslation( 'common', { keyPrefix: 'stats' } )
 
   const deepnessEntries = useMemo( () =>
-    allQuestions.map( e => ( { date: e.date, series: e.deepness, value: 1 } ) ),
-  [allQuestions] )
+    currentQuestions.map( e => ( { date: e.date, series: e.deepness, value: 1 } ) ),
+  [currentQuestions] )
 
   const tagsEntries = useMemo( () => {
     const res = []
-    for ( const q of allQuestions )
+    for ( const q of currentQuestions )
       if ( q.tags )
         for ( const tag of q.tags )
-          res.push( { date: q.date, series: t( tag, { keyPrefix: 'tags' } ), value: 1 } )
+          res.push( { date: q.date, series: tagsT( tag, { keyPrefix: 'tags' } ), value: 1 } )
     return res
   },
-  [allQuestions, t] )
+  [currentQuestions, tagsT] )
 
   return (
     <>
       <Head><title>deep — stats</title></Head>
+      <Header
+        allQuestions={allQuestions}
+        currentQuestions={currentQuestions}
+        setQuestions={setQuestions}
+        setShowAuthors={( ): void => {}}
+      />
       <main>
-        <h1>{t( 'title' , { keyPrefix: 'stats' } )}</h1>
-        <hr/>
-        <h2>{t( 'deepnesses' , { keyPrefix: 'stats' } )}</h2>
-        <h3>{t( 'added' , { keyPrefix: 'stats' } )}</h3>
+        <h2>{statsT( 'deepnesses' )}</h2>
+        <h3>{statsT( 'added' )}</h3>
         <StackedTimeSeriesPlot entries={deepnessEntries} />
-        <h3>{t( 'cumulative' , { keyPrefix: 'stats' } )}</h3>
+        <h3>{statsT( 'cumulative' )}</h3>
         <StackedTimeSeriesPlot entries={deepnessEntries} cumsum={true} />
         <hr/>
-        <h2>{t( 'tags' , { keyPrefix: 'stats' } )}</h2>
-        <h3>{t( 'added' , { keyPrefix: 'stats' } )}</h3>
+        <h2>{statsT( 'tags' )}</h2>
+        <h3>{statsT( 'added' )}</h3>
         <StackedTimeSeriesPlot entries={tagsEntries} />
-        <h3>{t( 'cumulative' , { keyPrefix: 'stats' } )}</h3>
+        <h3>{statsT( 'cumulative' )}</h3>
         <StackedTimeSeriesPlot entries={tagsEntries} cumsum={true} />
       </main>
       <Footer/>

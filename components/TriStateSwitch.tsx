@@ -4,20 +4,25 @@ import styles from './TriStateSwitch.module.scss'
 import { CheckIcon, XMarkIcon } from '@heroicons/react/20/solid'
 
 interface TriStateSwitchProps {
-text: string;
-state: TriStateSwitchState;
-setState: ( state: TriStateSwitchState ) => void;
+  text: string
+  state: TriStateSwitchState
+  setState: ( state: TriStateSwitchState ) => void
+  setIfUnchanged?: boolean
 }
 
 export type TriStateSwitchState = 'REQUIRE' | 'IGNORE' | 'PROHIBIT';
 
-export const TriStateSwitch = ( { text, state, setState }: TriStateSwitchProps ): JSX.Element => {
+export const TriStateSwitch = ( { text, state, setState, setIfUnchanged=true }: TriStateSwitchProps ): JSX.Element => {
+  const change = ( state: TriStateSwitchState, element: TriStateSwitchState ) => (): void => {
+    if ( setIfUnchanged || state !== element )
+      setState( element )
+  }
   const { t } = useTranslation( 'common' )
   return (
     <div className={styles[`switch__container--${state.toLocaleLowerCase()}`]}>
-      <TriStateElement setElement={(): void => setState( 'REQUIRE' ) }><CheckIcon className='h-6'/></TriStateElement>
-      <TriStateElement setElement={(): void => setState( 'IGNORE' )}>{t( text, { keyPrefix: 'tags' } )}</TriStateElement>
-      <TriStateElement setElement={(): void => setState( 'PROHIBIT' )}><XMarkIcon className='h-6'/></TriStateElement>
+      <TriStateElement setElement={change( state, 'REQUIRE' )}><CheckIcon className='h-6'/></TriStateElement>
+      <TriStateElement setElement={change( state, 'IGNORE' )}>{t( text, { keyPrefix: 'tags' } )}</TriStateElement>
+      <TriStateElement setElement={change( state, 'PROHIBIT' )}><XMarkIcon className='h-6'/></TriStateElement>
     </div>
   )
 }
