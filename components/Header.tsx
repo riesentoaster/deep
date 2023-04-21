@@ -7,7 +7,7 @@ export const Header = ( { allQuestions, currentQuestions, setQuestions, setShowA
   const { t } = useTranslation( 'common' )
   return (
     <header className='p-10 border-b'>
-      <Dropdown className='w-full' title={t( 'deep' )}>
+      <Dropdown className='w-full' defaultHiddenState={true} title={t( 'deep' )}>
         <div className='flex flex-wrap flex-row w-full justify-evenly'>
           <Menu/>
           <Filters
