@@ -60,7 +60,7 @@ export const getStaticProps: GetStaticProps = async ( { locale } ) => ( {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths:[{ params: { n: '1' } }, { params: { n: '3' } }, { params: { n: '5' } }],
-    fallback: 'blocking'
+    paths: Array( 10 ).fill( 1 ).map( ( _,i ) => i ).map( e => ( { params: { n: `${e}` } } ) ),
+    fallback: false
   }
 }
