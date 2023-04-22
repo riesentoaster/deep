@@ -1,56 +1,30 @@
 import type { GetStaticPaths, GetStaticProps } from 'next'
-import { Question, questions as allQuestionsImport } from '../../public/questions'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import Head from 'next/head'
-import { Footer } from '../../components/Footer'
-import { Header } from '../../components/Header'
-import { useState } from 'react'
 import { BestOfN } from '../../components/BestOfN'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { NoQuestionsLeft } from '../../components/NoQuestionsLeft'
+import { Pageify, PageifyComponent } from '../../helpers/pageify'
 
-interface BestOfNProps {
-  allQuestions: Question[]
-}
-
-const BestOfNPage = ( { allQuestions }: BestOfNProps ): JSX.Element => {
-  const [currentQuestions, setQuestions] = useState( allQuestions )
-  const [showAuthors, setShowAuthors] = useState( true )
-
+const NComponent: PageifyComponent = ( { questions, showAuthors } ) => {
   const { n } = useRouter().query
   const { t } = useTranslation( 'common' )
 
-  return (
-    <>
-      <Head><title>deep</title></Head>
-      <Header
-        allQuestions={allQuestions}
-        currentQuestions={currentQuestions}
-        setQuestions={setQuestions}
-        setShowAuthors={setShowAuthors}
-      />
-      <main>
-        {
-          ( !n || Array.isArray( n ) ) ?
-            <p className='color-red-400'>{t( 'urlInvalid' )}</p> :
-            Number.parseInt( n ) === 0?
-              <NoQuestionsLeft/>:
-              <BestOfN questions={currentQuestions} showAuthors={showAuthors} n={Number.parseInt( n )}/>
-        }
-      </main>
-      <Footer/>
-    </>
-  )
+  return ( !n || Array.isArray( n ) ) ?
+    <p className='color-red-400'>{t( 'urlInvalid' )}</p> :
+    Number.parseInt( n ) === 0 ?
+      <NoQuestionsLeft/> :
+      <BestOfN questions={questions} showAuthors={showAuthors} n={Number.parseInt( n )}/>
 }
+
+const BestOfNPage = (): JSX.Element => Pageify( { child: NComponent } )
 
 export default BestOfNPage
 
 export const getStaticProps: GetStaticProps = async ( { locale } ) => ( {
   props: {
-    ...await serverSideTranslations( locale || 'en', ['common', 'tags', 'questions'] ),
-    allQuestions: allQuestionsImport
-  },
+    ...await serverSideTranslations( locale || 'en', ['common', 'questions'] )
+  }
 } )
 
 export const getStaticPaths: GetStaticPaths = async () => {
