@@ -58,9 +58,16 @@ export const getStaticProps: GetStaticProps = async ( { locale } ) => ( {
   }
 } )
 
+const locales: string[] = require( '../../next-i18next.config' ).i18n.locales
+
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: Array( 10 ).fill( 1 ).map( ( _,i ) => ( { params: { n: `${i+1}` } } ) ),
+    paths: locales
+      .map( locale =>
+        Array( 10 )
+          .fill( 1 )
+          .map( ( _,i ) => ( { params: { n: `${i+1}` }, locale } ) ) )
+      .flat(),
     fallback: false
   }
 }
