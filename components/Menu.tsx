@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import { Ellipsis } from './Ellipsis'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
+import { QUERY_INDEX } from './Filters'
 
 const links = {
   'allQuestions': '/',
@@ -12,7 +12,7 @@ const links = {
 }
 
 export const Menu = (): JSX.Element => {
-  const router = useRouter()
+  const { asPath, query, push } = useRouter()
   const { t } = useTranslation( 'common', { keyPrefix: 'links' } )
 
   return (
@@ -20,13 +20,18 @@ export const Menu = (): JSX.Element => {
       <h2>{t( 'menu' )}</h2>
       {
         Object.entries( links ).map( ( [text, href] ) => (
-          <Link key={text} href={href}>
+          <a href={href} key={href} onClick={( event ): void => {
+            event.preventDefault()
+            const filter = query[QUERY_INDEX]
+            push( { pathname: href, query: filter?{ [QUERY_INDEX]: filter }:{} } )
+          } }>
             {
-              router.asPath === href ?
+              asPath.split( '?' )[0] === href ?
                 <Ellipsis className='mx-auto'><p>{t( text )}</p></Ellipsis>:
                 <p>{t( text )}</p>
             }
-          </Link> ) )
+          </a>
+        ) )
       }
     </div>
   )

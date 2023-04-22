@@ -4,11 +4,15 @@ import { Question, questions as allQuestions } from '../public/questions'
 import { useEffect } from 'react'
 import { DeepPartial, reduceToObject, unique } from '../helpers/helpers'
 import { useForm } from 'react-hook-form'
-// import { updatedDiff } from 'deep-object-diff'
+import { updatedDiff } from 'deep-object-diff'
+import { useRouter } from 'next/router'
+import qs from 'qs'
+import defaultsDeep from 'lodash.defaultsdeep'
 
 const possibleDeepnessLevels = allQuestions.map( e => e.deepness ).filter( unique ).sort()
 const allTags = allQuestions.filter( e => Array.isArray( e.tags ) ).map( e => e.tags as string[] ).flat().filter( unique )
 const DEFAULT_TAG_STATE: TriStateSwitchState = 'IGNORE'
+export const QUERY_INDEX = 'filters'
 
 export interface FiltersProps {
   allQuestions: Question[]
@@ -25,7 +29,7 @@ interface FiltersObject {
   showAuthors: boolean
 }
 
-const defaultFiltersObject: FiltersObject = {
+const defaultValues: FiltersObject = {
   tags: allTags.map( e => ( { [e]: DEFAULT_TAG_STATE } ) ).reduce( reduceToObject, {} ),
   minDeepness: possibleDeepnessLevels[0].toString(),
   maxDeepness: possibleDeepnessLevels[possibleDeepnessLevels.length-1].toString(),
@@ -64,19 +68,33 @@ const filterTags = ( q: Question, tags: Record<string, TriStateSwitchState|undef
 
 export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShowAuthors }: FiltersProps ): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'filters' } )
-  const { register, handleSubmit, watch, setValue } = useForm( { defaultValues:defaultFiltersObject } )
+  const { replace, query, pathname } = useRouter()
+  const { register, handleSubmit, watch, setValue, reset, getValues } = useForm<FiltersObject>( { defaultValues } )
 
   useEffect( () => {
     const subscription = watch( ( value ) => {
       setQuestions( filterQuestions( allQuestions, value ) )
       if ( value.showAuthors !== undefined ) setShowAuthors( value.showAuthors )
-      // const diff = updatedDiff( defaultFiltersObject, value )
+      const diff = updatedDiff( defaultValues, value )
+      if ( Object.keys( diff ).length > 0 )
+        query[QUERY_INDEX] = qs.stringify( diff, {} )
+      else
+        delete query[QUERY_INDEX]
+      replace( { pathname, query } )
     } )
     return () => subscription.unsubscribe()
-  }, [watch, allQuestions, setQuestions, setShowAuthors] )
+  }, [watch, allQuestions, setQuestions, setShowAuthors, query, replace, pathname] )
+
+  useEffect( () => {
+    const fromURL = typeof query[QUERY_INDEX] === 'string' ?
+      qs.parse( query[QUERY_INDEX] ) :
+      {}
+    if ( Object.keys( updatedDiff( fromURL, getValues() ) ).length > 0 )
+      reset( defaultsDeep( fromURL, defaultValues ) )
+  } , [reset, query, getValues] )
 
   return (
-    <form onSubmit={handleSubmit( () => {} )}>
+    <form onSubmit={handleSubmit( ( ) => { } )}>
       <fieldset>
         <h2 className='mx-auto w-fit'>{t( 'title' )}</h2>
         <p className={`mx-auto w-fit ${currentQuestions.length === 0 && 'text-red-400'}`}>
