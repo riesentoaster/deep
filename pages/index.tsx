@@ -1,10 +1,10 @@
 import { Question } from '../components/Question'
 import { NoQuestionsLeft } from '../components/NoQuestionsLeft'
-import { Pageify } from '../helpers/pageify'
+import { Pageify, PageifyComponent } from '../helpers/pageify'
 import { GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-const Home = (): JSX.Element => Pageify( { child:  ( { questions, showAuthors } ) => (
+const HomeComponent: PageifyComponent = ( { questions, showAuthors } ) => (
   questions.length === 0 ?
     <NoQuestionsLeft/>:
     <ul className='w-fit mx-auto'>
@@ -16,7 +16,9 @@ const Home = (): JSX.Element => Pageify( { child:  ( { questions, showAuthors } 
         </li>
       )}
     </ul>
-) } )
+)
+
+const Home = (): JSX.Element => Pageify( { child: HomeComponent } )
 
 export default Home
 

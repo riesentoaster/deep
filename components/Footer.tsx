@@ -8,5 +8,4 @@ export const Footer = (): JSX.Element => (
       <p>Visit this project on <a href='https://github.com/riesentoaster/deep'>GitHub</a></p>
     </Ellipsis>
   </footer>
-
 )

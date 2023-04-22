@@ -18,8 +18,6 @@ export const Header = ( { allQuestions, currentQuestions, setQuestions, setShowA
           />
         </div>
       </Dropdown>
-
     </header>
   )
-
 }

@@ -26,5 +26,4 @@ export const Dropdown = ( { children, title, className='', defaultHiddenState=fa
       </div>
     </div>
   )
-
 }
