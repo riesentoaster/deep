@@ -9,7 +9,7 @@ const Document = (): JSX.Element => {
         <link rel="icon" href="favicon.svg"/>
         <link rel="mask-icon" href="mask-icon.svg" color="#010C1E"/>
         <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
-        <link rel="manifest" href="manifest.json"/>
+        <link rel="manifest" href="/manifest.json"/>
       </Head>
       <Main/>
       <NextScript />
