@@ -100,7 +100,7 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
         <h2 className='mx-auto w-fit'>{t( 'title' )}</h2>
         <ErrorMessage
           text={`${currentQuestions.length} ${t( 'questionsLeft' )}`}
-          color={currentQuestions.length === 0 ? 'red' : 'none'}
+          type={currentQuestions.length === 0 ? 'warn' : 'none'}
         />
       </fieldset>
       <fieldset>

@@ -1,8 +1,15 @@
+type ErrorMessageType = 'error' | 'warn' | 'none'
 interface ErrorMessageProps {
     text: string
-    color?: 'red' | 'yellow' | 'none'
+    type?: ErrorMessageType
 }
 
-export const ErrorMessage = ( { text, color='red' }: ErrorMessageProps ): JSX.Element => (
-  <p className={`mx-auto w-fit ${color === 'none' ? '' : `text-${color}-400`}`}>{text}</p>
+const colors: Record<ErrorMessageType, string> = {
+  'error': 'text-red-400',
+  'warn': 'text-yellow-400',
+  'none': ''
+}
+
+export const ErrorMessage = ( { text, type='error' }: ErrorMessageProps ): JSX.Element => (
+  <p className={`mx-auto w-fit ${colors[type]}`}>{text}</p>
 )
