@@ -9,6 +9,7 @@ import { mod } from '../../helpers/helpers'
 import { useState } from 'react'
 import { Question as QuestionElement } from '../../components/Question'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
+import { ErrorMessage } from '../../components/ErrorMessage'
 
 const filterQuestions = ( questions: Question[], index: number, n: number ): Question[] => {
   if ( questions.length === 0 || questions.length < n ) return questions
@@ -23,11 +24,11 @@ const BestOfNComponent: PageifyComponent = ( { questions, showAuthors } ) => {
   const { n } = useRouter().query
   const { t } = useTranslation( 'common' )
 
-  if ( !n || Array.isArray( n ) ) return ( <p className='color-red-400'>{t( 'urlInvalid' )}</p> )
+  if ( !n || Array.isArray( n ) ) return <ErrorMessage text={t( 'urlInvalid' )}/>
 
   const intN = Number.parseInt( n )
 
-  if ( isNaN( intN ) ) return ( <p className='color-red-400'>{t( 'urlInvalid' )}</p> )
+  if ( isNaN( intN ) ) return <ErrorMessage text={t( 'urlInvalid' )}/>
 
   if ( intN === 0 ) return <NoQuestionsLeft/>
 

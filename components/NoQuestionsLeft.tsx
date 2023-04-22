@@ -1,8 +1,7 @@
 import { useTranslation } from 'next-i18next'
+import { ErrorMessage } from './ErrorMessage'
 
 export const NoQuestionsLeft = (): JSX.Element => {
   const { t } = useTranslation( 'common' )
-  return (
-    <p>{t( 'noQuestionsLeft' )}</p>
-  )
+  return <ErrorMessage text={t( 'noQuestionsLeft' )}/>
 }

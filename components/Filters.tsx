@@ -8,6 +8,7 @@ import { updatedDiff } from 'deep-object-diff'
 import { useRouter } from 'next/router'
 import qs from 'qs'
 import defaultsDeep from 'lodash.defaultsdeep'
+import { ErrorMessage } from './ErrorMessage'
 
 const possibleDeepnessLevels = allQuestions.map( e => e.deepness ).filter( unique ).sort()
 const allTags = allQuestions.filter( e => Array.isArray( e.tags ) ).map( e => e.tags as string[] ).flat().filter( unique )
@@ -97,9 +98,10 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
     <form onSubmit={handleSubmit( ( ) => { } )}>
       <fieldset>
         <h2 className='mx-auto w-fit'>{t( 'title' )}</h2>
-        <p className={`mx-auto w-fit ${currentQuestions.length === 0 && 'text-red-400'}`}>
-          {currentQuestions.length} {t( 'questionsLeft' )}
-        </p>
+        <ErrorMessage
+          text={`${currentQuestions.length} ${t( 'questionsLeft' )}`}
+          color={currentQuestions.length === 0 ? 'red' : 'none'}
+        />
       </fieldset>
       <fieldset>
         <h3>{t( 'tags' )}</h3>
