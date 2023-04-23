@@ -81,7 +81,7 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
         query[QUERY_INDEX] = qs.stringify( diff, {} )
       else
         delete query[QUERY_INDEX]
-      replace( { pathname, query } )
+      replace( { pathname, query }, { pathname, query }, { scroll: false } )
     } )
     return () => subscription.unsubscribe()
   }, [watch, allQuestions, setQuestions, setShowAuthors, query, replace, pathname] )
