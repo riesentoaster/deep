@@ -10,6 +10,12 @@ const Document = (): JSX.Element => {
         <link rel="mask-icon" href="mask-icon.svg" color="#010C1E"/>
         <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
         <link rel="manifest" href="/manifest.json"/>
+
+        {/* As recommended by next-pwa */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="deep" />
+        <meta name="mobile-web-app-capable" content="yes" />
       </Head>
       <Main/>
       <NextScript />
