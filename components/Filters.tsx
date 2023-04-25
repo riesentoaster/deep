@@ -50,14 +50,15 @@ const filterQuestions = ( questions: Question[], value: DeepPartial<FiltersObjec
     filtered = filtered.filter( e => e.deepness <= Number.parseInt( maxDeepness ) )
   if ( tags )
     filtered = filtered.filter( e => filterTags( e, tags ) )
-  if ( randomness && !sets )
-    filtered = filtered
-      .sort( ( ) => Math.random()-0.5 )
-      .sort( ( a,b ) =>
+  if ( !sets ) {
+    filtered.sort( ( ) => Math.random() - 0.5 )
+    if ( randomness )
+      filtered.sort( ( a,b ) =>
         Number.parseInt( randomness ) > Math.random() ?
           Math.random() - 0.5 :
           a.deepness - b.deepness + ( Math.random() / 10 - 0.05 )
       )
+  }
 
   return filtered
 }
