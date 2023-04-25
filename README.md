@@ -27,3 +27,13 @@ npm run dev
 ```
 
 6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## License
+
+### Content
+
+The *content* of this project (which includes [the questions](./public/questions.ts) and [the translations](./public/locales/)) is licensed  under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+### Code
+
+The *code* of this project (which includes everything else) is licensed under a [MIT License](https://opensource.org/license/mit/).
