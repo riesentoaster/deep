@@ -28,7 +28,7 @@ const questionsByDate: QuestionsByDate = {
       'index': 0
     },
     {
-      'question': 'What\'s your story with Jesus?',
+      'question': 'What is your story with Jesus?',
       'deepness': 2,
       'tags': [
         'christians'
@@ -104,7 +104,7 @@ const questionsByDate: QuestionsByDate = {
       'index': 14
     },
     {
-      'question': 'What\'s the coolest thing you\'ve done in your life so far?',
+      'question': 'What is the coolest thing you\'ve done in your life so far?',
       'deepness': 2,
       'index': 15
     },
@@ -599,7 +599,7 @@ const questionsByDate: QuestionsByDate = {
       'index': 1
     },
     {
-      'question': 'What\'s your biggest fear and how can I help you to face it?',
+      'question': 'What is your biggest fear and how can I help you to face it?',
       'deepness': 4,
       'tags': [
         'twoPeople'
@@ -607,7 +607,7 @@ const questionsByDate: QuestionsByDate = {
       'index': 2
     },
     {
-      'question': 'What\'s something you think I\'m really good at?',
+      'question': 'What is something you think I\'m really good at?',
       'deepness': 2,
       'index': 3
     },
@@ -618,7 +618,7 @@ const questionsByDate: QuestionsByDate = {
       'index': 4
     },
     {
-      'question': 'What\'s something you\'ve done to try and be cool?',
+      'question': 'What is something you\'ve done to try and be cool?',
       'deepness': 2,
       'index': 5
     },
@@ -652,7 +652,7 @@ const questionsByDate: QuestionsByDate = {
       'index': 9
     },
     {
-      'question': 'What\'s one experience you hope we share in the future?',
+      'question': 'What is one experience you hope we share in the future?',
       'deepness': 2,
       'tags': [
         'twoPeople'
@@ -660,7 +660,7 @@ const questionsByDate: QuestionsByDate = {
       'index': 10
     },
     {
-      'question': 'If this was our last conversation, what\'s something you\'d never want me to forget?',
+      'question': 'If this was our last conversation, what is something you\'d never want me to forget?',
       'deepness': 4,
       'tags': [
         'twoPeople'
@@ -668,7 +668,7 @@ const questionsByDate: QuestionsByDate = {
       'index': 11
     },
     {
-      'question': 'What\'s one thing I could do to improve our relationship?',
+      'question': 'What is one thing I could do to improve our relationship?',
       'deepness': 3,
       'tags': [
         'twoPeople'
@@ -724,7 +724,7 @@ const questionsByDate: QuestionsByDate = {
       'index': 19
     },
     {
-      'question': 'What\'s a question you\'ve always wanted to ask me?',
+      'question': 'What is a question you\'ve always wanted to ask me?',
       'deepness': 3,
       'index': 20
     },
@@ -751,7 +751,7 @@ const questionsByDate: QuestionsByDate = {
       'index': 23
     },
     {
-      'question': 'What\'s something you learned from me that changed you?',
+      'question': 'What is something you learned from me that changed you?',
       'deepness': 3,
       'tags': [
         'twoPeople'
@@ -802,7 +802,7 @@ const questionsByDate: QuestionsByDate = {
       'index': 1
     },
     {
-      'question': 'Have you ever broken anyone\'s heart?',
+      'question': 'Have you ever broken anyone is heart?',
       'deepness': 4,
       'author': 'Tim Harford',
       'index': 2
@@ -838,7 +838,7 @@ const questionsByDate: QuestionsByDate = {
       'index': 1
     },
     {
-      'question': 'What\'s one experience you wish we never shared?',
+      'question': 'What is one experience you wish we never shared?',
       'deepness': 4,
       'tags': [
         'twoPeople'
@@ -846,7 +846,7 @@ const questionsByDate: QuestionsByDate = {
       'index': 2
     },
     {
-      'question': 'What\'s something you are missing out on for being in this relationship?',
+      'question': 'What is something you are missing out on for being in this relationship?',
       'deepness': 4,
       'tags': [
         'love',
@@ -890,7 +890,7 @@ const questionsByDate: QuestionsByDate = {
       'index': 7
     },
     {
-      'question': 'What\'s something I do that turns you on that I don\'t realize?',
+      'question': 'What is something I do that turns you on that I don\'t realize?',
       'deepness': 2,
       'tags': [
         'love',
