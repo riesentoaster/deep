@@ -8,8 +8,11 @@
         "minDeepness": "Minimale Deepness",
         "maxDeepness": "Maximale Deepness",
         "order": "Sortierung",
+        "mode": "Modus",
+        "sets": "Sets",
+        "randomness": "Zufall",
+        "random": "Zufällig",
         "byDeepness": "Nach Deepness",
-        "trueRandom": "Zufällig",
         "showAuthors": "Autoren anzeigen",
         "questionsLeft": "Fragen übrig."
     },

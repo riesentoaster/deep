@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import { EllipsisSwitch } from './EllipsisSwitch'
 const localeInLocale: Record<string, string> = {
   de: 'Deutsch',
   en: 'English'
@@ -6,17 +7,10 @@ const localeInLocale: Record<string, string> = {
 
 export const LanguageSettings = (): JSX.Element => {
   const router = useRouter()
-  const { pathname, asPath, query, locales, locale } = router
-  return (
-    <div className='flex flex-row border rounded-full m-5'>
-      {locales?.sort().map( e =>
-        <button
-          className={`px-5 rounded-full ${locale === e && 'bg-accentColorDarkBlue border rounded-full'}`}
-          key={e}
-          onClick={(): Promise<boolean> => router.push( { pathname, query }, asPath, { locale: e } )}>
-          {localeInLocale[e]}
-        </button>
-      )}
-    </div>
+  const { pathname, asPath, query, locale } = router
+  return ( <EllipsisSwitch
+    elements={localeInLocale}
+    state={locale}
+    setState={( state: string ): Promise<boolean> => router.push( { pathname, query }, asPath, { locale: state } ) }/>
   )
 }

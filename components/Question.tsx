@@ -10,7 +10,7 @@ export const Question = ( { question, showAuthor }: QuestionProps ): JSX.Element
   const { t } = useTranslation( 'questions' )
 
   return (
-    <p className='p-0'>{t( question.index )}{' '}
+    <p className='p-0'>{t( question.question )}{' '}
       {showAuthor && question.author && ( <sup className='pl-1 whitespace-nowrap'>~{question.author}</sup> )}
     </p>
   )

@@ -8,8 +8,11 @@
         "minDeepness": "Minimal Deepness",
         "maxDeepness": "Maximal Deepness",
         "order": "Order",
+        "mode": "Mode",
+        "sets": "Sets",
+        "randomness": "Randomness",
+        "random": "Random",
         "byDeepness": "By Deepness",
-        "trueRandom": "Random",
         "showAuthors": "Show Authors",
         "questionsLeft": "questions left."
     },
