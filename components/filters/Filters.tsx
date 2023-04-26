@@ -85,6 +85,7 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
   useEffect( () => {
     const subscription = watch( ( value ) => {
       setQuestions( filterQuestions( allQuestions, value ) )
+      console.log( 'setter', value.showAuthors )
       if ( value.showAuthors !== undefined ) setShowAuthors( value.showAuthors )
       const diff = updatedDiff( defaultValues, value )
       if ( Object.keys( diff ).length > 0 )
@@ -94,7 +95,7 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
       replace( { pathname, query }, { pathname, query }, { scroll: false } )
     } )
     return () => subscription.unsubscribe()
-  }, [watch, allQuestions, setQuestions, setShowAuthors, query, replace, pathname] )
+  }, [allQuestions, pathname, query, replace, setQuestions, setShowAuthors, watch] )
 
   useEffect( () => {
     const fromURL = typeof query[QUERY_INDEX] === 'string' ?
