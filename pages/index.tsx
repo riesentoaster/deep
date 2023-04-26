@@ -6,6 +6,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const HomeComponent: PageifyComponent = ( { questions, showAuthors } ) => {
   console.log( 'index', showAuthors )
+  console.log( 'length', questions.length )
   return(
     questions.length === 0 ?
       <NoQuestionsLeft/>:
