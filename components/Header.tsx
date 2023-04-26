@@ -1,4 +1,4 @@
-import { Filters, FiltersProps } from './Filters'
+import { Filters, FiltersProps } from './filters/Filters'
 import { Menu } from './Menu'
 import { Dropdown } from './Dropdown'
 import { useTranslation } from 'next-i18next'

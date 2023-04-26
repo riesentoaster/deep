@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @import './colors';
+@import './mobile';
 
 
 html {
@@ -19,16 +21,16 @@ body {
 body {
     background-color: $backgroundColor;
     color: $bodyColor;
-    width: unquote("max(800px, 80%)");
     margin: 0 auto;
     min-height: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    width: $bodyWidth;
 }
 
-@media only screen and (max-width: 480px) {
+@media #{$mobile} {
     body {
-        width: 100%;
+        width: $bodyWidthMobile;
     }
 }
 

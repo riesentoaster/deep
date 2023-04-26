@@ -1,0 +1,26 @@
+@import './../../styles/colors';
+@import './../../styles/mobile';
+
+.popupBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.popup {
+    margin: 2rem auto 0;
+    height: fit-content;
+    width: fit-content;
+    max-width: $bodyWidth;
+    @media #{$mobile} {
+        max-width: $bodyWidthMobile;
+    }
+    border: 1px solid white;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    background-color: $backgroundColor;
+    text-align: center;
+}

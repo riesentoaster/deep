@@ -1,7 +1,7 @@
 import { Ellipsis } from './Ellipsis'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
-import { QUERY_INDEX } from './Filters'
+import { QUERY_INDEX } from './filters/Filters'
 
 const links = {
   'allQuestions': '/',

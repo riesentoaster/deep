@@ -1,15 +1,20 @@
 import { useTranslation } from 'next-i18next'
 import { TriStateSwitch, TriStateSwitchState } from './TriStateSwitch'
-import { Question, questions as allQuestions } from '../public/questions'
+import { Question, questions as allQuestions } from '../../public/questions'
 import { useEffect } from 'react'
-import { DeepPartial, reduceToObject, unique } from '../helpers/helpers'
-import { useForm } from 'react-hook-form'
+import { DeepPartial, reduceToObject, unique } from '../../helpers/helpers'
+import { Controller, useForm } from 'react-hook-form'
 import { updatedDiff } from 'deep-object-diff'
 import { useRouter } from 'next/router'
 import qs from 'qs'
 import defaultsDeep from 'lodash.defaultsdeep'
-import { ErrorMessage } from './ErrorMessage'
-import { EllipsisSwitch } from './EllipsisSwitch'
+import { ErrorMessage } from '../ErrorMessage'
+import { EllipsisSwitch } from '../EllipsisSwitch'
+import { FiltersTitle } from './FiltersTitle'
+import { Tags } from './Explanations/Tags'
+import { Deepness } from './Explanations/Deepness'
+import { Order } from './Explanations/Order'
+import { Authors } from './Explanations/Authors'
 
 const possibleDeepnessLevels = allQuestions.map( e => e.deepness ).filter( unique ).sort()
 const allTags = allQuestions.filter( e => Array.isArray( e.tags ) ).map( e => e.tags as string[] ).flat().filter( unique )
@@ -73,8 +78,9 @@ const filterTags = ( q: Question, tags: Record<string, TriStateSwitchState|undef
 
 export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShowAuthors }: FiltersProps ): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'filters' } )
+  const { t: t_tags } = useTranslation( 'common', { keyPrefix: 'tags' } )
   const { replace, query, pathname } = useRouter()
-  const { register, handleSubmit, watch, setValue, reset, getValues } = useForm<FiltersObject>( { defaultValues } )
+  const { register, handleSubmit, watch, reset, getValues, control } = useForm<FiltersObject>( { defaultValues } )
 
   useEffect( () => {
     const subscription = watch( ( value ) => {
@@ -108,23 +114,28 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
         />
       </fieldset>
       <fieldset>
-        <h3>{t( 'tags' )}</h3>
+        <FiltersTitle titleText={t( 'tags.title' )} explanation={<Tags/>}/>
         {
           allTags.map( tag =>
             (
-              <TriStateSwitch
+              <Controller
+                control={control}
+                name={`tags.${tag}`}
                 key={tag}
-                text={tag}
-                state={watch( `tags.${tag}` ) }
-                setIfUnchanged={false}
-                setState={( newState: TriStateSwitchState ): void => setValue( `tags.${tag}`, newState, {} ) }
-              />
+                render={( { field:{ value, onChange } } ): JSX.Element => (
+                  <TriStateSwitch
+                    text={t_tags( tag ) }
+                    state={value }
+                    setIfUnchanged={false}
+                    setState={( newState: TriStateSwitchState ): void => onChange( newState ) }
+                  />
+                ) }/>
             )
           )
         }
       </fieldset>
       <fieldset>
-        <h3>{t( 'deepness' )}</h3>
+        <FiltersTitle titleText={t( 'deepness.title' )} explanation={<Deepness/>}/>
         <div className='mx-auto flex flex-row flex-wrap justify-center'>
           <label className='flex flex-col m-3'>
             <p className='w-max'>{t( 'minDeepness' )}</p>
@@ -139,7 +150,7 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
             </select>
           </label>
           <label className='flex flex-col m-3'>
-            <p className='w-max'>{t( 'maxDeepness' )}</p>
+            <p className='w-max'>{t( 'deepness.maxDeepness' )}</p>
             <select {...register( 'maxDeepness' )}>
               {
                 possibleDeepnessLevels.map( e => (
@@ -153,19 +164,25 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
         </div>
       </fieldset>
       <fieldset>
-        <h3 className='mx-auto w-fit'>{t( 'order' )}</h3>
+        <FiltersTitle titleText={t( 'order.title' )} explanation={<Order/>}/>
         <label>
-          <h4 className='mx-auto w-fit'>{t( 'mode' )}</h4>
-          <EllipsisSwitch
-            elements={{ false: t( 'random' ), true: t( 'sets' ) }}
-            state={( !!watch( 'sets' ) ).toString()}
-            setState={( state ): void => setValue( 'sets', state === 'true' ) }/>
+          <h4 className='mx-auto w-fit'>{t( 'order.mode.title' )}</h4>
+          <Controller
+            control={control}
+            name='sets'
+            render={( { field: { value, onChange } } ): JSX.Element => (
+              <EllipsisSwitch
+                elements={{ false: t( 'order.mode.random' ), true: t( 'order.mode.sets' ) }}
+                state={value.toString()}
+                setState={( state ): void => onChange( state === 'true' ) }/>
+            )}
+          />
         </label>
         <label className={`w-max mx-auto ${watch( 'sets' ) && 'hidden'}`}>
-          <h4 className='mx-auto w-fit'>{t( 'randomness' )}</h4>
+          <h4 className='mx-auto w-fit'>{t( 'order.randomness.title' )}</h4>
           <div className='flex items-center justify-between'>
-            <p className='mr-10'>{t( 'byDeepness' )}</p>
-            <p className='ml-auto'>{t( 'random' )}</p>
+            <p className='mr-10'>{t( 'order.randomness.byDeepness' )}</p>
+            <p className='ml-auto'>{t( 'order.randomness.random' )}</p>
           </div>
           <input
             type="range"
@@ -178,13 +195,13 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
         </label>
       </fieldset>
       <fieldset>
-        <h3>{t( 'authors' )}</h3>
+        <FiltersTitle titleText={t( 'authors.title' )} explanation={<Authors/>}/>
         <label className='w-max mx-auto mt-1 w-max'>
-          {t( 'showAuthors' )}
+          {t( 'authors.showAuthors' )}
           <input
             type="checkbox"
-            className='ml-3'
             {...register( 'showAuthors' )}
+            className='ml-3'
           />
         </label>
       </fieldset>

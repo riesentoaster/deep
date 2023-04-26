@@ -2,18 +2,43 @@
     "deep": "deep",
     "filters": {
         "title": "Filters",
-        "tags": "Tags",
-        "deepness": "Deepness",
-        "authors": "Authors",
-        "minDeepness": "Minimal Deepness",
-        "maxDeepness": "Maximal Deepness",
-        "order": "Order",
-        "mode": "Mode",
-        "sets": "Sets",
-        "randomness": "Randomness",
-        "random": "Random",
-        "byDeepness": "By Deepness",
-        "showAuthors": "Show Authors",
+        "tags": {
+            "title": "Tags",
+            "explanation": {
+                "overview": "Tags allow you to filter the questions based on content.",
+                "example-tag": "Example Tag",
+                "state-ignore": "In this state the tag is ignored.",
+                "state-require": "In this state only questions that have the tag are shown.",
+                "state-prohibit": "In this state only questions that do not have the tag are shown."
+            }
+        },
+        "deepness": {
+            "title": "Deepness",
+            "explanation": "Each question has a \"deepness\". The bigger its deepness, the more personal the question.",
+            "minDeepness": "Minimal Deepness",
+            "maxDeepness": "Maximal Deepness"
+        },
+        "order": {
+            "title": "Order",
+            "mode": {
+                "title": "Mode",
+                "random": "Random",
+                "sets": "Sets",
+                "explanation-random": "In this mode, the questions get shuffled after each change of filter and reload of the page.",
+                "explanation-sets": "In this mode, the filtered questions always get displayed in the same order."
+            },
+            "randomness": {
+                "title": "Randomness",
+                "byDeepness": "By Deepness",
+                "random": "Random",
+                "explanation": "In the extreme cases the questions get shuffled either within or regardless of deepness. In between, the deepness plays a bigger or smaller role depending on the exact position."
+            }
+        },
+        "authors": {
+            "title": "Authors",
+            "showAuthors": "Show Authors",
+            "explanation": "Some questions have a known author."
+        },
         "questionsLeft": "questions left."
     },
     "urlInvalid": "URL is invalid",
