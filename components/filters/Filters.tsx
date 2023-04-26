@@ -85,7 +85,6 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
   useEffect( () => {
     const subscription = watch( ( value ) => {
       setQuestions( filterQuestions( allQuestions, value ) )
-      console.log( 'setter', value.showAuthors )
       if ( value.showAuthors !== undefined ) setShowAuthors( value.showAuthors )
       const diff = updatedDiff( defaultValues, value )
       if ( Object.keys( diff ).length > 0 )
