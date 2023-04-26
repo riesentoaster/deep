@@ -98,7 +98,14 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
 
   useEffect( () => {
     const fromURL = typeof query[QUERY_INDEX] === 'string' ?
-      qs.parse( query[QUERY_INDEX] ) :
+      qs.parse( query[QUERY_INDEX] ,
+        {
+          decoder: ( str, defaultDecoder, charset, type ) =>
+            type === 'value' && ( str === 'true' || str === 'false' ) ?
+              str === 'true' :
+              defaultDecoder( str )
+        }
+      ) :
       {}
     if ( Object.keys( updatedDiff( fromURL, getValues() ) ).length > 0 )
       reset( defaultsDeep( fromURL, defaultValues ) )
@@ -172,7 +179,7 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
             name='sets'
             render={( { field: { value, onChange } } ): JSX.Element => (
               <EllipsisSwitch
-                elements={{ false: t( 'order.mode.random' ), true: t( 'order.mode.sets' ) }}
+                elements={{ 'false': t( 'order.mode.random' ), 'true': t( 'order.mode.sets' ) }}
                 state={value.toString()}
                 setState={( state ): void => onChange( state === 'true' ) }/>
             )}
@@ -199,7 +206,7 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
         <label className='w-max mx-auto mt-1 w-max'>
           {t( 'authors.showAuthors' )}
           <input
-            type="checkbox"
+            type='checkbox'
             {...register( 'showAuthors' )}
             className='ml-3'
           />
