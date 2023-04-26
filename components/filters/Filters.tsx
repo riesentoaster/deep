@@ -84,7 +84,6 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
 
   useEffect( () => {
     const subscription = watch( ( value ) => {
-      console.log( 'change in value', value )
       setQuestions( filterQuestions( allQuestions, value ) )
       if ( value.showAuthors !== undefined ) setShowAuthors( value.showAuthors )
       const diff = updatedDiff( defaultValues, value )
@@ -98,7 +97,6 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
   }, [allQuestions, pathname, query, replace, setQuestions, setShowAuthors, watch] )
 
   useEffect( () => {
-    console.log( 'parsing query', query[QUERY_INDEX] )
     const fromURL = typeof query[QUERY_INDEX] === 'string' ?
       qs.parse( query[QUERY_INDEX] ,
         {
@@ -109,10 +107,8 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
         }
       ) :
       {}
-    if ( Object.keys( updatedDiff( fromURL, getValues() ) ).length > 0 ) {
-      console.log( 'resetting', JSON.stringify( fromURL ) )
+    if ( Object.keys( updatedDiff( fromURL, getValues() ) ).length > 0 )
       reset( defaultsDeep( fromURL, defaultValues ) )
-    }
   } , [reset, query, getValues] )
 
   return (
