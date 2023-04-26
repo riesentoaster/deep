@@ -919,6 +919,15 @@ export const questions: Question[] = Object.entries( questionsByDate )
   .sort( ( a, b ) => ( a[0] <= b[0] ? -1 : 1 ) )
   .map( ( [date, q] ) => {
     const p = passed( q.length )
-    return q.map( e => ( e.date = date, e.index += p, e ) as Question )
+    return q.map( e => {
+      e.date = date
+      e.index += p
+      if ( e.author ) {
+        if ( e.tags ) e.tags.push( 'hasAuthor' )
+        else e.tags = ['hasAuthor']
+      }
+      return e as Question
+    }
+    )
   } )
   .flat()
