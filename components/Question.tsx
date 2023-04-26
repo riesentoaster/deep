@@ -8,6 +8,7 @@ interface QuestionProps {
 
 export const Question = ( { question, showAuthor }: QuestionProps ): JSX.Element => {
   const { t } = useTranslation( 'questions' )
+  console.log( 'q', showAuthor )
 
   return (
     <p className='p-0'>{t( question.question )}{' '}
