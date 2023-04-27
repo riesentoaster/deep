@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next'
 
-export const Deepness = (): JSX.Element => {
+export const DeepnessExplanation = (): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'filters.deepness' } )
 
   return(

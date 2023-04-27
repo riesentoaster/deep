@@ -1,6 +1,6 @@
 import { useFormContext } from 'react-hook-form'
 import { FiltersTitle } from '../FiltersTitle'
-import { Authors } from '../explanations/Authors'
+import { AuthorExplanation } from './explanations/AuthorExplanation'
 import { useTranslation } from 'next-i18next'
 
 export const AuthorFilter = (): JSX.Element => {
@@ -9,7 +9,7 @@ export const AuthorFilter = (): JSX.Element => {
 
   return (
     <fieldset>
-      <FiltersTitle titleText={t( 'title' )} explanation={<Authors />} />
+      <FiltersTitle titleText={t( 'title' )} explanation={<AuthorExplanation />} />
       <label className='w-max mx-auto mt-1 w-max'>
         {t( 'showAuthors' )}
         <input

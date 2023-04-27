@@ -1,8 +1,8 @@
 import { useTranslation } from 'next-i18next'
-import { EllipsisSwitch } from '../../EllipsisSwitch'
+import { EllipsisSwitch } from '../../../EllipsisSwitch'
 import { useState } from 'react'
 
-export const Order = (): JSX.Element => {
+export const OrderExplanation = (): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'filters.order' } )
   const [modeState, setModeState] = useState( false )
   return (

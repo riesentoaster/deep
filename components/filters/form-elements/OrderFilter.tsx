@@ -1,6 +1,6 @@
 import { Controller, useWatch } from 'react-hook-form'
 import { FiltersTitle } from '../FiltersTitle'
-import { Order } from '../explanations/Order'
+import { OrderExplanation } from './explanations/OrderExplanation'
 import { EllipsisSwitch } from '../../EllipsisSwitch'
 import Slider from 'rc-slider'
 import { useTranslation } from 'next-i18next'
@@ -11,7 +11,7 @@ export const OrderFilter = (): JSX.Element => {
 
   return (
     <fieldset>
-      <FiltersTitle titleText={t( 'title' )} explanation={<Order />} />
+      <FiltersTitle titleText={t( 'title' )} explanation={<OrderExplanation />} />
       <label>
         <h4 className='mx-auto w-fit'>{t( 'mode.title' )}</h4>
         <Controller

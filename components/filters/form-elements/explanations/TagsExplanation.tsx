@@ -1,8 +1,8 @@
 import { useTranslation } from 'next-i18next'
-import { TriStateSwitch, TriStateSwitchState } from '../TriStateSwitch'
+import { TriStateSwitch, TriStateSwitchState } from '../../TriStateSwitch'
 import { useState } from 'react'
 
-export const Tags = (): JSX.Element => {
+export const TagsExplanation = (): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'filters.tags' } )
   const [state, setState] = useState<TriStateSwitchState>( 'IGNORE' )
 

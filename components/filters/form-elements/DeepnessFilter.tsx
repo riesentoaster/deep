@@ -1,6 +1,6 @@
 import { Controller } from 'react-hook-form'
 import { FiltersTitle } from '../FiltersTitle'
-import { Deepness } from '../explanations/Deepness'
+import { DeepnessExplanation } from './explanations/DeepnessExplanation'
 import Slider from 'rc-slider'
 import { useTranslation } from 'next-i18next'
 
@@ -8,7 +8,7 @@ export const DeepnessFilter = (): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'filters.deepness' } )
 
   return( <fieldset>
-    <FiltersTitle titleText={t( 'title' )} explanation={<Deepness />} />
+    <FiltersTitle titleText={t( 'title' )} explanation={<DeepnessExplanation />} />
     <Controller
       name={'deepness'}
       render={( { field: { value, onChange } } ): JSX.Element => (

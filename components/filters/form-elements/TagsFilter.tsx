@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next'
 import { allTags } from '../Filters'
 import { FiltersTitle } from '../FiltersTitle'
-import { Tags } from '../explanations/Tags'
+import { TagsExplanation } from './explanations/TagsExplanation'
 import { TriStateSwitch, TriStateSwitchState } from '../TriStateSwitch'
 import { Controller } from 'react-hook-form'
 
@@ -10,7 +10,7 @@ export const TagsFilter = (): JSX.Element => {
 
   return (
     <fieldset>
-      <FiltersTitle titleText={t( 'filters.tags.title' )} explanation={<Tags />} />
+      <FiltersTitle titleText={t( 'filters.tags.title' )} explanation={<TagsExplanation />} />
       {allTags.map( tag => (
         <Controller
           name={`tags.${tag}`}
