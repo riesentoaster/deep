@@ -15,6 +15,8 @@ import { Tags } from './Explanations/Tags'
 import { Deepness } from './Explanations/Deepness'
 import { Order } from './Explanations/Order'
 import { Authors } from './Explanations/Authors'
+import Slider from 'rc-slider'
+import 'rc-slider/assets/index.css'
 
 const possibleDeepnessLevels = allQuestions.map( e => e.deepness ).filter( unique ).sort()
 const allTags = allQuestions.filter( e => Array.isArray( e.tags ) ).map( e => e.tags as string[] ).flat().filter( unique )
@@ -30,36 +32,34 @@ export interface FiltersProps {
 
 interface FiltersObject {
   tags: Record<string, TriStateSwitchState>
-  minDeepness: string
-  maxDeepness: string
-  randomness: string
+  deepness: {min: number, max: number}
+  randomness: number
   sets: boolean
   showAuthors: boolean
 }
 
 const defaultValues: FiltersObject = {
   tags: allTags.map( e => ( { [e]: DEFAULT_TAG_STATE } ) ).reduce( reduceToObject, {} ),
-  minDeepness: possibleDeepnessLevels[0].toString(),
-  maxDeepness: possibleDeepnessLevels[possibleDeepnessLevels.length-1].toString(),
-  randomness: '0',
+  deepness: { min: Math.min( ...possibleDeepnessLevels ), max:Math.max( ...possibleDeepnessLevels ) },
+  randomness: 0,
   sets: false,
   showAuthors: true,
 }
 
 const filterQuestions = ( questions: Question[], value: DeepPartial<FiltersObject> ): Question[] => {
-  const { minDeepness, maxDeepness, tags, randomness, sets } = value
+  const { deepness, tags, randomness, sets } = value
   let filtered = questions
-  if ( minDeepness )
-    filtered = filtered.filter( e => e.deepness >= Number.parseInt( minDeepness ) )
-  if ( maxDeepness )
-    filtered = filtered.filter( e => e.deepness <= Number.parseInt( maxDeepness ) )
+  if ( deepness ) {
+    filtered = filtered.filter( e => deepness.min === undefined || e.deepness >= deepness.min )
+    filtered = filtered.filter( e => deepness.max === undefined || e.deepness <= deepness.max )
+  }
   if ( tags )
     filtered = filtered.filter( e => filterTags( e, tags ) )
   if ( !sets ) {
     filtered.sort( ( ) => Math.random() - 0.5 )
     if ( randomness )
       filtered.sort( ( a,b ) =>
-        Number.parseInt( randomness ) > Math.random() ?
+        randomness > Math.random() ?
           Math.random() - 0.5 :
           a.deepness - b.deepness + ( Math.random() / 10 - 0.05 )
       )
@@ -100,10 +100,17 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
     const fromURL = typeof query[QUERY_INDEX] === 'string' ?
       qs.parse( query[QUERY_INDEX] ,
         {
-          decoder: ( str, defaultDecoder, charset, type ) =>
-            type === 'value' && ( str === 'true' || str === 'false' ) ?
-              str === 'true' :
-              defaultDecoder( str )
+          decoder: ( str, defaultDecoder, charset, type ) => {
+            if ( type === 'value' ) {
+              if ( str === 'true' || str === 'false' )
+                return str === 'true'
+              else if ( /^[\d-]+$/.test( str ) )
+                return Number.parseInt( str )
+              else if ( /^[\d.-]+$/.test( str ) )
+                return Number.parseFloat( str )
+            }
+            return defaultDecoder( str )
+          }
         }
       ) :
       {}
@@ -143,32 +150,23 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
       </fieldset>
       <fieldset>
         <FiltersTitle titleText={t( 'deepness.title' )} explanation={<Deepness/>}/>
-        <div className='mx-auto flex flex-row flex-wrap justify-center'>
-          <label className='flex flex-col m-3'>
-            <p className='w-max'>{t( 'deepness.minDeepness' )}</p>
-            <select {...register( 'minDeepness' )}>
-              {
-                possibleDeepnessLevels.map( e => (
-                  <option key={e} disabled={e > Number.parseInt( watch( 'maxDeepness' ) )}>
-                    {e}
-                  </option>
-                ) )
-              }
-            </select>
-          </label>
-          <label className='flex flex-col m-3'>
-            <p className='w-max'>{t( 'deepness.maxDeepness' )}</p>
-            <select {...register( 'maxDeepness' )}>
-              {
-                possibleDeepnessLevels.map( e => (
-                  <option key={e} disabled={e < Number.parseInt( watch( 'minDeepness' ) )}>
-                    {e}
-                  </option>
-                ) )
-              }
-            </select>
-          </label>
-        </div>
+        <div></div>
+        <Controller
+          control={control}
+          name={'deepness'}
+          render={( { field: { value, onChange } } ): JSX.Element =>(
+            <Slider
+              className='my-1'
+              range
+              min={1}
+              max={5}
+              step={1}
+              allowCross={false}
+              value={[value.min, value.max]}
+              onChange={( value: number|number[] ): void => onChange( Array.isArray( value ) && { min: value[0], max: value[1] } )}
+            />
+          ) }
+        />
       </fieldset>
       <fieldset>
         <FiltersTitle titleText={t( 'order.title' )} explanation={<Order/>}/>
@@ -179,25 +177,32 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
             name='sets'
             render={( { field: { value, onChange } } ): JSX.Element => (
               <EllipsisSwitch
+                className='my-3'
                 elements={{ 'false': t( 'order.mode.random' ), 'true': t( 'order.mode.sets' ) }}
                 state={value.toString()}
                 setState={( state ): void => onChange( state === 'true' ) }/>
             )}
           />
         </label>
-        <label className={`w-max mx-auto ${watch( 'sets' ) && 'hidden'}`}>
+        <label className={watch( 'sets' ) && 'hidden' || ''}>
           <h4 className='mx-auto w-fit'>{t( 'order.randomness.title' )}</h4>
           <div className='flex items-center justify-between'>
             <p className='mr-10'>{t( 'order.randomness.byDeepness' )}</p>
             <p className='ml-auto'>{t( 'order.randomness.random' )}</p>
           </div>
-          <input
-            type="range"
-            step="any"
-            min="0"
-            max="1"
-            className='h-1 bg-white rounded appearance-none w-full'
-            {...register( 'randomness' )}
+          <Controller
+            control={control}
+            name='randomness'
+            render={( { field: { value, onChange } } ): JSX.Element => (
+              <Slider
+                className='my-1'
+                min={0}
+                max={1}
+                step={0.01}
+                value={value}
+                onChange={onChange}
+              />
+            )}
           />
         </label>
       </fieldset>

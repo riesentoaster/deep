@@ -2,11 +2,12 @@ interface EllipsisSwitchProps<T extends string> {
     elements: Record<T,string> // key, stringToDisplay
     state: T | undefined
     setState: ( state: T ) => void
+    className?: string
 }
 
-export const EllipsisSwitch = <T extends string,>( { elements, state, setState }: EllipsisSwitchProps<T> ): JSX.Element => {
+export const EllipsisSwitch = <T extends string,>( { elements, state, setState, className = '' }: EllipsisSwitchProps<T> ): JSX.Element => {
   return (
-    <div className='flex flex-row border rounded-full m-5'>
+    <div className={`flex flex-row border rounded-full h-fit ${className}`}>
       {
         Object.entries( elements ).map( ( [k,v] ) => (
           <button

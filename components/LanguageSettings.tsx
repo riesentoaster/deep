@@ -8,9 +8,11 @@ const localeInLocale: Record<string, string> = {
 export const LanguageSettings = (): JSX.Element => {
   const router = useRouter()
   const { pathname, asPath, query, locale } = router
-  return ( <EllipsisSwitch
-    elements={localeInLocale}
-    state={locale}
-    setState={( state: string ): Promise<boolean> => router.push( { pathname, query }, asPath, { locale: state } ) }/>
+  return (
+    <EllipsisSwitch
+      elements={localeInLocale}
+      state={locale}
+      setState={( state: string ): Promise<boolean> => router.push( { pathname, query }, asPath, { locale: state } ) }
+    />
   )
 }
