@@ -74,7 +74,7 @@ const filterTags = ( q: Question, tags: Record<string, TriStateSwitchState|undef
 
 export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShowAuthors }: FiltersProps ): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'filters' } )
-  const { replace, query, pathname } = useRouter()
+  const { replace, query, asPath } = useRouter()
   const form = useForm<FiltersObject>( { defaultValues } )
   const { handleSubmit, watch, reset, getValues } = form
 
@@ -87,10 +87,11 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
         query[QUERY_INDEX] = qs.stringify( diff, {} )
       else
         delete query[QUERY_INDEX]
-      replace( { pathname, query }, { pathname, query }, { scroll: false } )
+
+      replace( { query, pathname: asPath }, { pathname: asPath, query }, { scroll: false } )
     } )
     return () => subscription.unsubscribe()
-  }, [allQuestions, pathname, query, replace, setQuestions, setShowAuthors, watch] )
+  }, [allQuestions, asPath, query, replace, setQuestions, setShowAuthors, watch] )
 
   useEffect( () => {
     const fromURL = typeof query[QUERY_INDEX] === 'string' ?
