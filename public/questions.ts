@@ -909,16 +909,10 @@ const questionsByDate: QuestionsByDate = {
   ]
 }
 
-const passed = ( ( p: number ) => ( e: number ): number => {
-  const t = p
-  p += e
-  return t
-} )( 0 )
-
 export const questions: Question[] = Object.entries( questionsByDate )
   .sort( ( a, b ) => ( a[0] <= b[0] ? -1 : 1 ) )
-  .map( ( [date, q] ) => {
-    const p = passed( q.length )
+  .map( ( [date, q], i, arr ) => {
+    const p = arr.slice( 0,i ).map( e => e[1].length ).reduce( ( acc,cur ) => acc+cur, 0 )
     return q.map( e => {
       e.date = date
       e.index += p
