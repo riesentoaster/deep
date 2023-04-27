@@ -145,7 +145,7 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
         <FiltersTitle titleText={t( 'deepness.title' )} explanation={<Deepness/>}/>
         <div className='mx-auto flex flex-row flex-wrap justify-center'>
           <label className='flex flex-col m-3'>
-            <p className='w-max'>{t( 'minDeepness' )}</p>
+            <p className='w-max'>{t( 'deepness.minDeepness' )}</p>
             <select {...register( 'minDeepness' )}>
               {
                 possibleDeepnessLevels.map( e => (
