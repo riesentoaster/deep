@@ -14,7 +14,7 @@
     margin: 2rem auto 0;
     height: fit-content;
     width: fit-content;
-    max-width: $bodyWidth;
+    max-width: unquote("max(800px, 50%)");;
     @media #{$mobile} {
         max-width: $bodyWidthMobile;
     }
