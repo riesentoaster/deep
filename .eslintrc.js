@@ -15,31 +15,13 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
   rules: {
-    indent: [
-      'error',
-      2,
-      {
-        SwitchCase: 1
-      }
-    ],
+    indent: ['error', 2, { SwitchCase: 1 }],
     'linebreak-style': ['error', 'unix'],
-    quotes: [
-      'error',
-      'single',
-      {
-        allowTemplateLiterals: true
-      }
-    ],
+    quotes: ['error', 'single', { allowTemplateLiterals: true }],
     semi: ['error', 'never'],
     'eol-last': ['error', 'always'],
     eqeqeq: ['error', 'always'],
-    'spaced-comment': [
-      'error',
-      'always',
-      {
-        markers: ['/']
-      }
-    ],
+    'spaced-comment': ['error', 'always', { markers: ['/'] }],
     'block-spacing': ['error', 'always'],
     'no-whitespace-before-property': ['error'],
     'no-trailing-spaces': ['error'],
@@ -64,6 +46,37 @@ module.exports = {
       }
     ],
     '@typescript-eslint/brace-style': ['error'],
-    '@typescript-eslint/explicit-function-return-type': ['error']
+    '@typescript-eslint/explicit-function-return-type': ['error'],
+    'max-len': ['error', { code: 120 }],
+    'space-infix-ops': ['error'],
+    'key-spacing': ['error'],
+    'comma-spacing': ['error'],
+    'arrow-spacing': ['error'],
+    'keyword-spacing': ['error'],
+    'padding-line-between-statements': [
+      'error',
+      { blankLine: 'always', prev: 'function', next: 'function' },
+      {
+        blankLine: 'always',
+        prev: 'multiline-block-like',
+        next: 'multiline-block-like'
+      },
+      {
+        blankLine: 'always',
+        prev: 'multiline-expression',
+        next: 'multiline-block-like'
+      },
+      {
+        blankLine: 'always',
+        prev: 'multiline-block-like',
+        next: 'multiline-expression'
+      },
+      {
+        blankLine: 'always',
+        prev: 'multiline-expression',
+        next: 'multiline-expression'
+      },
+      { blankLine: 'always', prev: 'import', next: 'expression' }
+    ]
   }
 }

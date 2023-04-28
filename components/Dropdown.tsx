@@ -9,7 +9,12 @@ interface DropdownProps {
   className?: string
 }
 
-export const Dropdown = ( { children, title, className='', defaultHiddenState=false }: DropdownProps ): JSX.Element => {
+export const Dropdown = ( {
+  children,
+  title,
+  className = '',
+  defaultHiddenState = false
+}: DropdownProps ): JSX.Element => {
   const [hidden, setHidden] = useState( defaultHiddenState )
   return (
     <div className={`mx-auto ${className}`}>

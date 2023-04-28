@@ -6,7 +6,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const HomeComponent: PageifyComponent = ( { questions, showAuthors } ) => (
   questions.length === 0 ?
-    <NoQuestionsLeft/>:
+    <NoQuestionsLeft/> :
     <ul className='w-fit mx-auto'>
       {questions.map( e =>
         <li

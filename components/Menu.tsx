@@ -16,7 +16,9 @@ export const Menu = (): JSX.Element => {
   const { asPath, query, push, prefetch } = useRouter()
   const { t } = useTranslation( 'common', { keyPrefix: 'links' } )
 
-  useEffect( () => Object.entries( links ).forEach( pathname => prefetch( `${pathname}?${query}` ) ), [prefetch, query] )
+  useEffect( () => {
+    Object.entries( links ).forEach( pathname => prefetch( `${pathname}?${query}` ) )
+  }, [prefetch, query] )
 
   return (
     <div className='text-center py-2'>
@@ -26,11 +28,11 @@ export const Menu = (): JSX.Element => {
           <a href={href} key={href} onClick={( event ): void => {
             event.preventDefault()
             const filter = query[QUERY_INDEX]
-            push( { pathname: href, query: filter?{ [QUERY_INDEX]: filter }:{} } )
+            push( { pathname: href, query: filter ? { [QUERY_INDEX]: filter } : {} } )
           } }>
             {
               asPath.split( '?' )[0] === href ?
-                <Ellipsis className='mx-auto'><p>{t( text )}</p></Ellipsis>:
+                <Ellipsis className='mx-auto'><p>{t( text )}</p></Ellipsis> :
                 <p>{t( text )}</p>
             }
           </a>

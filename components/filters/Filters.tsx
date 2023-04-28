@@ -14,13 +14,23 @@ import { TagsFilter } from './form-elements/TagsFilter'
 import { DeepnessFilter } from './form-elements/DeepnessFilter'
 import { OrderFilter } from './form-elements/OrderFilter'
 import { AuthorFilter } from './form-elements/AuthorFilter'
-import { concretizePathname, decodeBooleanAndNumbers, filterQuestions, reduceToObject, updateQuery } from './filtersHelpers'
+import {
+  concretizePathname,
+  decodeBooleanAndNumbers,
+  filterQuestions,
+  reduceToObject,
+  updateQuery
+} from './filtersHelpers'
 
 const DEFAULT_TAG_STATE: TriStateSwitchState = 'IGNORE'
 const possibleDeepnessLevels = allQuestions.map( e => e.deepness ).filter( unique ).sort()
 export const minDeepness = Math.min( ...possibleDeepnessLevels )
 export const maxDeepness = Math.max( ...possibleDeepnessLevels )
-export const allTags = allQuestions.filter( e => Array.isArray( e.tags ) ).map( e => e.tags as string[] ).flat().filter( unique )
+export const allTags = allQuestions
+  .filter( e => Array.isArray( e.tags ) )
+  .map( e => e.tags as string[] )
+  .flat()
+  .filter( unique )
 export const QUERY_INDEX = 'filters'
 
 export interface FiltersProps {
@@ -46,7 +56,13 @@ const defaultValues: FiltersObject = {
   showAuthors: true,
 }
 
-export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShowAuthors }: FiltersProps ): JSX.Element => {
+export const Filters = ( {
+  allQuestions,
+  currentQuestions,
+  setQuestions,
+  setShowAuthors
+}: FiltersProps ): JSX.Element => {
+
   const { t } = useTranslation( 'common', { keyPrefix: 'filters' } )
   const { replace, query, pathname } = useRouter()
   const form = useForm<FiltersObject>( { defaultValues } )
@@ -60,8 +76,8 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
       const concretizedPathname = concretizePathname( pathname, query )
 
       replace(
-        { pathname:concretizedPathname, query },
-        { pathname:concretizedPathname, query },
+        { pathname: concretizedPathname, query },
+        { pathname: concretizedPathname, query },
         { scroll: false, shallow: true }
       )
     } )
@@ -70,11 +86,11 @@ export const Filters = ( { allQuestions, currentQuestions, setQuestions, setShow
 
   useEffect( () => {
     const fromURL = typeof query[QUERY_INDEX] === 'string' ?
-      qs.parse( query[QUERY_INDEX] ,{ decoder: decodeBooleanAndNumbers } ) :
+      qs.parse( query[QUERY_INDEX], { decoder: decodeBooleanAndNumbers } ) :
       {}
     if ( Object.keys( updatedDiff( fromURL, getValues() ) ).length > 0 )
       reset( defaultsDeep( fromURL, defaultValues ) )
-  } , [reset, query, getValues] )
+  }, [reset, query, getValues] )
 
   return (
     <FormProvider {...form} >

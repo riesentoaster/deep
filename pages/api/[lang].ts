@@ -17,7 +17,7 @@ export default apiify(
       res.status( 404 ).json( { message: 'Could not find language.' } )
       return
     }
-    const dir = path.resolve( './public',`locales/${locales[offset]}` )
+    const dir = path.resolve( './public', `locales/${locales[offset]}` )
     try {
       const translations = {
         questions: JSON.parse( '' + fs.readFileSync( path.join( dir, 'questions.json' ) ) ),

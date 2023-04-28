@@ -15,8 +15,8 @@ const mod = ( n: number, m: number ): number => ( ( n % m ) + m ) % m
 const filterQuestions = ( questions: Question[], index: number, n: number ): Question[] => {
   if ( questions.length === 0 || questions.length < n ) return questions
   const normalizedIndex = mod( index, questions.length )
-  const firstNumber = mod( normalizedIndex*n, questions.length )
-  const allowedNumbers = Array( n ).fill( 1 ).map( ( _,j ) => mod( firstNumber+j, questions.length ) )
+  const firstNumber = mod( normalizedIndex * n, questions.length )
+  const allowedNumbers = Array( n ).fill( 1 ).map( ( _, j ) => mod( firstNumber + j, questions.length ) )
   return allowedNumbers.map( e => questions[e] )
 }
 
@@ -35,7 +35,10 @@ const BestOfNComponent: PageifyComponent = ( { questions, showAuthors } ) => {
 
   return (
     <div className='py-5 flex flex-row'>
-      {questions.length > intN && <ChevronLeftIcon className='h-6 w-6 grow shrink-0 my-auto' onClick={(): void => setIndex( index-1 )}/>}
+      {
+        questions.length > intN &&
+          <ChevronLeftIcon className='h-6 w-6 grow shrink-0 my-auto' onClick={(): void => setIndex( index - 1 )}/>
+      }
       <ul className='w-fit mx-auto text-center'>
         {filterQuestions( questions, index, intN ).map( e =>
           <li
@@ -45,7 +48,10 @@ const BestOfNComponent: PageifyComponent = ( { questions, showAuthors } ) => {
           </li>
         )}
       </ul>
-      {questions.length > intN && <ChevronRightIcon className='h-6 w-6 grow shrink-0 my-auto' onClick={(): void => setIndex( index + 1 )}/> }
+      {
+        questions.length > intN &&
+          <ChevronRightIcon className='h-6 w-6 grow shrink-0 my-auto' onClick={(): void => setIndex( index + 1 )}/>
+      }
     </div>
   )
 }

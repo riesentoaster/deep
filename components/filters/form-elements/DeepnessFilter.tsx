@@ -8,7 +8,7 @@ import { maxDeepness, minDeepness } from '../Filters'
 export const DeepnessFilter = (): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'filters.deepness' } )
 
-  return( <fieldset>
+  return ( <fieldset>
     <FiltersTitle titleText={t( 'title' )} explanation={<DeepnessExplanation />} />
     <Controller
       name={'deepness'}
@@ -22,7 +22,10 @@ export const DeepnessFilter = (): JSX.Element => {
           marks={{ [minDeepness]: t( 'min' ), [maxDeepness]: t( 'max' ) }}
           allowCross={false}
           value={[value.min, value.max]}
-          onChange={( value: number | number[] ): void => onChange( Array.isArray( value ) && { min: value[0], max: value[1] } )} />
+          onChange={
+            ( value: number | number[] ): void =>
+              onChange( Array.isArray( value ) && { min: value[0], max: value[1] } )
+          } />
       )} />
   </fieldset>
   )

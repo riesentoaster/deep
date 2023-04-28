@@ -3,7 +3,12 @@ import { Menu } from './Menu'
 import { Dropdown } from './Dropdown'
 import { useTranslation } from 'next-i18next'
 
-export const Header = ( { allQuestions, currentQuestions, setQuestions, setShowAuthors }: FiltersProps ): JSX.Element => {
+export const Header = ( {
+  allQuestions,
+  currentQuestions,
+  setQuestions,
+  setShowAuthors
+}: FiltersProps ): JSX.Element => {
   const { t } = useTranslation( 'common' )
   return (
     <header className='p-10 border-b'>

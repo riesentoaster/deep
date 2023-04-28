@@ -5,7 +5,7 @@ import { Question } from '../../public/questions'
 import qs from 'qs'
 import { ParsedUrlQuery } from 'querystring'
 
-export const reduceToObject = ( acc: Record<string,any>, cur: Record<string,any> ): Record<string,any> => Object.assign( acc, cur )
+export const reduceToObject = <R extends Record<string, any>> ( acc: R, cur: R ): R => Object.assign( acc, cur )
 
 type DeepPartial<T> = {
     [K in keyof T]?: T[K] extends object ? DeepPartial<T[K]> : T[K]
@@ -35,7 +35,7 @@ export const filterQuestions = ( questions: Question[], value: DeepPartial<Filte
   if ( !sets ) {
     filtered.sort( ( ) => Math.random() - 0.5 )
     if ( randomness )
-      filtered.sort( ( a,b ) =>
+      filtered.sort( ( a, b ) =>
         randomness > Math.random() ?
           Math.random() - 0.5 :
           a.deepness - b.deepness + ( Math.random() / 10 - 0.05 )

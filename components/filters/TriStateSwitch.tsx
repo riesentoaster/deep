@@ -11,7 +11,12 @@ interface TriStateSwitchProps {
 
 export type TriStateSwitchState = 'REQUIRE' | 'IGNORE' | 'PROHIBIT';
 
-export const TriStateSwitch = ( { text, state, setState, setIfUnchanged=true }: TriStateSwitchProps ): JSX.Element => {
+export const TriStateSwitch = ( {
+  text,
+  state,
+  setState,
+  setIfUnchanged = true
+}: TriStateSwitchProps ): JSX.Element => {
   const change = ( state: TriStateSwitchState, element: TriStateSwitchState ) => (): void => {
     if ( setIfUnchanged || state !== element )
       setState( element )
