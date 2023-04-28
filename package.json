@@ -27,7 +27,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
     "react-plotly.js": "^2.6.0",
-    "sass": "^1.54.6"
+    "sass": "^1.62.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
