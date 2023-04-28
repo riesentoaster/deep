@@ -2,6 +2,7 @@ import { Ellipsis } from './Ellipsis'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { QUERY_INDEX } from './filters/Filters'
+import { useEffect } from 'react'
 
 const links = {
   'allQuestions': '/',
@@ -12,8 +13,10 @@ const links = {
 }
 
 export const Menu = (): JSX.Element => {
-  const { asPath, query, push } = useRouter()
+  const { asPath, query, push, prefetch } = useRouter()
   const { t } = useTranslation( 'common', { keyPrefix: 'links' } )
+
+  useEffect( () => Object.entries( links ).forEach( pathname => prefetch( `${pathname}?${query}` ) ) )
 
   return (
     <div className='text-center py-2'>
