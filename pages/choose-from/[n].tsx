@@ -5,11 +5,12 @@ import { useTranslation } from 'next-i18next'
 import { NoQuestionsLeft } from '../../components/NoQuestionsLeft'
 import { Pageify, PageifyComponent } from '../../helpers/pageify'
 import { Question } from '../../public/questions'
-import { mod } from '../../helpers/helpers'
 import { useState } from 'react'
 import { Question as QuestionElement } from '../../components/Question'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 import { ErrorMessage } from '../../components/ErrorMessage'
+
+const mod = ( n: number, m: number ): number => ( ( n % m ) + m ) % m
 
 const filterQuestions = ( questions: Question[], index: number, n: number ): Question[] => {
   if ( questions.length === 0 || questions.length < n ) return questions

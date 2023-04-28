@@ -1,5 +1,5 @@
 import { Controller, useWatch } from 'react-hook-form'
-import { FiltersTitle } from '../FiltersTitle'
+import { FiltersTitle } from './titles/FiltersTitle'
 import { OrderExplanation } from './explanations/OrderExplanation'
 import { EllipsisSwitch } from '../../EllipsisSwitch'
 import Slider from 'rc-slider'

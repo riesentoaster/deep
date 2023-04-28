@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { getCumSumNumberMapper, unique } from '../../helpers/helpers'
+import { unique } from '../../helpers/helpers'
 import { Plot } from './Plot'
 
 type SeriesHeader = string|number
@@ -18,6 +18,11 @@ export interface StackedTimeSeriesPlotProps {
 const identityFunction: <Type>( e: Type ) => Type = e => e
 const getValue = ( entries: StackedTimeSeriesPlotEntry[], date: string, series: SeriesHeader ): number =>
   entries.filter( e => e.date === date && e.series === series ).map( e => e.value ).reduce( ( acc, cur ) => acc + cur, 0 )
+
+const getCumSumNumberMapper: ( ) => ( n: number ) => number = () => {
+  const m = ( ( sum: number ) => ( value: number ): number => sum += value )
+  return m( 0 )
+}
 
 export const StackedTimeSeriesPlot = ( { entries, cumsum=false }: StackedTimeSeriesPlotProps ): JSX.Element => {
   const plotData = useMemo( () => {

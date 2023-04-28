@@ -1,5 +1,5 @@
 import { useFormContext } from 'react-hook-form'
-import { FiltersTitle } from '../FiltersTitle'
+import { FiltersTitle } from './titles/FiltersTitle'
 import { AuthorExplanation } from './explanations/AuthorExplanation'
 import { useTranslation } from 'next-i18next'
 

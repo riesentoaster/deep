@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next'
 import { allTags } from '../Filters'
-import { FiltersTitle } from '../FiltersTitle'
+import { FiltersTitle } from './titles/FiltersTitle'
 import { TagsExplanation } from './explanations/TagsExplanation'
 import { TriStateSwitch, TriStateSwitchState } from '../TriStateSwitch'
 import { Controller } from 'react-hook-form'
