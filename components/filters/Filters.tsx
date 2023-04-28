@@ -16,8 +16,10 @@ import { OrderFilter } from './form-elements/OrderFilter'
 import { AuthorFilter } from './form-elements/AuthorFilter'
 import { concretizePathname, decodeBooleanAndNumbers, filterQuestions, reduceToObject, updateQuery } from './filtersHelpers'
 
-const possibleDeepnessLevels = allQuestions.map( e => e.deepness ).filter( unique ).sort()
 const DEFAULT_TAG_STATE: TriStateSwitchState = 'IGNORE'
+const possibleDeepnessLevels = allQuestions.map( e => e.deepness ).filter( unique ).sort()
+export const minDeepness = Math.min( ...possibleDeepnessLevels )
+export const maxDeepness = Math.max( ...possibleDeepnessLevels )
 export const allTags = allQuestions.filter( e => Array.isArray( e.tags ) ).map( e => e.tags as string[] ).flat().filter( unique )
 export const QUERY_INDEX = 'filters'
 
@@ -38,7 +40,7 @@ export interface FiltersObject {
 
 const defaultValues: FiltersObject = {
   tags: allTags.map( e => ( { [e]: DEFAULT_TAG_STATE } ) ).reduce( reduceToObject, {} ),
-  deepness: { min: Math.min( ...possibleDeepnessLevels ), max:Math.max( ...possibleDeepnessLevels ) },
+  deepness: { min: minDeepness, max: maxDeepness },
   randomness: 0,
   sets: false,
   showAuthors: true,

@@ -3,6 +3,7 @@ import { FiltersTitle } from './titles/FiltersTitle'
 import { DeepnessExplanation } from './explanations/DeepnessExplanation'
 import Slider from 'rc-slider'
 import { useTranslation } from 'next-i18next'
+import { maxDeepness, minDeepness } from '../Filters'
 
 export const DeepnessFilter = (): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'filters.deepness' } )
@@ -13,11 +14,12 @@ export const DeepnessFilter = (): JSX.Element => {
       name={'deepness'}
       render={( { field: { value, onChange } } ): JSX.Element => (
         <Slider
-          className='my-1'
+          className='mt-1 mb-3'
           range
-          min={1}
-          max={5}
+          min={minDeepness}
+          max={maxDeepness}
           step={1}
+          marks={{ [minDeepness]: t( 'min' ), [maxDeepness]: t( 'max' ) }}
           allowCross={false}
           value={[value.min, value.max]}
           onChange={( value: number | number[] ): void => onChange( Array.isArray( value ) && { min: value[0], max: value[1] } )} />

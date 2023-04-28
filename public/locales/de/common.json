@@ -15,8 +15,8 @@
         "deepness": {
             "title": "Deepness",
             "explanation": "Jede Frage hat eine «Deepness». Je grösser diese, desto persönlicher die Frage.",
-            "minDeepness": "Minimale Deepness",
-            "maxDeepness": "Maximale Deepness"
+            "min": "min",
+            "max": "max"
         },
         "order": {
             "title": "Sortierung",

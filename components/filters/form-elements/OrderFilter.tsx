@@ -27,18 +27,15 @@ export const OrderFilter = (): JSX.Element => {
       {!randomnessHidden &&
     <label>
       <h4 className='mx-auto w-fit'>{t( 'randomness.title' )}</h4>
-      <div className='flex items-center justify-between'>
-        <p className='mr-10'>{t( 'randomness.byDeepness' )}</p>
-        <p className='ml-auto'>{t( 'randomness.random' )}</p>
-      </div>
       <Controller
         name='randomness'
         render={( { field: { value, onChange } } ): JSX.Element => (
           <Slider
-            className='my-1'
+            className='mt-1 mb-3'
             min={0}
             max={1}
             step={0.01}
+            marks={{ 0: t( 'randomness.byDeepness' ), 1: t( 'randomness.random' ) }}
             value={value}
             onChange={onChange} />
         )} />

@@ -15,8 +15,8 @@
         "deepness": {
             "title": "Deepness",
             "explanation": "Each question has a \"deepness\". The bigger its deepness, the more personal the question.",
-            "minDeepness": "Minimal Deepness",
-            "maxDeepness": "Maximal Deepness"
+            "min": "min",
+            "max": "max"
         },
         "order": {
             "title": "Order",
