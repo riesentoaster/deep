@@ -16,7 +16,7 @@ export const Menu = (): JSX.Element => {
   const { asPath, query, push, prefetch } = useRouter()
   const { t } = useTranslation( 'common', { keyPrefix: 'links' } )
 
-  useEffect( () => Object.entries( links ).forEach( pathname => prefetch( `${pathname}?${query}` ) ) )
+  useEffect( () => Object.entries( links ).forEach( pathname => prefetch( `${pathname}?${query}` ) ), [prefetch, query] )
 
   return (
     <div className='text-center py-2'>
