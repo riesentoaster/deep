@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 export interface Question {
   question: string
   index?: number
@@ -912,7 +913,7 @@ const questionsByDate: QuestionsByDate = {
 export const questions: Question[] = Object.entries( questionsByDate )
   .sort( ( a, b ) => ( a[0] <= b[0] ? -1 : 1 ) )
   .map( ( [date, q], i, arr ) => {
-    const p = arr.slice( 0,i ).map( e => e[1].length ).reduce( ( acc,cur ) => acc+cur, 0 )
+    const p = arr.slice( 0, i ).map( e => e[1].length ).reduce( ( acc, cur ) => acc + cur, 0 )
     return q.map( e => {
       e.date = date
       e.index += p

@@ -7,6 +7,8 @@ import { ParsedUrlQuery } from 'querystring'
 
 export const reduceToObject = <R extends Record<string, any>> ( acc: R, cur: R ): R => Object.assign( acc, cur )
 
+const random: ( ) => number = () => Math.random() - 0.5
+
 type DeepPartial<T> = {
     [K in keyof T]?: T[K] extends object ? DeepPartial<T[K]> : T[K]
   }
@@ -26,18 +28,18 @@ export const decodeBooleanAndNumbers: qs.IParseOptions['decoder'] = ( str, defau
 export const filterQuestions = ( questions: Question[], value: DeepPartial<FiltersObject> ): Question[] => {
   const { deepness, tags, randomness, sets } = value
   let filtered = questions
-  if ( deepness ) {
+  if ( deepness !== undefined ) {
     filtered = filtered.filter( e => deepness.min === undefined || e.deepness >= deepness.min )
     filtered = filtered.filter( e => deepness.max === undefined || e.deepness <= deepness.max )
   }
-  if ( tags )
+  if ( tags !== undefined )
     filtered = filtered.filter( e => filterTags( e, tags ) )
   if ( !sets ) {
-    filtered.sort( ( ) => Math.random() - 0.5 )
-    if ( randomness )
+    filtered.sort( random )
+    if ( randomness !== undefined )
       filtered.sort( ( a, b ) =>
         randomness > Math.random() ?
-          Math.random() - 0.5 :
+          random() :
           a.deepness - b.deepness + ( Math.random() / 10 - 0.05 )
       )
   }
