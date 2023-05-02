@@ -11,7 +11,7 @@ const StatsComponent: PageifyComponent = ( { questions } ) => {
   const { t: statsT } = useTranslation( 'common', { keyPrefix: 'stats' } )
 
   const deepnessEntries = useMemo( () =>
-    questions.map( e => ( { date: e.date, series: e.deepness, value: 1 } ) ),
+    questions.map( e => ( { date: e.date, series: e.deepness } ) ),
   [questions] )
 
   const tagsEntries = useMemo( () => {
@@ -19,7 +19,7 @@ const StatsComponent: PageifyComponent = ( { questions } ) => {
     for ( const q of questions )
       if ( q.tags )
         for ( const tag of q.tags )
-          res.push( { date: q.date, series: tagsT( tag ), value: 1 } )
+          res.push( { date: q.date, series: tagsT( tag ) } )
     return res
   },
   [questions, tagsT] )

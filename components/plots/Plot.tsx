@@ -10,7 +10,7 @@ const defaultLayout: Partial<Layout> = {
   font: { color: 'white' },
   margin: { t: 0, b: 0, l: 0, r: 0 },
   xaxis: { showgrid: false, automargin: true },
-  yaxis: { showgrid: false, rangemode: 'tozero', automargin: true },
+  yaxis: { showgrid: false, automargin: true, rangemode: 'tozero' }
 }
 
 export type PlotDataProp = {label: string|number; value: number}
@@ -24,6 +24,7 @@ export const Plot = ( { data }: PlotParams ): JSX.Element => (
   <PlotlyPlot
     data={ data }
     layout={ defaultLayout }
+    config={{ staticPlot: true, responsive: true }}
     className='w-full'
   />
 )

@@ -14,19 +14,14 @@ html {
 }
 
 body {
-    background: $backgroundColor;
     color: $bodyColor;
     font-family: $bodyFont;
-}
-
-body {
     background-color: $backgroundColor;
-    color: $bodyColor;
     margin: 0 auto;
     min-height: 100%;
+    width: $bodyWidth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    width: $bodyWidth;
 }
 
 @media #{$mobile} {
