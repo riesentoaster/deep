@@ -9,7 +9,7 @@ function MyApp( { Component, pageProps }: AppProps ): JSX.Element {
 
   useEffect( () => {
     if ( 'serviceWorker' in navigator )
-      new Workbox( 'service-worker.js' ).register()
+      new Workbox( '/service-worker.js' ).register()
   }, [] )
 
   return (
