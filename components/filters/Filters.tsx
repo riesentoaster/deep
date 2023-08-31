@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next'
 import { TriStateSwitchState } from './TriStateSwitch'
-import { Question, questions as allQuestions } from '../../public/questions'
+import { Question, questions as allQuestions } from '../../shared/questions'
 import { useEffect } from 'react'
 import { unique } from '../../helpers/helpers'
 import { FormProvider, useForm } from 'react-hook-form'

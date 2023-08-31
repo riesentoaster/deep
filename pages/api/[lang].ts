@@ -1,4 +1,4 @@
-import { questions } from '../../public/questions'
+import { questions } from '../../shared/questions'
 import fs from 'fs'
 import { apiify } from '../../helpers/apiify'
 import path from 'path'

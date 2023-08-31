@@ -1,4 +1,4 @@
-import { Question, questions as allQuestions } from '../public/questions'
+import { Question, questions as allQuestions } from '../shared/questions'
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { Header } from '../components/Header'

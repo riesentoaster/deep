@@ -1,7 +1,7 @@
 import { updatedDiff } from 'deep-object-diff'
 import { FiltersObject, QUERY_INDEX } from './Filters'
 import { TriStateSwitchState } from './TriStateSwitch'
-import { Question } from '../../public/questions'
+import { Question } from '../../shared/questions'
 import qs from 'qs'
 import { ParsedUrlQuery } from 'querystring'
 

@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next'
-import { Question as QuestionType } from '../public/questions'
+import { Question as QuestionType } from '../shared/questions'
 
 const nonBreakingSpace = '\u00A0'
 interface QuestionProps {
