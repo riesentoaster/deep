@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "devbuild": "npm run build && npm run start",
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
@@ -27,7 +28,8 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
     "react-plotly.js": "^2.6.0",
-    "sass": "^1.54.6"
+    "sass": "^1.54.6",
+    "workbox-webpack-plugin": "^7.0.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
