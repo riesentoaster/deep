@@ -2,6 +2,8 @@
 const { i18n } = require( './next-i18next.config' )
 const wwp = require( 'workbox-webpack-plugin' )
 
+const pages = [ '/', '/choose-from/1', '/choose-from/3', '/choose-from/5', '/stats']
+const translatedPages = [...pages, ...pages.map( e => '/de' + e ), ...pages.map( e => '/en' + e )]
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -9,6 +11,7 @@ const nextConfig = {
   i18n,
   webpack: config => {
     config.plugins.push( new wwp.GenerateSW( {
+      additionalManifestEntries: translatedPages.map( e => ( { url: e, revision: new Date().toISOString() } ) ),
       clientsClaim: true,
       skipWaiting: true,
       maximumFileSizeToCacheInBytes: 1e9,
