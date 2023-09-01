@@ -1,14 +1,13 @@
-import type { GetStaticPaths, GetStaticProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { makeStaticProps, getStaticPaths } from 'i18next-ssg/server'
 import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
-import { NoQuestionsLeft } from '../../components/NoQuestionsLeft'
-import { Pageify, PageifyComponent } from '../../helpers/pageify'
-import { Question } from '../../shared/questions'
+import { useTranslation } from 'i18next-ssg'
+import { NoQuestionsLeft } from '../../../components/NoQuestionsLeft'
+import { Pageify, PageifyComponent } from '../../../helpers/pageify'
+import { Question } from '../../../shared/questions'
 import { useState } from 'react'
-import { Question as QuestionElement } from '../../components/Question'
+import { Question as QuestionElement } from '../../../components/Question'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
-import { ErrorMessage } from '../../components/ErrorMessage'
+import { ErrorMessage } from '../../../components/ErrorMessage'
 
 const mod = ( n: number, m: number ): number => ( ( n % m ) + m ) % m
 
@@ -60,15 +59,6 @@ const BestOfNPage = (): JSX.Element => Pageify( { child: BestOfNComponent } )
 
 export default BestOfNPage
 
-export const getStaticProps: GetStaticProps = async ( { locale } ) => ( {
-  props: {
-    ...await serverSideTranslations( locale || 'en', ['common', 'questions'] )
-  }
-} )
+const getStaticProps = makeStaticProps( ['common'] )
+export { getStaticPaths, getStaticProps }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: 'blocking'
-  }
-}

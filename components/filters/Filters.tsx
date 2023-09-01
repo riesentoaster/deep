@@ -1,4 +1,4 @@
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from 'i18next-ssg'
 import { TriStateSwitchState } from './TriStateSwitch'
 import { Question, questions as allQuestions } from '../../shared/questions'
 import { useEffect } from 'react'

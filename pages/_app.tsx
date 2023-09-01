@@ -1,6 +1,6 @@
 import '../styles/globals.scss'
 import type { AppProps } from 'next/app'
-import { appWithTranslation } from 'next-i18next'
+import { appWithTranslation } from 'i18next-ssg'
 import { Workbox } from 'workbox-window'
 import { Analytics } from '@vercel/analytics/react'
 import { useEffect } from 'react'
@@ -21,4 +21,3 @@ function MyApp( { Component, pageProps }: AppProps ): JSX.Element {
 }
 
 export default appWithTranslation( MyApp )
-

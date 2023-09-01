@@ -1,4 +1,4 @@
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from 'i18next-ssg'
 import { allTags } from '../Filters'
 import { FiltersTitle } from './titles/FiltersTitle'
 import { TagsExplanation } from './explanations/TagsExplanation'

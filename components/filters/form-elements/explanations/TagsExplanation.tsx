@@ -1,4 +1,4 @@
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from 'i18next-ssg'
 import { TriStateSwitch, TriStateSwitchState } from '../../TriStateSwitch'
 import { useState } from 'react'
 

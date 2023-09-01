@@ -1,4 +1,4 @@
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from 'i18next-ssg'
 import { ErrorMessage } from './ErrorMessage'
 
 export const NoQuestionsLeft = (): JSX.Element => {

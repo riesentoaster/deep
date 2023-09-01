@@ -3,7 +3,7 @@ import { FiltersTitle } from './titles/FiltersTitle'
 import { OrderExplanation } from './explanations/OrderExplanation'
 import { EllipsisSwitch } from '../../EllipsisSwitch'
 import Slider from 'rc-slider'
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from 'i18next-ssg'
 
 export const OrderFilter = (): JSX.Element => {
   const randomnessHidden = useWatch( { name: 'sets' } )

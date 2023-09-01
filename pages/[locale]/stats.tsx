@@ -1,9 +1,8 @@
-import type { GetStaticProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useTranslation } from 'next-i18next'
-import { StackedTimeSeriesPlot } from '../components/plots/StackedTimeSeriesPlot'
+import { makeStaticProps, getStaticPaths } from 'i18next-ssg/server'
+import { useTranslation } from 'i18next-ssg'
+import { StackedTimeSeriesPlot } from '../../components/plots/StackedTimeSeriesPlot'
 import { useMemo } from 'react'
-import { Pageify, PageifyComponent } from '../helpers/pageify'
+import { Pageify, PageifyComponent } from '../../helpers/pageify'
 
 const StatsComponent: PageifyComponent = ( { questions } ) => {
 
@@ -43,9 +42,5 @@ const StatsComponent: PageifyComponent = ( { questions } ) => {
 const Stats = (): JSX.Element => Pageify( { child: StatsComponent } )
 export default Stats
 
-export const getStaticProps: GetStaticProps = async ( { locale } ) => ( {
-  props: {
-    ...await serverSideTranslations( locale || 'en', ['common', 'tags', 'questions'] ),
-  },
-} )
-
+const getStaticProps = makeStaticProps( ['common'] )
+export { getStaticPaths, getStaticProps }

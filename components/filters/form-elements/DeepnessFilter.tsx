@@ -2,7 +2,7 @@ import { Controller } from 'react-hook-form'
 import { FiltersTitle } from './titles/FiltersTitle'
 import { DeepnessExplanation } from './explanations/DeepnessExplanation'
 import Slider from 'rc-slider'
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from 'i18next-ssg'
 import { maxDeepness, minDeepness } from '../Filters'
 
 export const DeepnessFilter = (): JSX.Element => {

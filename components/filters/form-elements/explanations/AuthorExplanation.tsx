@@ -1,4 +1,4 @@
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from 'i18next-ssg'
 
 export const AuthorExplanation = (): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'filters.authors' } )

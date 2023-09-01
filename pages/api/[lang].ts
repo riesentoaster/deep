@@ -2,8 +2,7 @@ import { questions } from '../../shared/questions'
 import fs from 'fs'
 import { apiify } from '../../helpers/apiify'
 import path from 'path'
-
-const locales: string[] = require( '../../next-i18next.config' ).i18n.locales
+import { config } from 'i18next-ssg'
 
 export default apiify(
   ( req, res ): void => {
@@ -11,13 +10,13 @@ export default apiify(
       res.status( 404 ).json( { message: 'Did not provide language in appropriate format.' } )
       return
     }
-    const offset = locales.indexOf( req.query.lang )
+    const offset = config.locales.indexOf( req.query.lang )
 
     if ( offset < 0 ) {
       res.status( 404 ).json( { message: 'Could not find language.' } )
       return
     }
-    const dir = path.resolve( './public', `locales/${locales[offset]}` )
+    const dir = path.resolve( './public', `locales/${config.locales[offset]}` )
     try {
       const translations = {
         questions: JSON.parse( '' + fs.readFileSync( path.join( dir, 'questions.json' ) ) ),

@@ -1,7 +1,7 @@
 import { useFormContext } from 'react-hook-form'
 import { FiltersTitle } from './titles/FiltersTitle'
 import { AuthorExplanation } from './explanations/AuthorExplanation'
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from 'i18next-ssg'
 
 export const AuthorFilter = (): JSX.Element => {
   const { register } = useFormContext()

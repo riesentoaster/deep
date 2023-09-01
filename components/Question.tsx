@@ -1,4 +1,4 @@
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from 'i18next-ssg'
 import { Question as QuestionType } from '../shared/questions'
 
 const nonBreakingSpace = '\u00A0'
