@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import { StackedTimeSeriesPlot } from './components/plots/StackedTimeSeriesPlot'
-import { useContext, useMemo } from 'react'
 import { CurrentQuestionsContext } from './Layout'
+import { RechartsPlot } from './components/plots/Plot'
+import { useContext } from 'react'
+import { Question } from './questions'
 
 export const Stats = ( ): JSX.Element => {
 
@@ -9,31 +10,21 @@ export const Stats = ( ): JSX.Element => {
   const { t: statsT } = useTranslation( 'common', { keyPrefix: 'stats' } )
   const questions = useContext( CurrentQuestionsContext )
 
-  const deepnessEntries = useMemo( () =>
-    questions.map( e => ( { date: e.date, series: e.deepness } ) ),
-  [questions] )
-
-  const tagsEntries = useMemo( () => {
-    const res = []
-    for ( const q of questions )
-      if ( q.tags )
-        for ( const tag of q.tags )
-          res.push( { date: q.date, series: tagsT( tag ) } )
-    return res
-  }, [questions, tagsT] )
+  const deepnessGrouper = ( q: Question ): string => q.deepness.toString()
+  const tagGrouper = ( q: Question ): string[] => q.tags?.map( tag => tagsT( tag ) ) || []
 
   return ( <>
     <h2>{statsT( 'deepnesses' )}</h2>
     <h3>{statsT( 'added' )}</h3>
-    <StackedTimeSeriesPlot entries={deepnessEntries} />
+    <RechartsPlot questions={questions} groupBy={deepnessGrouper}/>
     <h3>{statsT( 'cumulative' )}</h3>
-    <StackedTimeSeriesPlot entries={deepnessEntries} cumsum={true} />
+    <RechartsPlot questions={questions} groupBy={deepnessGrouper} cumsum/>
     <hr/>
     <h2>{statsT( 'tags' )}</h2>
     <h3>{statsT( 'added' )}</h3>
-    <StackedTimeSeriesPlot entries={tagsEntries} />
+    <RechartsPlot questions={questions} groupBy={tagGrouper}/>
     <h3>{statsT( 'cumulative' )}</h3>
-    <StackedTimeSeriesPlot entries={tagsEntries} cumsum={true} />
+    <RechartsPlot questions={questions} groupBy={tagGrouper} cumsum/>
   </>
   )
 }
