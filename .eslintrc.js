@@ -1,12 +1,17 @@
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable no-undef */
 module.exports = {
   env: {
     browser: true,
     es6: true
   },
   extends: [
-    'next/core-web-vitals',
     'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended'
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:sonarjs/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -77,6 +82,7 @@ module.exports = {
         next: 'multiline-expression'
       },
       { blankLine: 'always', prev: 'import', next: 'expression' }
-    ]
+    ],
+    'react/react-in-jsx-scope': 'off'
   }
 }

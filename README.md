@@ -23,7 +23,7 @@ npm install
 
 5. Run the development server:
 ```bash
-npm run dev
+npm run start
 ```
 
 6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -32,7 +32,7 @@ npm run dev
 
 ### Content
 
-The *content* of this project (which includes [the questions](./shared/questions.ts) and [the translations](./public/locales/)) is licensed  under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+The *content* of this project (which includes [the questions](./src/questions.ts) and [the translations](./src/locales/)) is licensed  under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ### Code
 

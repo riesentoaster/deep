@@ -1,0 +1,69 @@
+{
+    "deep": "deep",
+    "filters": {
+        "title": "Filter",
+        "tags": {
+            "title": "Tags",
+            "explanation": {
+                "overview": "Tags erlauben es, die Fragen nach Inhalt zu filtern.",
+                "example-tag": "Beispiel-Tag",
+                "state-ignore": "In diesem Zustand wird dieses Tag ignoriert.",
+                "state-require": "In diesem Zustand werden nur Fragen angezeigt, die das entsprechende Tag aufweisen.",
+                "state-prohibit": "In diesem Zustand werden nur Fragen angezeigt, die das entsprechende Tag nicht aufweisen."
+            }
+        },
+        "deepness": {
+            "title": "Deepness",
+            "explanation": "Jede Frage hat eine «Deepness». Je grösser diese, desto persönlicher die Frage.",
+            "min": "min",
+            "max": "max"
+        },
+        "order": {
+            "title": "Sortierung",
+            "mode": {
+                "title": "Modus",
+                "random": "Zufällig",
+                "sets": "Sets",
+                "explanation-random": "In diesem Modus werden die Fragen bei jedem Anpassen der Filter und beim Neu-Laden der Seite zufällig angeordnet.",
+                "explanation-sets": "In diesem Modus werden die gefilterten Fragen immer gleich angeordnet."
+            },
+            "randomness": {
+                "title": "Zufall",
+                "byDeepness": "Nach Deepness",
+                "random": "Zufällig",
+                "explanation": "In den Extremfällen werden die Fragen entweder ausschliesslich innerhalb oder komplett unabhängig der Deepnesse zufällig angeordnet. Dazwischen spielen die Deepnesse eine immer grösser- bzw. kleinerwerdende Rolle."
+            }
+        },
+        "authors": {
+            "title": "Autoren",
+            "showAuthors": "Autoren anzeigen",
+            "explanation": "Bei einigen Fragen ist ein Autor bekannt."
+        },
+        "questionsLeft": "Fragen übrig."
+    },
+    "urlInvalid": "URL ungültig",
+    "noQuestionsLeft": "Diese Filter lassen keine Frage übrig.",
+    "updating": "deep wird aktualisiert…",
+    "links": {
+        "menu": "Menu",
+        "allQuestions": "Alle Fragen",
+        "randomQuestion": "Zufällige Frage",
+        "chooseFrom3": "Von 3 auswählen",
+        "chooseFrom5": "Von 5 auswählen",
+        "stats": "Statistiken"
+    },
+    "stats": {
+        "title": "deep – Statistiken",
+        "added": "Hinzugefügt",
+        "cumulative": "Kumulativ",
+        "deepnesses": "Deepnesse",
+        "tags": "Tags"
+    },
+    "tags": {
+        "christians": "Für Christen",
+        "twoPeople": "Für 2 Personen",
+        "philosophy": "Philosophie",
+        "love": "Liebe und Sex",
+        "hasAuthor": "Hat Autor:in"
+    }
+}
