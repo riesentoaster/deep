@@ -1,9 +1,9 @@
 import { Question, questions as allQuestions } from './questions'
 import { createContext, useEffect, useState } from 'react'
-import { filterQuestions } from './components/filters/filtersHelpers'
-import { defaultValues } from './components/filters/filtersHelpers'
-import { Header } from './components/Header'
-import { Footer } from './components/Footer'
+import { filterQuestions } from './components/header/filtersHelpers'
+import { defaultValues } from './components/header/filtersHelpers'
+import { Header } from './components/header/Header'
+import { Footer } from './components/footer/Footer'
 import { Outlet, useLocation } from 'react-router-dom'
 import { Workbox } from 'workbox-window'
 

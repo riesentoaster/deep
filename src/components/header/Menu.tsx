@@ -1,7 +1,7 @@
 // import { Ellipsis } from './Ellipsis'
 import { useTranslation } from 'react-i18next'
 import { NavLink, useSearchParams } from 'react-router-dom'
-import { Ellipsis } from './Ellipsis'
+import { Ellipsis } from '../shared/Ellipsis'
 
 const links = {
   'allQuestions': '/',

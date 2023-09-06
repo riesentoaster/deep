@@ -1,7 +1,7 @@
 import { Controller, useWatch } from 'react-hook-form'
 import { FiltersTitle } from './titles/FiltersTitle'
 import { OrderExplanation } from './explanations/OrderExplanation'
-import { EllipsisSwitch } from '../../EllipsisSwitch'
+import { EllipsisSwitch } from '../../shared/EllipsisSwitch'
 import { useTranslation } from 'react-i18next'
 import { Slider } from './Slider'
 

@@ -1,24 +1,24 @@
-import { FiltersObject, FiltersProps, QUERY_INDEX, defaultValues } from './filters/filtersHelpers'
-import { Dropdown } from './Dropdown'
+import { FiltersObject, FiltersProps, QUERY_INDEX, defaultValues } from './filtersHelpers'
+import { Dropdown } from '../shared/Dropdown'
 import { useTranslation } from 'react-i18next'
 
-import { questions as allQuestions } from '../questions'
+import { questions as allQuestions } from '../../questions'
 import { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { updatedDiff } from 'deep-object-diff'
 import qs from 'qs'
 import defaultsDeep from 'lodash.defaultsdeep'
-import { ErrorMessage } from './ErrorMessage'
+import { ErrorMessage } from '../shared/ErrorMessage'
 import 'rc-slider/assets/index.css'
 import {
   decodeBooleanAndNumbers,
   filterQuestions,
-} from './filters/filtersHelpers'
+} from './filtersHelpers'
 import { useSearchParams } from 'react-router-dom'
-import { TagsFilter } from './filters/form-elements/TagsFilter'
-import { DeepnessFilter } from './filters/form-elements/DeepnessFilter'
-import { OrderFilter } from './filters/form-elements/OrderFilter'
-import { AuthorFilter } from './filters/form-elements/AuthorFilter'
+import { TagsFilter } from './form-elements/TagsFilter'
+import { DeepnessFilter } from './form-elements/DeepnessFilter'
+import { OrderFilter } from './form-elements/OrderFilter'
+import { AuthorFilter } from './form-elements/AuthorFilter'
 import { Menu } from './Menu'
 
 export const Header = ( {

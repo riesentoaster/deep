@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { EllipsisSwitch } from './EllipsisSwitch'
+import { EllipsisSwitch } from '../shared/EllipsisSwitch'
 const localeInLocale: Record<string, string> = {
   de: 'Deutsch',
   en: 'English',

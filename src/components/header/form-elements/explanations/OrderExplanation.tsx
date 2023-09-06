@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { EllipsisSwitch } from '../../../EllipsisSwitch'
+import { EllipsisSwitch } from '../../../shared/EllipsisSwitch'
 import { useState } from 'react'
 
 export const OrderExplanation = (): JSX.Element => {

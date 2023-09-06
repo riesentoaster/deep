@@ -1,4 +1,4 @@
-import { Ellipsis } from './Ellipsis'
+import { Ellipsis } from '../shared/Ellipsis'
 import { LanguageSettings } from './LanguageSettings'
 
 export const Footer = (): JSX.Element => (
