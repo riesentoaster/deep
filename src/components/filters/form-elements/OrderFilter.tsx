@@ -2,8 +2,8 @@ import { Controller, useWatch } from 'react-hook-form'
 import { FiltersTitle } from './titles/FiltersTitle'
 import { OrderExplanation } from './explanations/OrderExplanation'
 import { EllipsisSwitch } from '../../EllipsisSwitch'
-import Slider from 'rc-slider'
 import { useTranslation } from 'react-i18next'
+import { Slider } from './Slider'
 
 export const OrderFilter = (): JSX.Element => {
   const randomnessHidden = useWatch( { name: 'sets' } )
@@ -27,19 +27,14 @@ export const OrderFilter = (): JSX.Element => {
       {!randomnessHidden &&
     <label>
       <h4 className='mx-auto w-fit'>{t( 'randomness.title' )}</h4>
-      <Controller
+      <Slider
         name='randomness'
-        render={( { field: { value, onChange } } ): JSX.Element => (
-          <div className='mt-1 mb-3 mx-10'>
-            <Slider
-              min={0}
-              max={1}
-              step={0.01}
-              marks={{ 0: t( 'randomness.byDeepness' ), 1: t( 'randomness.random' ) }}
-              value={value}
-              onChange={onChange} />
-          </div>
-        )} />
+        textLeft={t( 'randomness.byDeepness' )}
+        textRight={t( 'randomness.random' )}
+        min={0}
+        max={1}
+        step={0.01}
+      />
     </label>}
     </>
   )
