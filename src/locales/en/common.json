@@ -1,7 +1,14 @@
 {
     "deep": "deep",
-    "filters": {
-        "title": "Filters",
+    "header": {
+        "links": {
+            "mode": "Mode",
+            "allQuestions": "All Questions",
+            "randomQuestion": "Random Question",
+            "chooseFrom3": "Choose From 3",
+            "chooseFrom5": "Choose From 5",
+            "stats": "Stats"
+        },
         "tags": {
             "title": "Tags",
             "explanation": {
@@ -44,14 +51,6 @@
     "urlInvalid": "URL is invalid",
     "noQuestionsLeft": "Your filters left no questions to display.",
     "updating": "Updating deep…",
-    "links": {
-        "menu": "Menu",
-        "allQuestions": "All Questions",
-        "randomQuestion": "Random Question",
-        "chooseFrom3": "Choose From 3",
-        "chooseFrom5": "Choose From 5",
-        "stats": "Stats"
-    },
     "stats": {
         "added": "Added",
         "cumulative": "Cumulative",

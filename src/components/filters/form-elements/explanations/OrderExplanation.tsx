@@ -3,7 +3,7 @@ import { EllipsisSwitch } from '../../../EllipsisSwitch'
 import { useState } from 'react'
 
 export const OrderExplanation = (): JSX.Element => {
-  const { t } = useTranslation( 'common', { keyPrefix: 'filters.order' } )
+  const { t } = useTranslation( 'common', { keyPrefix: 'header.order' } )
   const [modeState, setModeState] = useState( false )
   return (
     <>

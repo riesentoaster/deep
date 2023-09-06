@@ -65,7 +65,7 @@ export const Header = ( {
                 <TagsFilter/>
                 <DeepnessFilter/>
                 <ErrorMessage
-                  text={`${currentQuestions.length} ${t( 'filters.questionsLeft' )}`}
+                  text={`${currentQuestions.length} ${t( 'header.questionsLeft' )}`}
                   type={currentQuestions.length === 0 ? 'warn' : 'none'}
                 />
               </fieldset>

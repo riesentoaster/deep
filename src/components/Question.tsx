@@ -3,7 +3,7 @@ import { Question as QuestionType } from '../questions'
 import { useContext } from 'react'
 import { CurrentShowAuthorsContext } from '../Layout'
 
-const nonBreakingSpace = '\u00A0'
+export const nonBreakingSpace = '\u00A0'
 interface QuestionProps {
     question: QuestionType
 }

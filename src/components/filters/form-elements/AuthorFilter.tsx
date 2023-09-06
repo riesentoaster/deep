@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 export const AuthorFilter = (): JSX.Element => {
   const { register } = useFormContext()
-  const { t } = useTranslation( 'common', { keyPrefix: 'filters.authors' } )
+  const { t } = useTranslation( 'common', { keyPrefix: 'header.authors' } )
 
   return (
     <>

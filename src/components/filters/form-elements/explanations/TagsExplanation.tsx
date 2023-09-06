@@ -3,7 +3,7 @@ import { TriStateSwitch, TriStateSwitchState } from '../../TriStateSwitch'
 import { useState } from 'react'
 
 export const TagsExplanation = (): JSX.Element => {
-  const { t } = useTranslation( 'common', { keyPrefix: 'filters.tags' } )
+  const { t } = useTranslation( 'common', { keyPrefix: 'header.tags' } )
   const [state, setState] = useState<TriStateSwitchState>( 'IGNORE' )
 
   return (

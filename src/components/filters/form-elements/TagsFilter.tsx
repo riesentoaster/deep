@@ -10,7 +10,7 @@ export const TagsFilter = (): JSX.Element => {
 
   return (
     <>
-      <FiltersTitle titleText={t( 'filters.tags.title' )} explanation={<TagsExplanation />} />
+      <FiltersTitle titleText={t( 'header.tags.title' )} explanation={<TagsExplanation />} />
       {allTags.map( tag => (
         <Controller
           name={`tags.${tag}`}

@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next'
 
 export const OrderFilter = (): JSX.Element => {
   const randomnessHidden = useWatch( { name: 'sets' } )
-  const { t } = useTranslation( 'common', { keyPrefix: 'filters.order' } )
+  const { t } = useTranslation( 'common', { keyPrefix: 'header.order' } )
 
   return (
     <>

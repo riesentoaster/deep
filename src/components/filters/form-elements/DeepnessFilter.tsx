@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { maxDeepness, minDeepness } from '../filtersHelpers'
 
 export const DeepnessFilter = (): JSX.Element => {
-  const { t } = useTranslation( 'common', { keyPrefix: 'filters.deepness' } )
+  const { t } = useTranslation( 'common', { keyPrefix: 'header.deepness' } )
 
   return ( <>
     <FiltersTitle titleText={t( 'title' )} explanation={<DeepnessExplanation />} />

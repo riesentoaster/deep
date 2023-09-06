@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 export const DeepnessExplanation = (): JSX.Element => {
-  const { t } = useTranslation( 'common', { keyPrefix: 'filters.deepness' } )
+  const { t } = useTranslation( 'common', { keyPrefix: 'header.deepness' } )
 
   return (
     <>

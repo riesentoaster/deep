@@ -12,12 +12,12 @@ const links = {
 }
 
 export const Menu = (): JSX.Element => {
-  const { t } = useTranslation( 'common', { keyPrefix: 'links' } )
+  const { t } = useTranslation( 'common', { keyPrefix: 'header.links' } )
   const [searchParams,] = useSearchParams()
 
   return (
     <div className='text-center py-2'>
-      <h2>{t( 'menu' )}</h2>
+      <h2>{t( 'mode' )}</h2>
       {
         Object.entries( links ).map( ( [text, href] ) =>
           (

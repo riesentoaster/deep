@@ -1,7 +1,14 @@
 {
     "deep": "deep",
-    "filters": {
-        "title": "Filter",
+    "header": {
+        "links": {
+            "mode": "Modus",
+            "allQuestions": "Alle Fragen",
+            "randomQuestion": "Zufällige Frage",
+            "chooseFrom3": "Von 3 auswählen",
+            "chooseFrom5": "Von 5 auswählen",
+            "stats": "Statistiken"
+        },
         "tags": {
             "title": "Tags",
             "explanation": {
@@ -44,14 +51,6 @@
     "urlInvalid": "URL ungültig",
     "noQuestionsLeft": "Diese Filter lassen keine Frage übrig.",
     "updating": "deep wird aktualisiert…",
-    "links": {
-        "menu": "Menu",
-        "allQuestions": "Alle Fragen",
-        "randomQuestion": "Zufällige Frage",
-        "chooseFrom3": "Von 3 auswählen",
-        "chooseFrom5": "Von 5 auswählen",
-        "stats": "Statistiken"
-    },
     "stats": {
         "title": "deep – Statistiken",
         "added": "Hinzugefügt",
