@@ -1,7 +1,7 @@
 import { Question, questions as allQuestions } from './questions'
 import { createContext, useEffect, useState } from 'react'
 import { filterQuestions } from './components/filters/filtersHelpers'
-import { defaultValues } from './components/filters/Filters'
+import { defaultValues } from './components/filters/filtersHelpers'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { Outlet, useLocation } from 'react-router-dom'

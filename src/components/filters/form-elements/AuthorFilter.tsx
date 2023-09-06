@@ -8,7 +8,7 @@ export const AuthorFilter = (): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'filters.authors' } )
 
   return (
-    <fieldset>
+    <>
       <FiltersTitle titleText={t( 'title' )} explanation={<AuthorExplanation />} />
       <label className='w-max mx-auto mt-1 w-max'>
         {t( 'showAuthors' )}
@@ -17,6 +17,6 @@ export const AuthorFilter = (): JSX.Element => {
           {...register( 'showAuthors' )}
           className='ml-3' />
       </label>
-    </fieldset>
+    </>
   )
 }

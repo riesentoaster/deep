@@ -10,7 +10,7 @@ export const OrderFilter = (): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'filters.order' } )
 
   return (
-    <fieldset>
+    <>
       <FiltersTitle titleText={t( 'title' )} explanation={<OrderExplanation />} />
       <label>
         <h4 className='mx-auto w-fit'>{t( 'mode.title' )}</h4>
@@ -30,16 +30,17 @@ export const OrderFilter = (): JSX.Element => {
       <Controller
         name='randomness'
         render={( { field: { value, onChange } } ): JSX.Element => (
-          <Slider
-            className='mt-1 mb-3'
-            min={0}
-            max={1}
-            step={0.01}
-            marks={{ 0: t( 'randomness.byDeepness' ), 1: t( 'randomness.random' ) }}
-            value={value}
-            onChange={onChange} />
+          <div className='mt-1 mb-3 mx-10'>
+            <Slider
+              min={0}
+              max={1}
+              step={0.01}
+              marks={{ 0: t( 'randomness.byDeepness' ), 1: t( 'randomness.random' ) }}
+              value={value}
+              onChange={onChange} />
+          </div>
         )} />
     </label>}
-    </fieldset>
+    </>
   )
 }

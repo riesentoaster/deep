@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { allTags } from '../Filters'
+import { allTags } from '../filtersHelpers'
 import { FiltersTitle } from './titles/FiltersTitle'
 import { TagsExplanation } from './explanations/TagsExplanation'
 import { TriStateSwitch, TriStateSwitchState } from '../TriStateSwitch'
@@ -9,7 +9,7 @@ export const TagsFilter = (): JSX.Element => {
   const { t } = useTranslation( 'common' )
 
   return (
-    <fieldset>
+    <>
       <FiltersTitle titleText={t( 'filters.tags.title' )} explanation={<TagsExplanation />} />
       {allTags.map( tag => (
         <Controller
@@ -24,7 +24,7 @@ export const TagsFilter = (): JSX.Element => {
           )} />
       )
       )}
-    </fieldset>
+    </>
 
   )
 }

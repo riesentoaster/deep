@@ -74,21 +74,27 @@ a {
 }
 
 header {
+
+
     a {
         text-decoration: none;
     }
 
     form {
+        columns: 3 300px;
+        column-gap: 5%;
+
         label {
             display: block;
         }
 
         fieldset {
-            display: block;
-            padding: 0.5rem 0 0.3rem 0;
+            break-inside: avoid-column;
+            padding: 1rem 0;
         }
-        
-        h2, h3{
+
+        h2,
+        h3 {
             margin: 0 auto;
             width: fit-content;
         }

@@ -1,10 +1,43 @@
-import { FiltersObject } from './Filters'
 import { TriStateSwitchState } from './TriStateSwitch'
 import { Question } from '../../questions'
 import qs from 'qs'
 import { ParsedUrlQuery } from 'querystring'
 
-export const reduceToObject = <R extends Record<string, any>> ( acc: R, cur: R ): R => Object.assign( acc, cur )
+import { reduceToObject, unique } from '../../helpers'
+import { questions as allQuestions } from '../../questions'
+
+const DEFAULT_TAG_STATE: TriStateSwitchState = 'IGNORE'
+const possibleDeepnessLevels = allQuestions.map( e => e.deepness ).filter( unique ).sort()
+export const minDeepness = Math.min( ...possibleDeepnessLevels )
+export const maxDeepness = Math.max( ...possibleDeepnessLevels )
+export const allTags = allQuestions
+  .filter( e => Array.isArray( e.tags ) )
+  .map( e => e.tags as string[] )
+  .flat()
+  .filter( unique )
+export const QUERY_INDEX = 'filters'
+
+export interface FiltersProps {
+  currentQuestions: Question[]
+  setQuestions( q: Question[] ): void
+  setShowAuthors( showAuthor: boolean ): void
+}
+
+export interface FiltersObject {
+  tags: Record<string, TriStateSwitchState>
+  deepness: {min: number, max: number}
+  randomness: number
+  sets: boolean
+  showAuthors: boolean
+}
+
+export const defaultValues: FiltersObject = {
+  tags: allTags.map( e => ( { [e]: DEFAULT_TAG_STATE } ) ).reduce( reduceToObject, {} ),
+  deepness: { min: minDeepness, max: maxDeepness },
+  randomness: 0,
+  sets: false,
+  showAuthors: true,
+}
 
 const random: ( ) => number = () => Math.random() - 0.5
 

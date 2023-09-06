@@ -1,7 +1,6 @@
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { Question } from '../../questions'
-import { unique } from '../../helpers'
-import { reduceToObject } from '../filters/filtersHelpers'
+import { reduceToObject, unique } from '../../helpers'
 
 interface RechartsPlotProps {
     questions: Question[]
