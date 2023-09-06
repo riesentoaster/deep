@@ -1,0 +1,66 @@
+@import '../styles/colors';
+
+$borderStyle: 1px solid $accentColorOffWhite;
+
+.switch__container--ignore,
+.switch__container--require,
+.switch__container--prohibit {
+    margin: 0.4rem auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    border-radius: 100vh;
+    border: 1px solid $bodyColor;
+}
+
+.switch__element {
+    padding: 0.3rem 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.switch__element:nth-child(2) {
+    flex-shrink: 0;
+    flex-grow: 1;
+}
+
+.switch__element:first-child {
+    border-radius: 100vh 0 0 100vh;
+    border-right: none;
+}
+
+.switch__element:last-child {
+    border-radius: 0 100vh 100vh 0;
+    border-left: none;
+}
+
+.switch__container--ignore .switch__element:nth-child(2) {
+    background: $accentColorDarkBlue;
+    border: $borderStyle;
+    border-radius: 100vh;
+}
+
+.switch__container--require .switch__element:not(:last-child) {
+    background: $accentColorGreen;
+    border: $borderStyle;
+    border-right: none;
+}
+
+.switch__container--require .switch__element:not(:first-child):not(:last-child) {
+    border: $borderStyle;
+    border-left: none;
+    border-radius: 0 100vh 100vh 0;
+}
+
+.switch__container--prohibit .switch__element:not(:first-child) {
+    background: $accentColorRed;
+    border: $borderStyle;
+    border-left: none;
+}
+
+.switch__container--prohibit .switch__element:not(:first-child):not(:last-child) {
+    border: $borderStyle;
+    border-right: none;
+    border-radius: 100vh 0 0 100vh;
+}

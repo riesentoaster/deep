@@ -21,6 +21,7 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   rules: {
     indent: ['error', 2, { SwitchCase: 1 }],
+    '@typescript-eslint/indent': ['error', 2],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single', { allowTemplateLiterals: true }],
     semi: ['error', 'never'],
@@ -34,7 +35,7 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     'no-unused-vars': ['off'],
     'no-multiple-empty-lines': ['error', { max: 1 }],
-    '@typescript-eslint/no-unused-vars': ['error'],
+    // '@typescript-eslint/no-unused-vars': ['error'],
     'brace-style': 'off',
     'no-multi-spaces': 'error',
     '@typescript-eslint/type-annotation-spacing': [

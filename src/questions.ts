@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 export interface Question {
   question: string
-  index?: number
+  index: number
   deepness: number
   date: string
   tags?: string[]
@@ -9,13 +9,13 @@ export interface Question {
 }
 
 interface QuestionByDate {
-    question: string
-    deepness: number
-    index: number
-    tags?: string[]
-    author?: string
-    date?: string
-  }
+  question: string
+  deepness: number
+  index: number
+  tags?: string[]
+  author?: string
+  date?: string
+}
 
 interface QuestionsByDate {
   [date: string]: QuestionByDate[]

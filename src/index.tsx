@@ -2,11 +2,11 @@ import './styles/globals.scss'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
-import { Home } from './Home'
-import { Stats } from './Stats'
-import { Layout } from './Layout'
+import { AllQuestions } from './pages/AllQuestions'
+import { Stats } from './pages/Stats'
+import { Layout } from './pages/Layout'
 import './i18n'
-import { ChooseFrom } from './choose-from'
+import { ChooseFrom } from './pages/ChooseFrom'
 
 export const router = createBrowserRouter( [
   {
@@ -15,7 +15,7 @@ export const router = createBrowserRouter( [
     children: [
       {
         path: '/',
-        element: <Home/>,
+        element: <AllQuestions/>,
       },
       {
         path: '/stats',

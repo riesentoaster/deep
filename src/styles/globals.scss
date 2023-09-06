@@ -78,23 +78,13 @@ header {
         text-decoration: none;
     }
 
-    form {
-        columns: 3 300px;
-        column-gap: 5%;
+    label {
+        display: block;
+    }
 
-        label {
-            display: block;
-        }
-
-        fieldset {
-            break-inside: avoid-column;
-            padding: 1rem 0;
-        }
-
-        h2,
-        h3 {
-            margin: 0 auto;
-            width: fit-content;
-        }
+    h2,
+    h3 {
+        margin: 0 auto;
+        width: fit-content;
     }
 }

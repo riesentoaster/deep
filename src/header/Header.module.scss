@@ -1,0 +1,9 @@
+.settings {
+    columns: 3 250px;
+    column-gap: 5%;
+
+    >* {
+        break-inside: avoid-column;
+        padding: 1rem 0;
+    }
+}

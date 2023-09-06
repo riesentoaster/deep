@@ -42,8 +42,9 @@
                 "explanation": "In den Extremfällen werden die Fragen entweder ausschliesslich innerhalb oder komplett unabhängig der Deepnesse zufällig angeordnet. Dazwischen spielen die Deepnesse eine immer grösser- bzw. kleinerwerdende Rolle."
             }
         },
-        "authors": {
-            "title": "Autoren",
+        "display": {
+            "title": "Anzeige",
+            "authors": "Autoren",
             "showAuthors": "Autoren anzeigen",
             "explanation": "Bei einigen Fragen ist ein Autor bekannt."
         },
