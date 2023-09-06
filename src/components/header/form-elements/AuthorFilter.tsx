@@ -1,5 +1,5 @@
 import { useFormContext } from 'react-hook-form'
-import { FiltersTitle } from './titles/FiltersTitle'
+import { TitleWithExplanation } from './titles/TitleWithExplanation'
 import { AuthorExplanation } from './explanations/AuthorExplanation'
 import { useTranslation } from 'react-i18next'
 
@@ -9,7 +9,7 @@ export const AuthorFilter = (): JSX.Element => {
 
   return (
     <>
-      <FiltersTitle titleText={t( 'title' )} explanation={<AuthorExplanation />} />
+      <TitleWithExplanation titleText={t( 'title' )} explanation={<AuthorExplanation />} />
       <label className='w-max mx-auto mt-1 w-max'>
         {t( 'showAuthors' )}
         <input

@@ -1,25 +1,19 @@
 import { FiltersObject, FiltersProps, QUERY_INDEX, defaultValues } from './filtersHelpers'
 import { Dropdown } from '../shared/Dropdown'
 import { useTranslation } from 'react-i18next'
-
 import { questions as allQuestions } from '../../questions'
 import { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { updatedDiff } from 'deep-object-diff'
 import qs from 'qs'
 import defaultsDeep from 'lodash.defaultsdeep'
-import { ErrorMessage } from '../shared/ErrorMessage'
 import 'rc-slider/assets/index.css'
-import {
-  decodeBooleanAndNumbers,
-  filterQuestions,
-} from './filtersHelpers'
+import { decodeBooleanAndNumbers, filterQuestions } from './filtersHelpers'
 import { useSearchParams } from 'react-router-dom'
-import { TagsFilter } from './form-elements/TagsFilter'
-import { DeepnessFilter } from './form-elements/DeepnessFilter'
 import { OrderFilter } from './form-elements/OrderFilter'
 import { AuthorFilter } from './form-elements/AuthorFilter'
 import { Menu } from './Menu'
+import { Filters } from './filters/Filters'
 
 export const Header = ( {
   currentQuestions,
@@ -61,14 +55,7 @@ export const Header = ( {
           <FormProvider {...form} >
             <form onSubmit={handleSubmit( () => { } )}>
               <fieldset><Menu/></fieldset>
-              <fieldset>
-                <TagsFilter/>
-                <DeepnessFilter/>
-                <ErrorMessage
-                  text={`${currentQuestions.length} ${t( 'header.questionsLeft' )}`}
-                  type={currentQuestions.length === 0 ? 'warn' : 'none'}
-                />
-              </fieldset>
+              <fieldset><Filters currentQuestions={currentQuestions}/></fieldset>
               <fieldset><OrderFilter/></fieldset>
               <fieldset><AuthorFilter/></fieldset>
             </form>

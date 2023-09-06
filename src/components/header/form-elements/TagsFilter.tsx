@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { allTags } from '../filtersHelpers'
-import { FiltersTitle } from './titles/FiltersTitle'
+import { TitleWithExplanation } from './titles/TitleWithExplanation'
 import { TagsExplanation } from './explanations/TagsExplanation'
 import { TriStateSwitch, TriStateSwitchState } from '../TriStateSwitch'
 import { Controller } from 'react-hook-form'
@@ -10,7 +10,7 @@ export const TagsFilter = (): JSX.Element => {
 
   return (
     <>
-      <FiltersTitle titleText={t( 'header.tags.title' )} explanation={<TagsExplanation />} />
+      <TitleWithExplanation titleText={t( 'header.tags.title' )} size={3} explanation={<TagsExplanation />} />
       {allTags.map( tag => (
         <Controller
           name={`tags.${tag}`}
@@ -25,7 +25,6 @@ export const TagsFilter = (): JSX.Element => {
       )
       )}
     </>
-
   )
 }
 

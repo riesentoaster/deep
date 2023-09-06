@@ -33,8 +33,9 @@ export const Slider = ( {
   <Controller
     name={name}
     render={( { field: { value, onChange } } ): JSX.Element => (
-      <div className='mx-2' >
+      <div className='mx-2 mt-3 mb-2' >
         <RCSlider
+          className={style.slider}
           range={range}
           dots={dots}
           allowCross={allowCross}

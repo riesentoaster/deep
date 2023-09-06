@@ -83,6 +83,7 @@ module.exports = {
       },
       { blankLine: 'always', prev: 'import', next: 'expression' }
     ],
-    'react/react-in-jsx-scope': 'off'
+    'react/react-in-jsx-scope': 'off',
+    'switch-colon-spacing': ['error'],
   }
 }

@@ -1,5 +1,5 @@
 import { Controller, useWatch } from 'react-hook-form'
-import { FiltersTitle } from './titles/FiltersTitle'
+import { TitleWithExplanation } from './titles/TitleWithExplanation'
 import { OrderExplanation } from './explanations/OrderExplanation'
 import { EllipsisSwitch } from '../../shared/EllipsisSwitch'
 import { useTranslation } from 'react-i18next'
@@ -11,9 +11,9 @@ export const OrderFilter = (): JSX.Element => {
 
   return (
     <>
-      <FiltersTitle titleText={t( 'title' )} explanation={<OrderExplanation />} />
+      <TitleWithExplanation titleText={t( 'title' )} explanation={<OrderExplanation />} />
       <label>
-        <h4 className='mx-auto w-fit'>{t( 'mode.title' )}</h4>
+        <h3 className='mx-auto w-fit mt-1'>{t( 'mode.title' )}</h3>
         <Controller
           name='sets'
           render={( { field: { value, onChange } } ): JSX.Element => (
@@ -26,7 +26,7 @@ export const OrderFilter = (): JSX.Element => {
       </label>
       {!randomnessHidden &&
     <label>
-      <h4 className='mx-auto w-fit'>{t( 'randomness.title' )}</h4>
+      <h3 className='mx-auto w-fit mt-8'>{t( 'randomness.title' )}</h3>
       <Slider
         name='randomness'
         textLeft={t( 'randomness.byDeepness' )}
