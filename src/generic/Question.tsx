@@ -10,7 +10,7 @@ interface QuestionProps {
 
 export const Question = ( { question }: QuestionProps ): JSX.Element => {
   const { t } = useTranslation( 'questions' )
-  const showAuthor = useContext( DisplaySettingsContext )
+  const displaySettings = useContext( DisplaySettingsContext )
 
   const debugData = process.env.REACT_APP_DEBUG_QUESTION_PRINT ?
     [
@@ -27,9 +27,9 @@ export const Question = ( { question }: QuestionProps ): JSX.Element => {
       {debugData && <span className='text-[0.7em] text-orange-500 font-mono'>{debugData}</span>}
       {t( question.question )}
       {
-        showAuthor &&
+        displaySettings.showAuthors &&
           question.author &&
-          ( <>&nbsp;<sup className='pl-1 whitespace-nowrap'>~{question.author}</sup></> )}
+          ( <>{nonBreakingSpace}<sup className='pl-1 whitespace-nowrap'>~{question.author}</sup></> )}
     </p>
   )
 }
