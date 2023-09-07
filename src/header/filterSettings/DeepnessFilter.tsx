@@ -2,14 +2,14 @@ import { DeepnessExplanation } from './DeepnessExplanation'
 import { useTranslation } from 'react-i18next'
 import { maxDeepness, minDeepness } from '../settingsHelpers'
 import { Slider } from '../../generic/Slider'
-import { TitleWithExplanation } from '../../generic/TitleWithExplanation'
+import { WithExplanation } from '../../generic/WithExplanation'
 
 export const DeepnessFilter = (): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'header.deepness' } )
 
   return (
     <>
-      <TitleWithExplanation titleText={t( 'title' )} size={3} explanation={<DeepnessExplanation />} />
+      <WithExplanation closedElement={<h3>{t( 'title' )}</h3>} explanation={<DeepnessExplanation />} />
       <Slider
         name={'deepness'}
         range

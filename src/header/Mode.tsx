@@ -11,7 +11,7 @@ const links = {
   'stats': '/stats',
 }
 
-export const Menu = (): JSX.Element => {
+export const Mode = (): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'header.links' } )
   const [searchParams,] = useSearchParams()
 

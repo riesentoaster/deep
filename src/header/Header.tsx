@@ -1,9 +1,7 @@
 import { Dropdown } from '../generic/Dropdown'
 import { useTranslation } from 'react-i18next'
 import 'rc-slider/assets/index.css'
-// import { OrderFilter } from './form-elements/OrderFilter'
-// import { AuthorFilter } from './form-elements/AuthorFilter'
-import { Menu } from './Menu'
+import { Mode } from './Mode'
 import { FilterSettings } from './filterSettings/Filters'
 import styles from './Header.module.scss'
 import { DisplaySettings } from './displaySettings/DisplaySettings'
@@ -16,7 +14,7 @@ export const Header = ( ): JSX.Element => {
     <header className='p-10 border-b'>
       <Dropdown className='w-full' defaultHiddenState={process.env.NODE_ENV === 'production'} title={t( 'deep' )}>
         <div className={`${styles.settings}`}>
-          <Menu/>
+          <Mode/>
           <DisplaySettings/>
           <FilterSettings/>
           <OrderSettings/>
