@@ -10,7 +10,8 @@ import {
   DisplaySettings,
   FilterSettings,
   OrderSettings,
-  defaultDisplaySettings
+  defaultDisplaySettings,
+  defaultFilterSettings
 } from '../header/settingsHelpers'
 
 const preOrderedQuestions = allQuestions.sort( ( a, b ) => a.index - b.index )
@@ -27,6 +28,7 @@ const random: ( a?: any, b?: any ) => number = () => Math.random() - 0.5
 const order = ( e: DeepPartial<OrderSettings>, questions: Question[] ): Question[] =>
   e.random && e.byDeepness !== undefined ?
     questions
+      .slice()
       .sort( random )
       .sort( ( a, b ) =>
         e.byDeepness as number > Math.random() ?
@@ -61,7 +63,12 @@ const filter = ( filters: DeepPartial<FilterSettings>, questions: Question[] ): 
 export const Layout = ( ): JSX.Element => {
   const [orderedQuestions, setOrderedQuestions] = useState( preOrderedQuestions )
   const [filteredQuestions, setFilteredQuestions] = useState( orderedQuestions )
+  const [filterSettings, setFilterSettings] = useState<DeepPartial<FilterSettings>>( defaultFilterSettings )
   const [displaySettings, setDisplaySettings] = useState( defaultDisplaySettings )
+
+  useEffect( () => {
+    setFilteredQuestions( filter( filterSettings, orderedQuestions ).slice() )
+  }, [filterSettings, orderedQuestions] )
 
   const location = useLocation()
 
@@ -91,9 +98,9 @@ export const Layout = ( ): JSX.Element => {
     <>
       <FilteredAndOrderedQuestionsContext.Provider value={filteredQuestions}>
         <ChangeOrderSettingsContext.Provider
-          value={( newOrder ): void => setOrderedQuestions( order( newOrder, preOrderedQuestions ) )} >
-          <ChangeFilterSettingsContext.Provider
-            value={( newFilter ): void => setFilteredQuestions( filter( newFilter, orderedQuestions ) )} >
+          value={( newOrder ): void => setOrderedQuestions( order( newOrder, preOrderedQuestions ) )}
+        >
+          <ChangeFilterSettingsContext.Provider value={setFilterSettings} >
             <ChangeDisplaySettingsContext.Provider value={setDisplaySettings}>
               <Header/>
             </ChangeDisplaySettingsContext.Provider>
