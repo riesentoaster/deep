@@ -2,11 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @import './colors';
 @import './mobile';
 @import './slider';
-
 
 html {
     background-color: $htmlBackgroundColor;
@@ -73,8 +71,6 @@ a {
     text-decoration: underline;
 }
 
-header {
-    a {
-        text-decoration: none;
-    }
+header a {
+    text-decoration: none;
 }
