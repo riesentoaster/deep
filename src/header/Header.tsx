@@ -15,9 +15,9 @@ export const Header = ( ): JSX.Element => {
       <Dropdown className='w-full' defaultHiddenState={process.env.NODE_ENV === 'production'} title={t( 'deep' )}>
         <div className={`${styles.settings}`}>
           <Mode/>
-          <DisplaySettings/>
           <FilterSettings/>
           <OrderSettings/>
+          <DisplaySettings/>
         </div>
       </Dropdown>
     </header>

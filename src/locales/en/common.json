@@ -28,13 +28,8 @@
         },
         "order": {
             "title": "Order",
-            "mode": {
-                "title": "Mode",
-                "random": "Random",
-                "sets": "Sets",
-                "explanation-random": "In this mode, the questions get shuffled after each change of filter and reload of the page.",
-                "explanation-sets": "In this mode, the filtered questions always get displayed in the same order."
-            },
+            "toggleTitle": "Random",
+            "mainExplanation": "If turned on, the questions will appear in a random order.",
             "randomness": {
                 "title": "Randomness",
                 "byDeepness": "By Deepness",
@@ -44,7 +39,6 @@
         },
         "display": {
             "title": "Display",
-            "authors": "Authors",
             "showAuthors": "Show Authors",
             "explanation": "Some questions have a known author."
         },

@@ -1,0 +1,35 @@
+@import '../styles/colors';
+
+.outer {
+    width: 3rem;
+    height: 1.5rem;
+    border-width: 1px;
+    border-radius: 9999px;
+    background-color: $backgroundColor;
+    padding: 0.1rem;
+}
+
+.inner {
+    height: 100%;
+    aspect-ratio: 1/1;
+    border-width: 1px;
+    border-radius: 100%;
+    border-color: $backgroundColor;
+}
+
+.outerOff {
+    border-color: $accentColorOffWhite;
+}
+
+.outerOn {
+    background-color: $accentColorOffWhite;
+}
+
+.innerOff {
+    background-color: $accentColorOffWhite;
+}
+
+.innerOn {
+    background-color: $backgroundColor;
+    margin-left: auto;
+}

@@ -28,13 +28,8 @@
         },
         "order": {
             "title": "Sortierung",
-            "mode": {
-                "title": "Modus",
-                "random": "Zufällig",
-                "sets": "Sets",
-                "explanation-random": "In diesem Modus werden die Fragen bei jedem Anpassen der Filter und beim Neu-Laden der Seite zufällig angeordnet.",
-                "explanation-sets": "In diesem Modus werden die gefilterten Fragen immer gleich angeordnet."
-            },
+            "toggleTitle": "Zufällig",
+            "mainExplanation": "Wenn aktiviert werden die Fragen zufällig angeordnet.",
             "randomness": {
                 "title": "Zufall",
                 "byDeepness": "Nach Deepness",
@@ -44,7 +39,6 @@
         },
         "display": {
             "title": "Anzeige",
-            "authors": "Autoren",
             "showAuthors": "Autoren anzeigen",
             "explanation": "Bei einigen Fragen ist ein Autor bekannt."
         },
@@ -54,7 +48,6 @@
     "noQuestionsLeft": "Diese Filter lassen keine Frage übrig.",
     "updating": "deep wird aktualisiert…",
     "stats": {
-        "title": "deep – Statistiken",
         "added": "Hinzugefügt",
         "cumulative": "Kumulativ",
         "deepnesses": "Deepnesse",

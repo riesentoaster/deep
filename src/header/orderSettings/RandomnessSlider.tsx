@@ -10,7 +10,7 @@ export const RandomnessSlider = (): JSX.Element => {
     <>
       {showRandomness &&
         <label>
-          <h3 className='mx-auto w-fit mt-8'>{t( 'randomness.title' )}</h3>
+          <h3 className='mx-auto w-fit mt-4'>{t( 'randomness.title' )}</h3>
           <Slider
             name='byDeepness'
             textLeft={t( 'randomness.byDeepness' )}

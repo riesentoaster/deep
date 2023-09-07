@@ -1,10 +1,11 @@
 .settings {
-    columns: 3 250px;
-    column-gap: 5%;
+    columns: 3 230px;
+    column-gap: 8%;
+    padding-top: 3rem;
 
     >* {
         break-inside: avoid-column;
-        padding: 1rem 0;
         text-align: center;
+        padding-bottom: 5rem;
     }
 }

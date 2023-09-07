@@ -16,7 +16,7 @@ export const Mode = (): JSX.Element => {
   const [searchParams,] = useSearchParams()
 
   return (
-    <div className='text-center py-2'>
+    <div>
       <h2>{t( 'mode' )}</h2>
       {
         Object.entries( links ).map( ( [text, href] ) =>
