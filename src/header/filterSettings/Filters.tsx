@@ -17,7 +17,7 @@ export const FilterSettings = ( ): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'header' } )
 
   return (
-    <Form queryIndex={QUERY_INDEX_FILTERS} defaultT={defaultFilterSettings} update={changeFilterSettings }>
+    <Form queryIndex={QUERY_INDEX_FILTERS} defaultValue={defaultFilterSettings} update={changeFilterSettings }>
       <>
         <h2>{t( 'filters' )}</h2>
         <ErrorMessage

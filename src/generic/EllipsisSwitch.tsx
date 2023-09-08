@@ -16,6 +16,7 @@ export const EllipsisSwitch = <T extends string, >( {
       {
         Object.entries( elements ).map( ( [k, v] ) => (
           <button
+            type="button"
             className={`px-5 rounded-full basis-0 grow ${state === k && 'bg-accentColorDarkBlue border rounded-full'}`}
             key={k}
             onClick={(): void => setState( k as T ) }

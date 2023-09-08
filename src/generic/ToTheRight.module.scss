@@ -1,10 +1,11 @@
-.outerDiv {
+.parent {
     position: relative;
 }
 
-.button {
+.toTheRight {
     position: absolute;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+    height: 100%;
 }

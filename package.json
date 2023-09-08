@@ -9,6 +9,7 @@
     "i18next": "^23.4.6",
     "i18next-browser-languagedetector": "^7.1.0",
     "lodash.defaultsdeep": "^4.6.1",
+    "lodash.merge": "^4.6.2",
     "qs": "^6.11.2",
     "rc-slider": "^10.2.1",
     "react": "^18.2.0",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@types/lodash.defaultsdeep": "^4.6.7",
+    "@types/lodash.merge": "^4.6.7",
     "@types/node": "^16.18.46",
     "@types/qs": "^6.9.8",
     "@types/react": "^18.2.21",

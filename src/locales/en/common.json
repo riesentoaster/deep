@@ -9,6 +9,11 @@
             "chooseFrom5": "Choose From 5",
             "stats": "Stats"
         },
+        "players": {
+            "title": "Players",
+            "enable": "Enable",
+            "addPlayer": "Add Player"
+        },
         "filters": "Filters",
         "tags": {
             "title": "Tags",
@@ -39,8 +44,7 @@
         },
         "display": {
             "title": "Display",
-            "showAuthors": "Show Authors",
-            "explanation": "Some questions have a known author."
+            "showAuthors": "Show Authors"
         },
         "questionsLeft": "questions left."
     },

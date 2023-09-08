@@ -15,7 +15,7 @@ export const OrderSettings = (): JSX.Element => {
   const changeOrderSettings = useContext( ChangeOrderSettingsContext )
 
   return (
-    <Form queryIndex={ORDER_QUERY_INDEX} defaultT={defaultOrderSettings} update={changeOrderSettings}>
+    <Form queryIndex={ORDER_QUERY_INDEX} defaultValue={defaultOrderSettings} update={changeOrderSettings}>
       <>
         <WithExplanation closedElement={<h2>{t( 'title' )}</h2>} explanation={<OrderExplanation />} />
         <RandomToggle/>

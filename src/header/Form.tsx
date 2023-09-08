@@ -1,21 +1,22 @@
 import { DeepPartial, DefaultValues, FormProvider, useForm } from 'react-hook-form'
 import { useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { updatedDiff } from 'deep-object-diff'
+import { detailedDiff, updatedDiff } from 'deep-object-diff'
 import qs from 'qs'
 import defaultsDeep from 'lodash.defaultsdeep'
+import merge from 'lodash.merge'
 import { decodeBooleanAndNumbers } from './settingsHelpers'
 
 interface FormProps <T extends object>{
   queryIndex: string
-  defaultT: DefaultValues<T>
+  defaultValue: DefaultValues<T>
   update( newT: DeepPartial<T> ): void
   children: JSX.Element
 }
 
-export function Form<T extends object>( { queryIndex, defaultT, update, children }: FormProps<T> ): JSX.Element {
+export function Form<T extends object>( { queryIndex, defaultValue, update, children }: FormProps<T> ): JSX.Element {
 
-  const form = useForm<T>( { defaultValues: defaultT } )
+  const form = useForm<T>( { defaultValues: defaultValue } )
   const { handleSubmit, watch, reset, getValues } = form
 
   const [searchParams, setSearchParams] = useSearchParams()
@@ -24,23 +25,24 @@ export function Form<T extends object>( { queryIndex, defaultT, update, children
   useEffect( () => {
     const subscription = watch( ( value ) => {
       update( value )
-      const diff = updatedDiff( defaultT, value )
-      if ( Object.keys( diff ).length > 0 )
-        searchParams.set( queryIndex, qs.stringify( diff, {} ) )
+      const diff = detailedDiff( defaultValue, value )
+      const merged = merge( diff.added, diff.updated )
+      if ( Object.keys( merged ).length > 0 )
+        searchParams.set( queryIndex, qs.stringify( merged, {} ) )
       else
         searchParams.delete( queryIndex )
       setSearchParams( searchParams )
     } )
     return () => subscription.unsubscribe()
-  }, [update, searchParams, setSearchParams, watch, defaultT, queryIndex] )
+  }, [update, searchParams, setSearchParams, watch, defaultValue, queryIndex] )
 
   // update form to match url params
   useEffect( () => {
     const fromURL = searchParams.get( queryIndex )
     const parsed = fromURL ? qs.parse( fromURL, { decoder: decodeBooleanAndNumbers } ) : {}
     if ( Object.keys( updatedDiff( parsed, getValues() ) ).length > 0 )
-      reset( defaultsDeep( parsed, defaultT ), { keepTouched: true } )
-  }, [searchParams, getValues, reset, defaultT, queryIndex] )
+      reset( defaultsDeep( parsed, defaultValue ), { keepTouched: true } )
+  }, [searchParams, getValues, reset, defaultValue, queryIndex] )
 
   return (
     <FormProvider {...form} >

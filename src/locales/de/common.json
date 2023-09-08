@@ -9,6 +9,11 @@
             "chooseFrom5": "Von 5 auswählen",
             "stats": "Statistiken"
         },
+        "players": {
+            "title": "Spieler:innen",
+            "enable": "Aktivieren",
+            "addPlayer": "Spieler:in hinzufügen"
+        },
         "filters": "Filter",
         "tags": {
             "title": "Tags",
@@ -39,8 +44,7 @@
         },
         "display": {
             "title": "Anzeige",
-            "showAuthors": "Autoren anzeigen",
-            "explanation": "Bei einigen Fragen ist ein Autor bekannt."
+            "showAuthors": "Autoren anzeigen"
         },
         "questionsLeft": "Fragen übrig."
     },

@@ -6,6 +6,7 @@ import { FilterSettings } from './filterSettings/Filters'
 import styles from './Header.module.scss'
 import { DisplaySettings } from './displaySettings/DisplaySettings'
 import { OrderSettings } from './orderSettings/OrderSettings'
+import { PlayerSettings } from './playerSettings/PlayerSettings'
 
 export const Header = ( ): JSX.Element => {
   const { t } = useTranslation( 'common' )
@@ -16,6 +17,7 @@ export const Header = ( ): JSX.Element => {
         <div className={`${styles.settings}`}>
           <Mode/>
           <FilterSettings/>
+          <PlayerSettings/>
           <OrderSettings/>
           <DisplaySettings/>
         </div>

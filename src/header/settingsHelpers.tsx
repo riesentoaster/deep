@@ -35,13 +35,24 @@ export const defaultOrderSettings: OrderSettings = {
   byDeepness: 0
 }
 
-export interface PlayersSettings {
-  [name: string]: number // turns since last asked
+export interface PlayerSettings {
+  enable: boolean
+  players: string[]
+}
+
+export const defaultPlayerSettings: PlayerSettings = {
+  enable: false,
+  players: []
+}
+
+export interface PlayerCounts {
+  [name: string]: number
 }
 
 export interface DisplaySettings {
   showAuthors: boolean
 }
+
 export const defaultDisplaySettings: DisplaySettings = {
   showAuthors: true
 }

@@ -35,5 +35,5 @@ interface TriStateElementProps {
 }
 
 const TriStateElement = ( { setElement, children }: TriStateElementProps ): JSX.Element => (
-  <button className={styles['switch__element']} onClick={setElement}>{children}</button>
+  <button type='button' className={styles['switch__element']} onClick={setElement}>{children}</button>
 )
