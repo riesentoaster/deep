@@ -4,9 +4,12 @@ import { FilteredAndOrderedQuestionsContext } from './Layout'
 import { usePlayers } from '../usePlayers'
 import { HorizontalEntry } from '../generic/HorizontalEntry'
 import { useContext } from 'react'
+import { Ellipsis } from '../generic/Ellipsis'
+import { useTranslation } from 'react-i18next'
 
 export const AllQuestions = ( ): JSX.Element => {
   const questions = useContext( FilteredAndOrderedQuestionsContext )
+  const { t } = useTranslation( 'common' )
 
   const { currentPlayer, shouldDisplay, nextPlayer } = usePlayers()
 
@@ -17,16 +20,20 @@ export const AllQuestions = ( ): JSX.Element => {
     <>
       {
         shouldDisplay &&
-        <>
           <HorizontalEntry
             onMoveToLeft={(): void => {}}
             onMoveToRight={nextPlayer}
             leftDisabled
+            className='mb-10'
           >
-            <p className='mx-auto w-fit'>{currentPlayer}</p>
+            <p className='mx-auto w-fit'>
+              {t( 'players.currentPlayer' )}:
+              <Ellipsis className='inline ml-5'>
+                <>{currentPlayer}</>
+              </Ellipsis>
+
+            </p>
           </HorizontalEntry>
-          <hr />
-        </>
       }
       <ul className='w-fit mx-auto'>
         {questions.map( e =>

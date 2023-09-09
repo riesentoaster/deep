@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next'
 import { FilteredAndOrderedQuestionsContext } from './Layout'
 import { HorizontalEntry } from '../generic/HorizontalEntry'
 import { usePlayers } from '../usePlayers'
+import { Ellipsis } from '../generic/Ellipsis'
 
 const mod = ( n: number, m: number ): number => ( ( n % m ) + m ) % m
 
@@ -49,7 +50,15 @@ export const ChooseFrom = ( ): JSX.Element => {
       onMoveToRight={onMoveToRight}
     >
       <ul className='w-fit mx-auto text-center'>
-        {shouldDisplay && <><li>{currentPlayer}</li><hr/></>}
+        {shouldDisplay && <>
+          <li>
+            {t( 'players.currentPlayer' )}:
+            <Ellipsis className='inline ml-5'>
+              <>{currentPlayer}</>
+            </Ellipsis>
+          </li>
+          <hr/>
+        </>}
         {filterQuestions( questions, index, intN ).map( e =>
           <li
             className='py-2'

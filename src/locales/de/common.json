@@ -11,6 +11,7 @@
         },
         "players": {
             "title": "Spieler:innen",
+            "errorMessageNotEnoughPlayers": "Das Spieler:innen-Modul funktioniert ab zwei Spieler:innen.",
             "enable": "Aktivieren",
             "addPlayer": "Spieler:in hinzufügen"
         },
@@ -51,6 +52,9 @@
     "urlInvalid": "URL ungültig",
     "noQuestionsLeft": "Diese Filter lassen keine Frage übrig.",
     "updating": "deep wird aktualisiert…",
+    "players": {
+        "currentPlayer": "Aktuelle:r Spieler:in"
+    },
     "stats": {
         "added": "Hinzugefügt",
         "cumulative": "Kumulativ",

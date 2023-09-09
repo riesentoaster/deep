@@ -24,7 +24,7 @@ export const AddPlayer = ( { addPlayer }: AddPlayerProps ): JSX.Element => {
     <li className='mt-3 flex flex-col'>
       <input
         type="text"
-        className='h-inherit border rounded-full px-[1em]'
+        className='h-inherit rounded-full py-[0.1em] px-[1em]'
         value={value}
         onChange={( e ): void => setValue( e.target.value )}
         onKeyDown={keyDownHandler}

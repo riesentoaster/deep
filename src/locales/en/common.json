@@ -12,6 +12,7 @@
         "players": {
             "title": "Players",
             "enable": "Enable",
+            "errorMessageNotEnoughPlayers": "The Players module needs two players to work.",
             "addPlayer": "Add Player"
         },
         "filters": "Filters",
@@ -51,6 +52,9 @@
     "urlInvalid": "URL is invalid",
     "noQuestionsLeft": "Your filters left no questions to display.",
     "updating": "Updating deep…",
+    "players": {
+        "currentPlayer": "Current Player"
+    },
     "stats": {
         "added": "Added",
         "cumulative": "Cumulative",
