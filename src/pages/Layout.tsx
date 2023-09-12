@@ -19,7 +19,7 @@ import { filter } from '../filterQuestions'
 import { order } from '../orderQuestions'
 import { reduceToObject } from '../helpers'
 
-const preOrderedQuestions = allQuestions.sort( ( a, b ) => a.index - b.index )
+const preOrderedQuestions = allQuestions.sort( ( a, b ) => b.index - a.index )
 
 export const ChangeOrderSettingsContext = createContext<( e: DeepPartial<OrderSettings> ) => void>( () => {} )
 export const ChangeFilterSettingsContext = createContext<( e: DeepPartial<FilterSettings> ) => void>( () => {} )
