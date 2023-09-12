@@ -26,11 +26,11 @@ export const AllQuestions = ( ): JSX.Element => {
             leftDisabled
             className='mb-10'
           >
-            <p className='mx-auto w-fit'>
+            <div className='mx-auto w-fit'>
               {t( 'players.currentPlayer' )}:
               <Ellipsis className='inline ml-5'>{currentPlayer}</Ellipsis>
 
-            </p>
+            </div>
           </HorizontalEntry>
       }
       <ul className='w-fit mx-auto'>

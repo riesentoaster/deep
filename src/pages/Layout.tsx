@@ -8,16 +8,16 @@ import {
   DisplaySettings,
   FilterSettings,
   OrderSettings,
-  PlayerCounts,
   PlayerSettings,
   defaultDisplaySettings,
   defaultFilterSettings,
+  defaultOrderSettings,
   defaultPlayerSettings
 } from '../header/settingsHelpers'
 import { useServiceWorker } from '../useServiceWorker'
 import { filter } from '../filterQuestions'
 import { order } from '../orderQuestions'
-import { reduceToObject } from '../helpers'
+import { PlayersContext } from '../usePlayers'
 
 const preOrderedQuestions = allQuestions.sort( ( a, b ) => b.index - a.index )
 
@@ -27,58 +27,32 @@ export const FilteredAndOrderedQuestionsContext = createContext( preOrderedQuest
 
 export const PlayerSettingsContext = createContext( defaultPlayerSettings )
 export const ChangePlayerSettingsContext = createContext<( e: PlayerSettings ) => void>( () => {} )
-export const PlayerCountsContext = createContext<PlayerCounts>( {} )
-export const UpdatePlayerCountsContext = createContext<( name: string ) => void>( () => {} )
 
 export const DisplaySettingsContext = createContext( defaultDisplaySettings )
 export const ChangeDisplaySettingsContext = createContext<( e: DisplaySettings ) => void>( () => {} )
 
 export const Layout = ( ): JSX.Element => {
-
   useServiceWorker()
 
-  const [orderedQuestions, setOrderedQuestions] = useState( preOrderedQuestions )
+  const [orderedQuestions, setOrderedQuestions] = useState( order( defaultOrderSettings, preOrderedQuestions ) )
   const [filteredQuestions, setFilteredQuestions] = useState( orderedQuestions )
   const [filterSettings, setFilterSettings] = useState<DeepPartial<FilterSettings>>( defaultFilterSettings )
   const [displaySettings, setDisplaySettings] = useState( defaultDisplaySettings )
   const [playerSettings, setPlayerSettings] = useState( defaultPlayerSettings )
-  const [playerCounts, setPlayerCounts] = useState<PlayerCounts>( {} )
 
-  const updatePlayerCounts = ( name: string ): void => setPlayerCounts( {
-    [name]: 0,
-    ...Object
-      .entries( playerCounts )
-      .filter( ( [k, ] ) => k !== name )
-      .map( ( [k, v] ) => ( { [k]: v + 1 } ) )
-      .reduce( reduceToObject, {} )
-  } )
+  const updateOrder = ( newOrder: DeepPartial<OrderSettings> ): void =>
+    setOrderedQuestions( order( newOrder, preOrderedQuestions ) )
 
   useEffect( () => {
     setFilteredQuestions( filter( filterSettings, orderedQuestions ).slice() )
   }, [filterSettings, orderedQuestions] )
 
-  useEffect( () => {
-    const prev = Object.keys( playerCounts )
-    const now = playerSettings.players
-    const added = now.filter( e => !prev.includes( e ) )
-    const deleted = prev.filter( e => !now.includes( e ) )
-    if ( added.length > 0 || deleted.length > 0 ) {
-      const newPlayerCounts = { ...playerCounts }
-      for ( const d of deleted )
-        delete newPlayerCounts[d]
-      for ( const a of added )
-        newPlayerCounts[a] = Infinity
-      setPlayerCounts( newPlayerCounts )
-    }
-  }, [playerCounts, playerSettings.players] )
-
   return (
     <FilteredAndOrderedQuestionsContext.Provider value={filteredQuestions}>
       <PlayerSettingsContext.Provider value={playerSettings}>
+
         <ChangePlayerSettingsContext.Provider value={setPlayerSettings}>
-          <ChangeOrderSettingsContext.Provider
-            value={( newOrder ): void => setOrderedQuestions( order( newOrder, preOrderedQuestions ) )}
-          >
+          <ChangeOrderSettingsContext.Provider value={updateOrder} >
             <ChangeFilterSettingsContext.Provider value={setFilterSettings} >
               <ChangeDisplaySettingsContext.Provider value={setDisplaySettings}>
                 <Header/>
@@ -89,11 +63,9 @@ export const Layout = ( ): JSX.Element => {
 
         <main>
           <DisplaySettingsContext.Provider value={displaySettings}>
-            <PlayerCountsContext.Provider value={playerCounts}>
-              <UpdatePlayerCountsContext.Provider value={updatePlayerCounts}>
-                <Outlet/>
-              </UpdatePlayerCountsContext.Provider>
-            </PlayerCountsContext.Provider>
+            <PlayersContext>
+              <Outlet/>
+            </PlayersContext>
           </DisplaySettingsContext.Provider>
         </main>
 
