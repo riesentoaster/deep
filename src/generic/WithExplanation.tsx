@@ -4,8 +4,8 @@ import { useState } from 'react'
 import { ToTheRight } from './ToTheRight'
 
 interface WithExplanationProps {
-  closedElement: JSX.Element
-  explanation: JSX.Element
+  closedElement: JSX.Element | string
+  explanation: JSX.Element | string
 }
 
 export const WithExplanation = ( { closedElement, explanation }: WithExplanationProps ): JSX.Element => {
@@ -15,7 +15,7 @@ export const WithExplanation = ( { closedElement, explanation }: WithExplanation
     mainChild={
       <>
         {closedElement}
-        <PopUp isOpen={isOpen} setIsOpen={setIsOpen} closesOnClickOutside={true}>{explanation}</PopUp>
+        <PopUp isOpen={isOpen} setIsOpen={setIsOpen} closesOnClickOutside>{explanation}</PopUp>
       </>
     }
     toTheRight={

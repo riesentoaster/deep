@@ -8,7 +8,7 @@ interface PlayerNameEntryProps {
 
 export const PlayerNameEntry = ( { name, deletePlayer }: PlayerNameEntryProps ): JSX.Element => (
   <li key={name}>
-    <ToTheRight mainChild={ <>{name}</> }
+    <ToTheRight mainChild={name}
       toTheRight={
         <button type='button' className='h-full' onClick={deletePlayer}>
           <XMarkIcon className='h-full'/>

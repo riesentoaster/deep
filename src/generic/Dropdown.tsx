@@ -4,7 +4,7 @@ import { Ellipsis } from './Ellipsis'
 
 interface DropdownProps {
   title: string
-  children?: JSX.Element
+  children?: JSX.Element | string
   defaultHiddenState?: boolean
   className?: string
 }

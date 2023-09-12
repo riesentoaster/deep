@@ -11,7 +11,7 @@ interface FormProps <T extends object>{
   queryIndex: string
   defaultValue: DefaultValues<T>
   update( newT: DeepPartial<T> ): void
-  children: JSX.Element
+  children: JSX.Element | string
 }
 
 export function Form<T extends object>( { queryIndex, defaultValue, update, children }: FormProps<T> ): JSX.Element {

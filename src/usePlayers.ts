@@ -6,7 +6,7 @@ import { PlayerCountsContext, PlayerSettingsContext, UpdatePlayerCountsContext }
 interface UsePlayers {
   shouldDisplay: boolean
   nextPlayer: () => void
-  currentPlayer: string|undefined
+  currentPlayer: string
 }
 
 export const usePlayers = ( ): UsePlayers => {
@@ -19,7 +19,7 @@ export const usePlayers = ( ): UsePlayers => {
     .entries( playerCounts )
     .filter( ( [, v] ) => v === Math.max( ...Object.values( playerCounts ) ) )
     .map( ( [k, ] ) => k )
-    .sort( random )[0]
+    .sort( random )[0] || ''
 
   const nextPlayer = (): void => {
     if ( playerSettings.enable && currentPlayer )

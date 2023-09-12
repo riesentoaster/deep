@@ -1,8 +1,8 @@
 import styles from './ToTheRight.module.scss'
 
 interface ToTheRightProps {
-  mainChild: JSX.Element
-  toTheRight: JSX.Element
+  mainChild: JSX.Element | string
+  toTheRight: JSX.Element | string
 }
 
 export const ToTheRight = ( { mainChild, toTheRight }: ToTheRightProps ): JSX.Element => (
