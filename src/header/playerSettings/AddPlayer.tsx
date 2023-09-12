@@ -14,12 +14,13 @@ export const AddPlayer = ( { addPlayer }: AddPlayerProps ): JSX.Element => {
     addPlayer( value.trim() )
   }
 
+  const isLegal = value.trim() !== ''
+
   const keyDownHandler: KeyboardEventHandler<HTMLInputElement> = ( e ) => {
     if ( e.key === 'Enter' && isLegal )
       trigger()
   }
 
-  const isLegal = value.trim() !== ''
   return (
     <li className='mt-3 flex flex-col'>
       <input
@@ -35,9 +36,7 @@ export const AddPlayer = ( { addPlayer }: AddPlayerProps ): JSX.Element => {
         onClick={trigger}
         disabled={!isLegal}
       >
-        <Ellipsis>
-          <>{t( 'addPlayer' )}</>
-        </Ellipsis>
+        <Ellipsis>{t( 'addPlayer' )}</Ellipsis>
       </button>
     </li>
   )

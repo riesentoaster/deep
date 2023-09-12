@@ -73,34 +73,33 @@ export const Layout = ( ): JSX.Element => {
   }, [playerCounts, playerSettings.players] )
 
   return (
-    <>
-      <FilteredAndOrderedQuestionsContext.Provider value={filteredQuestions}>
-        <PlayerSettingsContext.Provider value={playerSettings}>
-          <ChangePlayerSettingsContext.Provider value={setPlayerSettings}>
-            <ChangeOrderSettingsContext.Provider
-              value={( newOrder ): void => setOrderedQuestions( order( newOrder, preOrderedQuestions ) )}
-            >
-              <ChangeFilterSettingsContext.Provider value={setFilterSettings} >
-                <ChangeDisplaySettingsContext.Provider value={setDisplaySettings}>
-                  <Header/>
-                </ChangeDisplaySettingsContext.Provider>
-              </ChangeFilterSettingsContext.Provider>
-            </ChangeOrderSettingsContext.Provider>
-          </ChangePlayerSettingsContext.Provider>
+    <FilteredAndOrderedQuestionsContext.Provider value={filteredQuestions}>
+      <PlayerSettingsContext.Provider value={playerSettings}>
+        <ChangePlayerSettingsContext.Provider value={setPlayerSettings}>
+          <ChangeOrderSettingsContext.Provider
+            value={( newOrder ): void => setOrderedQuestions( order( newOrder, preOrderedQuestions ) )}
+          >
+            <ChangeFilterSettingsContext.Provider value={setFilterSettings} >
+              <ChangeDisplaySettingsContext.Provider value={setDisplaySettings}>
+                <Header/>
+              </ChangeDisplaySettingsContext.Provider>
+            </ChangeFilterSettingsContext.Provider>
+          </ChangeOrderSettingsContext.Provider>
+        </ChangePlayerSettingsContext.Provider>
 
-          <main>
-            <DisplaySettingsContext.Provider value={displaySettings}>
-              <PlayerCountsContext.Provider value={playerCounts}>
-                <UpdatePlayerCountsContext.Provider value={updatePlayerCounts}>
-                  <Outlet/>
-                </UpdatePlayerCountsContext.Provider>
-              </PlayerCountsContext.Provider>
-            </DisplaySettingsContext.Provider>
-          </main>
+        <main>
+          <DisplaySettingsContext.Provider value={displaySettings}>
+            <PlayerCountsContext.Provider value={playerCounts}>
+              <UpdatePlayerCountsContext.Provider value={updatePlayerCounts}>
+                <Outlet/>
+              </UpdatePlayerCountsContext.Provider>
+            </PlayerCountsContext.Provider>
+          </DisplaySettingsContext.Provider>
+        </main>
 
-          <Footer/>
+        <Footer/>
 
-        </PlayerSettingsContext.Provider>
-      </FilteredAndOrderedQuestionsContext.Provider>
-    </> )
+      </PlayerSettingsContext.Provider>
+    </FilteredAndOrderedQuestionsContext.Provider>
+  )
 }

@@ -53,9 +53,7 @@ export const ChooseFrom = ( ): JSX.Element => {
         {shouldDisplay && <>
           <li>
             {t( 'players.currentPlayer' )}:
-            <Ellipsis className='inline ml-5'>
-              <>{currentPlayer}</>
-            </Ellipsis>
+            <Ellipsis className='inline ml-5'>{currentPlayer}</Ellipsis>
           </li>
           <hr/>
         </>}

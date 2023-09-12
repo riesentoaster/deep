@@ -7,6 +7,11 @@ import { WithExplanation } from '../../generic/WithExplanation'
 export const DeepnessFilter = (): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'header.deepness' } )
 
+  const onChangeMapper = ( value: number | number[] ): {min: number, max: number} => {
+    if ( Array.isArray( value ) ) return { min: value[0], max: value[1] }
+    else throw new Error( `unexpected value: ${value}` )
+  }
+
   return (
     <>
       <WithExplanation closedElement={<h3>{t( 'title' )}</h3>} explanation={<DeepnessExplanation />} />
@@ -18,8 +23,7 @@ export const DeepnessFilter = (): JSX.Element => {
         max={maxDeepness}
         step={1}
         valueMapper={( value ): number[] => [value.min, value.max]}
-        onChangeMapper={( value: number | number[] ): any =>
-          Array.isArray( value ) && { min: value[0], max: value[1] } }
+        onChangeMapper={onChangeMapper}
         textLeft={t( 'min' )}
         textRight={t( 'max' )}
       />

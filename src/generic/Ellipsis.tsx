@@ -1,5 +1,5 @@
 interface EllipsisProps {
-  children: JSX.Element
+  children: JSX.Element | string
   className?: string
 }
 export const Ellipsis = ( { children, className = '' }: EllipsisProps ): JSX.Element => (

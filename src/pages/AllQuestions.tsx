@@ -28,9 +28,7 @@ export const AllQuestions = ( ): JSX.Element => {
           >
             <p className='mx-auto w-fit'>
               {t( 'players.currentPlayer' )}:
-              <Ellipsis className='inline ml-5'>
-                <>{currentPlayer}</>
-              </Ellipsis>
+              <Ellipsis className='inline ml-5'>{currentPlayer}</Ellipsis>
 
             </p>
           </HorizontalEntry>

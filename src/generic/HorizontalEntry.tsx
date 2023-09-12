@@ -3,7 +3,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 interface HorizontalEntryProps {
   onMoveToLeft: () => void
   onMoveToRight: () => void
-  children: JSX.Element
+  children: JSX.Element | string
   leftDisabled?: boolean
   rightDisabled?: boolean
   className?: string
