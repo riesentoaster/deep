@@ -7,8 +7,8 @@ import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { FilteredAndOrderedQuestionsContext } from './Layout'
 import { HorizontalEntry } from '../generic/HorizontalEntry'
-import { usePlayers } from '../usePlayers'
 import { Ellipsis } from '../generic/Ellipsis'
+import { PlayersContext } from '../PlayersContext'
 
 const mod = ( n: number, m: number ): number => ( ( n % m ) + m ) % m
 
@@ -25,7 +25,7 @@ export const ChooseFrom = ( ): JSX.Element => {
   const { n } = useParams()
   const { t } = useTranslation( 'common' )
   const questions = useContext( FilteredAndOrderedQuestionsContext )
-  const { currentPlayer, nextPlayer, shouldDisplay } = usePlayers()
+  const { currentPlayer, nextPlayer, shouldDisplay } = useContext( PlayersContext )
 
   if ( !n || Array.isArray( n ) ) return <ErrorMessage text={t( 'urlInvalid' )}/>
 

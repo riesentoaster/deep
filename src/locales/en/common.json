@@ -12,6 +12,7 @@
         "players": {
             "title": "Players",
             "enable": "Enable",
+            "announceNextPlayer": "Announce next player",
             "errorMessageNotEnoughPlayers": "The Players module needs two players to work.",
             "addPlayer": "Add Player"
         },
@@ -53,6 +54,7 @@
     "noQuestionsLeft": "Your filters left no questions to display.",
     "updating": "Updating deep…",
     "players": {
+        "nextPlayer": "Next Player",
         "currentPlayer": "Current Player"
     },
     "stats": {

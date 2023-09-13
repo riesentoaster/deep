@@ -13,6 +13,7 @@
             "title": "Spieler:innen",
             "errorMessageNotEnoughPlayers": "Das Spieler:innen-Modul funktioniert ab zwei Spieler:innen.",
             "enable": "Aktivieren",
+            "announceNextPlayer": "Nächste:r Spieler:in ankündigen",
             "addPlayer": "Spieler:in hinzufügen"
         },
         "filters": "Filter",
@@ -53,6 +54,7 @@
     "noQuestionsLeft": "Diese Filter lassen keine Frage übrig.",
     "updating": "deep wird aktualisiert…",
     "players": {
+        "nextPlayer": "Nächste:r Spieler:in",
         "currentPlayer": "Aktuelle:r Spieler:in"
     },
     "stats": {

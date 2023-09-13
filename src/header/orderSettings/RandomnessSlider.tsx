@@ -1,12 +1,13 @@
-import { useWatch } from 'react-hook-form'
+import { useFormContext } from 'react-hook-form'
 import { Slider } from '../../generic/Slider'
 import { useTranslation } from 'react-i18next'
 
 export const RandomnessSlider = (): JSX.Element => {
-  const showRandomness = useWatch( { name: 'random' } )
+  const { random } = useFormContext().getValues()
+
   const { t } = useTranslation( 'common', { keyPrefix: 'header.order' } )
 
-  return showRandomness && (
+  return random && (
     <label>
       <h3 className='mx-auto w-fit mt-4'>{t( 'randomness.title' )}</h3>
       <Slider

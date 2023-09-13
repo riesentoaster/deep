@@ -7,8 +7,8 @@ import { ErrorMessage } from '../../generic/ErrorMessage'
 
 export const PlayerNameSettings = (): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'header.players' } )
-
-  return useFormContext().getValues().enable && (
+  const { enable } = useFormContext().getValues()
+  return enable && (
     <Controller
       name={'players'}
       render={( { field: { value, onChange } } ): JSX.Element => {

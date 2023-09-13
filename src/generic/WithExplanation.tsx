@@ -15,7 +15,7 @@ export const WithExplanation = ( { closedElement, explanation }: WithExplanation
     mainChild={
       <>
         {closedElement}
-        <PopUp isOpen={isOpen} setIsOpen={setIsOpen} closesOnClickOutside>{explanation}</PopUp>
+        <PopUp isOpen={isOpen} onClose={(): void => setIsOpen( false )} closesOnClickOutside>{explanation}</PopUp>
       </>
     }
     toTheRight={

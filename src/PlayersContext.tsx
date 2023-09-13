@@ -3,25 +3,29 @@ import { random, reduceToObject } from './helpers'
 import { createContext, useContext, useEffect, useState } from 'react'
 import { PlayerCounts } from './header/settingsHelpers'
 import { PlayerSettingsContext } from './pages/Layout'
+import { PopUp } from './generic/PopUp'
+import { useTranslation } from 'react-i18next'
+import { Ellipsis } from './generic/Ellipsis'
 
-interface UsePlayers {
-  playerCounts: PlayerCounts
-  updatePlayerCounts: ( name: string ) => void
+interface PlayersContextType {
   shouldDisplay: boolean
   nextPlayer: () => void
   currentPlayer: string
 }
 
-const PlayerCountsContext = createContext<PlayerCounts>( {} )
-const UpdatePlayerCountsContext = createContext<( name: string ) => void>( () => {} )
+export const PlayersContext = createContext<PlayersContextType>( {
+  shouldDisplay: false,
+  nextPlayer: () => {},
+  currentPlayer: ''
+} )
 
-export const usePlayers = ( ): UsePlayers => {
+export const PlayersContextProvider = ( { children }: {children: JSX.Element} ): JSX.Element => {
+  const { t } = useTranslation( 'common', { keyPrefix: 'players' } )
   const playerSettings = useContext( PlayerSettingsContext )
   const [playerCounts, setPlayerCounts] = useState<PlayerCounts>( {} )
+  const [isNextPlayerAnnouncementOpen, setIsNextPlayerAnnouncementOpen] = useState( false )
 
-  const playerCount = Object.keys( playerCounts ).length
-
-  const updatePlayerCounts = ( name: string ): void => setPlayerCounts( {
+  const updatePlayerCountsAfterTurn = ( name: string ): void => setPlayerCounts( {
     [name]: 0,
     ...Object
       .entries( playerCounts )
@@ -45,6 +49,8 @@ export const usePlayers = ( ): UsePlayers => {
     }
   }, [playerCounts, playerSettings.players] )
 
+  const playerCount = Object.keys( playerCounts ).length
+
   const currentPlayer = Object
     .entries( playerCounts )
     .filter( ( [, v] ) => v === Math.max( ...Object.values( playerCounts ) ) )
@@ -52,26 +58,29 @@ export const usePlayers = ( ): UsePlayers => {
     .sort( random )[0] || ''
 
   const nextPlayer = (): void => {
-    if ( playerSettings.enable && currentPlayer )
-      updatePlayerCounts( currentPlayer )
+    if ( playerSettings.enable && currentPlayer ) {
+      updatePlayerCountsAfterTurn( currentPlayer )
+      if ( playerSettings.announceNextPlayer ) setIsNextPlayerAnnouncementOpen( true )
+    }
   }
 
   const shouldDisplay = playerSettings.enable && playerCount > 1
-  return {
-    playerCounts,
-    updatePlayerCounts,
-    currentPlayer,
-    shouldDisplay,
-    nextPlayer
-  }
-}
 
-export const PlayersContext = ( { children }: {children: JSX.Element} ): JSX.Element => {
-  const { playerCounts, updatePlayerCounts } = usePlayers()
-
-  return ( <PlayerCountsContext.Provider value={playerCounts}>
-    <UpdatePlayerCountsContext.Provider value={updatePlayerCounts}>
-      {children}
-    </UpdatePlayerCountsContext.Provider>
-  </PlayerCountsContext.Provider> )
+  return (
+    <PlayersContext.Provider value={{ shouldDisplay, nextPlayer, currentPlayer, }}>
+      { children }
+      <PopUp
+        isOpen={isNextPlayerAnnouncementOpen}
+        onClose={(): void => setIsNextPlayerAnnouncementOpen( false ) }
+        closesOnAnyClick
+      >
+        <div className='float float-row'>
+          <p>{t( 'nextPlayer' )}:</p>
+          <Ellipsis className='text-[2rem] mx-auto mt-5'>
+            {currentPlayer}
+          </Ellipsis>
+        </div>
+      </PopUp>
+    </PlayersContext.Provider>
+  )
 }

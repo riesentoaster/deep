@@ -4,9 +4,9 @@ import { Form } from '../Form'
 import { useContext } from 'react'
 import { ChangeOrderSettingsContext } from '../../pages/Layout'
 import { defaultOrderSettings } from '../settingsHelpers'
-import { RandomToggle } from './RandomToggle'
 import { RandomnessSlider } from './RandomnessSlider'
 import { WithExplanation } from '../../generic/WithExplanation'
+import { WithToggle } from '../../generic/WithToggle'
 
 const ORDER_QUERY_INDEX = 'order'
 
@@ -18,7 +18,7 @@ export const OrderSettings = (): JSX.Element => {
     <Form queryIndex={ORDER_QUERY_INDEX} defaultValue={defaultOrderSettings} update={changeOrderSettings}>
       <>
         <WithExplanation closedElement={<h2>{t( 'title' )}</h2>} explanation={<OrderExplanation />} />
-        <RandomToggle/>
+        <WithToggle explanation={t( 'toggleTitle' )} formName={'random'}/>
         <RandomnessSlider/>
       </>
     </Form>

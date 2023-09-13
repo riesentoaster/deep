@@ -17,7 +17,7 @@ import {
 import { useServiceWorker } from '../useServiceWorker'
 import { filter } from '../filterQuestions'
 import { order } from '../orderQuestions'
-import { PlayersContext } from '../usePlayers'
+import { PlayersContextProvider } from '../PlayersContext'
 
 const preOrderedQuestions = allQuestions.sort( ( a, b ) => b.index - a.index )
 
@@ -63,9 +63,9 @@ export const Layout = ( ): JSX.Element => {
 
         <main>
           <DisplaySettingsContext.Provider value={displaySettings}>
-            <PlayersContext>
+            <PlayersContextProvider>
               <Outlet/>
-            </PlayersContext>
+            </PlayersContextProvider>
           </DisplaySettingsContext.Provider>
         </main>
 

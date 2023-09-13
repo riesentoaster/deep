@@ -14,7 +14,5 @@ export const PlayerNameEntry = ( { name, deletePlayer }: PlayerNameEntryProps ):
           <XMarkIcon className='h-full'/>
         </button>
       }/>
-
   </li>
-
 )

@@ -4,7 +4,8 @@ import { Form } from '../Form'
 import { defaultPlayerSettings } from '../settingsHelpers'
 import { useTranslation } from 'react-i18next'
 import { PlayerNameSettings } from './PlayerNameSettings'
-import { EnableToggle } from './EnableToggle'
+import { WithToggle } from '../../generic/WithToggle'
+import { AnnounceNextPlayerToggle } from './AnnounceNextPlayerToggle'
 
 const PLAYER_QUERY_INDEX = 'players'
 export const PlayerSettings = (): JSX.Element => {
@@ -15,7 +16,8 @@ export const PlayerSettings = (): JSX.Element => {
     <Form queryIndex={PLAYER_QUERY_INDEX} defaultValue={defaultPlayerSettings} update={changePlayerSettings}>
       <>
         <h2>{t( 'title' )}</h2>
-        <EnableToggle/>
+        <WithToggle explanation={t( 'enable' )} formName='enable'/>
+        <AnnounceNextPlayerToggle/>
         <PlayerNameSettings/>
       </>
     </Form>

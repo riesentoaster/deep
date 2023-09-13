@@ -1,7 +1,7 @@
 import { Question as QuestionComponent } from '../generic/Question'
 import { NoQuestionsLeft } from '../generic/NoQuestionsLeft'
 import { FilteredAndOrderedQuestionsContext } from './Layout'
-import { usePlayers } from '../usePlayers'
+import { PlayersContext } from '../PlayersContext'
 import { HorizontalEntry } from '../generic/HorizontalEntry'
 import { useContext } from 'react'
 import { Ellipsis } from '../generic/Ellipsis'
@@ -11,7 +11,7 @@ export const AllQuestions = ( ): JSX.Element => {
   const questions = useContext( FilteredAndOrderedQuestionsContext )
   const { t } = useTranslation( 'common' )
 
-  const { currentPlayer, shouldDisplay, nextPlayer } = usePlayers()
+  const { currentPlayer, shouldDisplay, nextPlayer } = useContext( PlayersContext )
 
   if ( questions.length === 0 )
     return ( <NoQuestionsLeft/> )
