@@ -31,7 +31,7 @@ module.exports = {
     'block-spacing': ['error', 'always'],
     'no-whitespace-before-property': ['error'],
     'no-trailing-spaces': ['error'],
-    'space-in-parens': ['error', 'always'],
+    'space-in-parens': ['error', 'always', { 'exceptions': ['empty'] }],
     'object-curly-spacing': ['error', 'always'],
     'no-unused-vars': ['off'],
     'no-multiple-empty-lines': ['error', { max: 1 }],

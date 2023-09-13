@@ -3,13 +3,13 @@ import { ErrorMessage } from '../../generic/ErrorMessage'
 import { DeepnessFilter } from './DeepnessFilter'
 import { TagsFilter } from './TagsFilter'
 import { defaultFilterSettings } from '../settingsHelpers'
-import { useContext } from 'react'
+import { FC, useContext } from 'react'
 import { ChangeFilterSettingsContext, FilteredAndOrderedQuestionsContext } from '../../pages/Layout'
 import { Form } from '../Form'
 
 const QUERY_INDEX_FILTERS = 'filters'
 
-export const FilterSettings = ( ): JSX.Element => {
+export const FilterSettings: FC = () => {
 
   const changeFilterSettings = useContext( ChangeFilterSettingsContext )
   const currentQuestions = useContext( FilteredAndOrderedQuestionsContext )

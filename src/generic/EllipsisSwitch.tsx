@@ -1,3 +1,5 @@
+import { ReactElement } from 'react'
+
 interface EllipsisSwitchProps<T extends string> {
   elements: Record<T, string> // key, stringToDisplay
   state: T | undefined
@@ -10,7 +12,7 @@ export const EllipsisSwitch = <T extends string, >( {
   state,
   setState,
   className = ''
-}: EllipsisSwitchProps<T> ): JSX.Element => {
+}: EllipsisSwitchProps<T> ): ReactElement => {
   return (
     <div className={`flex flex-row border rounded-full h-fit ${className}`}>
       {

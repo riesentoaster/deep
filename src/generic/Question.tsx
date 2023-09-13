@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Question as QuestionType } from '../questions'
-import { useContext } from 'react'
+import { FC, useContext } from 'react'
 import { DisplaySettingsContext } from '../pages/Layout'
 
 export const nonBreakingSpace = '\u00A0'
@@ -8,7 +8,7 @@ interface QuestionProps {
   question: QuestionType
 }
 
-export const Question = ( { question }: QuestionProps ): JSX.Element => {
+export const Question: FC<QuestionProps> = ( { question } ) => {
   const { t } = useTranslation( 'questions' )
   const displaySettings = useContext( DisplaySettingsContext )
 

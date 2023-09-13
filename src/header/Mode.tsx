@@ -2,6 +2,7 @@
 import { useTranslation } from 'react-i18next'
 import { NavLink, useSearchParams } from 'react-router-dom'
 import { Ellipsis } from '../generic/Ellipsis'
+import { FC, ReactNode } from 'react'
 
 const links = {
   'allQuestions': '/',
@@ -11,7 +12,7 @@ const links = {
   'stats': '/stats',
 }
 
-export const Mode = (): JSX.Element => {
+export const Mode: FC = () => {
   const { t } = useTranslation( 'common', { keyPrefix: 'header.links' } )
   const [searchParams,] = useSearchParams()
 
@@ -23,7 +24,7 @@ export const Mode = (): JSX.Element => {
           (
             <NavLink key={href} to={href + '?' + searchParams.toString()} >
               {
-                ( { isActive, isPending } ): JSX.Element =>
+                ( { isActive, isPending } ): ReactNode =>
                   isActive || isPending ?
                     ( <Ellipsis className='mx-auto'><p>{t( text )}</p></Ellipsis> ) :
                     ( <p>{t( text )}</p> )

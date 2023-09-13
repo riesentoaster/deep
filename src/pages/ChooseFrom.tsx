@@ -1,6 +1,6 @@
 import { NoQuestionsLeft } from '../generic/NoQuestionsLeft'
 import { Question } from '../questions'
-import { useContext, useState } from 'react'
+import { FC, useContext, useState } from 'react'
 import { Question as QuestionElement } from '../generic/Question'
 import { ErrorMessage } from '../generic/ErrorMessage'
 import { useParams } from 'react-router-dom'
@@ -20,7 +20,7 @@ const filterQuestions = ( questions: Question[], index: number, n: number ): Que
   return allowedNumbers.map( e => questions[e] )
 }
 
-export const ChooseFrom = ( ): JSX.Element => {
+export const ChooseFrom: FC = () => {
   const [index, setIndex] = useState( 0 )
   const { n } = useParams()
   const { t } = useTranslation( 'common' )

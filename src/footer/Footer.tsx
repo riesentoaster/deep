@@ -1,8 +1,9 @@
 import i18next from 'i18next'
 import { Ellipsis } from '../generic/Ellipsis'
 import { showTranslations } from 'translation-check'
+import { FC } from 'react'
 
-export const Footer = (): JSX.Element => (
+export const Footer: FC = () => (
   <footer className='flex flex-row justify-space flex-wrap justify-center p-5 gap-5'>
     <Ellipsis>
       <p>Visit this project on <a href='https://github.com/riesentoaster/deep'>GitHub</a></p>

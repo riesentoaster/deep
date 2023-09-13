@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 import styles from './TriStateSwitch.module.scss'
 import { CheckIcon, XMarkIcon } from '@heroicons/react/20/solid'
 
@@ -9,7 +9,7 @@ interface TriStateElementProps {
   children: ReactNode
 }
 
-const TriStateElement = ( { setElement, children }: TriStateElementProps ): JSX.Element => (
+const TriStateElement: FC<TriStateElementProps> = ( { setElement, children } ) => (
   <button type='button' className={styles.switchElement} onClick={setElement}>{children}</button>
 )
 
@@ -20,12 +20,12 @@ interface TriStateSwitchProps {
   setIfUnchanged?: boolean
 }
 
-export const TriStateSwitch = ( {
+export const TriStateSwitch: FC<TriStateSwitchProps> = ( {
   text,
   state,
   setState,
   setIfUnchanged = true
-}: TriStateSwitchProps ): JSX.Element => {
+} ) => {
   const change = ( state: TriStateSwitchState, element: TriStateSwitchState ) => (): void => {
     if ( setIfUnchanged || state !== element )
       setState( element )

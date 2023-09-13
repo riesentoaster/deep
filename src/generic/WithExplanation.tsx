@@ -1,14 +1,14 @@
 import { QuestionMarkCircleIcon } from '@heroicons/react/24/outline'
 import { PopUp } from './PopUp'
-import { useState } from 'react'
+import { FC, ReactNode, useState } from 'react'
 import { ToTheRight } from './ToTheRight'
 
 interface WithExplanationProps {
-  closedElement: JSX.Element | string
-  explanation: JSX.Element | string
+  closedElement: ReactNode
+  explanation: ReactNode
 }
 
-export const WithExplanation = ( { closedElement, explanation }: WithExplanationProps ): JSX.Element => {
+export const WithExplanation: FC<WithExplanationProps> = ( { closedElement, explanation } ) => {
   const [isOpen, setIsOpen] = useState( false )
 
   return ( <ToTheRight

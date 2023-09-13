@@ -4,8 +4,9 @@ import { Controller } from 'react-hook-form'
 import { allTags } from '../settingsHelpers'
 import { TriStateSwitch, TriStateSwitchState } from '../../generic/TriStateSwitch'
 import { WithExplanation } from '../../generic/WithExplanation'
+import { FC, ReactElement } from 'react'
 
-export const TagsFilter = (): JSX.Element => {
+export const TagsFilter: FC = () => {
   const { t } = useTranslation( 'common' )
 
   return (
@@ -15,7 +16,7 @@ export const TagsFilter = (): JSX.Element => {
         <Controller
           name={`tags.${tag}`}
           key={tag}
-          render={( { field: { value, onChange } } ): JSX.Element => (
+          render={( { field: { value, onChange } } ): ReactElement => (
             <TriStateSwitch
               text={t( tag, { keyPrefix: 'tags' } )}
               state={value}

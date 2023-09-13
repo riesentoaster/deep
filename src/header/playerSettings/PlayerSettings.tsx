@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { FC, useContext } from 'react'
 import { ChangePlayerSettingsContext } from '../../pages/Layout'
 import { Form } from '../Form'
 import { defaultPlayerSettings } from '../settingsHelpers'
@@ -9,7 +9,7 @@ import { AnnounceNextPlayerToggle } from './AnnounceNextPlayerToggle'
 import { OrderSlider } from './OrderSlider'
 
 const PLAYER_QUERY_INDEX = 'players'
-export const PlayerSettings = (): JSX.Element => {
+export const PlayerSettings: FC = () => {
   const { t } = useTranslation( 'common', { keyPrefix: 'header.players' } )
   const changePlayerSettings = useContext( ChangePlayerSettingsContext )
 

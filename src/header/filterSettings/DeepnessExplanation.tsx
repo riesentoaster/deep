@@ -1,6 +1,7 @@
+import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export const DeepnessExplanation = (): JSX.Element => {
+export const DeepnessExplanation: FC = () => {
   const { t } = useTranslation( 'common', { keyPrefix: 'header.deepness' } )
 
   return (

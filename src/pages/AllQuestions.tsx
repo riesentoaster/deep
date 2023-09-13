@@ -3,11 +3,11 @@ import { NoQuestionsLeft } from '../generic/NoQuestionsLeft'
 import { FilteredAndOrderedQuestionsContext } from './Layout'
 import { PlayersContext } from '../PlayersContext'
 import { HorizontalEntry } from '../generic/HorizontalEntry'
-import { useContext } from 'react'
+import { FC, useContext } from 'react'
 import { Ellipsis } from '../generic/Ellipsis'
 import { useTranslation } from 'react-i18next'
 
-export const AllQuestions = ( ): JSX.Element => {
+export const AllQuestions: FC = () => {
   const questions = useContext( FilteredAndOrderedQuestionsContext )
   const { t } = useTranslation( 'common' )
 

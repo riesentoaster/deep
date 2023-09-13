@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { reduceToObject, shuffleArray, tamedRandom } from './helpers'
 import { createContext, useContext, useEffect, useState } from 'react'
 import { PlayerCounts } from './header/settingsHelpers'
@@ -19,7 +19,11 @@ export const PlayersContext = createContext<PlayersContextType>( {
   currentPlayer: ''
 } )
 
-export const PlayersContextProvider = ( { children }: {children: ReactNode} ): JSX.Element => {
+interface PlayersContextProviderProps {
+  children: ReactNode
+}
+
+export const PlayersContextProvider: FC<PlayersContextProviderProps> = ( { children } ) => {
   const { t } = useTranslation( 'common', { keyPrefix: 'players' } )
   const playerSettings = useContext( PlayerSettingsContext )
   const [playerCounts, setPlayerCounts] = useState<PlayerCounts>( {} )

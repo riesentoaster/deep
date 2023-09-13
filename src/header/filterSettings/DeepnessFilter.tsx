@@ -3,8 +3,9 @@ import { useTranslation } from 'react-i18next'
 import { maxDeepness, minDeepness } from '../settingsHelpers'
 import { Slider } from '../../generic/Slider'
 import { WithExplanation } from '../../generic/WithExplanation'
+import { FC } from 'react'
 
-export const DeepnessFilter = (): JSX.Element => {
+export const DeepnessFilter: FC = () => {
   const { t } = useTranslation( 'common', { keyPrefix: 'header.deepness' } )
 
   const onChangeMapper = ( value: number | number[] ): {min: number, max: number} => {

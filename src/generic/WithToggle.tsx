@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import { Toggle } from './Toggle'
 
 interface WithToggleProps {
@@ -6,7 +7,7 @@ interface WithToggleProps {
   className?: string
 }
 
-export const WithToggle = ( { explanation, formName, className = '' }: WithToggleProps ): JSX.Element => (
+export const WithToggle: FC<WithToggleProps> = ( { explanation, formName, className = '' } ) => (
   <div className={`flex justify-between mt-2 ${className}`}>
     <p>{explanation}</p>
     <Toggle name={formName}/>

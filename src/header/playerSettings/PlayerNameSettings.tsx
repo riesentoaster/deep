@@ -4,14 +4,15 @@ import { PlayerNameEntry } from './PlayerNameEntry'
 import { unique } from '../../helpers'
 import { useTranslation } from 'react-i18next'
 import { ErrorMessage } from '../../generic/ErrorMessage'
+import { FC, ReactElement } from 'react'
 
-export const PlayerNameSettings = (): JSX.Element => {
+export const PlayerNameSettings: FC = () => {
   const { t } = useTranslation( 'common', { keyPrefix: 'header.players' } )
   const { enable } = useFormContext().getValues()
   return enable && (
     <Controller
       name={'players'}
-      render={( { field: { value, onChange } } ): JSX.Element => {
+      render={( { field: { value, onChange } } ): ReactElement => {
         const addPlayer = ( newPlayer: string ): void =>
           onChange(
             [...value, newPlayer]

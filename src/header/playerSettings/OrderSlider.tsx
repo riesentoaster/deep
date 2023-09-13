@@ -3,8 +3,9 @@ import { Slider } from '../../generic/Slider'
 import { useTranslation } from 'react-i18next'
 import { WithExplanation } from '../../generic/WithExplanation'
 import { OrderExplanation } from './OrderExplanation'
+import { FC } from 'react'
 
-export const OrderSlider = (): JSX.Element => {
+export const OrderSlider: FC = () => {
   const { enable } = useFormContext().getValues()
 
   const { t } = useTranslation( 'common', { keyPrefix: 'header.players.inOrder' } )

@@ -1,5 +1,5 @@
 import { questions as allQuestions } from '../questions'
-import { createContext, useEffect, useState } from 'react'
+import { FC, createContext, useEffect, useState } from 'react'
 import { Header } from '../header/Header'
 import { Footer } from '../footer/Footer'
 import { Outlet } from 'react-router-dom'
@@ -31,7 +31,7 @@ export const ChangePlayerSettingsContext = createContext<( e: PlayerSettings ) =
 export const DisplaySettingsContext = createContext( defaultDisplaySettings )
 export const ChangeDisplaySettingsContext = createContext<( e: DisplaySettings ) => void>( () => {} )
 
-export const Layout = ( ): JSX.Element => {
+export const Layout: FC = () => {
   useServiceWorker()
 
   const [orderedQuestions, setOrderedQuestions] = useState( order( defaultOrderSettings, preOrderedQuestions ) )

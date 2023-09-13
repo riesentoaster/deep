@@ -2,6 +2,7 @@ import RCSlider from 'rc-slider'
 import style from './Slider.module.scss'
 import { nonBreakingSpace } from './Question'
 import { Controller } from 'react-hook-form'
+import { ReactElement } from 'react'
 
 interface SliderProps<T> {
   name: string
@@ -29,11 +30,11 @@ export const Slider = <T, >( {
   range = false,
   dots = false,
   allowCross = false
-}: SliderProps<T> ): JSX.Element => {
+}: SliderProps<T> ): ReactElement => {
   return (
     <Controller
       name={name}
-      render={( { field: { value, onChange } } ): JSX.Element => (
+      render={( { field: { value, onChange } } ): ReactElement => (
         <div className='mx-2 mt-3 mb-2' >
           <RCSlider
             className={style.slider}

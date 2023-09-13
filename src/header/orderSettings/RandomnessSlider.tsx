@@ -1,8 +1,9 @@
 import { useFormContext } from 'react-hook-form'
 import { Slider } from '../../generic/Slider'
 import { useTranslation } from 'react-i18next'
+import { FC } from 'react'
 
-export const RandomnessSlider = (): JSX.Element => {
+export const RandomnessSlider: FC = () => {
   const { random } = useFormContext().getValues()
 
   const { t } = useTranslation( 'common', { keyPrefix: 'header.order' } )

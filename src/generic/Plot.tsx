@@ -1,6 +1,7 @@
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { Question } from '../questions'
 import { reduceToObject, unique } from '../helpers'
+import { FC } from 'react'
 
 interface RechartsPlotProps {
   questions: Question[]
@@ -11,7 +12,7 @@ interface RechartsPlotProps {
 const colors = ['#00af54', '#ffd639', '#ffbd74', '#8090b7', '#007cbe']
 const formatter = ( e: number ): string => new Date( e ).toLocaleDateString()
 
-export const RechartsPlot = ( { questions, groupBy, cumsum = false }: RechartsPlotProps ): JSX.Element => {
+export const RechartsPlot: FC<RechartsPlotProps> = ( { questions, groupBy, cumsum = false } ) => {
   const uniqueGroups = questions.flatMap( e => groupBy( e ) ).filter( unique ).sort()
 
   const data: {date: number, [key: string]: number}[] = questions

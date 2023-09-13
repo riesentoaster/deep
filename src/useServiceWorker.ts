@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Workbox } from 'workbox-window'
 
-export const useServiceWorker = ( ): void => {
+export const useServiceWorker = (): void => {
   const location = useLocation()
   useEffect( () => {
     if ( 'serviceWorker' in navigator && process.env.NODE_ENV === 'production' ) {

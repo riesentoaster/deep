@@ -1,5 +1,5 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
-import { ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 
 interface HorizontalEntryProps {
   onMoveToLeft: () => void
@@ -10,14 +10,14 @@ interface HorizontalEntryProps {
   className?: string
 }
 
-export const HorizontalEntry = ( {
+export const HorizontalEntry: FC<HorizontalEntryProps> = ( {
   onMoveToLeft,
   onMoveToRight,
   children,
   className = '',
   leftDisabled = false,
   rightDisabled = false
-}: HorizontalEntryProps ): JSX.Element => (
+} ) => (
   <div className={`flex flex-row ${className}`}>
     <ChevronLeftIcon
       className={`h-6 w-6 grow shrink-0 my-auto ${leftDisabled && 'invisible'}`}

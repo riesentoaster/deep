@@ -1,6 +1,7 @@
+import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export const OrderExplanation = (): JSX.Element => {
+export const OrderExplanation: FC = () => {
   const { t } = useTranslation( 'common', { keyPrefix: 'header.order' } )
   return (
     <>

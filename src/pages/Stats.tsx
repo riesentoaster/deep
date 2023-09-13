@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next'
 import { RechartsPlot } from '../generic/Plot'
-import { useContext } from 'react'
+import { FC, useContext } from 'react'
 import { Question } from '../questions'
 import { FilteredAndOrderedQuestionsContext } from './Layout'
 
-export const Stats = ( ): JSX.Element => {
+export const Stats: FC = () => {
 
   const { t: tagsT } = useTranslation( 'common', { keyPrefix: 'tags' } )
   const { t: statsT } = useTranslation( 'common', { keyPrefix: 'stats' } )

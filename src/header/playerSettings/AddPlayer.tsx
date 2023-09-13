@@ -1,4 +1,4 @@
-import { KeyboardEventHandler, useState } from 'react'
+import { FC, KeyboardEventHandler, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Ellipsis } from '../../generic/Ellipsis'
 
@@ -6,10 +6,10 @@ interface AddPlayerProps {
   addPlayer: ( name: string ) => void
 }
 
-export const AddPlayer = ( { addPlayer }: AddPlayerProps ): JSX.Element => {
+export const AddPlayer: FC<AddPlayerProps> = ( { addPlayer } ) => {
   const { t } = useTranslation( 'common', { keyPrefix: 'header.players' } )
   const [value, setValue] = useState( '' )
-  const trigger = ( ): void => {
+  const trigger = (): void => {
     setValue( '' )
     addPlayer( value.trim() )
   }

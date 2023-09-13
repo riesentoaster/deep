@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef } from 'react'
+import { FC, ReactNode, useEffect, useRef } from 'react'
 import styles from './PopUp.module.scss'
 
 interface PopUpProps {
@@ -9,13 +9,13 @@ interface PopUpProps {
   closesOnAnyClick?: boolean
 }
 
-export const PopUp = ( {
+export const PopUp: FC<PopUpProps> = ( {
   children,
   isOpen,
   onClose,
   closesOnClickOutside = false,
   closesOnAnyClick = false
-}: PopUpProps ): JSX.Element => {
+} ) => {
   const ref = useRef<HTMLDivElement | null>( null )
 
   useEffect( () => {
@@ -23,7 +23,7 @@ export const PopUp = ( {
       if ( isOpen && ( closesOnAnyClick ||
         ( closesOnClickOutside && ref.current && !ref.current.contains( event.target as Node ) )
       ) ) {
-        onClose( )
+        onClose()
         event.stopPropagation()
       }
     }

@@ -1,3 +1,5 @@
+import { FC } from 'react'
+
 type ErrorMessageType = 'error' | 'warn' | 'none'
 interface ErrorMessageProps {
   text: string
@@ -10,6 +12,6 @@ const colors: Record<ErrorMessageType, string> = {
   'none': ''
 }
 
-export const ErrorMessage = ( { text, type = 'error' }: ErrorMessageProps ): JSX.Element => (
+export const ErrorMessage: FC<ErrorMessageProps> = ( { text, type = 'error' } ) => (
   <p className={`mx-auto w-fit ${colors[type]}`}>{text}</p>
 )

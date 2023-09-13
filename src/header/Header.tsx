@@ -7,8 +7,9 @@ import styles from './Header.module.scss'
 import { DisplaySettings } from './displaySettings/DisplaySettings'
 import { OrderSettings } from './orderSettings/OrderSettings'
 import { PlayerSettings } from './playerSettings/PlayerSettings'
+import { FC } from 'react'
 
-export const Header = ( ): JSX.Element => {
+export const Header: FC = () => {
   const { t } = useTranslation( 'common' )
 
   return (
