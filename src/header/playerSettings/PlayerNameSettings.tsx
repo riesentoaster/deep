@@ -12,6 +12,13 @@ export const PlayerNameSettings = (): JSX.Element => {
     <Controller
       name={'players'}
       render={( { field: { value, onChange } } ): JSX.Element => {
+        const addPlayer = ( newPlayer: string ): void =>
+          onChange(
+            [...value, newPlayer]
+              .filter( unique )
+              .sort()
+          )
+
         return (
           <ul className='mt-4'>
             {value.length < 2 && <li><ErrorMessage type='warn' text={t( 'errorMessageNotEnoughPlayers' )}/></li>}
@@ -22,7 +29,7 @@ export const PlayerNameSettings = (): JSX.Element => {
                 deletePlayer={(): void => onChange( value.filter( ( n: string ) => n !== name ) )}
               />
             ) )}
-            <AddPlayer addPlayer={( newPlayer: string ): void => onChange( [...value, newPlayer].filter( unique ) )}/>
+            <AddPlayer addPlayer={addPlayer}/>
           </ul>
         )
       }}
