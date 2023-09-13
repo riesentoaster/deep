@@ -4,6 +4,10 @@
     label:has(input:checked) {
         background-color: $accentColorOffWhite;
     }
+
+    display: flex;
+    justify-content: center;
+    margin-left: 1em;
 }
 
 .outer {
@@ -15,6 +19,8 @@
     background-color: $backgroundColor;
     padding: 0.1rem;
     border-color: $accentColorOffWhite;
+    margin-top: auto;
+    margin-bottom: auto;
 
     input {
         visibility: hidden;

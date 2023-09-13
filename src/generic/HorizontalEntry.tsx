@@ -1,9 +1,10 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
+import { ReactNode } from 'react'
 
 interface HorizontalEntryProps {
   onMoveToLeft: () => void
   onMoveToRight: () => void
-  children: JSX.Element | string
+  children: ReactNode
   leftDisabled?: boolean
   rightDisabled?: boolean
   className?: string

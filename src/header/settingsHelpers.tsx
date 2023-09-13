@@ -37,12 +37,14 @@ export const defaultOrderSettings: OrderSettings = {
 
 export interface PlayerSettings {
   enable: boolean
+  inOrder: number
   announceNextPlayer: boolean
   players: string[]
 }
 
 export const defaultPlayerSettings: PlayerSettings = {
   enable: false,
+  inOrder: 0,
   announceNextPlayer: false,
   players: []
 }

@@ -14,7 +14,13 @@
             "errorMessageNotEnoughPlayers": "Das Spieler:innen-Modul funktioniert ab zwei Spieler:innen.",
             "enable": "Aktivieren",
             "announceNextPlayer": "Nächste:r Spieler:in ankündigen",
-            "addPlayer": "Spieler:in hinzufügen"
+            "addPlayer": "Spieler:in hinzufügen",
+            "inOrder": {
+                "title": "Reihenfolge",
+                "inOrder": "Der Reihe nach",
+                "random": "Zufällig",
+                "explanation": "Diese Einstellung regelt, in welcher Reihenfolge die nächsten Spieler:innen ausgewählt werden. In den Extremfällen kommen die Spieler:innen entweder der Reihe nach oder komplett zufällig dran. Dazwischen spielt die Reihenfolge eine immer grösser- resp. kleinerwerdende Rolle."
+            }
         },
         "filters": "Filter",
         "tags": {
@@ -46,7 +52,8 @@
         },
         "display": {
             "title": "Anzeige",
-            "showAuthors": "Autoren anzeigen"
+            "showAuthors": "Autoren anzeigen",
+            "language": "Sprache"
         },
         "questionsLeft": "Fragen übrig."
     },

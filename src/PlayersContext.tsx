@@ -1,5 +1,5 @@
-import React from 'react'
-import { random, reduceToObject } from './helpers'
+import React, { ReactNode } from 'react'
+import { reduceToObject, shuffleArray, tamedRandom } from './helpers'
 import { createContext, useContext, useEffect, useState } from 'react'
 import { PlayerCounts } from './header/settingsHelpers'
 import { PlayerSettingsContext } from './pages/Layout'
@@ -19,7 +19,7 @@ export const PlayersContext = createContext<PlayersContextType>( {
   currentPlayer: ''
 } )
 
-export const PlayersContextProvider = ( { children }: {children: JSX.Element} ): JSX.Element => {
+export const PlayersContextProvider = ( { children }: {children: ReactNode} ): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'players' } )
   const playerSettings = useContext( PlayerSettingsContext )
   const [playerCounts, setPlayerCounts] = useState<PlayerCounts>( {} )
@@ -51,12 +51,12 @@ export const PlayersContextProvider = ( { children }: {children: JSX.Element} ):
 
   const playerCount = Object.keys( playerCounts ).length
 
-  const currentPlayer = Object
-    .entries( playerCounts )
-    .filter( ( [, v] ) => v === Math.max( ...Object.values( playerCounts ) ) )
+  const currentPlayer = shuffleArray( Object.entries( playerCounts ) )
+    .sort( tamedRandom( playerSettings.inOrder, ( [, v] ) => v ) )
     .map( ( [k, ] ) => k )
-    .sort( random )[0] || ''
+    .pop() || ''
 
+  console.log( playerCounts )
   const nextPlayer = (): void => {
     if ( playerSettings.enable && currentPlayer ) {
       updatePlayerCountsAfterTurn( currentPlayer )

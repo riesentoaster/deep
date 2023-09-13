@@ -1,8 +1,8 @@
-import { useEffect, useRef } from 'react'
+import { ReactNode, useEffect, useRef } from 'react'
 import styles from './PopUp.module.scss'
 
 interface PopUpProps {
-  children: JSX.Element | string
+  children: ReactNode
   isOpen: boolean
   onClose: () => void
   closesOnClickOutside?: boolean

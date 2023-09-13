@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import styles from './TriStateSwitch.module.scss'
 import { CheckIcon, XMarkIcon } from '@heroicons/react/20/solid'
 
@@ -5,7 +6,7 @@ export type TriStateSwitchState = 'REQUIRE' | 'IGNORE' | 'PROHIBIT';
 
 interface TriStateElementProps {
   setElement: () => void
-  children: JSX.Element | string
+  children: ReactNode
 }
 
 const TriStateElement = ( { setElement, children }: TriStateElementProps ): JSX.Element => (

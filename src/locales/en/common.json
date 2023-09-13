@@ -14,7 +14,13 @@
             "enable": "Enable",
             "announceNextPlayer": "Announce next player",
             "errorMessageNotEnoughPlayers": "The Players module needs two players to work.",
-            "addPlayer": "Add Player"
+            "addPlayer": "Add Player",
+            "inOrder": {
+                "title": "Order",
+                "inOrder": "In Order",
+                "random": "Random",
+                "explanation": "This option sets the order in which the next player is chosen. In the extreme cases, this is done in order or completely random. In between, the order's influence increases or decreases."
+            }
         },
         "filters": "Filters",
         "tags": {
@@ -46,7 +52,8 @@
         },
         "display": {
             "title": "Display",
-            "showAuthors": "Show Authors"
+            "showAuthors": "Show Authors",
+            "language": "Language"
         },
         "questionsLeft": "questions left."
     },

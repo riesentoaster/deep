@@ -4,6 +4,7 @@ import { ChangeDisplaySettingsContext } from '../../pages/Layout'
 import { defaultDisplaySettings } from '../settingsHelpers'
 import { ShowAuthorSettings } from './ShowAuthorSettings'
 import { useTranslation } from 'react-i18next'
+import { LanguageSettings } from './LanguageSettings'
 
 const DISPLAY_QUERY_INDEX = 'display'
 
@@ -16,6 +17,8 @@ export const DisplaySettings = (): JSX.Element => {
       <>
         <h2>{t( 'title' )}</h2>
         <ShowAuthorSettings/>
+        <h3 className='my-4'>{t( 'language' )}</h3>
+        <LanguageSettings/>
       </>
     </Form>
   )

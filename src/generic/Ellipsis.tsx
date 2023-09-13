@@ -1,5 +1,7 @@
+import { ReactNode } from 'react'
+
 interface EllipsisProps {
-  children: JSX.Element | string
+  children: ReactNode
   className?: string
 }
 export const Ellipsis = ( { children, className = '' }: EllipsisProps ): JSX.Element => (

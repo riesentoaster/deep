@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next'
-import { Toggle } from '../../generic/Toggle'
+import { WithToggle } from '../../generic/WithToggle'
 
 export const ShowAuthorSettings = (): JSX.Element => {
   const { t } = useTranslation( 'common', { keyPrefix: 'header.display' } )
 
   return (
-    <label className='flex justify-between mt-2'>
-      <h4>{t( 'showAuthors' )}</h4>
-      <Toggle name='showAuthors' className='my-auto'/>
-    </label>
+    <WithToggle
+      explanation={t( 'showAuthors' )}
+      formName={'showAuthors'}
+    />
   )
 }

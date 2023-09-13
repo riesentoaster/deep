@@ -1,5 +1,5 @@
 import { DeepPartial, DefaultValues, FormProvider, useForm } from 'react-hook-form'
-import { useEffect } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { detailedDiff, updatedDiff } from 'deep-object-diff'
 import qs from 'qs'
@@ -11,7 +11,7 @@ interface FormProps <T extends object>{
   queryIndex: string
   defaultValue: DefaultValues<T>
   update( newT: DeepPartial<T> ): void
-  children: JSX.Element | string
+  children: ReactNode
 }
 
 export function Form<T extends object>( { queryIndex, defaultValue, update, children }: FormProps<T> ): JSX.Element {

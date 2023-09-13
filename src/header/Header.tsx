@@ -17,8 +17,8 @@ export const Header = ( ): JSX.Element => {
         <div className={`${styles.settings}`}>
           <Mode/>
           <FilterSettings/>
-          <PlayerSettings/>
           <OrderSettings/>
+          <PlayerSettings/>
           <DisplaySettings/>
         </div>
       </Dropdown>
