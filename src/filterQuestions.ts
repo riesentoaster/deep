@@ -1,6 +1,6 @@
 import { DeepPartial } from 'react-hook-form'
 import { FilterSettings } from './header/settingsHelpers'
-import { Question } from './questions'
+import { Question, Tag } from './questions'
 import { TriStateSwitchState } from './generic/TriStateSwitch'
 
 const filterTags = (
@@ -9,8 +9,8 @@ const filterTags = (
 ): boolean => {
   const requiredTags = Object.entries( tags ).filter( e => e[1] === 'REQUIRE' ).map( e => e[0] )
   const prohibitedTags = Object.entries( tags ).filter( e => e[1] === 'PROHIBIT' ).map( e => e[0] )
-  const hasAllRequiredTags = requiredTags.every( tag => q.tags?.includes( tag ) )
-  const containsProhibitedTag = prohibitedTags.some( tag => q.tags?.includes( tag ) )
+  const hasAllRequiredTags = requiredTags.every( tag => q.tags?.includes( tag as Tag ) )
+  const containsProhibitedTag = prohibitedTags.some( tag => q.tags?.includes( tag as Tag ) )
   return hasAllRequiredTags && !containsProhibitedTag
 }
 

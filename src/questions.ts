@@ -1,18 +1,25 @@
 /* eslint-disable max-len */
+
+import { reduceToObject } from './helpers'
+
+type HandPutTag = 'christians' | 'twoPeople' | 'philosophy' | 'love'
+export type Tag = HandPutTag | 'hasAuthor'
 export interface Question {
   question: string
   index: number
   deepness: number
   date: string
-  tags?: string[]
+  tags?: Tag[]
   author?: string
 }
 
 interface QuestionByDate {
-  question: string
+  translations: {
+    en: string
+    de: string
+  }
   deepness: number
-  index: number
-  tags?: string[]
+  tags?: HandPutTag[]
   author?: string
   date?: string
 }
@@ -24,904 +31,1199 @@ interface QuestionsByDate {
 const questionsByDate: QuestionsByDate = {
   '2022-08-31': [
     {
-      'question': 'What decision of yours do you regret the most?',
       'deepness': 5,
-      'index': 0
+      'translations': {
+        'en': 'What decision of yours do you regret the most?',
+        'de': 'Welche deiner Entscheidungen bereust du am meisten?'
+      }
     },
     {
-      'question': 'What is your story with Jesus?',
       'deepness': 2,
       'tags': [
         'christians'
       ],
-      'index': 1
+      'translations': {
+        'en': 'What is your story with Jesus?',
+        'de': 'Was ist deine Story mit Jesus?'
+      }
     },
     {
-      'question': 'What behaviour of others annoys you?',
       'deepness': 2,
-      'index': 2
+      'translations': {
+        'en': 'What behaviour of others annoys you?',
+        'de': 'Welches Verhalten von anderen nervt dich?'
+      }
     },
     {
-      'question': 'What would you like to know about the future?',
       'deepness': 2,
-      'index': 3
+      'translations': {
+        'en': 'What would you like to know about the future?',
+        'de': 'Was würdest du wissen wollen über die Zukunft?'
+      }
     },
     {
-      'question': 'What have you no idea about?',
       'deepness': 1,
-      'index': 4
+      'translations': {
+        'en': 'What have you no idea about?',
+        'de': 'Worin hast du keine Ahnung?'
+      }
     },
     {
-      'question': 'What do you usually do to de-stress?',
       'deepness': 1,
-      'index': 5
+      'translations': {
+        'en': 'What do you usually do to de-stress?',
+        'de': 'Was machst du normalerweise, um Stress abzubauen?'
+      }
     },
     {
-      'question': 'What are the most important entries in your calendar?',
       'deepness': 3,
-      'index': 6
+      'translations': {
+        'en': 'What are the most important entries in your calendar?',
+        'de': 'Was sind die wichtigsten Termine in deiner Agenda?'
+      }
     },
     {
-      'question': 'What makes you interesting?',
       'deepness': 2,
-      'index': 7
+      'translations': {
+        'en': 'What makes you interesting?',
+        'de': 'Was macht dich interessant?'
+      }
     },
     {
-      'question': 'What bothers you at the moment?',
       'deepness': 2,
-      'index': 8
+      'translations': {
+        'en': 'What bothers you at the moment?',
+        'de': 'Was beschäftigt dich gerade?'
+      }
     },
     {
-      'question': 'What are you thinking about regarding your faith?',
       'deepness': 3,
       'tags': [
         'christians'
       ],
-      'index': 9
+      'translations': {
+        'en': 'What are you thinking about regarding your faith?',
+        'de': 'Was beschäftigt dich in deinem Glaubensleben?'
+      }
     },
     {
-      'question': 'What are you currently responsible for?',
       'deepness': 3,
-      'index': 10
+      'translations': {
+        'en': 'What are you currently responsible for?',
+        'de': 'Wofür trägst du momentan Verantwortung?'
+      }
     },
     {
-      'question': 'What is something you like talking about?',
       'deepness': 1,
-      'index': 11
+      'translations': {
+        'en': 'What is something you like talking about?',
+        'de': 'Wovon erzählst du gerne?'
+      }
     },
     {
-      'question': 'What would you change about your looks?',
       'deepness': 3,
-      'index': 12
+      'translations': {
+        'en': 'What would you change about your looks?',
+        'de': 'Was würdest du an deinem Aussehen ändern?'
+      }
     },
     {
-      'question': 'Who are you in 10 years?',
       'deepness': 3,
-      'index': 13
+      'translations': {
+        'en': 'Who are you in 10 years?',
+        'de': 'Wer bist du in 10 Jahren?'
+      }
     },
     {
-      'question': 'What are you grateful for?',
       'deepness': 2,
-      'index': 14
+      'translations': {
+        'en': 'What are you grateful for?',
+        'de': 'Wofür bist du dankbar?'
+      }
     },
     {
-      'question': 'What is the coolest thing you\'ve done in your life so far?',
       'deepness': 2,
-      'index': 15
+      'translations': {
+        'en': 'What is the coolest thing you\'ve done in your life so far?',
+        'de': 'Was ist das Coolste, was du in deinem Leben schon gemacht hast?'
+      }
     },
     {
-      'question': 'What story is particularly important to you?',
       'deepness': 2,
-      'index': 16
+      'translations': {
+        'en': 'What story is particularly important to you?',
+        'de': 'Was ist eine Geschichte, die dir besonders wichtig ist?'
+      }
     },
     {
-      'question': 'When did you fail the hardest in your life? What was your biggest triumph?',
       'deepness': 5,
-      'index': 17
+      'translations': {
+        'en': 'When did you fail the hardest in your life? What was your biggest triumph?',
+        'de': 'Wo bist du im Leben am schlimmsten gescheitert? Was war dein grösster Triumph?'
+      }
     },
     {
-      'question': 'In which direction would you like to change the world?',
       'deepness': 3,
-      'index': 18
+      'translations': {
+        'en': 'In which direction would you like to change the world?',
+        'de': 'In welche Richtung möchtest du diese Welt verändern?'
+      }
     },
     {
-      'question': 'What bible story is particularly important to you?',
       'deepness': 2,
       'tags': [
         'christians'
       ],
-      'index': 19
+      'translations': {
+        'en': 'What bible story is particularly important to you?',
+        'de': 'Was ist eine Bibelgeschichte, die dir besonders wichtig ist?'
+      }
     },
     {
-      'question': 'What is a property/habit of yours that annoys other people?',
       'deepness': 2,
-      'index': 20
+      'translations': {
+        'en': 'What is a property/habit of yours that annoys other people?',
+        'de': 'Was ist eine deiner Eigenschaften/Gewohnheiten, die andere nervt?'
+      }
     },
     {
-      'question': 'In life, are you where you wanted to be at this point?',
       'deepness': 4,
-      'index': 21
+      'translations': {
+        'en': 'In life, are you where you wanted to be at this point?',
+        'de': 'Bist du da im Leben, wo du zum jetzigen Zeitpunkt sein wolltest?'
+      }
     },
     {
-      'question': 'If you would be able to change your first name, how would you like to be called?',
       'deepness': 1,
-      'index': 22
+      'translations': {
+        'en': 'If you would be able to change your first name, how would you like to be called?',
+        'de': 'Wenn du einen neuen Vornamen haben könntest, welchen würdest du wählen?'
+      }
     },
     {
-      'question': 'How do you reach a decision?',
       'deepness': 4,
-      'index': 23
+      'translations': {
+        'en': 'How do you reach a decision?',
+        'de': 'Wie triffst du Entscheidungen?'
+      }
     },
     {
-      'question': 'What is likeable/admirable about you?',
       'deepness': 3,
-      'index': 24
+      'translations': {
+        'en': 'What is likeable/admirable about you?',
+        'de': 'Was ist liebenswert an dir?'
+      }
     },
     {
-      'question': 'Which trait of Jesus do you appreciate most?',
       'deepness': 3,
       'tags': [
         'christians'
       ],
-      'index': 25
+      'translations': {
+        'en': 'Which trait of Jesus do you appreciate most?',
+        'de': 'Welche Eigenschaft von Jesus schätzt du am meisten?'
+      }
     },
     {
-      'question': 'What must I never forget?',
       'deepness': 4,
-      'index': 26
+      'translations': {
+        'en': 'What must I never forget?',
+        'de': 'Was sollte ich nie vergessen?'
+      }
     },
     {
-      'question': 'What have you wanted to try to change about your life, but haven\'t managed?',
       'deepness': 5,
-      'index': 27
+      'translations': {
+        'en': 'What have you wanted to try to change about your life, but haven\'t managed?',
+        'de': 'Was willst du schon lange an dir ändern, schaffst es aber nicht?'
+      }
     },
     {
-      'question': 'What blind spots of me should I change?',
       'deepness': 5,
-      'index': 28
+      'translations': {
+        'en': 'What blind spots of me should I change?',
+        'de': 'Was sind meine blinden Flecken, was sollte ich deiner Meinung nach an mir ändern?'
+      }
     },
     {
-      'question': 'What is my best quality that I don\'t see?',
       'deepness': 4,
-      'index': 29
+      'translations': {
+        'en': 'What is my best quality that I don\'t see?',
+        'de': 'Was ist meine beste Qualität, die ich selber nicht sehe?'
+      }
     },
     {
-      'question': 'What is your best (secret) advice for working relationships?',
       'deepness': 3,
-      'index': 30
+      'translations': {
+        'en': 'What is your best (secret) advice for working relationships?',
+        'de': 'Was ist dein bester Rat (oder Geheimtipp) für eine funktionierende Beziehung?'
+      }
     },
     {
-      'question': 'On a scale from 1 through 10, how would you rate your life? What could you do to improve it?',
       'deepness': 3,
-      'index': 31
+      'translations': {
+        'en': 'On a scale from 1 through 10, how would you rate your life? What could you do to improve it?',
+        'de': 'Auf einer Skala von 1–10, wie bewertest du dein Leben? Was könntest du tun, um es zu verbessern?'
+      }
     },
     {
-      'question': 'What opinion of yours is unpopular with your friends?',
       'deepness': 3,
-      'index': 32
+      'translations': {
+        'en': 'What opinion of yours is unpopular with your friends?',
+        'de': 'Welche Meinung von dir ist in deinem Freundeskreis unpopulär?'
+      }
     },
     {
-      'question': 'What 3 traits would a person that is an exact opposite of you have?',
       'deepness': 2,
-      'index': 33
+      'translations': {
+        'en': 'What 3 traits would a person that is an exact opposite of you have?',
+        'de': 'Welche 3 Eigenschaften weist eine Person auf, die das exakte Gegenteil von dir ist?'
+      }
     },
     {
-      'question': 'What breaks your heart?',
       'deepness': 5,
-      'index': 34
+      'translations': {
+        'en': 'What breaks your heart?',
+        'de': 'Was bricht dein Herz?'
+      }
     },
     {
-      'question': 'What is the best advice you have received?',
       'deepness': 3,
-      'index': 35
+      'translations': {
+        'en': 'What is the best advice you have received?',
+        'de': 'Was ist der beste Ratschlag, den du in deinem Leben erhalten hast?'
+      }
     },
     {
-      'question': 'Of what friend are you particularly proud? Why?',
       'deepness': 3,
-      'index': 36
+      'translations': {
+        'en': 'Of what friend are you particularly proud? Why?',
+        'de': 'Auf welchen deiner Freunde bist du am meisten stolz? Warum?'
+      }
     },
     {
-      'question': 'Show me your best imitation of me!',
       'deepness': 1,
       'tags': [
         'twoPeople'
       ],
-      'index': 37
+      'translations': {
+        'en': 'Show me your best imitation of me!',
+        'de': 'Zeig mir die beste Nachahmung von mir!'
+      }
     },
     {
-      'question': 'What do you like about our culture?',
       'deepness': 3,
-      'index': 38
+      'translations': {
+        'en': 'What do you like about our culture?',
+        'de': 'Was findest du toll an unserer Kultur?'
+      }
     },
     {
-      'question': 'When was the last time you felt misunderstood?',
       'deepness': 3,
-      'index': 39
+      'translations': {
+        'en': 'When was the last time you felt misunderstood?',
+        'de': 'Wann fühltest du dich zuletzt falsch verstanden?'
+      }
     },
     {
-      'question': 'What can other people learn from you?',
       'deepness': 3,
-      'index': 40
+      'translations': {
+        'en': 'What can other people learn from you?',
+        'de': 'Was können andere von dir lernen?'
+      }
     },
     {
-      'question': 'What part of getting older worries you? What are you looking forward to?',
       'deepness': 4,
-      'index': 41
+      'translations': {
+        'en': 'What part of getting older worries you? What are you looking forward to?',
+        'de': 'Welcher Aspekt des Älterwerdens bereitet dir Sorgen? Auf was freust du dich?'
+      }
     },
     {
-      'question': 'What TV series are you currently watching?',
       'deepness': 1,
-      'index': 42
+      'translations': {
+        'en': 'What TV series are you currently watching?',
+        'de': 'Welche Serien schaust du gerade?'
+      }
     },
     {
-      'question': 'What do you think is the most beautiful part of your body?',
       'deepness': 4,
-      'index': 43
+      'translations': {
+        'en': 'What do you think is the most beautiful part of your body?',
+        'de': 'Was findest du das Schönste an deinem Körper?'
+      }
     },
     {
-      'question': 'What bothers you most about what christians believe and how they live?',
       'deepness': 3,
       'tags': [
         'christians'
       ],
-      'index': 44
+      'translations': {
+        'en': 'What bothers you most about what christians believe and how they live?',
+        'de': 'Was stört dich am meisten an dem, was Christen glauben und leben?'
+      }
     },
     {
-      'question': 'How are you maintaining your relationship to God?',
       'deepness': 3,
       'tags': [
         'christians'
       ],
-      'index': 45
+      'translations': {
+        'en': 'How are you maintaining your relationship to God?',
+        'de': 'Wie pflegst du deine Freundschaft mit Gott?'
+      }
     },
     {
-      'question': 'Tell me/us something about you that only few people know!',
       'deepness': 3,
-      'index': 46
+      'translations': {
+        'en': 'Tell me/us something about you that only few people know!',
+        'de': 'Erzähle etwas Spannendes über dich, das nur wenige wissen.'
+      }
     },
     {
-      'question': 'What is something you learned during the past week?',
       'deepness': 2,
-      'index': 47
+      'translations': {
+        'en': 'What is something you learned during the past week?',
+        'de': 'Was ist etwas, was du in der letzten Woche gelernt hast?'
+      }
     },
     {
-      'question': 'What advice would you give to a recently converted christian?',
       'deepness': 3,
       'tags': [
         'christians'
       ],
-      'index': 48
+      'translations': {
+        'en': 'What advice would you give to a recently converted christian?',
+        'de': 'Was sind gute Tipps, die du frisch bekehrten Christen geben würdest?'
+      }
     },
     {
-      'question': 'What are you ashamed of?',
       'deepness': 5,
-      'index': 49
+      'translations': {
+        'en': 'What are you ashamed of?',
+        'de': 'Wofür schämst du dich?'
+      }
     },
     {
-      'question': 'What is your favourite story from a movie or book?',
       'deepness': 1,
-      'index': 50
+      'translations': {
+        'en': 'What is your favourite story from a movie or book?',
+        'de': 'Welches ist deine Lieblings-Geschichte (Film/Buch)?'
+      }
     },
     {
-      'question': 'What is something that pastors should preach about more often?',
       'deepness': 1,
       'tags': [
         'christians'
       ],
-      'index': 51
+      'translations': {
+        'en': 'What is something that pastors should preach about more often?',
+        'de': 'Worüber sollte in der Kirche/im Boxenstopp mehr gepredigt werden?'
+      }
     },
     {
-      'question': 'What are your goals in your faith?',
       'deepness': 3,
       'tags': [
         'christians'
       ],
-      'index': 52
+      'translations': {
+        'en': 'What are your goals in your faith?',
+        'de': 'Was sind deine Ziele im Glauben?'
+      }
     },
     {
-      'question': 'What is most important to you in our relationship?',
       'deepness': 3,
       'tags': [
         'twoPeople'
       ],
-      'index': 53
+      'translations': {
+        'en': 'What is most important to you in our relationship?',
+        'de': 'Was ist dir in unserer Freundschaft am wichtigsten?'
+      }
     },
     {
-      'question': 'Is there an ability you\'d like to master?',
       'deepness': 1,
-      'index': 54
+      'translations': {
+        'en': 'Is there an ability you\'d like to master?',
+        'de': 'Gibt es eine Fähigkeit, welche du wirklich beherrschen möchtest?'
+      }
     },
     {
-      'question': 'What are your trademarks?',
       'deepness': 1,
-      'index': 55
+      'translations': {
+        'en': 'What are your trademarks?',
+        'de': 'Was sind deine Markenzeichen?'
+      }
     },
     {
-      'question': 'From what mistakes of yours can people learn?',
       'deepness': 4,
-      'index': 56
+      'translations': {
+        'en': 'From what mistakes of yours can people learn?',
+        'de': 'Von welchen Fehlern, die du gemacht hast, können andere lernen?'
+      }
     },
     {
-      'question': 'What is something that life is currently teaching you?',
       'deepness': 5,
-      'index': 57
+      'translations': {
+        'en': 'What is something that life is currently teaching you?',
+        'de': 'Was lehrt dich das Leben gerade?'
+      }
     },
     {
-      'question': 'What is most important to you in a relationship?',
       'deepness': 3,
-      'index': 58
+      'translations': {
+        'en': 'What is most important to you in a relationship?',
+        'de': 'Was ist dir in einer Freundschaft am wichtigsten?'
+      }
     },
     {
-      'question': 'What do you know especially much about?',
       'deepness': 1,
-      'index': 59
+      'translations': {
+        'en': 'What do you know especially much about?',
+        'de': 'Worin kennst du dich besonders gut aus?'
+      }
     },
     {
-      'question': 'What persons do you admire? What for?',
       'deepness': 2,
-      'index': 60
+      'translations': {
+        'en': 'What persons do you admire? What for?',
+        'de': 'Welche Menschen bewunderst du? Wofür?'
+      }
     },
     {
-      'question': 'Is there something about Jesus and his doctrine that annoys you?',
       'deepness': 3,
       'tags': [
         'christians'
       ],
-      'index': 61
+      'translations': {
+        'en': 'Is there something about Jesus and his doctrine that annoys you?',
+        'de': 'Gibt es etwas über Jesus und seine Lehre, das dich verärgert?'
+      }
     },
     {
-      'question': 'What wrong belief did you hold in the past?',
       'deepness': 3,
       'tags': [
         'christians'
       ],
-      'index': 62
+      'translations': {
+        'en': 'What wrong belief did you hold in the past?',
+        'de': 'Was hast du in Vergangenheit falsch geglaubt?'
+      }
     },
     {
-      'question': 'What are your biggest goals in life?',
       'deepness': 3,
-      'index': 63
+      'translations': {
+        'en': 'What are your biggest goals in life?',
+        'de': 'Was sind deine grössten Lebensziele?'
+      }
     },
     {
-      'question': 'What treats show mature christians?',
       'deepness': 3,
       'tags': [
         'christians'
       ],
-      'index': 64
+      'translations': {
+        'en': 'What treats show mature christians?',
+        'de': 'Was sind Merkmale eines reifen Christen?'
+      }
     },
     {
-      'question': 'How does somebody become a friend of yours?',
       'deepness': 3,
-      'index': 65
+      'translations': {
+        'en': 'How does somebody become a friend of yours?',
+        'de': 'Wie wird man ein Freund von dir? (Freundschaft)'
+      }
     },
     {
-      'question': 'What is something that I have to experience?',
       'deepness': 4,
-      'index': 66
+      'translations': {
+        'en': 'What is something that I have to experience?',
+        'de': 'Was ist etwas, das ich unbedingt erleben soll?'
+      }
     },
     {
-      'question': 'What is a common prejudice people have about you?',
       'deepness': 3,
-      'index': 67
+      'translations': {
+        'en': 'What is a common prejudice people have about you?',
+        'de': 'Was ist ein häufiges Vorurteil, welches Leute von dir haben?'
+      }
     },
     {
-      'question': 'Who is your best friend? Why?',
       'deepness': 3,
-      'index': 68
+      'translations': {
+        'en': 'Who is your best friend? Why?',
+        'de': 'Wer ist dein bester Freund / deine beste Freundin? Warum?'
+      }
     },
     {
-      'question': 'What was the most difficult decision of your life?',
       'deepness': 5,
-      'index': 69
+      'translations': {
+        'en': 'What was the most difficult decision of your life?',
+        'de': 'Was war die schwierigste Entscheidung deines Lebens?'
+      }
     },
     {
-      'question': 'What is something you like doing in particular?',
       'deepness': 1,
-      'index': 70
+      'translations': {
+        'en': 'What is something you like doing in particular?',
+        'de': 'Was machst du besonders gerne?'
+      }
     },
     {
-      'question': 'What accomplishment of yours are you most proud of?',
       'deepness': 2,
-      'index': 71
+      'translations': {
+        'en': 'What accomplishment of yours are you most proud of?',
+        'de': 'Auf welche deiner Leistungen / Errungenschaften bist du am meisten Stolz?'
+      }
     },
     {
-      'question': 'What would you change about your personality?',
       'deepness': 3,
-      'index': 72
+      'translations': {
+        'en': 'What would you change about your personality?',
+        'de': 'Was würdest du an deiner Persönlichkeit ändern?'
+      }
     },
     {
-      'question': 'How are you inspiring other people?',
       'deepness': 3,
-      'index': 73
+      'translations': {
+        'en': 'How are you inspiring other people?',
+        'de': 'Wie inspirierst du andere?'
+      }
     },
     {
-      'question': 'Tell me an embarrassing story from your life!',
       'deepness': 5,
-      'index': 74
+      'translations': {
+        'en': 'Tell me an embarrassing story from your life!',
+        'de': 'Erzähle von einem peinlichen Erlebnis in deinem Leben.'
+      }
     }
   ],
   '2022-09-03': [
     {
-      'question': 'What is a decision you are struggling with? What is keeping you from making it?',
       'deepness': 5,
-      'index': 0
+      'translations': {
+        'en': 'What is a decision you are struggling with? What is keeping you from making it?',
+        'de': 'Was für eine Entscheidung fällt dir schwer zu treffen? Was hält dich davon ab?'
+      }
     }
   ],
   '2022-09-09': [
     {
-      'question': 'What is the last song you listened to?',
       'deepness': 1,
-      'index': 0
+      'translations': {
+        'en': 'What is the last song you listened to?',
+        'de': 'Welchen Song hast du zuletzt angehört?'
+      }
     }
   ],
   '2022-09-11': [
     {
-      'question': 'When do you feel at home?',
       'deepness': 3,
-      'index': 0
+      'translations': {
+        'en': 'When do you feel at home?',
+        'de': 'Wann fühlst du dich zuhause?'
+      }
     },
     {
-      'question': 'When did you last cry? Why?',
       'deepness': 3,
-      'index': 1
+      'translations': {
+        'en': 'When did you last cry? Why?',
+        'de': 'Wann hast du das letzte mal geweint? Warum?'
+      }
     }
   ],
   '2022-09-19': [
     {
-      'question': 'Where are you deceiving yourself?',
       'deepness': 5,
-      'index': 0
+      'translations': {
+        'en': 'Where are you deceiving yourself?',
+        'de': 'Wann lügst du dich selbst an?'
+      }
     }
   ],
   '2022-10-12': [
     {
-      'question': 'What is out of balance in your life right now?',
       'deepness': 3,
-      'index': 0
+      'translations': {
+        'en': 'What is out of balance in your life right now?',
+        'de': 'Wo ist dein Leben zur Zeit nicht im Gleichgewicht?'
+      }
     }
   ],
   '2022-10-21': [
     {
-      'question': 'What is love?',
       'deepness': 3,
       'author': 'Alex No',
-      'index': 0
+      'translations': {
+        'en': 'What is love?',
+        'de': 'Was ist Liebe?'
+      }
     }
   ],
   '2022-10-23': [
     {
-      'question': 'What scares you?',
       'deepness': 4,
-      'index': 0
+      'translations': {
+        'en': 'What scares you?',
+        'de': 'Was macht dir Angst?'
+      }
     }
   ],
   '2022-10-31': [
     {
-      'question': 'What is something that you do differently from your parents? Why?',
       'deepness': 3,
-      'index': 0
+      'translations': {
+        'en': 'What is something that you do differently from your parents? Why?',
+        'de': 'Was machst du anders als deine Eltern? Warum?'
+      }
     }
   ],
   '2022-11-09': [
     {
-      'question': 'How do you show love? How do you like being shown love?',
       'deepness': 4,
       'author': 'Alex No',
-      'index': 0
+      'translations': {
+        'en': 'How do you show love? How do you like being shown love?',
+        'de': 'Wie zeigst du Liebe? Wie können dir andere Liebe zeigen?'
+      }
     },
     {
-      'question': 'What is the best compliment somebody ever gave you?',
       'deepness': 2,
-      'index': 1
+      'translations': {
+        'en': 'What is the best compliment somebody ever gave you?',
+        'de': 'Was ist das beste Kompliment, das du je bekommen hast?'
+      }
     }
   ],
   '2022-11-25': [
     {
-      'question': 'What needs to happen in your life for it to have gone right?',
       'deepness': 4,
-      'index': 0
+      'translations': {
+        'en': 'What needs to happen in your life for it to have gone right?',
+        'de': 'Was muss in deinem Leben passieren, damit es gut war?'
+      }
     },
     {
-      'question': 'What sound or song would summon you?',
       'deepness': 1,
       'author': 'Alex No',
-      'index': 1
+      'translations': {
+        'en': 'What sound or song would summon you?',
+        'de': 'Welcher Ton oder welches Lied würde dich herbeirufen?'
+      }
     },
     {
-      'question': 'Are there evil humans?',
       'deepness': 2,
       'tags': [
         'philosophy'
       ],
-      'index': 2
+      'translations': {
+        'en': 'Are there evil humans?',
+        'de': 'Gibt es böse Menschen?'
+      }
     },
     {
-      'question': 'What role did music play in the household you grew up in?',
       'deepness': 2,
-      'index': 3
+      'translations': {
+        'en': 'What role did music play in the household you grew up in?',
+        'de': 'Was für eine Rolle hat Musik gespielt im Haushalt wo du aufgewachsen bist?'
+      }
     },
     {
-      'question': 'What song is playing in your head?',
       'deepness': 1,
       'author': 'Alex No',
-      'index': 4
+      'translations': {
+        'en': 'What song is playing in your head?',
+        'de': 'Was hast du gerade für einen Ohrwurm?'
+      }
     },
     {
-      'question': 'What line from a song or poem means a lot to you?',
       'deepness': 3,
-      'index': 5
+      'translations': {
+        'en': 'What line from a song or poem means a lot to you?',
+        'de': 'Was ist eine Zeile aus einem Gedicht oder Lied die dir viel bedeutet?'
+      }
     },
     {
-      'question': 'What is something that you took after your grandparents? What is something you took after your parents?',
       'deepness': 3,
-      'index': 6
+      'translations': {
+        'en': 'What is something that you took after your grandparents? What is something you took after your parents?',
+        'de': 'Wo bist du wie deine Grosseltern? Wo bist du wie deine Eltern?'
+      }
     }
   ],
   '2022-12-21': [
     {
-      'question': 'What are your pet peeves?',
       'deepness': 2,
-      'index': 0
+      'translations': {
+        'en': 'What are your pet peeves?',
+        'de': 'Was kannst du nicht leiden in anderen Menschen? Was sind deine pet peeves?'
+      }
     },
     {
-      'question': 'Where are you choosing wrong? Where am I choosing wrong?',
       'deepness': 5,
       'tags': [
         'twoPeople'
       ],
       'author': 'Samer Massad',
-      'index': 1
+      'translations': {
+        'en': 'Where are you choosing wrong? Where am I choosing wrong?',
+        'de': 'Wo wählst du falsch? Wo wähle ich falsch?'
+      }
     },
     {
-      'question': 'What is something you\'re distracted from?',
       'deepness': 3,
       'author': 'Samer Massad',
-      'index': 2
+      'translations': {
+        'en': 'What is something you\'re distracted from?',
+        'de': 'Wo bist du von etwas abelenkt, dass du eigentlich machen möchtest?'
+      }
     },
     {
-      'question': 'What is a coping mechanism you used to rely on? What for?',
       'deepness': 3,
-      'index': 3
+      'translations': {
+        'en': 'What is a coping mechanism you used to rely on? What for?',
+        'de': 'Was ist ein coping mechanism, den du in der Vergangenheit misbrauchst hast? Wofür?'
+      }
     }
   ],
   '2023-02-02': [
     {
-      'question': 'What is the pain in me you wish you could heal?',
       'deepness': 5,
       'tags': [
         'twoPeople'
       ],
-      'index': 0
+      'translations': {
+        'en': 'What is the pain in me you wish you could heal?',
+        'de': 'Was ist der Schmerz in mir, den du heilen würdest?'
+      }
     },
     {
-      'question': 'What do you think I need to hear?',
       'deepness': 4,
-      'index': 1
+      'translations': {
+        'en': 'What do you think I need to hear?',
+        'de': 'Was glaubst du, müsste ich mal hören?'
+      }
     },
     {
-      'question': 'What is your biggest fear and how can I help you to face it?',
       'deepness': 4,
       'tags': [
         'twoPeople'
       ],
-      'index': 2
+      'translations': {
+        'en': 'What is your biggest fear and how can I help you to face it?',
+        'de': 'Was ist deine grösste Angst und wie kann ich dir helfen, sie zu überwinden?'
+      }
     },
     {
-      'question': 'What is something you think I\'m really good at?',
       'deepness': 2,
-      'index': 3
+      'translations': {
+        'en': 'What is something you think I\'m really good at?',
+        'de': 'Was ist etwas, was ich wirklich gut kann?'
+      }
     },
     {
-      'question': 'What do you like about your parents?',
       'deepness': 3,
       'author': 'Sofia',
-      'index': 4
+      'translations': {
+        'en': 'What do you like about your parents?',
+        'de': 'Was magst du an deinen Eltern?'
+      }
     },
     {
-      'question': 'What is something you\'ve done to try and be cool?',
       'deepness': 2,
-      'index': 5
+      'translations': {
+        'en': 'What is something you\'ve done to try and be cool?',
+        'de': 'Was hast to in der Vergangenheit gemacht um cool zu scheinen?'
+      }
     },
     {
-      'question': 'When have you seen me the most vulnerable and what did it teach you about me?',
       'deepness': 5,
-      'index': 6
+      'translations': {
+        'en': 'When have you seen me the most vulnerable and what did it teach you about me?',
+        'de': 'Wann hast du mich am verwundbarsten gesehen? Was hat es dich über mich gelehrt?'
+      }
     },
     {
-      'question': 'What do you think is my sexiest quality?',
       'deepness': 3,
       'tags': [
         'love'
       ],
-      'index': 7
+      'translations': {
+        'en': 'What do you think is my sexiest quality?',
+        'de': 'Was findest du ist meine sexieste Qualität?'
+      }
     },
     {
-      'question': 'What do you think I\'m hesitant to tell you?',
       'deepness': 4,
       'tags': [
         'twoPeople'
       ],
-      'index': 8
+      'translations': {
+        'en': 'What do you think I\'m hesitant to tell you?',
+        'de': 'Was glaubst du zögere ich dir zu sagen?'
+      }
     },
     {
-      'question': 'Who has more power in this relationship?',
       'deepness': 3,
       'tags': [
         'twoPeople'
       ],
-      'index': 9
+      'translations': {
+        'en': 'Who has more power in this relationship?',
+        'de': 'Wer hat mehr Macht in dieser Beziehung?'
+      }
     },
     {
-      'question': 'What is one experience you hope we share in the future?',
       'deepness': 2,
       'tags': [
         'twoPeople'
       ],
-      'index': 10
+      'translations': {
+        'en': 'What is one experience you hope we share in the future?',
+        'de': 'Was ist ein Erlebnis, von dem du hoffst, dass wir es mal zusammen machen?'
+      }
     },
     {
-      'question': 'If this was our last conversation, what is something you\'d never want me to forget?',
       'deepness': 4,
       'tags': [
         'twoPeople'
       ],
-      'index': 11
+      'translations': {
+        'en': 'If this was our last conversation, what is something you\'d never want me to forget?',
+        'de': 'Angenommen, das wäre unser letztes Gespräch: Was sollte ich niemals vergessen?'
+      }
     },
     {
-      'question': 'What is one thing I could do to improve our relationship?',
       'deepness': 3,
       'tags': [
         'twoPeople'
       ],
-      'index': 12
+      'translations': {
+        'en': 'What is one thing I could do to improve our relationship?',
+        'de': 'Was könnte ich machen, um unsere Beziehung zu verbessern?'
+      }
     },
     {
-      'question': 'When do you feel most empowered in your body?',
       'deepness': 3,
-      'index': 13
+      'translations': {
+        'en': 'When do you feel most empowered in your body?',
+        'de': 'Wann fühlst du dich am stärksten (most empowered) in deinem Körper?'
+      }
     },
     {
-      'question': 'What would you never, ever want my help with?',
       'deepness': 2,
-      'index': 14
+      'translations': {
+        'en': 'What would you never, ever want my help with?',
+        'de': 'Bei was möchtest du nie und nimmer meine Hilfe haben?'
+      }
     },
     {
-      'question': 'What about me would make you come back for more?',
       'deepness': 3,
       'tags': [
         'twoPeople',
         'love'
       ],
-      'index': 15
+      'translations': {
+        'en': 'What about me would make you come back for more?',
+        'de': 'Was an mir würde dich motivieren, für mehr zurückzukommen?'
+      }
     },
     {
-      'question': 'When did you feel closest to me?',
       'deepness': 3,
       'tags': [
         'twoPeople'
       ],
-      'index': 16
+      'translations': {
+        'en': 'When did you feel closest to me?',
+        'de': 'Wann hast du dich mir am nächsten gefühlt?'
+      }
     },
     {
-      'question': 'What is a possible challenge for me in the future? What can I do about it now?',
       'deepness': 4,
-      'index': 17
+      'translations': {
+        'en': 'What is a possible challenge for me in the future? What can I do about it now?',
+        'de': 'Was ist eine mögliche Herausforderung die du in meiner Zukunft siehst? Was kann ich jetzt schon dafür machen?'
+      }
     },
     {
-      'question': 'What are you hesitant to talk to me about?',
       'deepness': 4,
       'tags': [
         'twoPeople'
       ],
-      'index': 18
+      'translations': {
+        'en': 'What are you hesitant to talk to me about?',
+        'de': 'Über was zögerst du, mit mir zu reden?'
+      }
     },
     {
-      'question': 'When you look into my eyes, what do you see?',
       'deepness': 3,
       'tags': [
         'twoPeople'
       ],
-      'index': 19
+      'translations': {
+        'en': 'When you look into my eyes, what do you see?',
+        'de': 'Wenn du in meine Augen schaust, was siehst du dann?'
+      }
     },
     {
-      'question': 'What is a question you\'ve always wanted to ask me?',
       'deepness': 3,
-      'index': 20
+      'translations': {
+        'en': 'What is a question you\'ve always wanted to ask me?',
+        'de': 'Was wolltest du mich schon immer mal fragen?'
+      }
     },
     {
-      'question': 'What do you want to be known for?',
       'deepness': 3,
       'author': 'Andy Stanley',
-      'index': 21
+      'translations': {
+        'en': 'What do you want to be known for?',
+        'de': 'Für was möchtest du bekannt sein?'
+      }
     },
     {
-      'question': 'What is your favourite imperfection of mine?',
       'deepness': 4,
       'tags': [
         'twoPeople'
       ],
-      'index': 22
+      'translations': {
+        'en': 'What is your favourite imperfection of mine?',
+        'de': 'Was ist deine Lieblingsfehler an mir?'
+      }
     },
     {
-      'question': 'How were you raised differently and how do you think it affects our relationship?',
       'deepness': 3,
       'tags': [
         'twoPeople'
       ],
-      'index': 23
+      'translations': {
+        'en': 'How were you raised differently and how do you think it affects our relationship?',
+        'de': 'Inwiefer wurden wir unterschiedlich erzogen und wie beeinflusst das unsere Beziehung?'
+      }
     },
     {
-      'question': 'What is something you learned from me that changed you?',
       'deepness': 3,
       'tags': [
         'twoPeople'
       ],
-      'index': 24
+      'translations': {
+        'en': 'What is something you learned from me that changed you?',
+        'de': 'Was hast du von mir gelernt, was dich verändert hat?'
+      }
     },
     {
-      'question': 'What would your last partner warn me about?',
       'deepness': 4,
       'tags': [
         'love'
       ],
-      'index': 25
+      'translations': {
+        'en': 'What would your last partner warn me about?',
+        'de': 'Vor was würde mich dein letzer Partner/deine letzte Partnerin warnen?'
+      }
     },
     {
-      'question': 'When are you most worried about me?',
       'deepness': 4,
       'tags': [
         'twoPeople'
       ],
-      'index': 26
+      'translations': {
+        'en': 'When are you most worried about me?',
+        'de': 'Wann machst du dir am meisten Sorgen um mich?'
+      }
     }
   ],
   '2023-04-06': [
     {
-      'question': 'What should people think and say about you after your death?',
       'deepness': 3,
       'author': 'Franziska von Grünigen',
-      'index': 0
+      'translations': {
+        'en': 'What should people think and say about you after your death?',
+        'de': 'Was sollen Leute über dich sagen und denken nach deinem Tod?'
+      }
     },
     {
-      'question': 'What do you want your funeral to be like? Any songs that must be played? What should be said? By who?',
       'deepness': 4,
       'author': 'Franziska von Grünigen',
-      'index': 1
+      'translations': {
+        'en': 'What do you want your funeral to be like? Any songs that must be played? What should be said? By who?',
+        'de': 'Wie soll deine Beerdigung sein? Was für ein Lied muss unbedingt gespielt werden? Was soll gesagt werden? Von wem?'
+      }
     }
   ],
   '2023-04-12': [
     {
-      'question': 'What should never change about your environment?',
       'deepness': 3,
       'author': 'Robert',
-      'index': 0
+      'translations': {
+        'en': 'What should never change about your environment?',
+        'de': 'Was soll sich in deinem Umfeld nie ändern?'
+      }
     },
     {
-      'question': 'Did you recently need courage? What for?',
       'deepness': 4,
-      'index': 1
+      'translations': {
+        'en': 'Did you recently need courage? What for?',
+        'de': 'Brauchtest du in letzter Zeit Mut? Für was?'
+      }
     },
     {
-      'question': 'Have you ever broken anyone is heart?',
       'deepness': 4,
       'author': 'Tim Harford',
-      'index': 2
+      'translations': {
+        'en': 'Have you ever broken anyone is heart?',
+        'de': 'Hast du schon einmal das Herz von jemandem gebrochen?'
+      }
     },
     {
-      'question': 'How stressed are you right now?',
       'deepness': 3,
-      'index': 3
+      'translations': {
+        'en': 'How stressed are you right now?',
+        'de': 'Wie gestresst bist du gerade?'
+      }
     },
     {
-      'question': 'How would you describe your parents with three words each?',
       'deepness': 3,
       'author': 'Felizitas Ambauen',
-      'index': 4
+      'translations': {
+        'en': 'How would you describe your parents with three words each?',
+        'de': 'Wie würdest du deine Eltern in je drei Begriffen beschreiben?'
+      }
     }
   ],
   '2023-04-19': [
     {
-      'question': 'When did I disappoint you? How do you feel about it now?',
       'deepness': 5,
       'tags': [
         'twoPeople'
       ],
-      'index': 0
+      'translations': {
+        'en': 'When did I disappoint you? How do you feel about it now?',
+        'de': 'Wann habe ich dich enttäuscht? Wie denkst du heute darüber?'
+      }
     },
     {
-      'question': 'Why do you love me?',
       'deepness': 4,
       'tags': [
         'love',
         'twoPeople'
       ],
-      'index': 1
+      'translations': {
+        'en': 'Why do you love me?',
+        'de': 'Warum liebst du mich?'
+      }
     },
     {
-      'question': 'What is one experience you wish we never shared?',
       'deepness': 4,
       'tags': [
         'twoPeople'
       ],
-      'index': 2
+      'translations': {
+        'en': 'What is one experience you wish we never shared?',
+        'de': 'Was ist ein Erlebnis, von dem du dir wünschen würdest, dass wir es nie zusammen erlebt hätten?'
+      }
     },
     {
-      'question': 'What is something you are missing out on for being in this relationship?',
-      'deepness': 4,
-      'tags': [
-        'love',
-        'twoPeople'
-      ],
-      'index': 3
-    },
-    {
-      'question': 'What could be the reason for us to break up? What can we do about it now?',
       'deepness': 4,
       'tags': [
         'love',
         'twoPeople'
       ],
-      'index': 4
+      'translations': {
+        'en': 'What is something you are missing out on for being in this relationship?',
+        'de': 'Was ist etwas, was du wegen dieser Beziehung verpasst?'
+      }
     },
     {
-      'question': 'Where do we misunderstand each other most? Why do you think that is?',
+      'deepness': 4,
+      'tags': [
+        'love',
+        'twoPeople'
+      ],
+      'translations': {
+        'en': 'What could be the reason for us to break up? What can we do about it now?',
+        'de': 'Was könnte der Grund sein, dass wir uns trennen? War können wir jetzt dagegen machen?'
+      }
+    },
+    {
       'deepness': 3,
       'tags': [
         'twoPeople'
       ],
-      'index': 5
+      'translations': {
+        'en': 'Where do we misunderstand each other most? Why do you think that is?',
+        'de': 'Wo verstehen wir uns am häufigsten falsch? Warum denkst du ist das so?'
+      }
     },
     {
-      'question': 'When have you felt sexiest around me and what did it teach you about yourself?',
       'deepness': 3,
       'tags': [
         'love',
         'twoPeople'
       ],
-      'index': 6
+      'translations': {
+        'en': 'When have you felt sexiest around me and what did it teach you about yourself?',
+        'de': 'Wann hast du dich am sexiesten mit mir gefühlt? Was hast du dabei über dich gelernt?'
+      }
     },
     {
-      'question': 'When did you realize I was in love with you?',
       'deepness': 2,
       'tags': [
         'love',
         'twoPeople'
       ],
-      'index': 7
+      'translations': {
+        'en': 'When did you realize I was in love with you?',
+        'de': 'Wann hast du realisiert, dass ich dich liebe?'
+      }
     },
     {
-      'question': 'What is something I do that turns you on that I don\'t realize?',
       'deepness': 2,
       'tags': [
         'love',
         'twoPeople'
       ],
-      'index': 8
+      'translations': {
+        'en': 'What is something I do that turns you on that I don\'t realize?',
+        'de': 'Was ist etwas, das ich mache, und dass dich antörnt, ohne dass ich es weiss?'
+      }
     },
     {
-      'question': 'How do you describe me to others?',
       'deepness': 2,
       'tags': [
         'twoPeople'
       ],
-      'index': 9
+      'translations': {
+        'en': 'How do you describe me to others?',
+        'de': 'Wie beschreibst du mich gegenüber anderen?'
+      }
     }
   ]
 }
 
+const DEFAULT_LANG = 'en'
+const extractedTranslations = Object.values( questionsByDate ).flat().map( e => e.translations )
+export const translations = {
+  en: extractedTranslations.map( e => ( { [e[DEFAULT_LANG]]: e.en } ) ).reduce( reduceToObject, {} ),
+  de: extractedTranslations.map( e => ( { [e[DEFAULT_LANG]]: e.de } ) ).reduce( reduceToObject, {} ),
+}
+
 export const questions: Question[] = Object.entries( questionsByDate )
   .sort( ( a, b ) => ( a[0] <= b[0] ? -1 : 1 ) )
-  .map( ( [date, q], i, arr ) => {
-    const p = arr.slice( 0, i ).map( e => e[1].length ).reduce( ( acc, cur ) => acc + cur, 0 )
-    return q.map( e => {
-      e.date = date
-      e.index += p
-      if ( e.author ) {
-        if ( e.tags ) e.tags.push( 'hasAuthor' )
-        else e.tags = ['hasAuthor']
+  .map( ( [date, questionsInDate], iDate, arr ) => {
+    const p = arr.slice( 0, iDate ).map( e => e[1].length ).reduce( ( acc, cur ) => acc + cur, 0 )
+    return questionsInDate.map( ( q, iQ ) => {
+      const quesitonObject: Question = {
+        question: q.translations[DEFAULT_LANG],
+        index: iQ + p,
+        deepness: q.deepness,
+        date: date,
+        tags: q.tags,
+        author: q.author
       }
-      return e as Question
+      if ( q.author ) {
+        if ( quesitonObject.tags ) quesitonObject.tags.push( 'hasAuthor' )
+        else quesitonObject.tags = ['hasAuthor']
+      }
+      return quesitonObject
     }
     )
   } )

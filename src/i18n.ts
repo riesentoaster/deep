@@ -2,9 +2,8 @@ import i18n from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
 import enCommon from './locales/en/common.json'
-import enQuestions from './locales/en/questions.json'
+import { translations } from './questions'
 import deCommon from './locales/de/common.json'
-import deQuestions from './locales/de/questions.json'
 
 i18n
   .use( LanguageDetector )
@@ -15,11 +14,11 @@ i18n
     resources: {
       en: {
         common: enCommon,
-        questions: enQuestions
+        questions: translations.en
       },
       de: {
         common: deCommon,
-        questions: deQuestions
+        questions: translations.de
       }
     },
     fallbackLng: 'en',
