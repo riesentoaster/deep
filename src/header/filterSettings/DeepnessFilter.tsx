@@ -1,9 +1,9 @@
 import { DeepnessExplanation } from './DeepnessExplanation'
 import { useTranslation } from 'react-i18next'
-import { maxDeepness, minDeepness } from '../settingsHelpers'
 import { Slider } from '../../generic/Slider'
 import { WithExplanation } from '../../generic/WithExplanation'
 import { FC } from 'react'
+import { maxDeepness, minDeepness } from '../../questions'
 
 export const DeepnessFilter: FC = () => {
   const { t } = useTranslation( 'common', { keyPrefix: 'header.deepness' } )

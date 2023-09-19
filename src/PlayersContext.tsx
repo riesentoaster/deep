@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react'
-import { reduceToObject, shuffleArray, tamedRandom } from './helpers'
+import { shuffleArray, tamedRandom } from './helpers'
 import { createContext, useContext, useEffect, useState } from 'react'
 import { PlayerCounts } from './header/settingsHelpers'
 import { PlayerSettingsContext } from './pages/Layout'
@@ -31,11 +31,11 @@ export const PlayersContextProvider: FC<PlayersContextProviderProps> = ( { child
 
   const updatePlayerCountsAfterTurn = ( name: string ): void => setPlayerCounts( {
     [name]: 0,
-    ...Object
-      .entries( playerCounts )
-      .filter( ( [k, ] ) => k !== name )
-      .map( ( [k, v] ) => ( { [k]: v + 1 } ) )
-      .reduce( reduceToObject, {} )
+    ...Object.fromEntries(
+      Object.entries( playerCounts )
+        .filter( ( [k, ] ) => k !== name )
+        .map( ( [k, v] ) => [k, v + 1] )
+    )
   } )
 
   useEffect( () => {

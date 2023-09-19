@@ -5,13 +5,24 @@ import { detailedDiff, updatedDiff } from 'deep-object-diff'
 import qs from 'qs'
 import defaultsDeep from 'lodash.defaultsdeep'
 import merge from 'lodash.merge'
-import { decodeBooleanAndNumbers } from './settingsHelpers'
 
 interface FormProps <T extends object>{
   queryIndex: string
   defaultValue: DefaultValues<T>
   update( newT: DeepPartial<T> ): void
   children: ReactNode
+}
+
+const decodeBooleanAndNumbers: qs.IParseOptions['decoder'] = ( str, defaultDecoder, charset, type ) => {
+  if ( type === 'value' ) {
+    if ( str === 'true' || str === 'false' )
+      return str === 'true'
+    else if ( /^[\d-]+$/.test( str ) )
+      return Number.parseInt( str )
+    else if ( /^[\d.-]+$/.test( str ) )
+      return Number.parseFloat( str )
+  }
+  return defaultDecoder( str )
 }
 
 export function Form<T extends object>( { queryIndex, defaultValue, update, children }: FormProps<T> ): ReactElement {

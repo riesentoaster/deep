@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next'
 import { TagsExplanation } from './TagsExplanation'
 import { Controller } from 'react-hook-form'
-import { allTags } from '../settingsHelpers'
 import { TriStateSwitch, TriStateSwitchState } from '../../generic/TriStateSwitch'
 import { WithExplanation } from '../../generic/WithExplanation'
 import { FC, ReactElement } from 'react'
+import { allTags } from '../../questions'
 
 export const TagsFilter: FC = () => {
   const { t } = useTranslation( 'common' )

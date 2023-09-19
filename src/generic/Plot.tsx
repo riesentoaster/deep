@@ -1,6 +1,6 @@
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { Question } from '../questions'
-import { reduceToObject, unique } from '../helpers'
+import { unique } from '../helpers'
 import { FC } from 'react'
 
 interface RechartsPlotProps {
@@ -25,10 +25,10 @@ export const RechartsPlot: FC<RechartsPlotProps> = ( { questions, groupBy, cumsu
         .filter( q => q.date === date )
         .flatMap( q => groupBy( q ) )
         .reduce( ( acc, cur ) => ( acc[cur] += 1, acc ),
-          uniqueGroups.map( g => ( { [g]: 0 } ) ).reduce( reduceToObject ) )
+          Object.fromEntries( uniqueGroups.map( g => ( [g, 0] ) ) ) )
     } ) )
 
-  const sums = uniqueGroups.map( g => ( { [g]: 0 } ) ).reduce( reduceToObject )
+  const sums = Object.fromEntries( uniqueGroups.map( g => [g, 0] ) )
   if ( cumsum )
     for ( const d of data )
       for ( const g of uniqueGroups ) {

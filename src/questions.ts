@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 
-import { reduceToObject } from './helpers'
+import { unique } from './helpers'
 
 type HandPutTag = 'christians' | 'twoPeople' | 'philosophy' | 'love'
 export type Tag = HandPutTag | 'hasAuthor'
@@ -1202,8 +1202,8 @@ const questionsByDate: QuestionsByDate = {
 const DEFAULT_LANG = 'en'
 const extractedTranslations = Object.values( questionsByDate ).flat().map( e => e.translations )
 export const translations = {
-  en: extractedTranslations.map( e => ( { [e[DEFAULT_LANG]]: e.en } ) ).reduce( reduceToObject, {} ),
-  de: extractedTranslations.map( e => ( { [e[DEFAULT_LANG]]: e.de } ) ).reduce( reduceToObject, {} ),
+  en: Object.fromEntries( extractedTranslations.map( e => ( [e[DEFAULT_LANG], e.en ] ) ) ),
+  de: Object.fromEntries( extractedTranslations.map( e => ( [e[DEFAULT_LANG], e.de ] ) ) ),
 }
 
 export const questions: Question[] = Object.entries( questionsByDate )
@@ -1228,3 +1228,8 @@ export const questions: Question[] = Object.entries( questionsByDate )
     )
   } )
   .flat()
+
+const possibleDeepnessLevels = questions.map( e => e.deepness ).filter( unique ).sort()
+export const minDeepness = Math.min( ...possibleDeepnessLevels )
+export const maxDeepness = Math.max( ...possibleDeepnessLevels )
+export const allTags = questions.flatMap( e => e.tags || [] ).filter( unique )

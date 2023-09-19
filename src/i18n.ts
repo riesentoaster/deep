@@ -1,9 +1,9 @@
 import i18n from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
-import enCommon from './locales/en/common.json'
+import enCommon from './locales/en.json'
 import { translations } from './questions'
-import deCommon from './locales/de/common.json'
+import deCommon from './locales/de.json'
 
 i18n
   .use( LanguageDetector )
