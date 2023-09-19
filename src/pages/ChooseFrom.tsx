@@ -1,5 +1,5 @@
 import { NoQuestionsLeft } from '../generic/NoQuestionsLeft'
-import { Question } from '../questions'
+import { Question } from '../questions/types'
 import { FC, useContext, useState } from 'react'
 import { Question as QuestionElement } from '../generic/Question'
 import { ErrorMessage } from '../generic/ErrorMessage'

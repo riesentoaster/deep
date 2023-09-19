@@ -1,4 +1,4 @@
-import { questions as allQuestions } from '../questions'
+import { questions as allQuestions } from '../questions/questions'
 import { FC, createContext, useEffect, useState } from 'react'
 import { Header } from '../header/Header'
 import { Footer } from '../footer/Footer'
@@ -19,11 +19,9 @@ import { filter } from '../filterQuestions'
 import { order } from '../orderQuestions'
 import { PlayersContextProvider } from '../PlayersContext'
 
-const preOrderedQuestions = allQuestions.sort( ( a, b ) => b.index - a.index )
-
 export const ChangeOrderSettingsContext = createContext<( e: DeepPartial<OrderSettings> ) => void>( () => {} )
 export const ChangeFilterSettingsContext = createContext<( e: DeepPartial<FilterSettings> ) => void>( () => {} )
-export const FilteredAndOrderedQuestionsContext = createContext( preOrderedQuestions )
+export const FilteredAndOrderedQuestionsContext = createContext( allQuestions )
 
 export const PlayerSettingsContext = createContext( defaultPlayerSettings )
 export const ChangePlayerSettingsContext = createContext<( e: PlayerSettings ) => void>( () => {} )
@@ -34,14 +32,14 @@ export const ChangeDisplaySettingsContext = createContext<( e: DisplaySettings )
 export const Layout: FC = () => {
   useServiceWorker()
 
-  const [orderedQuestions, setOrderedQuestions] = useState( order( defaultOrderSettings, preOrderedQuestions ) )
+  const [orderedQuestions, setOrderedQuestions] = useState( order( defaultOrderSettings, allQuestions ) )
   const [filteredQuestions, setFilteredQuestions] = useState( orderedQuestions )
   const [filterSettings, setFilterSettings] = useState<DeepPartial<FilterSettings>>( defaultFilterSettings )
   const [displaySettings, setDisplaySettings] = useState( defaultDisplaySettings )
   const [playerSettings, setPlayerSettings] = useState( defaultPlayerSettings )
 
   const updateOrder = ( newOrder: DeepPartial<OrderSettings> ): void =>
-    setOrderedQuestions( order( newOrder, preOrderedQuestions ) )
+    setOrderedQuestions( order( newOrder, allQuestions ) )
 
   useEffect( () => {
     setFilteredQuestions( filter( filterSettings, orderedQuestions ).slice() )

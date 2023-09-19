@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { RechartsPlot } from '../generic/Plot'
 import { FC, useContext } from 'react'
-import { Question } from '../questions'
+import { Question } from '../questions/types'
 import { FilteredAndOrderedQuestionsContext } from './Layout'
 
 export const Stats: FC = () => {

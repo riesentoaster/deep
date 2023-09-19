@@ -1,6 +1,6 @@
 import { DeepPartial } from 'react-hook-form'
 import { FilterSettings } from './header/settingsHelpers'
-import { Question, Tag } from './questions'
+import { Question, Tag } from './questions/types'
 import { TriStateSwitchState } from './generic/TriStateSwitch'
 
 const filterTags = (

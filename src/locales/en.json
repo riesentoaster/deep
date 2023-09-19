@@ -69,12 +69,5 @@
         "cumulative": "Cumulative",
         "deepnesses": "Deepnesses",
         "tags": "Tags"
-    },
-    "tags": {
-        "christians": "For Christians",
-        "twoPeople": "For 2 People",
-        "philosophy": "Philosophy",
-        "love": "Love and Sex",
-        "hasAuthor": "Has Author"
     }
 }

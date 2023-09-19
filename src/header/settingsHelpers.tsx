@@ -1,5 +1,6 @@
 import { TriStateSwitchState } from '../generic/TriStateSwitch'
-import { Tag, allTags, maxDeepness, minDeepness } from '../questions'
+import { allTags, maxDeepness, minDeepness } from '../questions/questions'
+import { Tag } from '../questions/types'
 
 export type DeepPartial<T> = {
   [K in keyof T]?: T[K] extends object ? DeepPartial<T[K]> : T[K]

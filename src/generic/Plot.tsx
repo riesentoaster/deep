@@ -1,5 +1,5 @@
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
-import { Question } from '../questions'
+import { Question } from '../questions/types'
 import { unique } from '../helpers'
 import { FC } from 'react'
 

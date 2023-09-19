@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Slider } from '../../generic/Slider'
 import { WithExplanation } from '../../generic/WithExplanation'
 import { FC } from 'react'
-import { maxDeepness, minDeepness } from '../../questions'
+import { maxDeepness, minDeepness } from '../../questions/questions'
 
 export const DeepnessFilter: FC = () => {
   const { t } = useTranslation( 'common', { keyPrefix: 'header.deepness' } )

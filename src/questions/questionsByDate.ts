@@ -1,17 +1,5 @@
 /* eslint-disable max-len */
-
-import { unique } from './helpers'
-
-type HandPutTag = 'christians' | 'twoPeople' | 'philosophy' | 'love'
-export type Tag = HandPutTag | 'hasAuthor'
-export interface Question {
-  question: string
-  index: number
-  deepness: number
-  date: string
-  tags?: Tag[]
-  author?: string
-}
+import { HandPutTag } from './types'
 
 interface QuestionByDate {
   translations: {
@@ -28,7 +16,7 @@ interface QuestionsByDate {
   [date: string]: QuestionByDate[]
 }
 
-const questionsByDate: QuestionsByDate = {
+export const questionsByDate: QuestionsByDate = {
   '2022-08-31': [
     {
       'deepness': 5,
@@ -1198,38 +1186,3 @@ const questionsByDate: QuestionsByDate = {
     }
   ]
 }
-
-const DEFAULT_LANG = 'en'
-const extractedTranslations = Object.values( questionsByDate ).flat().map( e => e.translations )
-export const translations = {
-  en: Object.fromEntries( extractedTranslations.map( e => ( [e[DEFAULT_LANG], e.en ] ) ) ),
-  de: Object.fromEntries( extractedTranslations.map( e => ( [e[DEFAULT_LANG], e.de ] ) ) ),
-}
-
-export const questions: Question[] = Object.entries( questionsByDate )
-  .sort( ( a, b ) => ( a[0] <= b[0] ? -1 : 1 ) )
-  .map( ( [date, questionsInDate], iDate, arr ) => {
-    const p = arr.slice( 0, iDate ).map( e => e[1].length ).reduce( ( acc, cur ) => acc + cur, 0 )
-    return questionsInDate.map( ( q, iQ ) => {
-      const quesitonObject: Question = {
-        question: q.translations[DEFAULT_LANG],
-        index: iQ + p,
-        deepness: q.deepness,
-        date: date,
-        tags: q.tags,
-        author: q.author
-      }
-      if ( q.author ) {
-        if ( quesitonObject.tags ) quesitonObject.tags.push( 'hasAuthor' )
-        else quesitonObject.tags = ['hasAuthor']
-      }
-      return quesitonObject
-    }
-    )
-  } )
-  .flat()
-
-const possibleDeepnessLevels = questions.map( e => e.deepness ).filter( unique ).sort()
-export const minDeepness = Math.min( ...possibleDeepnessLevels )
-export const maxDeepness = Math.max( ...possibleDeepnessLevels )
-export const allTags = questions.flatMap( e => e.tags || [] ).filter( unique )

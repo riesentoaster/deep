@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { EllipsisSwitch } from '../../generic/EllipsisSwitch'
 import { FC } from 'react'
-const localeInLocale: Record<string, string> = {
+import { Language } from '../../questions/types'
+const localeInLocale: Record<Language, string> = {
   de: 'Deutsch',
   en: 'English',
 }
