@@ -1264,7 +1264,7 @@ export const questionsByDate: QuestionsByDate = {
       tags: [ 'twoPeople' ],
       translations: {
         en: 'How do I annoy you?',
-        de: 'Wie nerve ich dich?'
+        de: 'Mit was nerve ich dich?'
       }
     }
   ],
