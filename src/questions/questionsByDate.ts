@@ -1255,7 +1255,7 @@ export const questionsByDate: QuestionsByDate = {
         en: 'What was the best birthday or christmas present you\'ve ever received?',
         de: 'Was war das beste Geburtstags- oder Weihnachtsgeschenk, dass du je bekommen hast?'
       },
-      author: 'Noemi'
+      author: 'Noëmi'
     }
   ],
   '2023-09-12': [
