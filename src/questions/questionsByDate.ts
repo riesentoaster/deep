@@ -813,7 +813,7 @@ export const questionsByDate: QuestionsByDate = {
     },
     {
       deepness: 4,
-      tags: [ 'twoPeople' ],
+      tags: [ 'twoPeople', 'v' ],
       translations: {
         en: 'What do you think I\'m hesitant to tell you?',
         de: 'Was glaubst du zögere ich, dir zu sagen?'
@@ -1332,7 +1332,37 @@ export const questionsByDate: QuestionsByDate = {
         en: 'What do you get from me that you didn\'t get in past relationshipts?',
         de: 'Was bekommst du von mir, was du in bisherigen Beziehungen nicht bekommen hast?'
       }
-
+    },
+    {
+      deepness: 3,
+      tags: [ 'twoPeople', 'dating' ],
+      translations: {
+        en: 'What makes you think we will last?',
+        de: 'Wegen was denkst du, wir werden als Paar durchhalten?'
+      }
+    },
+    {
+      deepness: 3,
+      translations: {
+        en: 'What do you not like to come up in conversation?',
+        de: 'Was magst du nicht, wenn es in Gesprächen aufkommt?'
+      }
+    },
+    {
+      deepness: 5,
+      tags: [ 'twoPeople', 'dating' ],
+      translations: {
+        en: 'When is the last time you considered ending this relationship? Why didn\'t you?',
+        de: 'Wann hast du das letzte Mal darüber nachgedacht, diese Beziehung zu beenden? Warum hast du es nicht gemacht?'
+      }
+    },
+    {
+      deepness: 2,
+      tags: [ 'twoPeople' ],
+      translations: {
+        en: 'When were you proudest of me?',
+        de: 'Wann warst du am meisten stolz auf mich?'
+      }
     }
   ]
 }
