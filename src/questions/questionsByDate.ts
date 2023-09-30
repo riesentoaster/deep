@@ -1102,4 +1102,216 @@ export const questionsByDate: QuestionsByDate = {
       }
     }
   ],
+
+  '2023-04-21': [
+    {
+      deepness: 1, translations: {
+        en: 'What is a boring fact about you?',
+        de: 'Was ist ein langweiliger Fakt über dich?'
+      } }
+  ],
+  '2023-04-25': [
+    {
+      deepness: 2,
+      translations: {
+        en: 'What\'s the best question you\'ve ever been asked?',
+        de: 'Was war die beste Frage, die dir je gestelt wurde?'
+      }
+    }
+  ],
+  '2023-04-29': [
+    {
+      deepness: 4,
+      translations: {
+        de: 'Wann hat dich dein Bauchgefühl betrogen?',
+        en: 'When did your gut betray you?'
+      }
+    }
+  ],
+  '2023-05-04': [
+    {
+      deepness: 4,
+      translations: {
+        en: 'Why would one not want to date you?',
+        de: 'Warum würde man dich nicht daten wollen?'
+      }
+    },
+    {
+      deepness: 3,
+      translations: {
+        en: 'What question do you hate answering?',
+        de: 'Was für eine Frage hasst du zu beantworten?'
+      }
+    }
+  ],
+  '2023-05-06': [
+    {
+      deepness: 3,
+      translations: {
+        en: 'What is the best decision you ever made?',
+        de: 'Was ist die beste Entscheidung, die du je gemacht hast?'
+      }
+    }
+  ],
+  '2023-05-07': [
+    {
+      deepness: 1,
+      translations: {
+        en: 'What is the coolest thing you own that isn\'t expensive?',
+        de: 'Was ist das coolste Ding, das die gehört, und nicht teuer ist?'
+      }
+    }
+  ],
+  '2023-05-09': [
+    {
+      deepness: 2,
+      translations: {
+        en: 'What is your most unethical lifehack?',
+        de: 'Was ist dein unethischster Tipp/Lifehack?'
+      }
+    }
+  ],
+  '2023-05-15': [
+    {
+      deepness: 4,
+      translations: {
+        en: 'What experience have you grown the most from?',
+        de: 'An welchem Erlebnis bist du am meisten gewachsen?'
+      }
+    }
+  ],
+  '2023-05-18': [
+    {
+      deepness: 3,
+      translations: {
+        en: 'Is there an experience in your life that made you fundamentally change your thinking?',
+        de: 'Gibt es ein Erlebnis in deinem Leben, dass dich zu einem fundamentalen Umdenken bewogen hat?'
+      },
+      author: 'Silvio'
+    }
+  ],
+  '2023-06-05': [
+    {
+      deepness: 4,
+      translations: {
+        en: 'What are three reasons not to date you? What are three reasons to date you?',
+        de: 'Was sind drei Gründe, dich nicht zu daten? Was sind drei Gründe es zu tun?'
+      }
+    }
+  ],
+  '2023-06-24': [
+    {
+      deepness: 4,
+      translations: {
+        en: 'Who broke your heart?',
+        de: 'Wer hat dein Herz gebrochen?'
+      }
+    }
+  ],
+  '2023-06-29': [
+    {
+      deepness: 3,
+      tags: [ 'twoPeople' ],
+      translations: {
+        en: 'Why are you in this relationship?',
+        de: 'Warum bist du in dieser Beziehung?'
+      }
+    }
+  ],
+  '2023-07-11': [
+    {
+      deepness: 3,
+      tags: [ 'twoPeople', 'dating' ],
+      translations: {
+        en: 'How do you love me?',
+        de: 'Wie liebst du mich?'
+      }
+    }
+  ],
+  '2023-09-02': [
+    {
+      deepness: 2,
+      tags: [ 'v' ],
+      translations: {
+        en: 'What is the best purchase you ever made?',
+        de: 'Was war bisher dein bester Kauf?'
+      }
+    }
+  ],
+  '2023-09-03': [
+    {
+      deepness: 3,
+      translations: {
+        en: 'What\'s the most surprising discovery that you made about your own body?',
+        de: 'Was war die überaschendste Entdeckung, die du über deinen Körper gemacht hast?'
+      },
+      author: 'Laura'
+    }
+  ],
+  '2023-09-10': [
+    {
+      deepness: 2,
+      translations: {
+        en: 'What was the best birthday or christmas present you\'ve ever received?',
+        de: 'Was war das beste Geburtstags- oder Weihnachtsgeschenk, dass du je bekommen hast?'
+      },
+      author: 'Noemi'
+    }
+  ],
+  '2023-09-13': [
+    {
+      deepness: 3,
+      tags: [ 'twoPeople', 'v' ],
+      translations: {
+        en: 'What\'s something about me that you love that I might not know?',
+        de: 'Was liebst du an mir, ohne dass ich es weiss?'
+      }
+    }
+  ],
+  '2023-09-17': [
+    {
+      deepness: 2,
+      translations: {
+        en: 'Do you have any scars? What\'s the story behind it?',
+        de: 'Hast du eine Narbe? Was ist die Geschichte dahinter?'
+      }
+    }
+  ],
+  '2023-09-18': [
+    {
+      deepness: 2,
+      tags: [ 'twoPeople' ],
+      translations: {
+        en: 'What\'s the most ridiculous thing you\'ve seen me do?',
+        de: 'Was ist das Lächerlichste, was du mich hast tun sehen?'
+      }
+    },
+    {
+      deepness: 4,
+      tags: [ 'twoPeople' ],
+      translations: {
+        en: 'What would you warn my current/next partner about?',
+        de: 'Über was würdest du meine:n aktuelle:n/zukünftige:n Partner:in warnen?'
+      }
+    }
+  ],
+  '2023-09-19': [
+    {
+      deepness: 2,
+      tags: [ 'christians' ],
+      translations: {
+        en: 'What is an underrated bible story?',
+        de: 'Was ist eine unterschätzte (underrated) Bibelgeschichte?'
+      }
+    }
+  ],
+  '2023-09-24': [
+    {
+      deepness: 3,
+      translations: {
+        en: 'When did you last experience true peace?',
+        de: 'Wann hast du zuletzt wahren Frieden verspürt?'
+      }
+    }
+  ]
 }
