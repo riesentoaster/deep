@@ -6,7 +6,7 @@ import { FilteredAndOrderedQuestionsContext } from './Layout'
 
 export const Stats: FC = () => {
 
-  const { t: tagsT } = useTranslation( 'common', { keyPrefix: 'tags' } )
+  const { t: tagsT } = useTranslation( 'tags' )
   const { t: statsT } = useTranslation( 'common', { keyPrefix: 'stats' } )
   const questions = useContext( FilteredAndOrderedQuestionsContext )
 
