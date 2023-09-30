@@ -16,10 +16,10 @@ export const Stats: FC = () => {
 
   return ( <>
     <h2>{statsT( 'deepnesses' )}</h2>
-    <LinePlot questions={questions} groupBy={deepnessGrouper} cumsum/>
+    <LinePlot questions={questions} groupBy={deepnessGrouper} />
     <hr/>
     <h2>{statsT( 'tags' )}</h2>
-    <LinePlot questions={questions} groupBy={tagGrouper} cumsum/>
+    <LinePlot questions={questions} groupBy={tagGrouper} />
     <BarPlot questions={questions} groupBy={( q ): string[] => q.tags || []} axisMapper={tagsT}/>
   </>
   )

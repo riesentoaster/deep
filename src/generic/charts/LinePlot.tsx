@@ -1,19 +1,28 @@
-import { Area, AreaChart, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import {
+  Area,
+  AreaChart,
+  Legend,
+  ReferenceLine,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis
+} from 'recharts'
 import { Question } from '../../questions/types'
 import { unique } from '../../helpers'
 import { FC } from 'react'
-import { colors } from './common'
+import { colors, getYTicks } from './common'
 
 interface LinePlotProps {
   questions: Question[]
   groupBy: ( q: Question ) => string | string[]
-  cumsum?: boolean
 }
 
 const formatter = ( e: number ): string => new Date( e ).toLocaleDateString()
 
-export const LinePlot: FC<LinePlotProps> = ( { questions, groupBy, cumsum = false } ) => {
-  const uniqueGroups = questions.flatMap( e => groupBy( e ) ).filter( unique ).sort()
+export const LinePlot: FC<LinePlotProps> = ( { questions, groupBy } ) => {
+  const flatGroupings = questions.flatMap( e => groupBy( e ) )
+  const uniqueGroups = flatGroupings.filter( unique ).sort()
 
   const data: {date: number, [key: string]: number}[] = questions
     .map( e => e.date )
@@ -22,20 +31,13 @@ export const LinePlot: FC<LinePlotProps> = ( { questions, groupBy, cumsum = fals
     .map( date => ( {
       date: new Date( date ).getTime(),
       ...questions
-        .filter( q => q.date === date )
+        .filter( q => q.date <= date )
         .flatMap( q => groupBy( q ) )
         .reduce( ( acc, cur ) => ( acc[cur] += 1, acc ),
           Object.fromEntries( uniqueGroups.map( g => ( [ g, 0 ] ) ) ) )
     } ) )
 
-  const sums = Object.fromEntries( uniqueGroups.map( g => [ g, 0 ] ) )
-  if ( cumsum )
-    for ( const d of data )
-      for ( const g of uniqueGroups ) {
-        const presum = sums[g]
-        sums[g] += d[g]
-        d[g] = presum
-      }
+  const maxValue = flatGroupings.length
 
   return (
     <ResponsiveContainer width={'100%'} height={500} className={'my-10'}>
@@ -48,7 +50,7 @@ export const LinePlot: FC<LinePlotProps> = ( { questions, groupBy, cumsum = fals
           textAnchor='start'
           tickFormatter={formatter}
         />
-        <YAxis/>
+        <YAxis ticks={getYTicks( maxValue )}/>
         <Legend verticalAlign='top'/>
         <Tooltip
           labelFormatter={formatter}
@@ -56,6 +58,7 @@ export const LinePlot: FC<LinePlotProps> = ( { questions, groupBy, cumsum = fals
           labelClassName={'text-white'}
           itemSorter={( i ): number => typeof i.dataKey === 'string' ? -( uniqueGroups.indexOf( i.dataKey ) ) : 0}
         />
+        <ReferenceLine y={maxValue} strokeDasharray='3 3'/>
         {
           uniqueGroups.map( ( e, i ) => (
             <Area

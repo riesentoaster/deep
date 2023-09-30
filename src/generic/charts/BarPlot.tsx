@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from 'recharts'
 import { Question } from '../../questions/types'
-import { colors } from './common'
+import { colors, getYTicks } from './common'
 
 interface BarPlotProps {
   questions: Question[]
@@ -34,7 +34,7 @@ export const BarPlot: FC<BarPlotProps> = ( { questions, groupBy, axisMapper } ) 
       <BarChart data={data} margin={{ bottom: 130 }} barCategoryGap={'20%'}>
         <Bar dataKey="value" fill={colors[0]} stroke={colors[0]} stackId='stack1' label={{ position: 'top' }}/>
         <Bar dataKey="rest" stroke={colors[0]} fillOpacity={0} stackId='stack1' />
-        <YAxis/>
+        <YAxis ticks={getYTicks( questions.length )}/>
         <XAxis dataKey="name" angle={90} textAnchor='start'/>
       </BarChart>
     </ResponsiveContainer>
