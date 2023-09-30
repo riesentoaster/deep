@@ -16,10 +16,11 @@ export const getYTicks = ( maxValue: number ): number[] => {
   else if ( firstDigit <= 4 ) yTickDiff = ( 10 ** orderOfMagnitude ) / 2
   else yTickDiff = ( 10 ** orderOfMagnitude )
 
-  const yTicks = Array( Math.floor( maxValue / yTickDiff ) )
+  const yTicks = Array( Math.floor( maxValue / yTickDiff ) + 1 )
     .fill( 1 )
     .map( ( _, i ) => i * yTickDiff )
     .filter( e => e === Math.floor( e ) ) // filtering for whole numbers
   yTicks.push( maxValue )
+  console.log( maxValue, yTicks )
   return yTicks
 }
