@@ -1323,5 +1323,16 @@ export const questionsByDate: QuestionsByDate = {
         de: 'Wann hast du zuletzt wahren Frieden verspürt?'
       }
     }
+  ],
+  '2023-09-30': [
+    {
+      deepness: 4,
+      tags: [ 'twoPeople', 'dating' ],
+      translations: {
+        en: 'What do you get from me that you didn\'t get in past relationshipts?',
+        de: 'Was bekommst du von mir, was du in bisherigen Beziehungen nicht bekommen hast?'
+      }
+
+    }
   ]
 }
