@@ -65,8 +65,6 @@
         "currentPlayer": "Aktuelle:r Spieler:in"
     },
     "stats": {
-        "added": "Hinzugefügt",
-        "cumulative": "Kumulativ",
         "deepnesses": "Deepnesse",
         "tags": "Tags"
     }

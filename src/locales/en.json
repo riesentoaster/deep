@@ -65,8 +65,6 @@
         "currentPlayer": "Current Player"
     },
     "stats": {
-        "added": "Added",
-        "cumulative": "Cumulative",
         "deepnesses": "Deepnesses",
         "tags": "Tags"
     }

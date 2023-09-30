@@ -15,15 +15,9 @@ export const Stats: FC = () => {
 
   return ( <>
     <h2>{statsT( 'deepnesses' )}</h2>
-    <h3>{statsT( 'added' )}</h3>
-    <RechartsPlot questions={questions} groupBy={deepnessGrouper}/>
-    <h3>{statsT( 'cumulative' )}</h3>
     <RechartsPlot questions={questions} groupBy={deepnessGrouper} cumsum/>
     <hr/>
     <h2>{statsT( 'tags' )}</h2>
-    <h3>{statsT( 'added' )}</h3>
-    <RechartsPlot questions={questions} groupBy={tagGrouper}/>
-    <h3>{statsT( 'cumulative' )}</h3>
     <RechartsPlot questions={questions} groupBy={tagGrouper} cumsum/>
   </>
   )
