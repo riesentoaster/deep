@@ -4,7 +4,7 @@ import { TriStateSwitch, TriStateSwitchState } from '../../generic/TriStateSwitc
 
 export const TagsExplanation: FC = () => {
   const { t } = useTranslation( 'common', { keyPrefix: 'header.tags' } )
-  const [state, setState] = useState<TriStateSwitchState>( 'IGNORE' )
+  const [ state, setState ] = useState<TriStateSwitchState>( 'IGNORE' )
 
   return (
     <>

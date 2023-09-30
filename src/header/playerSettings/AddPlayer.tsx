@@ -8,7 +8,7 @@ interface AddPlayerProps {
 
 export const AddPlayer: FC<AddPlayerProps> = ( { addPlayer } ) => {
   const { t } = useTranslation( 'common', { keyPrefix: 'header.players' } )
-  const [value, setValue] = useState( '' )
+  const [ value, setValue ] = useState( '' )
   const trigger = (): void => {
     setValue( '' )
     addPlayer( value.trim() )

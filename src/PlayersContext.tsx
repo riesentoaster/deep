@@ -26,15 +26,15 @@ interface PlayersContextProviderProps {
 export const PlayersContextProvider: FC<PlayersContextProviderProps> = ( { children } ) => {
   const { t } = useTranslation( 'common', { keyPrefix: 'players' } )
   const playerSettings = useContext( PlayerSettingsContext )
-  const [playerCounts, setPlayerCounts] = useState<PlayerCounts>( {} )
-  const [isNextPlayerAnnouncementOpen, setIsNextPlayerAnnouncementOpen] = useState( false )
+  const [ playerCounts, setPlayerCounts ] = useState<PlayerCounts>( {} )
+  const [ isNextPlayerAnnouncementOpen, setIsNextPlayerAnnouncementOpen ] = useState( false )
 
   const updatePlayerCountsAfterTurn = ( name: string ): void => setPlayerCounts( {
     [name]: 0,
     ...Object.fromEntries(
       Object.entries( playerCounts )
-        .filter( ( [k, ] ) => k !== name )
-        .map( ( [k, v] ) => [k, v + 1] )
+        .filter( ( [ k, ] ) => k !== name )
+        .map( ( [ k, v ] ) => [ k, v + 1 ] )
     )
   } )
 
@@ -51,13 +51,13 @@ export const PlayersContextProvider: FC<PlayersContextProviderProps> = ( { child
         newPlayerCounts[a] = Infinity
       setPlayerCounts( newPlayerCounts )
     }
-  }, [playerCounts, playerSettings.players] )
+  }, [ playerCounts, playerSettings.players ] )
 
   const playerCount = Object.keys( playerCounts ).length
 
   const currentPlayer = shuffleArray( Object.entries( playerCounts ) )
-    .sort( tamedRandom( playerSettings.inOrder, ( [, v] ) => v ) )
-    .map( ( [k, ] ) => k )
+    .sort( tamedRandom( playerSettings.inOrder, ( [ , v ] ) => v ) )
+    .map( ( [ k, ] ) => k )
     .pop() || ''
 
   console.log( playerCounts )

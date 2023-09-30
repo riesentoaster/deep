@@ -14,13 +14,13 @@ const links = {
 
 export const Mode: FC = () => {
   const { t } = useTranslation( 'common', { keyPrefix: 'header.links' } )
-  const [searchParams,] = useSearchParams()
+  const [ searchParams, ] = useSearchParams()
 
   return (
     <div>
       <h2>{t( 'mode' )}</h2>
       {
-        Object.entries( links ).map( ( [text, href] ) =>
+        Object.entries( links ).map( ( [ text, href ] ) =>
           (
             <NavLink key={href} to={href + '?' + searchParams.toString()} >
               {

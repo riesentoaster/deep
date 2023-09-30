@@ -16,7 +16,7 @@ export const EllipsisSwitch = <T extends string, >( {
   return (
     <div className={`flex flex-row border rounded-full h-fit ${className}`}>
       {
-        Object.entries( elements ).map( ( [k, v] ) => (
+        Object.entries( elements ).map( ( [ k, v ] ) => (
           <button
             type="button"
             className={`px-5 rounded-full basis-0 grow ${state === k && 'bg-accentColorDarkBlue border rounded-full'}`}

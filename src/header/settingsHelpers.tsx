@@ -13,7 +13,7 @@ export interface FilterSettings {
 
 export const defaultFilterSettings: FilterSettings = {
   deepness: { min: minDeepness, max: maxDeepness },
-  tags: Object.fromEntries( allTags.map( e => [e, 'IGNORE'] ) ) as Record<Tag, TriStateSwitchState>
+  tags: Object.fromEntries( allTags.map( e => [ e, 'IGNORE' ] ) ) as Record<Tag, TriStateSwitchState>
 }
 
 export interface OrderSettings {

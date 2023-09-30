@@ -9,7 +9,7 @@ interface WithExplanationProps {
 }
 
 export const WithExplanation: FC<WithExplanationProps> = ( { closedElement, explanation } ) => {
-  const [isOpen, setIsOpen] = useState( false )
+  const [ isOpen, setIsOpen ] = useState( false )
 
   return ( <ToTheRight
     mainChild={

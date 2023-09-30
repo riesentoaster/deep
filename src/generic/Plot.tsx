@@ -9,7 +9,7 @@ interface RechartsPlotProps {
   cumsum?: boolean
 }
 
-const colors = ['#00af54', '#ffd639', '#ffbd74', '#8090b7', '#007cbe']
+const colors = [ '#00af54', '#ffd639', '#ffbd74', '#8090b7', '#007cbe' ]
 const formatter = ( e: number ): string => new Date( e ).toLocaleDateString()
 
 export const RechartsPlot: FC<RechartsPlotProps> = ( { questions, groupBy, cumsum = false } ) => {
@@ -25,10 +25,10 @@ export const RechartsPlot: FC<RechartsPlotProps> = ( { questions, groupBy, cumsu
         .filter( q => q.date === date )
         .flatMap( q => groupBy( q ) )
         .reduce( ( acc, cur ) => ( acc[cur] += 1, acc ),
-          Object.fromEntries( uniqueGroups.map( g => ( [g, 0] ) ) ) )
+          Object.fromEntries( uniqueGroups.map( g => ( [ g, 0 ] ) ) ) )
     } ) )
 
-  const sums = Object.fromEntries( uniqueGroups.map( g => [g, 0] ) )
+  const sums = Object.fromEntries( uniqueGroups.map( g => [ g, 0 ] ) )
   if ( cumsum )
     for ( const d of data )
       for ( const g of uniqueGroups ) {
@@ -44,7 +44,7 @@ export const RechartsPlot: FC<RechartsPlotProps> = ( { questions, groupBy, cumsu
           dataKey={'date'}
           type={'number'}
           angle={90}
-          domain={['dataMin', 'dataMax']}
+          domain={[ 'dataMin', 'dataMax' ]}
           textAnchor='start'
           tickFormatter={formatter}
         />

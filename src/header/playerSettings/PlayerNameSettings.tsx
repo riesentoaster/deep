@@ -15,7 +15,7 @@ export const PlayerNameSettings: FC = () => {
       render={( { field: { value, onChange } } ): ReactElement => {
         const addPlayer = ( newPlayer: string ): void =>
           onChange(
-            [...value, newPlayer]
+            [ ...value, newPlayer ]
               .filter( unique )
               .sort()
           )

@@ -23,7 +23,7 @@ export const DeepnessFilter: FC = () => {
         min={minDeepness}
         max={maxDeepness}
         step={1}
-        valueMapper={( value ): number[] => [value.min, value.max]}
+        valueMapper={( value ): number[] => [ value.min, value.max ]}
         onChangeMapper={onChangeMapper}
         textLeft={t( 'min' )}
         textRight={t( 'max' )}

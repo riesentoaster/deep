@@ -24,5 +24,5 @@ export const useServiceWorker = (): void => {
         registration.update().catch( e => console.log( 'could not update service worker', e ) )
       )
     }
-  }, [location] )
+  }, [ location ] )
 }

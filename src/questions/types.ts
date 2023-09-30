@@ -1,5 +1,5 @@
 
-export type HandPutTag = 'christians' | 'twoPeople' | 'philosophy' | 'love'
+export type HandPutTag = 'christians' | 'twoPeople' | 'philosophy' | 'sex' | 'dating' | 'v'
 export type Tag = HandPutTag | 'hasAuthor'
 export type Language = 'de' | 'en'
 

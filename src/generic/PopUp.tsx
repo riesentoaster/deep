@@ -29,7 +29,7 @@ export const PopUp: FC<PopUpProps> = ( {
     }
     document.addEventListener( 'click', handleClickOutside, true )
     return () => document.removeEventListener( 'click', handleClickOutside, true )
-  }, [ref, isOpen, closesOnClickOutside, onClose, closesOnAnyClick] )
+  }, [ ref, isOpen, closesOnClickOutside, onClose, closesOnAnyClick ] )
 
   return (
     <div className={`${styles.popupBackground} ${!isOpen && 'hidden'}`}>

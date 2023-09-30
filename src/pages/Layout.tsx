@@ -32,18 +32,18 @@ export const ChangeDisplaySettingsContext = createContext<( e: DisplaySettings )
 export const Layout: FC = () => {
   useServiceWorker()
 
-  const [orderedQuestions, setOrderedQuestions] = useState( order( defaultOrderSettings, allQuestions ) )
-  const [filteredQuestions, setFilteredQuestions] = useState( orderedQuestions )
-  const [filterSettings, setFilterSettings] = useState<DeepPartial<FilterSettings>>( defaultFilterSettings )
-  const [displaySettings, setDisplaySettings] = useState( defaultDisplaySettings )
-  const [playerSettings, setPlayerSettings] = useState( defaultPlayerSettings )
+  const [ orderedQuestions, setOrderedQuestions ] = useState( order( defaultOrderSettings, allQuestions ) )
+  const [ filteredQuestions, setFilteredQuestions ] = useState( orderedQuestions )
+  const [ filterSettings, setFilterSettings ] = useState<DeepPartial<FilterSettings>>( defaultFilterSettings )
+  const [ displaySettings, setDisplaySettings ] = useState( defaultDisplaySettings )
+  const [ playerSettings, setPlayerSettings ] = useState( defaultPlayerSettings )
 
   const updateOrder = ( newOrder: DeepPartial<OrderSettings> ): void =>
     setOrderedQuestions( order( newOrder, allQuestions ) )
 
   useEffect( () => {
     setFilteredQuestions( filter( filterSettings, orderedQuestions ).slice() )
-  }, [filterSettings, orderedQuestions] )
+  }, [ filterSettings, orderedQuestions ] )
 
   return (
     <FilteredAndOrderedQuestionsContext.Provider value={filteredQuestions}>

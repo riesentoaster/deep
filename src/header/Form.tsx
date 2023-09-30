@@ -30,7 +30,7 @@ export function Form<T extends object>( { queryIndex, defaultValue, update, chil
   const form = useForm<T>( { defaultValues: defaultValue } )
   const { handleSubmit, watch, reset, getValues } = form
 
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [ searchParams, setSearchParams ] = useSearchParams()
 
   // update url params to match form state
   useEffect( () => {
@@ -45,7 +45,7 @@ export function Form<T extends object>( { queryIndex, defaultValue, update, chil
       setSearchParams( searchParams )
     } )
     return () => subscription.unsubscribe()
-  }, [update, searchParams, setSearchParams, watch, defaultValue, queryIndex] )
+  }, [ update, searchParams, setSearchParams, watch, defaultValue, queryIndex ] )
 
   // update form to match url params
   useEffect( () => {
@@ -53,7 +53,7 @@ export function Form<T extends object>( { queryIndex, defaultValue, update, chil
     const parsed = fromURL ? qs.parse( fromURL, { decoder: decodeBooleanAndNumbers } ) : {}
     if ( Object.keys( updatedDiff( parsed, getValues() ) ).length > 0 )
       reset( defaultsDeep( parsed, defaultValue ), { keepTouched: true } )
-  }, [searchParams, getValues, reset, defaultValue, queryIndex] )
+  }, [ searchParams, getValues, reset, defaultValue, queryIndex ] )
 
   return (
     <FormProvider {...form} >

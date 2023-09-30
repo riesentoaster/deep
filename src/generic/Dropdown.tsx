@@ -15,7 +15,7 @@ export const Dropdown: FC<DropdownProps> = ( {
   className = '',
   defaultHiddenState = false
 } ) => {
-  const [hidden, setHidden] = useState( defaultHiddenState )
+  const [ hidden, setHidden ] = useState( defaultHiddenState )
   return (
     <div className={`mx-auto ${className}`}>
       <button className='mx-auto mb-2' onClick={(): void => setHidden( !hidden )}>

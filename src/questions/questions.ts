@@ -7,28 +7,32 @@ export const tagTranslations: Record<Language, Record<Tag, String>> = {
     'christians': 'Für Christen',
     'twoPeople': 'Für 2 Personen',
     'philosophy': 'Philosophie',
-    'love': 'Liebe und Sex',
-    'hasAuthor': 'Hat Autor:in'
+    'sex': 'Sex',
+    'hasAuthor': 'Hat Autor:in',
+    'dating': 'Für Paare',
+    'v': 'Valentins Favoriten'
   },
   en: {
     'christians': 'For Christians',
     'twoPeople': 'For 2 People',
     'philosophy': 'Philosophy',
-    'love': 'Love and Sex',
-    'hasAuthor': 'Has Author'
+    'sex': 'Sex',
+    'hasAuthor': 'Has Author',
+    'dating': 'For Couples',
+    'v': 'Valentin\'s Favourites'
   }
 }
 
 const DEFAULT_LANG = 'en'
 const extractedTranslations = Object.values( questionsByDate ).flat().map( e => e.translations )
 export const questionTranslations = {
-  en: Object.fromEntries( extractedTranslations.map( e => ( [e[DEFAULT_LANG], e.en ] ) ) ),
-  de: Object.fromEntries( extractedTranslations.map( e => ( [e[DEFAULT_LANG], e.de ] ) ) ),
+  en: Object.fromEntries( extractedTranslations.map( e => ( [ e[DEFAULT_LANG], e.en ] ) ) ),
+  de: Object.fromEntries( extractedTranslations.map( e => ( [ e[DEFAULT_LANG], e.de ] ) ) ),
 }
 
 export const questions: Question[] = Object.entries( questionsByDate )
   .sort( ( a, b ) => ( a[0] <= b[0] ? -1 : 1 ) )
-  .flatMap( ( [date, questionsInDate], iDate, arr ) => {
+  .flatMap( ( [ date, questionsInDate ], iDate, arr ) => {
     const p = arr.slice( 0, iDate ).map( e => e[1].length ).reduce( ( acc, cur ) => acc + cur, 0 )
     return questionsInDate.map( ( q, iQ ) => {
       const questionsObject: Question = {
@@ -41,7 +45,7 @@ export const questions: Question[] = Object.entries( questionsByDate )
       }
       if ( q.author ) {
         if ( questionsObject.tags ) questionsObject.tags.push( 'hasAuthor' )
-        else questionsObject.tags = ['hasAuthor']
+        else questionsObject.tags = [ 'hasAuthor' ]
       }
       return questionsObject
     }

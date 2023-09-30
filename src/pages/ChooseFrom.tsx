@@ -21,7 +21,7 @@ const filterQuestions = ( questions: Question[], index: number, n: number ): Que
 }
 
 export const ChooseFrom: FC = () => {
-  const [index, setIndex] = useState( 0 )
+  const [ index, setIndex ] = useState( 0 )
   const { n } = useParams()
   const { t } = useTranslation( 'common' )
   const questions = useContext( FilteredAndOrderedQuestionsContext )
