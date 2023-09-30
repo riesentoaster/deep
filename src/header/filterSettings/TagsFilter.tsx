@@ -13,18 +13,20 @@ export const TagsFilter: FC = () => {
   return (
     <>
       <WithExplanation closedElement={<h3>{commonT( 'header.tags.title' )}</h3>}explanation={<TagsExplanation />} />
-      {allTags.map( tag => (
-        <Controller
-          name={`tags.${tag}`}
-          key={tag}
-          render={( { field: { value, onChange } } ): ReactElement => (
-            <TriStateSwitch
-              text={tagT( tag )}
-              state={value}
-              setIfUnchanged={false}
-              setState={( newState: TriStateSwitchState ): void => onChange( newState )} />
-          )} />
-      ) )}
+      {allTags
+        .sort( ( a, b ) => tagT( a ).localeCompare( tagT( b ) ) )
+        .map( tag => (
+          <Controller
+            name={`tags.${tag}`}
+            key={tag}
+            render={( { field: { value, onChange } } ): ReactElement => (
+              <TriStateSwitch
+                text={tagT( tag )}
+                state={value}
+                setIfUnchanged={false}
+                setState={( newState: TriStateSwitchState ): void => onChange( newState )} />
+            )} />
+        ) )}
     </>
   )
 }
