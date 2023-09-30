@@ -1,18 +1,18 @@
-import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
-import { Question } from '../questions/types'
-import { unique } from '../helpers'
+import { Area, AreaChart, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { Question } from '../../questions/types'
+import { unique } from '../../helpers'
 import { FC } from 'react'
+import { colors } from './common'
 
-interface RechartsPlotProps {
+interface LinePlotProps {
   questions: Question[]
   groupBy: ( q: Question ) => string | string[]
   cumsum?: boolean
 }
 
-const colors = [ '#00af54', '#ffd639', '#ffbd74', '#8090b7', '#007cbe' ]
 const formatter = ( e: number ): string => new Date( e ).toLocaleDateString()
 
-export const RechartsPlot: FC<RechartsPlotProps> = ( { questions, groupBy, cumsum = false } ) => {
+export const LinePlot: FC<LinePlotProps> = ( { questions, groupBy, cumsum = false } ) => {
   const uniqueGroups = questions.flatMap( e => groupBy( e ) ).filter( unique ).sort()
 
   const data: {date: number, [key: string]: number}[] = questions
@@ -49,6 +49,7 @@ export const RechartsPlot: FC<RechartsPlotProps> = ( { questions, groupBy, cumsu
           tickFormatter={formatter}
         />
         <YAxis/>
+        <Legend verticalAlign='top'/>
         <Tooltip
           labelFormatter={formatter}
           contentStyle={{ background: 'black' }}
@@ -59,7 +60,6 @@ export const RechartsPlot: FC<RechartsPlotProps> = ( { questions, groupBy, cumsu
           uniqueGroups.map( ( e, i ) => (
             <Area
               key={e}
-              //   type="monotone"
               fill={colors[i % ( colors.length )]}
               stroke={colors[i % ( colors.length )]}
               dataKey={e}

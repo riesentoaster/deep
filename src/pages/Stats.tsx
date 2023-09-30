@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next'
-import { RechartsPlot } from '../generic/Plot'
+import { LinePlot } from '../generic/charts/LinePlot'
 import { FC, useContext } from 'react'
 import { Question } from '../questions/types'
 import { FilteredAndOrderedQuestionsContext } from './Layout'
+import { BarPlot } from '../generic/charts/BarPlot'
 
 export const Stats: FC = () => {
 
@@ -15,10 +16,11 @@ export const Stats: FC = () => {
 
   return ( <>
     <h2>{statsT( 'deepnesses' )}</h2>
-    <RechartsPlot questions={questions} groupBy={deepnessGrouper} cumsum/>
+    <LinePlot questions={questions} groupBy={deepnessGrouper} cumsum/>
     <hr/>
     <h2>{statsT( 'tags' )}</h2>
-    <RechartsPlot questions={questions} groupBy={tagGrouper} cumsum/>
+    <LinePlot questions={questions} groupBy={tagGrouper} cumsum/>
+    <BarPlot questions={questions} groupBy={( q ): string[] => q.tags || []} axisMapper={tagsT}/>
   </>
   )
 }
