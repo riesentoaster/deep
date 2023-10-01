@@ -1,6 +1,6 @@
 import { DeepPartial } from 'react-hook-form'
 import { OrderSettings, defaultOrderSettings } from './header/settingsHelpers'
-import { Question } from './questions/types'
+import { Question } from './questions/questions'
 import { shuffleArray, tamedRandom } from './helpers'
 
 export const order = ( e: DeepPartial<OrderSettings>, questions: Question[] ): Question[] =>

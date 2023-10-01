@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { LinePlot } from '../generic/charts/LinePlot'
 import { FC, useContext } from 'react'
-import { Question } from '../questions/types'
+import { Question } from '../questions/questions'
 import { FilteredAndOrderedQuestionsContext } from './Layout'
 import { BarPlot } from '../generic/charts/BarPlot'
 

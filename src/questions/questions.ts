@@ -1,33 +1,15 @@
 import { unique } from '../helpers'
+import { DEFAULT_LANGUAGE } from './language'
 import { questionsByDate } from './questionsByDate'
-import { Language, Question, Tag } from './types'
+import { Tag } from './tags'
 
-export const tagTranslations: Record<Language, Record<Tag, String>> = {
-  de: {
-    'christians': 'Für Christen',
-    'twoPeople': 'Für 2 Personen',
-    'philosophy': 'Philosophie',
-    'sex': 'Sexualität',
-    'hasAuthor': 'Hat Autor:in',
-    'dating': 'Für Paare',
-    'v': 'Valentins Favoriten'
-  },
-  en: {
-    'christians': 'For Christians',
-    'twoPeople': 'For 2 People',
-    'philosophy': 'Philosophy',
-    'sex': 'Sexuality',
-    'hasAuthor': 'Has Author',
-    'dating': 'For Couples',
-    'v': 'Valentin\'s Favourites'
-  }
-}
-
-const DEFAULT_LANG = 'en'
-const extractedTranslations = Object.values( questionsByDate ).flat().map( e => e.translations )
-export const questionTranslations = {
-  en: Object.fromEntries( extractedTranslations.map( e => ( [ e[DEFAULT_LANG], e.en ] ) ) ),
-  de: Object.fromEntries( extractedTranslations.map( e => ( [ e[DEFAULT_LANG], e.de ] ) ) ),
+export interface Question {
+  question: string
+  index: number
+  deepness: number
+  date: string
+  tags?: Tag[]
+  author?: string
 }
 
 export const questions: Question[] = Object.entries( questionsByDate )
@@ -36,7 +18,7 @@ export const questions: Question[] = Object.entries( questionsByDate )
     const p = arr.slice( 0, iDate ).map( e => e[1].length ).reduce( ( acc, cur ) => acc + cur, 0 )
     return questionsInDate.map( ( q, iQ ) => {
       const questionsObject: Question = {
-        question: q.translations[DEFAULT_LANG],
+        question: q.translations[DEFAULT_LANGUAGE],
         index: iQ + p,
         deepness: q.deepness,
         date: date,

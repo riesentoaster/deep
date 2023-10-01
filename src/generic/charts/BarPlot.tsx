@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from 'recharts'
-import { Question } from '../../questions/types'
+import { Question } from '../../questions/questions'
 import { colors, getYTicks } from './common'
 
 interface BarPlotProps {

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Question as QuestionType } from '../questions/types'
+import { Question as QuestionType } from '../questions/questions'
 import { FC, useContext } from 'react'
 import { DisplaySettingsContext } from '../pages/Layout'
 

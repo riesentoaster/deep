@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { HandPutTag } from './types'
+import { HandPutTag } from './tags'
 
 interface QuestionByDate {
   translations: {

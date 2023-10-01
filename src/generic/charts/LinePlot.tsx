@@ -8,7 +8,7 @@ import {
   XAxis,
   YAxis
 } from 'recharts'
-import { Question } from '../../questions/types'
+import { Question } from '../../questions/questions'
 import { unique } from '../../helpers'
 import { FC } from 'react'
 import { colors, getYTicks } from './common'
