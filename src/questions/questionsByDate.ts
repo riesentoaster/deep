@@ -1364,5 +1364,15 @@ export const questionsByDate: QuestionsByDate = {
         de: 'Wann warst du am meisten stolz auf mich?'
       }
     }
+  ],
+  '2023-10-01': [
+    {
+      deepness: 2,
+      author: 'Destin Sandlin',
+      translations: {
+        en: 'What song makes you feel the most things?',
+        de: 'Welches Lied löst in dir die meisten Emotionen aus?'
+      }
+    }
   ]
 }
