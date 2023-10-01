@@ -32,7 +32,7 @@ export const PopUp: FC<PopUpProps> = ( {
   }, [ ref, isOpen, closesOnClickOutside, onClose, closesOnAnyClick ] )
 
   return (
-    <div className={`${styles.popupBackground} ${!isOpen && 'hidden'}`}>
+    <div className={`${styles.popupBackground} ${!isOpen ? 'hidden' : 'flex'}`}>
       <div ref={ref} className={styles.popup}>
         {children}
       </div>
