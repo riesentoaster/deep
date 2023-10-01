@@ -1368,10 +1368,18 @@ export const questionsByDate: QuestionsByDate = {
   '2023-10-01': [
     {
       deepness: 2,
+      tags: [ 'v' ],
       author: 'Destin Sandlin',
       translations: {
         en: 'What song makes you feel the most things?',
         de: 'Welches Lied löst in dir die meisten Emotionen aus?'
+      }
+    },
+    {
+      deepness: 2,
+      translations: {
+        en: 'What are you currently frustrated about?',
+        de: 'Wegen was bist du zur Zeit frustriert?'
       }
     }
   ]
