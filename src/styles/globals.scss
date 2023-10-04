@@ -45,7 +45,7 @@ h4 {
 }
 
 main {
-    padding: 30px;
+    padding: 3rem;
 }
 
 main a {
@@ -82,4 +82,26 @@ input {
 
 :focus {
     outline: none;
+}
+
+li {
+    list-style-type: circle;
+    list-style-position: outside;
+    margin: 0.3rem 0 0.3rem 2rem;
+}
+
+blockquote {
+    background-color: $accentColorOffWhite;
+    color: $htmlBackgroundColor;
+    font-style: italic;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    font-weight: 500;
+
+    // border: 0.1px solid white;
+    &:before {
+        content: '>> ';
+    }
 }

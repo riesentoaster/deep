@@ -3,6 +3,7 @@
     "header": {
         "links": {
             "mode": "Mode",
+            "home": "Home",
             "allQuestions": "All Questions",
             "randomQuestion": "Random Question",
             "chooseFrom3": "Choose From 3",
@@ -67,5 +68,26 @@
     "stats": {
         "deepnesses": "Deepnesses",
         "tags": "Tags"
+    },
+    "explanation": {
+        "slogan": "Getting people to talk about the stuff that really matters",
+        "rules": "Rules and Advice",
+        "rulesIntro": "There is but one rule when playing deep:",
+        "rule1": "Giving no or only a partial answer is always legitimate and doesn't require an explanation.",
+        "rulesExplanation": "It is not about pressuring people to talk about their secrets. And some of the questions you will have no answer to, or an answer that you don't feel comfortable discussing (yet). That's fine, play on.",
+        "adviceIntro": "However, besides the one rule, there are a few pieces of advice that make playing deep better:",
+        "advice1": "deep has a lot of filters and settings. Before you start playing, quickly look through them and set them according to the players.",
+        "advice2": "Ask back! Let everyone answer if they have something they want to talk about. Share all of your experiences and talk about the differences and similarities.",
+        "advice3": "Don't know an answer to the question as it is, but to a similar question? Change the question! The questions should serve you, not the other way around.",
+        "advice4": "Go off on a tangent! If you end up having a long meaningful conversation that started out with just one question, you have won the game. It's not about answering as many questions as possible, but about having good conversations.",
+        "advice5": "And in general: Do with it whatever you want. If it helps you — great.",
+        "howTo": "How the Game Works",
+        "howToIntro": "There are no rules of how the game actually works, do whatever you feel is helpful. If you would like to get some inspiration, try one of the following:",
+        "howTo1": "Select the mode \"Random Question\" and pass the phone around to let everybody have their turn answering a question. Or use the \"Players\" module to let deep choose the next player for you!",
+        "howTo2": "Select the mode \"Choose From 3\" or \"Choose From 5\" and let the player who just answered the question choose the question they would like to ask the next player. Alternatively, the person answering chooses which of the questions they would like to answer.",
+        "install": "Install deep",
+        "installIntro": "deep works offline! To install it,",
+        "installExplanationLink": "https://web.archive.org/web/21000000000000if_/https://mobilesyrup.com/2020/05/24/how-install-progressive-web-app-pwa-android-ios-pc-mac/",
+        "installExplanationText": "follow these instructions."
     }
 }

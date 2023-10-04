@@ -5,7 +5,8 @@ import { Ellipsis } from '../generic/Ellipsis'
 import { FC, ReactNode } from 'react'
 
 const links = {
-  'allQuestions': '/',
+  'home': '/',
+  'allQuestions': '/allQuestions',
   'randomQuestion': '/choose-from/1',
   'chooseFrom3': '/choose-from/3',
   'chooseFrom5': '/choose-from/5',

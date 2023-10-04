@@ -7,6 +7,7 @@ import { Stats } from './pages/Stats'
 import { Layout } from './pages/Layout'
 import './i18n'
 import { ChooseFrom } from './pages/ChooseFrom'
+import { Home } from './pages/Home'
 
 export const router = createBrowserRouter( [
   {
@@ -15,6 +16,10 @@ export const router = createBrowserRouter( [
     children: [
       {
         path: '/',
+        element: <Home/>,
+      },
+      {
+        path: '/allQuestions',
         element: <AllQuestions/>,
       },
       {

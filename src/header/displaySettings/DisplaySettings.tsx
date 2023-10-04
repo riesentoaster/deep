@@ -17,8 +17,7 @@ export const DisplaySettings: FC = () => {
       <>
         <h2>{t( 'title' )}</h2>
         <ShowAuthorSettings/>
-        <h3 className='my-4'>{t( 'language' )}</h3>
-        <LanguageSettings/>
+        <LanguageSettings className='mt-4'/>
       </>
     </Form>
   )
