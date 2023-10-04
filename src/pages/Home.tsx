@@ -1,12 +1,13 @@
 import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LanguageSettings } from '../header/displaySettings/LanguageSettings'
+import styles from './home.module.scss'
 
 export const Home: FC = () => {
   const { t } = useTranslation( 'common', { keyPrefix: 'explanation' } )
   return (
-    <>
-      <div className='mt-[-3rem] flex items-center flex-wrap-reverse justify-around py-3'>
+    <div className={styles.container}>
+      <div className='mt-[-3rem] mb-[-2rem] flex items-center flex-wrap-reverse justify-around py-3'>
         <blockquote className='shrink-0 my-4 mx-8'>{t( 'slogan' )}</blockquote>
         <LanguageSettings className='w-fit my-4 mx-8 text-center'/>
       </div>
@@ -43,6 +44,6 @@ export const Home: FC = () => {
 
       <h2>{t( 'install' )}</h2>
       <p>{t( 'installIntro' )} <a href={t( 'installExplanationLink' )}>{t( 'installExplanationText' )}</a></p>
-    </>
+    </div>
   )
 }

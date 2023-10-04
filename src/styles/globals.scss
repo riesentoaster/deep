@@ -53,8 +53,8 @@ main a {
 }
 
 hr {
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 button {
@@ -82,12 +82,6 @@ input {
 
 :focus {
     outline: none;
-}
-
-li {
-    list-style-type: circle;
-    list-style-position: outside;
-    margin: 0.3rem 0 0.3rem 2rem;
 }
 
 blockquote {
