@@ -627,15 +627,6 @@ export const questionsByDate: QuestionsByDate = {
       }
     }
   ],
-  '2022-10-23': [
-    {
-      deepness: 4,
-      translations: {
-        en: 'What scares you?',
-        de: 'Was macht dir Angst?'
-      }
-    }
-  ],
   '2022-10-31': [
     {
       deepness: 3,
