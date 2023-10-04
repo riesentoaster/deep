@@ -44,6 +44,17 @@ export const Home: FC = () => {
 
       <h2>{t( 'install' )}</h2>
       <p>{t( 'installIntro' )} <a href={t( 'installExplanationLink' )}>{t( 'installExplanationText' )}</a></p>
+
+      <hr/>
+
+      <h2>{t( 'contribute' )}</h2>
+      <p>
+        {t( 'contributeIntro' )}
+        <a href={t( 'contributeLink' )}>
+          {t( 'contributeLinkText' )}
+        </a>
+        {t( 'contributePostLink' )}
+      </p>
     </div>
   )
 }
