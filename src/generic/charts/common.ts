@@ -21,6 +21,5 @@ export const getYTicks = ( maxValue: number ): number[] => {
     .map( ( _, i ) => i * yTickDiff )
     .filter( e => e === Math.floor( e ) ) // filtering for whole numbers
   yTicks.push( maxValue )
-  console.log( maxValue, yTicks )
   return yTicks
 }

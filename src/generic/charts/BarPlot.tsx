@@ -28,7 +28,7 @@ export const BarPlot: FC<BarPlotProps> = ( { questions, groupBy, axisMapper } ) 
       rest: questions.length - v
     } ) )
     .sort( ( a, b ) => b.value - a.value )
-  console.log( dataObject )
+
   return (
     <ResponsiveContainer width={'100%'} height={500} className={'my-10'}>
       <BarChart data={data} margin={{ bottom: 130 }} barCategoryGap={'20%'}>

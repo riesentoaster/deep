@@ -60,7 +60,6 @@ export const PlayersContextProvider: FC<PlayersContextProviderProps> = ( { child
     .map( ( [ k, ] ) => k )
     .pop() || ''
 
-  console.log( playerCounts )
   const nextPlayer = (): void => {
     if ( playerSettings.enable && currentPlayer ) {
       updatePlayerCountsAfterTurn( currentPlayer )

@@ -1,7 +1,37 @@
 .container {
+
+    ul,
+    p {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
     li {
         list-style-type: circle;
         list-style-position: outside;
         margin: 0.3rem 0 0.3rem 2rem;
     }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+}
+
+.wrap {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    margin-top: -1rem;
+    gap: 3rem;
+
+    p {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+.center {
+    text-align: center;
 }
