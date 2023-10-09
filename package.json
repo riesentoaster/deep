@@ -2,6 +2,12 @@
   "name": "deep-react-router",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "analyze": "react-scripts build && source-map-explorer 'build/static/js/*.js'"
+  },
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@heroicons/react": "^2.0.18",
@@ -28,26 +34,14 @@
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@types/react-router-dom": "^5.3.3",
-    "eslint": "^8.48.0",
+    "eslint": "^8.51.0",
     "eslint-plugin-sonarjs": "^0.21.0",
+    "react-scripts": "5.0.1",
     "sass": "^1.66.1",
     "source-map-explorer": "^2.5.3",
-    "react-scripts": "5.0.1",
     "tailwindcss": "^3.3.3",
     "translation-check": "^1.0.3",
     "typescript": "^4.9.5"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject",
-    "lint": "eslint --fix",
-    "analyze": "source-map-explorer 'build/static/js/*.js'"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
   },
   "browserslist": {
     "production": [

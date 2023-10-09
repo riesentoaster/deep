@@ -7,12 +7,13 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
-    'plugin:sonarjs/recommended'
+    'plugin:sonarjs/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
   ],
+  settings: { react: { version: 'detect' } },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2021,
