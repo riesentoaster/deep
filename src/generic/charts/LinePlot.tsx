@@ -33,8 +33,11 @@ export const LinePlot: FC<LinePlotProps> = ( { questions, groupBy } ) => {
       ...questions
         .filter( q => q.date <= date )
         .flatMap( q => groupBy( q ) )
-        .reduce( ( acc, cur ) => ( acc[cur] += 1, acc ),
-          Object.fromEntries( uniqueGroups.map( g => ( [ g, 0 ] ) ) ) )
+        .reduce( ( acc, cur ) => {
+          acc[cur] += 1
+          return acc
+        },
+        Object.fromEntries( uniqueGroups.map( g => ( [ g, 0 ] ) ) ) )
     } ) )
 
   const maxValue = flatGroupings.length
