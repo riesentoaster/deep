@@ -1142,7 +1142,7 @@ export const questionsByDate: QuestionsByDate = {
       deepness: 1,
       translations: {
         en: 'What is the coolest thing you own that isn\'t expensive?',
-        de: 'Was ist das coolste Ding, das die gehört, und nicht teuer ist?'
+        de: 'Was ist das coolste Ding, das dir gehört, und nicht teuer ist?'
       }
     }
   ],
@@ -1472,7 +1472,7 @@ export const questionsByDate: QuestionsByDate = {
   '2023-10-17': [
     {
       deepness: 2,
-      author: 'Jakoba',
+      author: 'Jacoba',
       translations: {
         de: 'Was für ein Kompliment bekommst du nicht gerne?',
         en: 'What compliment do you dislike receiving?'
