@@ -1121,13 +1121,6 @@ export const questionsByDate: QuestionsByDate = {
   ],
   '2023-05-04': [
     {
-      deepness: 4,
-      translations: {
-        en: 'Why would one not want to date you?',
-        de: 'Warum würde man dich nicht daten wollen?'
-      }
-    },
-    {
       deepness: 3,
       translations: {
         en: 'What question do you hate answering?',
@@ -1371,6 +1364,118 @@ export const questionsByDate: QuestionsByDate = {
       translations: {
         en: 'What are you currently frustrated about?',
         de: 'Wegen was bist du zur Zeit frustriert?'
+      }
+    }
+  ],
+  '2023-10-05': [
+    {
+      deepness: 4,
+      tags: [ 'twoPeople' ],
+      translations: {
+        en: 'What do you think I need most from you? Are you providing it?',
+        de: 'Was denkst du, das ich am meisten von dir brauche? Gibst du es mir?'
+      }
+    },
+    {
+      deepness: 5,
+      tags: [ 'twoPeople' ],
+      translations: {
+        en: 'What am I always carrying that I should let go of?',
+        de: 'Was trage ich immer mit mir herum, was ich deiner Meinung nach ablegen sollte?'
+      }
+    },
+    {
+      deepness: 3,
+      tags: [ 'twoPeople', 'dating' ],
+      translations: {
+        en: 'What does my love feel like?',
+        de: 'Wie fühlt sich meine Liebe an?'
+      }
+    },
+    {
+      deepness: 3,
+      tags: [ 'twoPeople', 'dating' ],
+      translations: {
+        en: 'How has your love changed for me?',
+        de: 'Wie hat sich deine Liebe für mich verändert?'
+      }
+    },
+    {
+      deepness: 4,
+      tags: [ 'twoPeople' ],
+      translations: {
+        en: 'What do you think is my biggest challenge right now and what am I learning from it?',
+        de: 'Was glaubst du ist aktuell meine grösste Herausforderung? Was denkst du lerne ich davon?'
+      }
+    },
+    {
+      deepness: 3,
+      tags: [ 'twoPeople' ],
+      translations: {
+        en: 'How have I grown the most in the past few years that I don\'t realize?',
+        de: 'Wie bin ich in den letzten Jahren am stärksten gewachsen, ohne es zu realisieren?'
+      }
+    },
+    {
+      deepness: 2,
+      tags: [ 'twoPeople' ],
+      translations: {
+        en: 'What have you recently learned about me?',
+        de: 'Was hast du kürzlich über mich gelernt?'
+      }
+    }
+  ],
+  '2023-10-09': [
+    {
+      deepness: 2,
+      translations: {
+        en: 'What does your perfect work day look like?',
+        de: 'Wie sieht ein optimaler Arbeitstag für dich aus?'
+      }
+    }
+  ],
+  '2023-10-11': [
+    {
+      deepness: 3,
+      translations: {
+        en: 'What thing that I did did you most appreciate?',
+        de: 'Von dem, was ich für dich getan habe: Was schätzst du am meisten?'
+      }
+    }
+  ],
+  '2023-10-14': [
+    {
+      deepness: 2,
+      author: 'Noëmi',
+      translations: {
+        en: 'What music do you listen to when you\'re not doing well?',
+        de: 'Was für Musik hörst du, wenn es dir schlecht geht?'
+      }
+    },
+    {
+      deepness: 2,
+      translations: {
+        en: 'What song takes you back to a specific situation, place, or point in time?',
+        de: 'Welcher Song erinnert dich an eine spezifische Situation, einen Ort oder Zeitpunkt?'
+      }
+    }
+  ],
+  '2023-10-15': [
+    {
+      deepness: 3,
+      translations: {
+        en: 'What makes you a good loser? What makes you a bad loser?',
+        de: 'Was macht dich zu einem guten Verlierer? Was macht dich zu einem schlechten Verlierer?'
+      }
+    }
+  ],
+  '2023-10-17': [
+    {
+      deepness: 2,
+      author: 'Jakoba',
+      translations: {
+        de: 'Was für ein Kompliment bekommst du nicht gerne?',
+        en: 'What compliment do you dislike receiving?'
       }
     }
   ]
