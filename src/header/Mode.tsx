@@ -20,20 +20,22 @@ export const Mode: FC = () => {
   return (
     <div>
       <h2>{t( 'mode' )}</h2>
-      {
-        Object.entries( links ).map( ( [ text, href ] ) =>
-          (
-            <NavLink key={href} to={href + '?' + searchParams.toString()} >
-              {
-                ( { isActive, isPending } ): ReactNode =>
-                  isActive || isPending ?
-                    ( <Ellipsis className='mx-auto'><p>{t( text )}</p></Ellipsis> ) :
-                    ( <p>{t( text )}</p> )
-              }
-            </NavLink>
+      <ul>
+        {
+          Object.entries( links ).map( ( [ text, href ] ) =>
+            (
+              <NavLink key={href} to={href + '?' + searchParams.toString()} >
+                {
+                  ( { isActive, isPending } ): ReactNode =>
+                    isActive || isPending ?
+                      ( <Ellipsis className='mx-auto'><li>{t( text )}</li></Ellipsis> ) :
+                      ( <li>{t( text )}</li> )
+                }
+              </NavLink>
+            )
           )
-        )
-      }
+        }
+      </ul>
     </div>
   )
 }
