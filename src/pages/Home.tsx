@@ -63,10 +63,14 @@ export const Home: FC = () => {
       <h2>{t( 'contribute' )}</h2>
       <p className={styles.center}>
         {t( 'contributeIntro' )}
-        <a href={t( 'contributeLink' )}>
+        <a href='https://github.com/riesentoaster/deep/issues'>
           {t( 'contributeLinkText' )}
         </a>
         {t( 'contributePostLink' )}
+        <a href="mailto:deep@valentinhuber.me">
+          {t( 'contributeEmailLinkText' )}
+        </a>
+        {t( 'contributePostEmailLinkText' )}
       </p>
     </div>
   )

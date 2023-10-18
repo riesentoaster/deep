@@ -91,9 +91,10 @@
         "installExplanationLink": "https://web.archive.org/web/21000000000000if_/https://mobilesyrup.com/2020/05/24/how-install-progressive-web-app-pwa-android-ios-pc-mac/",
         "installExplanationText": "follow these instructions.",
         "contribute": "Contribute",
-        "contributeIntro": "deep is open source and you're welcome to contribute question ideas, report spelling errors or bugs, or propose code changes in ",
-        "contributeLink": "https://github.com/riesentoaster/deep/issues",
-        "contributeLinkText": "GitHub.",
-        "contributePostLink": "."
+        "contributeIntro": "deep is open source and you're welcome to contribute question ideas, report spelling errors or bugs, or propose code changes either directly in ",
+        "contributeLinkText": "GitHub",
+        "contributePostLink": ", or by writing me an ",
+        "contributeEmailLinkText": "email",
+        "contributePostEmailLinkText": "."
     }
 }
