@@ -6,7 +6,7 @@ import { FC, ReactNode } from 'react'
 
 const links = {
   'home': '/',
-  'allQuestions': '/allQuestions',
+  'allQuestions': '/all-questions',
   'randomQuestion': '/choose-from/1',
   'chooseFrom3': '/choose-from/3',
   'chooseFrom5': '/choose-from/5',
