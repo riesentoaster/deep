@@ -24,6 +24,7 @@
             }
         },
         "filters": "Filter",
+        "explanation": "Erklärung",
         "tags": {
             "title": "Tags",
             "explanation": {
