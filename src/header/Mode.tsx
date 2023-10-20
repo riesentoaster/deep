@@ -18,7 +18,7 @@ export const Mode: FC = () => {
   const [ searchParams, ] = useSearchParams()
 
   return (
-    <div>
+    <nav>
       <h2>{t( 'mode' )}</h2>
       <ul>
         {
@@ -36,6 +36,6 @@ export const Mode: FC = () => {
           )
         }
       </ul>
-    </div>
+    </nav>
   )
 }
