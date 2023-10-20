@@ -1,14 +1,13 @@
 .slider {
-    // display: block;
     height: 2.5rem;
 }
 
 .textMin {
     position: relative;
-    left: calc(50% - 7px);
+    left: calc(50% - 10px);
 }
 
 .textMax {
     position: relative;
-    left: calc(-50% + 7px);
+    left: calc(-50% + 10px);
 }

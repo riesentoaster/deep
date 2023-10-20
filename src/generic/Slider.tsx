@@ -35,7 +35,7 @@ export const Slider = <T, >( {
     <Controller
       name={name}
       render={( { field: { value, onChange } } ): ReactElement => (
-        <div className='mx-2 mt-3 mb-2' >
+        <div className='ml-4 mr-2 mt-6 mb-2' >
           <RCSlider
             className={style.slider}
             range={range}
