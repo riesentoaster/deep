@@ -17,7 +17,7 @@ export const WithExplanation: FC<WithExplanationProps> = ( { closedElement, expl
     mainChild={
       <>
         {closedElement}
-        <PopUp isOpen={isOpen} onClose={(): void => setIsOpen( false )} closesOnClickOutside>{explanation}</PopUp>
+        <PopUp isOpen={isOpen} onClose={(): void => setIsOpen( false )}>{explanation}</PopUp>
       </>
     }
     toTheRight={

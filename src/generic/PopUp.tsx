@@ -5,7 +5,6 @@ interface PopUpProps {
   children: ReactNode
   isOpen: boolean
   onClose: () => void
-  closesOnClickOutside?: boolean
   closesOnAnyClick?: boolean
 }
 
@@ -13,29 +12,35 @@ export const PopUp: FC<PopUpProps> = ( {
   children,
   isOpen,
   onClose,
-  closesOnClickOutside = false,
   closesOnAnyClick = false
 } ) => {
-  const ref = useRef<HTMLDivElement | null>( null )
+  const dialogRef = useRef<HTMLDialogElement | null>( null )
+  const contentRef = useRef<HTMLDivElement | null>( null )
 
   useEffect( () => {
     const handleClickOutside = ( event: MouseEvent ): void => {
-      if ( isOpen && ( closesOnAnyClick ||
-        ( closesOnClickOutside && ref.current && !ref.current.contains( event.target as Node ) )
-      ) ) {
+      if ( closesOnAnyClick || !contentRef.current?.contains( event.target as Node ) ) {
         onClose()
+        dialogRef.current?.close()
         event.stopPropagation()
       }
     }
-    document.addEventListener( 'click', handleClickOutside, true )
+    if ( isOpen )
+      document.addEventListener( 'click', handleClickOutside, true )
     return () => document.removeEventListener( 'click', handleClickOutside, true )
-  }, [ ref, isOpen, closesOnClickOutside, onClose, closesOnAnyClick ] )
+  }, [ dialogRef, isOpen, closesOnAnyClick, onClose ] )
+
+  useEffect( () => {
+    if ( isOpen ) {
+      dialogRef.current?.showModal()
+    }
+  }, [ dialogRef, isOpen ] )
 
   return (
-    <div className={`${styles.popupBackground} ${!isOpen ? 'hidden' : 'flex'}`}>
-      <div ref={ref} className={styles.popup}>
+    <dialog ref={dialogRef} className={styles.popup}>
+      <div ref={contentRef} className={styles.content}>
         {children}
       </div>
-    </div>
+    </dialog>
   )
 }

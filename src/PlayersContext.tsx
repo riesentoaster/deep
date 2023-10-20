@@ -74,7 +74,7 @@ export const PlayersContextProvider: FC<PlayersContextProviderProps> = ( { child
       { children }
       <PopUp
         isOpen={isNextPlayerAnnouncementOpen}
-        onClose={(): void => setIsNextPlayerAnnouncementOpen( false ) }
+        onClose={(): void => setIsNextPlayerAnnouncementOpen( false )}
         closesOnAnyClick
       >
         <div className='float float-row'>
