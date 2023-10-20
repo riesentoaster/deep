@@ -11,7 +11,13 @@ export const TagsExplanation: FC = () => {
       <h2>{t( 'title' )}</h2>
       <p>{t( 'explanation.overview' )}</p>
       <div className='w-fit mx-auto my-4'>
-        <TriStateSwitch text={t( 'explanation.example-tag' )} state={state} setState={setState}/>
+        <TriStateSwitch
+          displayText={t( 'explanation.example-tag' )}
+          inputAttrs={( value ): React.InputHTMLAttributes<HTMLInputElement> => ( {
+            checked: value === state,
+            onChange: ( e ): void => setState( e.target.value as TriStateSwitchState )
+          } )}
+        />
       </div>
       <p>
         {state === 'IGNORE' && t( 'explanation.state-ignore' )}

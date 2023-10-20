@@ -27,6 +27,9 @@
         "explanation": "Erklärung",
         "tags": {
             "title": "Tags",
+            "labelRequire": "Tag erfordern: ",
+            "labelIgnore": "Tag ignorieren: ",
+            "labelProhibit": "Tag vermeiden: ",
             "explanation": {
                 "overview": "Tags erlauben es, die Fragen nach Inhalt zu filtern.",
                 "example-tag": "Beispiel-Tag",

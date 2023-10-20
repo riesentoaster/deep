@@ -2,65 +2,74 @@
 
 $borderStyle: 1px solid $accentColorOffWhite;
 
-.switchContainer--ignore,
-.switchContainer--require,
-.switchContainer--prohibit {
-    margin: 0.4rem auto;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    border-radius: 100vh;
-    border: 1px solid $bodyColor;
-}
+.wrapper {
+    .switchContainer {
+        margin: 0.4rem auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        border-radius: 100vh;
+        border: 1px solid $bodyColor;
+    }
 
-.switchElement {
-    padding: 0.3rem 0.7rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .switchElement {
+        padding: 0.3rem 0.7rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-.switchElement:nth-child(2) {
-    flex-shrink: 0;
-    flex-grow: 1;
-}
+    .switchElement:first-child {
+        border-radius: 100vh 0 0 100vh;
+        border-right: none;
+    }
 
-.switchElement:first-child {
-    border-radius: 100vh 0 0 100vh;
-    border-right: none;
-}
+    .switchElement:nth-child(2) {
+        flex-shrink: 0;
+        flex-grow: 1;
+    }
 
-.switchElement:last-child {
-    border-radius: 0 100vh 100vh 0;
-    border-left: none;
-}
+    .switchElement:last-child {
+        border-radius: 0 100vh 100vh 0;
+        border-left: none;
+    }
 
-.switchContainer--ignore .switchElement:nth-child(2) {
-    background: $accentColorDarkBlue;
-    border: $borderStyle;
-    border-radius: 100vh;
-}
+    // IGNORE
+    :has(:nth-child(2) :checked) {
+        .switchElement:nth-child(2) {
+            background: $accentColorDarkBlue;
+            border: $borderStyle;
+            border-radius: 100vh;
+        }
+    }
 
-.switchContainer--require .switchElement:not(:last-child) {
-    background: $accentColorGreen;
-    border: $borderStyle;
-    border-right: none;
-}
+    // REQUIRE
+    :has(:first-child :checked) {
+        .switchElement:not(:last-child) {
+            background: $accentColorGreen;
+            border: $borderStyle;
+            border-right: none;
+        }
 
-.switchContainer--require .switchElement:not(:first-child):not(:last-child) {
-    border: $borderStyle;
-    border-left: none;
-    border-radius: 0 100vh 100vh 0;
-}
+        .switchElement:nth-child(2) {
+            border: $borderStyle;
+            border-left: none;
+            border-radius: 0 100vh 100vh 0;
+        }
+    }
 
-.switchContainer--prohibit .switchElement:not(:first-child) {
-    background: $accentColorRed;
-    border: $borderStyle;
-    border-left: none;
-}
+    // PROHIBIT
+    :has(:last-child :checked) {
+        .switchElement:not(:first-child) {
+            background: $accentColorRed;
+            border: $borderStyle;
+            border-left: none;
+        }
 
-.switchContainer--prohibit .switchElement:not(:first-child):not(:last-child) {
-    border: $borderStyle;
-    border-right: none;
-    border-radius: 100vh 0 0 100vh;
+        .switchElement:nth-child(2) {
+            border: $borderStyle;
+            border-right: none;
+            border-radius: 100vh 0 0 100vh;
+        }
+    }
 }

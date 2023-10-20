@@ -1,40 +1,54 @@
-import { FC, ReactNode } from 'react'
+import { FC } from 'react'
 import styles from './TriStateSwitch.module.scss'
 import { CheckIcon, XMarkIcon } from '@heroicons/react/20/solid'
+import { useTranslation } from 'react-i18next'
 
 export type TriStateSwitchState = 'REQUIRE' | 'IGNORE' | 'PROHIBIT';
 
-interface TriStateElementProps {
-  setElement: () => void
-  children: ReactNode
-}
-
-const TriStateElement: FC<TriStateElementProps> = ( { setElement, children } ) => (
-  <button type='button' className={styles.switchElement} onClick={setElement}>{children}</button>
-)
-
 interface TriStateSwitchProps {
-  text: string
-  state: TriStateSwitchState
-  setState: ( state: TriStateSwitchState ) => void
-  setIfUnchanged?: boolean
+  displayText: string
+  inputAttrs?: ( value: TriStateSwitchState ) =>
+  React.InputHTMLAttributes<HTMLInputElement> &
+  {ref?: React.Ref<HTMLInputElement>}
 }
 
 export const TriStateSwitch: FC<TriStateSwitchProps> = ( {
-  text,
-  state,
-  setState,
-  setIfUnchanged = true
+  displayText,
+  inputAttrs = (): void => {}
 } ) => {
-  const change = ( state: TriStateSwitchState, element: TriStateSwitchState ) => (): void => {
-    if ( setIfUnchanged || state !== element )
-      setState( element )
-  }
+  const { t } = useTranslation( 'common', { keyPrefix: 'header.tags' } )
+
   return (
-    <div className={styles[`switchContainer--${state.toLocaleLowerCase()}`]}>
-      <TriStateElement setElement={change( state, 'REQUIRE' )}><CheckIcon className='h-6'/></TriStateElement>
-      <TriStateElement setElement={change( state, 'IGNORE' )}>{text}</TriStateElement>
-      <TriStateElement setElement={change( state, 'PROHIBIT' )}><XMarkIcon className='h-6'/></TriStateElement>
+    <div className={styles.wrapper}>
+      <div className={styles.switchContainer}>
+        <label className={styles.switchElement}>
+          <input
+            { ...inputAttrs( 'REQUIRE' )}
+            type='radio'
+            value='REQUIRE'
+            aria-label={`${t( 'labelRequire' )}${displayText}`}
+          />
+          <CheckIcon className='h-6'/>
+        </label>
+        <label className={styles.switchElement}>
+          <input
+            {...inputAttrs( 'IGNORE' )}
+            type='radio'
+            value='IGNORE'
+            aria-label={`${t( 'labelIgnore' )}${displayText}`}
+          />
+          {displayText}
+        </label>
+        <label className={styles.switchElement}>
+          <input
+            {...inputAttrs( 'PROHIBIT' )}
+            type='radio'
+            value='PROHIBIT'
+            aria-label={`${t( 'labelProhibit' )}${displayText}`}
+          />
+          <XMarkIcon className='h-6'/>
+        </label>
+      </div>
     </div>
   )
 }

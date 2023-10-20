@@ -1,14 +1,15 @@
 import { useTranslation } from 'react-i18next'
 import { TagsExplanation } from './TagsExplanation'
-import { Controller } from 'react-hook-form'
-import { TriStateSwitch, TriStateSwitchState } from '../../generic/TriStateSwitch'
+import { TriStateSwitch } from '../../generic/TriStateSwitch'
 import { WithExplanation } from '../../generic/WithExplanation'
-import { FC, ReactElement } from 'react'
+import { FC } from 'react'
 import { allTags } from '../../questions/questions'
+import { useFormContext } from 'react-hook-form'
 
 export const TagsFilter: FC = () => {
   const { t: commonT } = useTranslation( 'common' )
   const { t: tagT } = useTranslation( 'tags' )
+  const { register } = useFormContext()
 
   return (
     <>
@@ -16,16 +17,10 @@ export const TagsFilter: FC = () => {
       {allTags
         .sort( ( a, b ) => tagT( a ).localeCompare( tagT( b ) ) )
         .map( tag => (
-          <Controller
-            name={`tags.${tag}`}
+          <TriStateSwitch
             key={tag}
-            render={( { field: { value, onChange } } ): ReactElement => (
-              <TriStateSwitch
-                text={tagT( tag )}
-                state={value}
-                setIfUnchanged={false}
-                setState={( newState: TriStateSwitchState ): void => onChange( newState )} />
-            )} />
+            displayText={tagT( tag )}
+            inputAttrs={(): React.HTMLAttributes<HTMLInputElement> => register( `tags.${tag}` )}/>
         ) )}
     </>
   )

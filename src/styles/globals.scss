@@ -99,3 +99,8 @@ blockquote {
         content: '>> ';
     }
 }
+
+input[type='radio'] {
+    -webkit-appearance: none;
+    appearance: none;
+}

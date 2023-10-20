@@ -27,6 +27,9 @@
         "explanation": "Explanation",
         "tags": {
             "title": "Tags",
+            "labelRequire": "Require tag ",
+            "labelIgnore": "Ignore tag ",
+            "labelProhibit": "Prohibit tag ",
             "explanation": {
                 "overview": "Tags allow you to filter the questions based on content.",
                 "example-tag": "Example Tag",
