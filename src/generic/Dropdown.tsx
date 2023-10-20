@@ -1,8 +1,10 @@
 import { Bars3Icon } from '@heroicons/react/20/solid'
-import { FC, ReactNode, useState } from 'react'
+import { FC, ReactNode } from 'react'
 import { Ellipsis } from './Ellipsis'
 
 interface DropdownProps {
+  hidden: boolean,
+  setHidden: ( newState: boolean ) => void
   title: string
   children?: ReactNode
   defaultHiddenState?: boolean
@@ -10,12 +12,12 @@ interface DropdownProps {
 }
 
 export const Dropdown: FC<DropdownProps> = ( {
+  hidden,
+  setHidden,
   title,
   children = '',
   className = '',
-  defaultHiddenState = false
 } ) => {
-  const [ hidden, setHidden ] = useState( defaultHiddenState )
   return (
     <div className={`mx-auto ${className}`}>
       <button className='mx-auto mb-2' onClick={(): void => setHidden( !hidden )}>
