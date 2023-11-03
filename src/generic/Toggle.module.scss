@@ -2,7 +2,7 @@
 
 .wrapper {
     label:has(input:checked) {
-        background-color: $accentColorOffWhite;
+        background-color: var(--color-accent-text);
     }
 
     display: flex;
@@ -14,11 +14,11 @@
     display: block;
     width: 3rem;
     height: 1.5rem;
-    border-width: 1px;
+    border: $borderStyle;
     border-radius: 9999px;
-    background-color: $backgroundColor;
+    background-color: var(--color-body-background);
     padding: 0.1rem;
-    border-color: $accentColorOffWhite;
+
     margin-top: auto;
     margin-bottom: auto;
 
@@ -31,14 +31,13 @@
         user-select: none;
         height: 100%;
         aspect-ratio: 1/1;
-        border-width: 1px;
+        border: $borderStyle;
         border-radius: 100%;
-        border-color: $backgroundColor;
-        background-color: $accentColorOffWhite;
+        background-color: var(--color-accent-text);
     }
 
     input:checked+div {
-        background-color: $backgroundColor;
+        background-color: var(--color-body-background);
         margin-left: auto;
     }
 

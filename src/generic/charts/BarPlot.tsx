@@ -30,7 +30,7 @@ export const BarPlot: FC<BarPlotProps> = ( { questions, groupBy, axisMapper } ) 
     .sort( ( a, b ) => b.value - a.value )
 
   return (
-    <ResponsiveContainer width={'100%'} height={500} className={'my-10'}>
+    <ResponsiveContainer width={'100%'} height={500} className='my-10'>
       <BarChart data={data} margin={{ bottom: 130 }} barCategoryGap={'20%'}>
         <Bar dataKey="value" fill={colors[0]} stroke={colors[0]} stackId='stack1' label={{ position: 'top' }}/>
         <Bar dataKey="rest" stroke={colors[0]} fillOpacity={0} stackId='stack1' />

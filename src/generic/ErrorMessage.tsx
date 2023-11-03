@@ -7,8 +7,8 @@ interface ErrorMessageProps {
 }
 
 const colors: Record<ErrorMessageType, string> = {
-  'error': 'text-red-400',
-  'warn': 'text-yellow-400',
+  'error': 'fg-red',
+  'warn': 'fg-yellow',
   'none': ''
 }
 

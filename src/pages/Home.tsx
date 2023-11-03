@@ -21,7 +21,6 @@ export const Home: FC = () => {
       </div>
 
       <hr/>
-      {/* <blockquote className='mx-auto mb-10'>{t( 'slogan' )}</blockquote> */}
 
       <h2>{t( 'howTo' )}</h2>
       <p>{t( 'howToIntro' )}</p>

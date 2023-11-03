@@ -7,14 +7,15 @@
 @import './slider';
 
 html {
-    background-color: $htmlBackgroundColor;
+    background-color: var(--color-html-background);
     height: 100%;
 }
 
 body {
-    color: $bodyColor;
-    font-family: $bodyFont;
-    background-color: $backgroundColor;
+    color: var(--color-text);
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    ;
+    background-color: var(--color-body-background);
     margin: 0 auto;
     min-height: 100%;
     width: $bodyWidth;
@@ -62,9 +63,9 @@ button {
 }
 
 select {
-    background-color: $backgroundColor;
+    background-color: var(--color-body-background);
     margin-top: 0.3em;
-    border: 1px $accentColorOffWhite solid;
+    border: $borderStyle;
 }
 
 a {
@@ -76,8 +77,8 @@ header a {
 }
 
 input {
-    background-color: $accentColorOffWhite;
-    color: $backgroundColor;
+    background-color: var(--color-input-background);
+    color: var(--color-input-text);
 
     // hide radio button circles
     &[type='radio'] {
@@ -88,20 +89,4 @@ input {
 
 :focus {
     outline: none;
-}
-
-blockquote {
-    background-color: $accentColorOffWhite;
-    color: $htmlBackgroundColor;
-    font-style: italic;
-    width: fit-content;
-    height: fit-content;
-    padding: 0.5em 1em;
-    border-radius: 0.5em;
-    font-weight: 500;
-
-
-    &:before {
-        content: '>> ';
-    }
 }

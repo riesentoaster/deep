@@ -5,6 +5,7 @@ import { defaultDisplaySettings } from '../settingsHelpers'
 import { ShowAuthorSettings } from './ShowAuthorSettings'
 import { useTranslation } from 'react-i18next'
 import { LanguageSettings } from './LanguageSettings'
+import { DarkModeSettings } from './DarkModeSettings'
 
 const DISPLAY_QUERY_INDEX = 'display'
 
@@ -17,6 +18,7 @@ export const DisplaySettings: FC = () => {
       <>
         <h2>{t( 'title' )}</h2>
         <ShowAuthorSettings/>
+        <DarkModeSettings/>
         <LanguageSettings className='mt-4'/>
       </>
     </Form>

@@ -46,9 +46,11 @@ export interface PlayerCounts {
 
 export interface DisplaySettings {
   showAuthors: boolean
+  mode: boolean
 }
 
 export const defaultDisplaySettings: DisplaySettings = {
-  showAuthors: true
+  showAuthors: true,
+  mode: !window.matchMedia( '(prefers-color-scheme: light)' ).matches
 }
 

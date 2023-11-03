@@ -1,7 +1,5 @@
 @import '../styles/colors';
 
-$borderStyle: 1px solid $accentColorOffWhite;
-
 .wrapper {
     .switchContainer {
         margin: 0.4rem auto;
@@ -9,7 +7,7 @@ $borderStyle: 1px solid $accentColorOffWhite;
         justify-content: center;
         flex-direction: row;
         border-radius: 100vh;
-        border: 1px solid $bodyColor;
+        border: $borderStyle;
     }
 
     .switchElement {
@@ -37,7 +35,7 @@ $borderStyle: 1px solid $accentColorOffWhite;
     // IGNORE
     :has(:nth-child(2) :checked) {
         .switchElement:nth-child(2) {
-            background: $accentColorDarkBlue;
+            background: var(--color-accent-background);
             border: $borderStyle;
             border-radius: 100vh;
         }
@@ -46,7 +44,7 @@ $borderStyle: 1px solid $accentColorOffWhite;
     // REQUIRE
     :has(:first-child :checked) {
         .switchElement:not(:last-child) {
-            background: $accentColorGreen;
+            background: var(--color-green);
             border: $borderStyle;
             border-right: none;
         }
@@ -61,7 +59,7 @@ $borderStyle: 1px solid $accentColorOffWhite;
     // PROHIBIT
     :has(:last-child :checked) {
         .switchElement:not(:first-child) {
-            background: $accentColorRed;
+            background: var(--color-red);
             border: $borderStyle;
             border-left: none;
         }

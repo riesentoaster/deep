@@ -1,13 +1,16 @@
 .slider {
     height: 2.5rem;
+
 }
 
 .textMin {
     position: relative;
     left: calc(50% - 10px);
+    color: var(--color-text);
 }
 
 .textMax {
     position: relative;
     left: calc(-50% + 10px);
+    color: var(--color-text);
 }

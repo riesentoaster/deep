@@ -58,6 +58,7 @@
         "display": {
             "title": "Anzeige",
             "showAuthors": "Autoren anzeigen",
+            "darkMode": "Dark Mode",
             "language": "Sprache"
         },
         "questionsLeft": "Fragen übrig."

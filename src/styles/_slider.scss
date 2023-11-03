@@ -1,8 +1,20 @@
 .rc-slider {
     margin-bottom: 0.9rem;
 
+    .rc-slider-rail,
+    .rc-slider-track {
+        background-color: var(--color-accent-text);
+    }
+
+    .rc-slider-dot,
+    .rc-slider-dot-active,
+    .rc-slider-handle {
+        border-color: var(--color-accent-text) !important;
+        box-shadow: none !important;
+    }
+
     .rc-slider-mark-text {
-        color: white;
+        color: var(--color-text);
         font-size: 0.9rem;
     }
 
@@ -12,5 +24,4 @@
         margin-top: -8px;
         opacity: unset;
     }
-
 }

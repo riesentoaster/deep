@@ -1,17 +1,67 @@
 $htmlBackgroundColor: #010411;
-$backgroundColor: #010c1e;
-$bodyColor: #d5d9e0;
-$bodyFont: Avenir, Helvetica, Arial, sans-serif;
+$blue: #010c1e;
 $accentColorDarkBlue: #062048;
 $accentColorLightBlue: #052049;
 $accentColorOffWhite: #c6cdd7;
-$accentColorRed: #600000;
-$accentColorGreen: #004000;
 
-.bg-accentColorRed {
-    background-color: $accentColorRed;
+$borderStyle: 1px solid var(--color-accent-text);
+
+* {
+    border-color: var(--color-accent-text);
 }
 
-.bg-accentColorDarkBlue {
-    background-color: $accentColorDarkBlue;
+@mixin dark-mode-styling {
+    --color-html-background: #{$htmlBackgroundColor};
+    --color-body-background: #{$blue};
+    --color-text: #d5d9e0;
+    --color-accent-background: #{$accentColorDarkBlue};
+    --color-accent-text: #{$accentColorOffWhite};
+    --color-input-background: #{$accentColorOffWhite};
+    --color-input-text: #{$blue};
+    --color-red: #600000;
+    --color-red-foreground: #f87171;
+    --color-green: #004000;
+    --color-yellow-foreground: #facc15;
+}
+
+@mixin light-mode-styling {
+    --color-html-background: #d5d9e0;
+    --color-body-background: #eaecf0;
+    --color-text: #{$blue};
+    --color-accent-background: #{$accentColorOffWhite};
+    --color-accent-text: #{$accentColorDarkBlue};
+    --color-input-background: #{$accentColorOffWhite};
+    --color-input-text: #{$blue};
+    --color-red: #FF6060;
+    --color-red-foreground: #dc2626;
+    --color-green: #70d070;
+    --color-yellow-foreground: #ca8a04;
+}
+
+body {
+    @include dark-mode-styling();
+
+    @media (prefers-color-scheme: light) {
+        @include light-mode-styling();
+    }
+}
+
+body.light-mode {
+    @include light-mode-styling();
+}
+
+body.dark-mode {
+    @include dark-mode-styling();
+}
+
+.bg-accentColorBackground {
+    background-color: var(--color-accent-background);
+}
+
+.fg-yellow {
+    color: var(--color-yellow-foreground);
+}
+
+.fg-red {
+    color: var(--color-red-foreground);
 }

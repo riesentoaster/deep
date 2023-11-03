@@ -42,6 +42,18 @@ export const Layout: FC = () => {
     setOrderedQuestions( order( newOrder, allQuestions ) )
 
   useEffect( () => {
+    const lightMatcher = window.matchMedia( '(prefers-color-scheme: light)' )
+    if ( lightMatcher.matches && displaySettings.mode )
+      document.body.classList.add( 'dark-mode' )
+    else
+      document.body.classList.remove( 'dark-mode' )
+    if ( !lightMatcher.matches && !displaySettings.mode )
+      document.body.classList.add( 'light-mode' )
+    else
+      document.body.classList.remove( 'light-mode' )
+  }, [ displaySettings.mode ] )
+
+  useEffect( () => {
     setFilteredQuestions( filter( filterSettings, orderedQuestions ).slice() )
   }, [ filterSettings, orderedQuestions ] )
 
