@@ -52,6 +52,7 @@ export const LinePlot: FC<LinePlotProps> = ( { questions, groupBy } ) => {
           domain={[ 'dataMin', 'dataMax' ]}
           textAnchor='start'
           tickFormatter={formatter}
+          tickCount={11}
         />
         <YAxis ticks={getYTicks( maxValue )}/>
         <Legend verticalAlign='top'/>
