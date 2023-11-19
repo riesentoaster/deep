@@ -36,7 +36,8 @@
     :has(:nth-child(2) :checked) {
         .switchElement:nth-child(2) {
             background: var(--color-accent-background);
-            border: $borderStyle;
+            border-left-width: 1px;
+            border-right-width: 1px;
             border-radius: 100vh;
         }
     }
@@ -45,13 +46,11 @@
     :has(:first-child :checked) {
         .switchElement:not(:last-child) {
             background: var(--color-green);
-            border: $borderStyle;
-            border-right: none;
+            border-right-width: 1px;
         }
 
         .switchElement:nth-child(2) {
-            border: $borderStyle;
-            border-left: none;
+            border-right-width: 1px;
             border-radius: 0 100vh 100vh 0;
         }
     }
@@ -60,13 +59,11 @@
     :has(:last-child :checked) {
         .switchElement:not(:first-child) {
             background: var(--color-red);
-            border: $borderStyle;
-            border-left: none;
+            border-left-width: 1px;
         }
 
         .switchElement:nth-child(2) {
-            border: $borderStyle;
-            border-right: none;
+            border-left-width: 1px;
             border-radius: 100vh 0 0 100vh;
         }
     }

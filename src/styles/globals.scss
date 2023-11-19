@@ -7,14 +7,13 @@
 @import './slider';
 
 html {
-    background-color: var(--color-html-background);
     height: 100%;
 }
+
 
 body {
     color: var(--color-text);
     font-family: Avenir, Helvetica, Arial, sans-serif;
-    ;
     background-color: var(--color-body-background);
     margin: 0 auto;
     min-height: 100%;
@@ -89,4 +88,8 @@ input {
 
 :focus {
     outline: none;
+}
+
+.border {
+    border-width: var(--border-thickness);
 }
