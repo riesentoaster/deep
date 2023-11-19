@@ -31,7 +31,7 @@
         user-select: none;
         height: 100%;
         aspect-ratio: 1/1;
-        border: $borderStyle;
+        border: 1px solid $blue;
         border-radius: 100%;
         background-color: var(--color-accent-text);
     }
