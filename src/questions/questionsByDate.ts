@@ -1478,5 +1478,155 @@ export const questionsByDate: QuestionsByDate = {
         en: 'What compliment do you dislike receiving?'
       }
     }
-  ]
+  ],
+  '2023-10-19': [
+    {
+      deepness: 1,
+      author: 'Michi',
+      translations: {
+        de: 'Wie würdest du dein Kind nie nennen?',
+        en: 'What would you never call your child?'
+      }
+    },
+    {
+      deepness: 2,
+      tags: [ 'twoPeople' ],
+      translations: {
+        de: 'Welche Gewohnheit hast du von mir übernommen?',
+        en: 'What habit did you pick up from me?'
+      }
+    }
+  ],
+  '2023-10-20': [
+    {
+      deepness: 3,
+      tags: [ 'twoPeople' ],
+      translations: {
+        de: 'Was ist das beste, das ich je für dich gemacht habe?',
+        en: 'What is the best thing I\'ve ever done for you?'
+      }
+    },
+  ],
+  '2023-10-24': [
+    {
+      deepness: 4,
+      translations: {
+        en: 'What is it like for you to ask for help?',
+        de: 'Wie ist es für dich, um Hilfe zu bitten?'
+      }
+    },
+  ],
+  '2023-10-26': [
+    {
+      deepness: 2,
+      translations: {
+        de: 'Was hast du in letzter Zeit entdeckt, das dich begeistert hat?',
+        en: 'What is something you discovered recently that delighted you?'
+      }
+    },
+  ],
+  '2023-10-29': [
+    {
+      deepness: 4,
+      tags: [ 'twoPeople' ],
+      translations: {
+        de: 'Was magst du nicht an meinen Eltern?',
+        en: 'What do you dislike about my parents?',
+      }
+    },
+  ],
+  '2023-11-02': [
+    {
+      deepness: 1,
+      translations: {
+        de: 'Wenn ich verhaftet würde und du nicht wüsstest, warum – was würdest du annehmen, dass ich getan habe?',
+        en: 'If I got arrested but you didn\'t know why — what would you assume I did?'
+      }
+    },
+    {
+      deepness: 5,
+      translations: {
+        de: 'Was ist das schmerzhafteste, was dir je gesagt wurde?',
+        en: 'What is the most painful thing you\'ve ever been told?'
+      }
+    },
+  ],
+  '2023-11-04': [
+    {
+      deepness: 1,
+      translations: {
+        de: 'Was braucht es deiner Meinung nach für eine gute Party?',
+        en: 'What, in your opinion, is necessary for a good party?'
+      }
+    },
+    {
+      deepness: 2,
+      tags: [ 'v' ],
+      translations: {
+        de: 'Was hat dich diese Woche am meisten gestresst? Was hat dich am meisten gefreut?',
+        en: 'What stressed you out the most this week? What made you the happiest?'
+      }
+    },
+  ],
+  '2023-11-07': [
+    {
+      deepness: 2,
+      author: 'Merlin Mann',
+      translations: {
+        de: 'Was ist das coolste, das dir diese Woche passiert ist?',
+        en: 'What\'s the coolest thing that has happend to you this week?'
+      }
+    },
+  ],
+  '2023-11-10': [
+    {
+      deepness: 3,
+      translations: {
+        de: 'Was hat dich deine Mutter darüber gelehrt, eine Frau zu sein? Was hat dir dein Vater darüber beigebracht, ein Mann zu sein?',
+        en: 'What is something your mom taught you about being a woman? What is something your dad taught you about being a man?'
+      }
+    },
+  ],
+  '2023-11-17': [
+    {
+      deepness: 2,
+      translations: {
+        de: 'Was ist etwas, das du tust, bei dem du dich alt fühlst?',
+        en: 'What\'s something you do that makes you feel old?'
+      }
+    },
+  ],
+  '2023-11-18': [
+    {
+      deepness: 3,
+      tags: [ 'christians', 'v' ],
+      translations: {
+        de: 'Mit welcher biblischen Figur identifizierst du dich derzeit am meisten? Warum?',
+        en: 'Which biblical character do you currently relate to the most? Why?'
+      }
+    },
+    {
+      deepness: 3,
+      tags: [ 'twoPeople' ],
+      translations: {
+        de: 'Wobei warst du bisher am meisten eifersüchtig auf mich?',
+        en: 'What\'s the most jealous you\'ve ever been of me?'
+      }
+    },
+    {
+      deepness: 1,
+      translations: {
+        de: 'Was ist das beste Konzert, das du je besucht hast?',
+        en: 'What is the favourite concert you\'ve ever been to?'
+      }
+    },
+    {
+      deepness: 2,
+      tags: [ 'twoPeople' ],
+      translations: {
+        de: 'An welche Person aus einer Geschichte oder historische Figur erinnere ich dich am meisten?',
+        en: 'What figure from a story or history do I most remind you of?'
+      }
+    },
+  ],
 }
