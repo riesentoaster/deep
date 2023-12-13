@@ -1629,4 +1629,74 @@ export const questionsByDate: QuestionsByDate = {
       }
     },
   ],
+  '2023-11-22': [
+    {
+      deepness: 3,
+      translations: {
+        en: 'If someone offered you a box with everything you ever lost — what\'s the first thing you\'d look for?',
+        de: 'Wenn dir jemand eine Kiste geben würde mit allem, was du je verloren hast – was würdest du als erstes suchen?'
+      }
+    },
+    {
+      deepness: 1,
+      tags: [ 'philosophy' ],
+      translations: {
+        en: 'What is something silly that is either illegal and shouldn\'t be or is legal and should be illegal?',
+        de: 'Was ist etwas Unnötiges oder Kleines, das entweder illegal ist und es nicht sein sollte oder legal ist und es nicht sein sollte?'
+      }
+    },
+    {
+      deepness: 1,
+      translations: {
+        en: 'What song most recently made you dance?',
+        de: 'Welches Lied hat dich zuletzt zum Tanzen gebracht?'
+      }
+    },
+  ],
+  '2023-12-02': [
+    {
+      deepness: 3,
+      tags: [ 'twoPeople' ],
+      translations: {
+        en: 'What is something about me that you did not see coming?',
+        de: 'Was ist etwas an mir, das du nicht kommen gesehen hast, das dich überrascht hat?'
+      }
+    },
+    {
+      deepness: 2,
+      translations: {
+        en: 'What is something you know you will never experience but wish you could?',
+        de: 'Was ist etwas, von dem du weisst, dass du es nie erleben wirst, aber gerne würdest?'
+      }
+    }
+  ],
+  '2023-12-06': [
+    {
+      deepness: 4,
+      translations: {
+        en: 'What do you miss about your ex?',
+        de: 'Was vermisst du an deinem/deiner Ex?'
+      }
+    }
+  ],
+  '2023-12-08': [
+    {
+      deepness: 2,
+      tags: [ 'v' ],
+      translations: {
+        en: 'What is something you haven\'t done in a little while that you really miss?',
+        de: 'Was hast du schon lange nicht mehr gemacht, was du aber eigentlich vermisst?'
+      }
+    }
+  ],
+  '2023-12-12': [
+    {
+      deepness: 3,
+      author: 'Noëmi',
+      translations: {
+        en: 'What is currently robbing you of a lot of energy?',
+        de: 'Was raubt dir zur Zeit viel Energie?'
+      }
+    }
+  ]
 }
