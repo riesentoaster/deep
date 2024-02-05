@@ -3,12 +3,10 @@ import { useTranslation } from 'react-i18next'
 import { LanguageSettings } from '../header/displaySettings/LanguageSettings'
 import styles from './home.module.scss'
 import { Question } from '../generic/Question'
-import { questions } from '../questions/questions'
+import { questionOfTheDay } from '../questions/questionOfTheDay'
 
 export const Home: FC = () => {
   const { t } = useTranslation( 'common', { keyPrefix: 'explanation' } )
-  const daysSinceEpoch = Math.round( new Date().setHours( 0, 0, 0, 0 ) / ( 1000 ) )
-  const questionOfTheDay = questions[daysSinceEpoch % questions.length]
 
   return (
     <div className={styles.container}>
