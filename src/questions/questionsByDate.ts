@@ -1698,5 +1698,161 @@ export const questionsByDate: QuestionsByDate = {
         de: 'Was raubt dir zur Zeit viel Energie?'
       }
     }
-  ]
+  ],
+  '2023-12-22': [
+    {
+      deepness: 3,
+      translations: {
+        de: 'Was für eine Herausforderung hast du in letzter Zeit gemeistert?',
+        en: 'What challenge have your recently overcome?'
+      }
+    },
+  ],
+  '2024-01-02': [
+    {
+      deepness: 1,
+      tags: [ 'v' ],
+      translations: {
+        de: 'In was würdest du am ehsten einen Weltrekord bekommen?',
+        en: 'What\'s the most likely thing for you to get a world record in?'
+      }
+    },
+  ],
+  '2024-01-06': [
+    {
+      deepness: 2,
+      translations: {
+        de: 'What\'s something in your life you still can\'t believe happened?',
+        en: 'Was ist dir in deinem Leben passiert und du kannst es immer noch kaum glauben?'
+      }
+    },
+  ],
+  '2024-01-08': [
+    {
+      deepness: 3,
+      translations: {
+        de: 'Für was sollen sich Leute am Ende deines Lebens bei dir anstehen und dir danken?',
+        en: 'What would you like for people to line up and thank you for at the end of your life?'
+      }
+    },
+  ],
+  '2024-01-09': [
+    {
+      deepness: 3,
+      tags: [ 'v' ],
+      translations: {
+        de: 'Was ist das grösste Risiko, das du je auf dich genommen hast? Hat es sich gelohnt?',
+        en: 'What\'s the greatest risk you ever took? Was it worth it?'
+      }
+    },
+  ],
+  '2024-01-17': [
+    {
+      deepness: 2,
+      translations: {
+        de: 'Wenn du dich in einem Raum wiederfinden würdest mit allen Personen, die du je getroffen hast – mit wem würdest du zuerst sprechen?',
+        en: 'If you were in a room with everybody you\'ve ever met — who\'d be the first person you\'d speak to?'
+      }
+    },
+    {
+      deepness: 3,
+      translations: {
+        de: 'Wenn du einen Brief von deinem zukünftigen Ich bekommen würdest, was würdest du hoffen darin zu finden?',
+        en: 'If you got a letter from your future self, what would you hope to find in it?'
+      }
+    },
+    {
+      deepness: 3,
+      translations: {
+        de: 'Wenn du den Sinn deines Lebens in einem einzigen Satz zusammenfassen müsstest, was wäre er? Und wie beeinflusst er, wie du deine alltäglichen Entscheidungen triffst?',
+        en: 'If you had to define your purpose in life in one sentence, what would it be? And how does it affect the choices you make in your daily life?',
+      }
+    },
+  ],
+  '2024-01-18': [
+    {
+      deepness: 3,
+      tags: [ 'v' ],
+      translations: {
+        de: 'Was spielt eine viel kleinere Rolle, als du mal gedacht hast? Was spielt eine viel grössere Rolle als du mal gedacht hast?',
+        en: 'What is something that matters way less than you thought it would? What is something that matters way more than you thought it would?'
+      }
+    },
+    {
+      deepness: 2,
+      translations: {
+        de: 'Was ist eine Regel, nach der du lebst?',
+        en: 'What is one rule you live by?'
+      }
+    },
+    {
+      deepness: 4,
+      tags: [ 'v' ],
+      translations: {
+        de: 'Was hast du von deiner letzten Trennung gelernt?',
+        en: 'What did you learn from your last heartbreak?'
+      }
+    },
+    {
+      deepness: 4,
+      translations: {
+        de: 'Was war das schwierigste Gespräch, das du je führen musstest?',
+        en: 'What\'s the most difficult conversation you\'ve ever had to have?'
+      }
+    },
+  ],
+  '2024-01-21': [
+    {
+      deepness: 3,
+      tags: [ 'christians' ],
+      translations: {
+        de: 'Welcher Teil des Unser-Vater ist dir gerade besonders wichtig? Welcher Teil ist gerade am relevantesten für dein Leben?',
+        en: 'Which part of the Lord\'s Prayer is most important to you or relevant to your life right now?'
+      }
+    },
+  ],
+  '2024-01-24': [
+    {
+      deepness: 2,
+      translations: {
+        de: 'Wo hast du deine:n letzte:n romantische:n Partner:in kennengelernt? Wo wirst du deine:n nächste:n kennenlernen?',
+        en: 'Where did you meet your last romantic partner? Where will you meet your next?'
+      }
+    },
+  ],
+  '2024-01-28': [
+    {
+      deepness: 3,
+      translations: {
+        de: 'Wann hast du zuletzt Verantwortung für die Richtung deines Lebens übernommen?',
+        en: 'When have you last taken responsibility for the direction of your life?'
+      }
+    },
+    {
+      deepness: 2,
+      tags: [ 'christians' ],
+      translations: {
+        de: 'Was nervt dich am meisten an Gottesdiensten? Was sind deine pet peeves?',
+        en: 'What are your pet peeves when it comes to church services?'
+      }
+    },
+  ],
+  '2024-01-31': [
+    {
+      deepness: 5,
+      translations: {
+        de: 'Was ist das unehrlichste, was du bisher getan hast?',
+        en: 'What\'s the most dishonest thing you\'ve done?'
+      }
+    },
+  ],
+  '2024-02-05': [
+    {
+      deepness: 3,
+      translations: {
+        de: 'Was ist etwas, was du anders machen würdest als deine Eltern in der Erziehung von Kindern?',
+        en: 'What is one thing you\'d do differently than your parents when it comes to raising children?'
+      }
+    },
+  ],
 }
