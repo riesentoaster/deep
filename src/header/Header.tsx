@@ -11,7 +11,7 @@ import { FC, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
 export const Header: FC = () => {
-  const [ hidden, setHidden ] = useState( process.env.NODE_ENV === 'production' )
+  const [ hidden, setHidden ] = useState( import.meta.env.PROD )
 
   const { t } = useTranslation( 'common' )
 

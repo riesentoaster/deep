@@ -12,15 +12,14 @@ export const Question: FC<QuestionProps> = ( { question } ) => {
   const { t } = useTranslation( 'questions' )
   const displaySettings = useContext( DisplaySettingsContext )
 
-  const debugData = process.env.REACT_APP_DEBUG_QUESTION_PRINT ?
+  const debugData = import.meta.env.PROD ? undefined :
     [
       `deep:${question.deepness}`,
       question.date,
       `i:${question.index?.toString().padStart( 3, nonBreakingSpace )}`,
       question.tags?.join( ',' + nonBreakingSpace ) || '',
       ''
-    ].join( nonBreakingSpace + nonBreakingSpace + nonBreakingSpace ) :
-    undefined
+    ].join( nonBreakingSpace + nonBreakingSpace + nonBreakingSpace )
 
   return (
     <p className='p-0'>
