@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
+    "@khmyznikov/pwa-install": "^0.3.3",
+    "@lit/react": "^1.0.3",
     "@types/lodash.defaultsdeep": "^4.6.9",
     "@types/lodash.merge": "^4.6.9",
     "@types/qs": "^6.9.11",
