@@ -21,6 +21,7 @@ export const Stats: FC = () => {
     <h2>{statsT( 'tags' )}</h2>
     <LinePlot questions={questions} groupBy={tagGrouper} />
     <BarPlot questions={questions} groupBy={( q ): string[] => q.tags || []} axisMapper={tagsT}/>
+    <p className='text-center text-gray-500'>{statsT( 'version' )}: {__BUILD_DATE__}</p>
   </>
   )
 }

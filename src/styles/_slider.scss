@@ -3,13 +3,13 @@
 
     .rc-slider-rail,
     .rc-slider-track {
-        background-color: var(--color-accent-text);
+        background-color: var(--color-text);
     }
 
     .rc-slider-dot,
     .rc-slider-dot-active,
     .rc-slider-handle {
-        border-color: var(--color-accent-text) !important;
+        border-color: var(--color-text) !important;
         box-shadow: none !important;
     }
 

@@ -2,7 +2,7 @@
 
 .wrapper {
     label:has(input:checked) {
-        background-color: var(--color-accent-text);
+        background-color: var(--color-text);
     }
 
     display: flex;
@@ -33,7 +33,7 @@
         aspect-ratio: 1/1;
         border: 1px solid $blue;
         border-radius: 100%;
-        background-color: var(--color-accent-text);
+        background-color: var(--color-text);
     }
 
     input:checked+div {

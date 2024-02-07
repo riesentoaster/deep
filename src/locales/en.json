@@ -72,7 +72,8 @@
     },
     "stats": {
         "deepnesses": "Deepnesses",
-        "tags": "Tags"
+        "tags": "Tags",
+        "version": "Version"
     },
     "explanation": {
         "slogan": "Getting people to talk about the stuff that really matters",

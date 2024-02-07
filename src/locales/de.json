@@ -72,7 +72,8 @@
     },
     "stats": {
         "deepnesses": "Deepnesse",
-        "tags": "Tags"
+        "tags": "Tags",
+        "version": "Version"
     },
     "explanation": {
         "slogan": "Über das reden, was wirklich wichtig ist",

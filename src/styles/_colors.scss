@@ -3,24 +3,22 @@ $accentColorDarkBlue: #062048;
 $accentColorLightBlue: #052049;
 $accentColorOffWhite: #c6cdd7;
 
-$borderStyle: var(--border-thickness) solid var(--color-accent-text);
+$borderStyle: var(--border-thickness) solid var(--color-text);
 
 * {
-    border-color: var(--color-accent-text);
+    border-color: var(--color-text);
 }
 
 @mixin dark-mode-styling {
     --color-body-background: #{$blue};
     --color-text: #d5d9e0;
     --color-accent-background: #{$accentColorDarkBlue};
-    --color-accent-text: #{$accentColorOffWhite};
     --color-input-background: #{$accentColorOffWhite};
     --color-input-text: #{$blue};
     --color-red: #600000;
     --color-red-foreground: #f87171;
     --color-green: #004000;
     --color-yellow-foreground: #facc15;
-
     --border-thickness: 1px;
 }
 
@@ -28,7 +26,6 @@ $borderStyle: var(--border-thickness) solid var(--color-accent-text);
     --color-body-background: white;
     --color-text: #{$blue};
     --color-accent-background: #8bb6fb;
-    --color-accent-text: #{$accentColorDarkBlue};
     --color-input-background: #{$accentColorOffWhite};
     --color-input-text: #{$blue};
     --color-red: #FF6060;
