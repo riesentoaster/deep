@@ -5,6 +5,8 @@ import styles from './home.module.scss'
 import { Question } from '../generic/Question'
 import { questionOfTheDay } from '../questions/questionOfTheDay'
 
+import Install from '../generic/Install'
+
 export const Home: FC = () => {
   const { t } = useTranslation( 'common', { keyPrefix: 'explanation' } )
 
@@ -16,6 +18,7 @@ export const Home: FC = () => {
           <Question question={questionOfTheDay}/>
         </div>
         <LanguageSettings className='w-fit text-center'/>
+        <Install/>
       </div>
 
       <hr/>
@@ -44,16 +47,6 @@ export const Home: FC = () => {
         <li>{t( 'advice4' )}</li>
         <li>{t( 'advice5' )}</li>
       </ul>
-
-      <hr/>
-
-      <h2>{t( 'install' )}</h2>
-      <p className={styles.center}>
-        {t( 'installIntro' )}
-        <a href={t( 'installExplanationLink' )}>
-          {t( 'installExplanationText' )}
-        </a>
-      </p>
 
       <hr/>
 
