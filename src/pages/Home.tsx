@@ -22,7 +22,8 @@ const installDescriptionsByLanguage = {
 export const Home: FC = () => {
   const { t } = useTranslation( 'common', { keyPrefix: 'explanation' } )
   const ref = useRef<null | PWAInstallElement>( null )
-  const standalone = window.matchMedia( '(display-mode: standalone)' ).matches
+  const standalone = ( 'standalone' in window.navigator && ( window.navigator as any ).standalone )
+   || window.matchMedia( '(display-mode: standalone)' ).matches
   const browserLang = navigator.language.startsWith( 'en' ) ? 'en' : 'de'
   const { description, installDescription } = installDescriptionsByLanguage[browserLang]
   return (
