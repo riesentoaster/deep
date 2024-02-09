@@ -1,24 +1,56 @@
-import { FC } from 'react'
+import { FC, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LanguageSettings } from '../header/displaySettings/LanguageSettings'
 import styles from './home.module.scss'
 import { Question } from '../generic/Question'
 import { questionOfTheDay } from '../questions/questionOfTheDay'
+import PWAInstall from '@khmyznikov/pwa-install/src/fallback/react'
+import { PWAInstallElement } from '@khmyznikov/pwa-install'
+import { Ellipsis } from '../generic/Ellipsis'
 
-import Install from '../generic/Install'
+const installDescriptionsByLanguage = {
+  en: {
+    'description': 'Getting people to talk about what really matters',
+    'installDescription': 'Install deep to make it available offline'
+  },
+  de: {
+    'description': 'Über die wirklich wichtigen Dinge reden',
+    'installDescription': 'Installiere deep, um offline spielen zu können',
+  }
+}
 
 export const Home: FC = () => {
   const { t } = useTranslation( 'common', { keyPrefix: 'explanation' } )
+  const [ isInstallAvailable, setIsInstallAvailable ] = useState( false )
+  const ref = useRef<null | PWAInstallElement>( null )
+
+  const browserLang = navigator.language.startsWith( 'en' ) ? 'en' : 'de'
+  const { description, installDescription } = installDescriptionsByLanguage[browserLang]
 
   return (
     <div className={styles.container}>
+      <PWAInstall
+        manualApple={true}
+        manualChrome={true}
+        ref={ref}
+        onPwaInstallAvailableEvent={() => setIsInstallAvailable( true ) }
+        description={description}
+        installDescription={installDescription}
+      />
       <div className={styles.wrap}>
         <div className='text-center'>
           <h3 className='mb-3'>{t( 'questionOfTheDay' )}</h3>
           <Question question={questionOfTheDay}/>
         </div>
         <LanguageSettings className='w-fit text-center'/>
-        <Install/>
+        {isInstallAvailable && (
+          <div className='text-center'>
+            <h3 className='mb-3'>{t( 'install' )}</h3>
+            <button type='button' onClick={() => ref.current?.showDialog()}>
+              <Ellipsis >{t( 'showInstallInstructions' )}</Ellipsis>
+            </button>
+          </div>
+        )}
       </div>
 
       <hr/>
