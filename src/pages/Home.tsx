@@ -1,15 +1,14 @@
-import { FC, useRef } from 'react'
+import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LanguageSettings } from '../header/displaySettings/LanguageSettings'
 import styles from './home.module.scss'
 import { Question } from '../generic/Question'
 import { questionOfTheDay } from '../questions/questionOfTheDay'
-import PWAInstall from '@khmyznikov/pwa-install/src/fallback/react'
-import { PWAInstallElement } from '@khmyznikov/pwa-install'
+
+import Install from '../generic/Install'
 
 export const Home: FC = () => {
   const { t } = useTranslation( 'common', { keyPrefix: 'explanation' } )
-  const installRef = useRef<null | PWAInstallElement>( null )
 
   return (
     <div className={styles.container}>
@@ -19,6 +18,7 @@ export const Home: FC = () => {
           <Question question={questionOfTheDay}/>
         </div>
         <LanguageSettings className='w-fit text-center'/>
+        <Install/>
       </div>
 
       <hr/>
@@ -47,23 +47,6 @@ export const Home: FC = () => {
         <li>{t( 'advice4' )}</li>
         <li>{t( 'advice5' )}</li>
       </ul>
-
-      <hr/>
-
-      <h2>{t( 'install' )}</h2>
-      <p className={styles.center}>
-        {t( 'installIntro' )}
-        <a href={t( 'installExplanationLink' )}>
-          {t( 'installExplanationText' )}
-        </a>
-      </p>
-
-      <PWAInstall
-        ref={installRef}
-        disable-screenshots="true"
-        install-description="Install to make deep available offline"
-      />
-      <button onClick={() => installRef.current?.showDialog( true )}>Install</button>
 
       <hr/>
 
