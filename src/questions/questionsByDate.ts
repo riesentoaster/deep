@@ -1722,8 +1722,8 @@ export const questionsByDate: QuestionsByDate = {
     {
       deepness: 2,
       translations: {
-        de: 'What\'s something in your life you still can\'t believe happened?',
-        en: 'Was ist dir in deinem Leben passiert und du kannst es immer noch kaum glauben?'
+        de: 'Was ist dir in deinem Leben passiert und du kannst es immer noch kaum glauben?',
+        en: 'What\'s something in your life you still can\'t believe happened?'
       }
     },
   ],
