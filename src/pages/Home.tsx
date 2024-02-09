@@ -22,29 +22,34 @@ const installDescriptionsByLanguage = {
 export const Home: FC = () => {
   const { t } = useTranslation( 'common', { keyPrefix: 'explanation' } )
   const ref = useRef<null | PWAInstallElement>( null )
-
+  const standalone = window.matchMedia( '(display-mode: standalone)' ).matches
   const browserLang = navigator.language.startsWith( 'en' ) ? 'en' : 'de'
   const { description, installDescription } = installDescriptionsByLanguage[browserLang]
-
   return (
     <div className={styles.container}>
-      <PWAInstall
-        ref={ref}
-        description={description}
-        installDescription={installDescription}
-      />
+      {
+        !standalone && (
+          <PWAInstall
+            ref={ref}
+            description={description}
+            installDescription={installDescription}
+          />
+        )}
       <div className={styles.wrap}>
         <div className='text-center'>
           <h3 className='mb-3'>{t( 'questionOfTheDay' )}</h3>
           <Question question={questionOfTheDay}/>
         </div>
         <LanguageSettings className='w-fit text-center'/>
-        <div className='text-center'>
-          <h3 className='mb-3'>{t( 'install' )}</h3>
-          <button type='button' onClick={() => ref.current?.showDialog( true )}>
-            <Ellipsis >{t( 'showInstallInstructions' )}</Ellipsis>
-          </button>
-        </div>
+        {
+          !standalone && (
+            <div className='text-center'>
+              <h3 className='mb-3'>{t( 'install' )}</h3>
+              <button type='button' onClick={() => ref.current?.showDialog( true )}>
+                <Ellipsis >{t( 'showInstallInstructions' )}</Ellipsis>
+              </button>
+            </div>
+          )}
       </div>
 
       <hr/>
