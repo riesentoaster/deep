@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from 'react'
+import { FC, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LanguageSettings } from '../header/displaySettings/LanguageSettings'
 import styles from './home.module.scss'
@@ -21,7 +21,6 @@ const installDescriptionsByLanguage = {
 
 export const Home: FC = () => {
   const { t } = useTranslation( 'common', { keyPrefix: 'explanation' } )
-  const [ isInstallAvailable, setIsInstallAvailable ] = useState( false )
   const ref = useRef<null | PWAInstallElement>( null )
 
   const browserLang = navigator.language.startsWith( 'en' ) ? 'en' : 'de'
@@ -30,10 +29,7 @@ export const Home: FC = () => {
   return (
     <div className={styles.container}>
       <PWAInstall
-        manualApple={true}
-        manualChrome={true}
         ref={ref}
-        onPwaInstallAvailableEvent={() => setIsInstallAvailable( true ) }
         description={description}
         installDescription={installDescription}
       />
@@ -43,14 +39,12 @@ export const Home: FC = () => {
           <Question question={questionOfTheDay}/>
         </div>
         <LanguageSettings className='w-fit text-center'/>
-        {isInstallAvailable && (
-          <div className='text-center'>
-            <h3 className='mb-3'>{t( 'install' )}</h3>
-            <button type='button' onClick={() => ref.current?.showDialog()}>
-              <Ellipsis >{t( 'showInstallInstructions' )}</Ellipsis>
-            </button>
-          </div>
-        )}
+        <div className='text-center'>
+          <h3 className='mb-3'>{t( 'install' )}</h3>
+          <button type='button' onClick={() => ref.current?.showDialog( true )}>
+            <Ellipsis >{t( 'showInstallInstructions' )}</Ellipsis>
+          </button>
+        </div>
       </div>
 
       <hr/>
