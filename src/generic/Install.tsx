@@ -24,7 +24,15 @@ const InstallButton: React.FC = () => {
   const { description, installDescription } = installDescriptionsByLanguage[browserLang]
 
   return (
-    <>
+    <div>
+      <PWAInstall
+        manualApple={true}
+        manualChrome={true}
+        ref={ref}
+        onPwaInstallAvailableEvent={() => setIsInstallAvailable( true ) }
+        description={description}
+        installDescription={installDescription}
+      />
       {isInstallAvailable && (
         <div className='text-center'>
           <h3 className='mb-3'>{t( 'install' )}</h3>
@@ -33,18 +41,7 @@ const InstallButton: React.FC = () => {
           </button>
         </div>
       )}
-      <PWAInstall
-        manualApple={true}
-        manualChrome={true}
-        style={{ display: 'none' }}
-        ref={ref}
-        onPwaInstallAvailableEvent={() => {
-          console.log( 'available' );setIsInstallAvailable( true )
-        }}
-        description={description}
-        installDescription={installDescription}
-      />
-    </>
+    </div>
   )
 }
 
