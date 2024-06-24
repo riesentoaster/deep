@@ -1855,4 +1855,205 @@ export const questionsByDate: QuestionsByDate = {
       }
     },
   ],
+  '2024-02-16': [
+    {
+      translations: {
+        en: 'How are you different from 5 years ago? How will your answer differ in 5 years?',
+        de: 'Wie bist du anders als vor 5 Jahren? Wie wird deine Antwort anders sein in 5 Jahren?'
+      },
+      deepness: 3
+    }
+  ],
+  '2024-02-22': [
+    {
+      translations: {
+        en: 'If you saw me having a fight with a stranger on the street — what would you assume it to be about?',
+        de: 'Wenn du mich in einer Schlägerei mit einer fremden Person sehen würdest – was würdest du denken, das der Grund dafür ist??'
+      },
+      deepness: 2,
+      author: 'John Green',
+      tags: [ 'twoPeople', 'v' ]
+    }
+  ],
+  '2024-02-25': [
+    {
+      translations: {
+        en: 'What\'s the greatest pain you\'ve ever caused in someone else?',
+        de: 'Was ist der grösste Schmerz, den du je jemandem zugefügt hast?'
+      },
+      deepness: 5
+    }
+  ],
+  '2024-02-26': [
+    {
+      translations: {
+        en: 'What addiction or negative habit is affecting your day to day life the most?',
+        de: 'Welche Sucht oder schlechte Angewohnheit beeinträchtigt deinen Alltag am meisten?'
+      },
+      deepness: 4
+    },
+    {
+      translations: {
+        en: 'What is your most valuable habit?',
+        de: 'Was ist deine wertvollste Angewohnheit?'
+      },
+      deepness: 3
+    },
+    {
+      translations: {
+        en: 'What\'s something you regret not saying to someone? Why didn\'t you?',
+        de: 'Was bereust du, jemandem nicht gesagt zu haben? Warum hast du es nicht getan?'
+      },
+      deepness: 4
+    },
+    {
+      translations: {
+        en: 'What qualities do you value most in friendships? How do you embody those qualities?',
+        de: 'Welche Eigenschaften schätzt du am meisten in Freundschaften? Wie verkörperst du diese Eigenschaften?'
+      },
+      deepness: 2
+    },
+    {
+      translations: {
+        en: 'Who\'s the first person you call if you get good news? Who\'s the first person you call if you get terrible news?',
+        de: 'Wer ist die erste Person, die du anrufst mit guten Neuigkeiten? Wen rufst du als erstes an mit schrecklichen Neuigkeiten?'
+      },
+      deepness: 3
+    },
+    {
+      translations: {
+        en: 'How do you talk to yourself? What impact does that have on your life?',
+        de: 'Wie redest du mit dir selbst? Welchen Einfluss hat das auf dein Leben?'
+      },
+      deepness: 3
+    }
+  ],
+  '2024-03-05': [
+    {
+      translations: {
+        en: 'What can we wake you up for at 3 in the morning?',
+        de: 'Für was darf man dich morgens um 3 wecken?'
+      },
+      deepness: 2
+    }
+  ],
+  '2024-03-12': [
+    {
+      translations: {
+        en: 'What do you always carry with you?',
+        de: 'Was trägst du immer mit dir rum?'
+      },
+      deepness: 1
+    }
+  ],
+  '2024-03-14': [
+    {
+      translations: {
+        en: 'What story would you believe nobody but me?',
+        de: 'Was für eine Geschichte würdest du niemandem glauben ausser mir?'
+      },
+      deepness: 2,
+      author: 'Rosina',
+      tags: [ 'twoPeople' ]
+    }
+  ],
+  '2024-03-23': [
+    {
+      translations: {
+        en: 'What habbit do you want to develop over the next 5 years? Why haven\'t you managed to do this yet?',
+        de: 'Was willst du dir bis in 5 Jahren angewöhnt haben? Warum schaffst du es im Moment nicht?'
+      },
+      deepness: 3
+    }
+  ],
+  '2024-03-30': [
+    {
+      translations: {
+        en: 'What is the least attractive thing a person can do? What is the most attractive?',
+        de: 'Was ist das unattraktivste, das eine Person machen kann? Was ist das attraktivste?'
+      },
+      deepness: 3,
+      tags: [ 'v' ]
+    }
+  ],
+  '2024-04-01': [
+    {
+      translations: {
+        en: 'What is a recent joyful ordinary moment in your life?',
+        de: 'Welcher fröhliche Moment ist dir kürzlich im Alltag wiederfahren?'
+      },
+      deepness: 2,
+      author: 'Brené Brown'
+    }
+  ],
+  '2024-05-06': [
+    {
+      translations: {
+        en: 'If you could permanently delete any one song from existence, what would it be?',
+        de: 'Wenn du einen Song von der Erdfläche verschwinden lassen könntest, welchen würdest du wählen?'
+      },
+      deepness: 1,
+      tags: [ 'v' ]
+    }
+  ],
+  '2024-05-22': [
+    {
+      translations: {
+        en: 'Who did your parents expect you to become when you grow up? In what ways did you? In what ways not?',
+        de: 'Was haben deine Eltern erwartet, was du werden sollst, wenn du erwachsen bist? Inwiefern hast du sie erfüllt? Inwiefern nicht?'
+      },
+      deepness: 4
+    }
+  ],
+  '2024-06-22': [
+    {
+      translations: {
+        en: 'What were you like as a child?',
+        de: 'Wie warst du als Kind?'
+      },
+      deepness: 2
+    },
+    {
+      translations: {
+        en: 'When did you file your last taxes?',
+        de: 'Wann hast du deine letzte Steuererklärung eingereicht?'
+      },
+      deepness: 1
+    },
+    {
+      translations: {
+        en: 'What is your favourite dish to make?',
+        de: 'Welches Gericht bereitest du am liebsten zu?'
+      },
+      deepness: 1
+    },
+    {
+      translations: {
+        en: 'Who would you like to write the eulogy for your funeral? Why?',
+        de: 'Wer soll die Trauerrede bei deiner Beerdigung halten? Warum?'
+      },
+      deepness: 3
+    },
+    {
+      translations: {
+        en: 'Where is your favorite place to go alone? Why?',
+        de: 'Wo ist dein Lieblingsort, um alleine hinzugehen? Warum?'
+      },
+      deepness: 2
+    },
+    {
+      translations: {
+        en: 'When did you last surprise yourself? How?',
+        de: 'Wann hast du dich zuletzt selbst überrascht? Wie?'
+      },
+      deepness: 3,
+    },
+    {
+      translations: {
+        en: 'What mistake, that you watched somebody make, will you never make yourself?',
+        de: 'Welchen Fehler, den du bei jemandem beobachtet hast, wirst du niemals selbst machen?'
+      },
+      deepness: 3
+    }
+  ],
 }
