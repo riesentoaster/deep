@@ -1868,7 +1868,7 @@ export const questionsByDate: QuestionsByDate = {
     {
       translations: {
         en: 'If you saw me having a fight with a stranger on the street — what would you assume it to be about?',
-        de: 'Wenn du mich in einer Schlägerei mit einer fremden Person sehen würdest – was würdest du denken, das der Grund dafür ist??'
+        de: 'Wenn du mich in einer Schlägerei mit einer fremden Person sehen würdest – was würdest du denken, das der Grund dafür ist?'
       },
       deepness: 2,
       author: 'John Green',
