@@ -2056,4 +2056,13 @@ export const questionsByDate: QuestionsByDate = {
       deepness: 3
     }
   ],
+  '2024-07-16': [
+    {
+      translations: {
+        en: 'What is something you would like to uninvent?',
+        de: 'Was würdest du gerne un-erfinden?'
+      },
+      deepness: 1
+    }
+  ],
 }
