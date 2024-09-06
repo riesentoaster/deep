@@ -493,7 +493,7 @@ export const questionsByDate: QuestionsByDate = {
       deepness: 3,
       translations: {
         en: 'How does somebody become a friend of yours?',
-        de: 'Wie wird man ein Freund oder ein:e Freund:in von dir? (Freundschaft)'
+        de: 'Wie wird man Freund:in von dir? (Freundschaft)'
       }
     },
     {
