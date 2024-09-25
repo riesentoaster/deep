@@ -4,7 +4,7 @@ import { LanguageSettings } from '../header/displaySettings/LanguageSettings'
 import styles from './home.module.scss'
 import { Question } from '../generic/Question'
 import { questionOfTheDay } from '../questions/questionOfTheDay'
-import PWAInstall from '@khmyznikov/pwa-install/src/fallback/react'
+import PWAInstall from '@khmyznikov/pwa-install/react-legacy'
 import { PWAInstallElement } from '@khmyznikov/pwa-install'
 import { Ellipsis } from '../generic/Ellipsis'
 
