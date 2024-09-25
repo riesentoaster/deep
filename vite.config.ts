@@ -5,5 +5,6 @@ import eslint from 'vite-plugin-eslint'
 
 export default defineConfig( {
   plugins: [ react(), eslint(), VitePWA( { registerType: 'autoUpdate' } ) ],
-  define: { __BUILD_DATE__: `"${ new Date().toISOString() }"` }
+  define: { __BUILD_DATE__: `"${ new Date().toISOString() }"` },
+  build: { chunkSizeWarningLimit: 10000 } // 10 MB
 } )
