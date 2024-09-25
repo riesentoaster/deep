@@ -2065,4 +2065,60 @@ export const questionsByDate: QuestionsByDate = {
       deepness: 1
     }
   ],
+  '2024-07-10': [
+    {
+      translations: {
+        en: 'What is something you feel guilty for wanting?',
+        de: 'Was ist etwas, für das du dich schuldig fühlst, es zu wollen?'
+      },
+      deepness: 2
+    }
+  ],
+  '2024-07-26': [
+    {
+      translations: {
+        en: 'What is something you learned embarrassingly late in life?',
+        de: 'Bei was schämst du dich dafür, wie spät in deinem Leben du es erst gelernt hast?'
+      },
+      deepness: 3
+    }
+  ],
+  '2024-08-19': [
+    {
+      translations: {
+        en: 'What song would be the worst to loop in your head for the rest of your life?',
+        de: 'Welches Lied wäre das schlimmste, um für den Rest deines Lebens in deinem Kopf in einer Endlosschleife zu spielen?'
+      },
+      deepness: 1
+    }
+  ],
+  '2024-08-24': [
+    {
+      translations: {
+        en: 'When\'s the last time you did something for the first time?',
+        de: 'Wann hast du das letzte Mal etwas zum ersten Mal gemacht?'
+      },
+      deepness: 2,
+      author: 'Savvy'
+    }
+  ],
+  '2024-09-21': [
+    {
+      translations: {
+        en: 'What is something you believed for a long time and are doubting now?',
+        de: 'Was ist etwas, was du lange geglaubt hast, und woran du gerade zweifelst?'
+      },
+      deepness: 4,
+    }
+  ],
+  '2024-09-25': [
+    {
+      translations: {
+        en: 'What is the thing you are most afraid to lose?',
+        de: 'Was fürchtest du am meisten zu verlieren?'
+      },
+      deepness: 3,
+      author: 'Myha\'la'
+    }
+  ]
 }
