@@ -5,6 +5,7 @@ import eslint from 'vite-plugin-eslint'
 
 const viteConfig: Partial<VitePWAOptions> = {
   registerType: 'autoUpdate',
+  manifestFilename: 'manifest.json',
   manifest: {
     background_color: '#010C1E',
     theme_color: '#010C1E',
@@ -29,5 +30,6 @@ const viteConfig: Partial<VitePWAOptions> = {
 export default defineConfig( {
   plugins: [ react(), eslint(), VitePWA( viteConfig ) ],
   define: { __BUILD_DATE__: `"${ new Date().toISOString() }"` },
-  build: { chunkSizeWarningLimit: 10000 } // 10 MB
+  build: { chunkSizeWarningLimit: 10000 }, // 10 MB
+  css: { preprocessorOptions: { scss: { api: 'modern-compiler' } } }, // fixing an update error message on 2024-09-28
 } )
