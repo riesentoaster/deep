@@ -357,7 +357,7 @@ export const questionsByDate: QuestionsByDate = {
     {
       deepness: 3,
       translations: {
-        en: 'Tell me/us something about you that only few people know!',
+        en: 'Tell me something about you that only few people know!',
         de: 'Erzähle etwas Spannendes über dich, das nur wenige wissen.'
       }
     },
@@ -941,7 +941,7 @@ export const questionsByDate: QuestionsByDate = {
       tags: [ 'dating' ],
       translations: {
         en: 'What would your last partner warn me about?',
-        de: 'Vor was würde mich dein letzer Partner/deine letzte Partnerin warnen?'
+        de: 'Vor was würde mich dein:e letze:r Partner:in warnen?'
       }
     },
     {
@@ -1538,6 +1538,7 @@ export const questionsByDate: QuestionsByDate = {
   '2023-11-02': [
     {
       deepness: 1,
+      tags: [ 'twoPeople' ],
       translations: {
         de: 'Wenn ich verhaftet würde und du nicht wüsstest, warum – was würdest du annehmen, dass ich getan habe?',
         en: 'If I got arrested but you didn\'t know why — what would you assume I did?'
