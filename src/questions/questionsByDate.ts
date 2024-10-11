@@ -851,6 +851,7 @@ export const questionsByDate: QuestionsByDate = {
     },
     {
       deepness: 2,
+      tags: [ 'twoPeople' ],
       translations: {
         en: 'What would you never, ever want my help with?',
         de: 'Wobei möchtest du nie und nimmer meine Hilfe?'
