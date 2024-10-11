@@ -124,8 +124,8 @@ export const questionsByDate: QuestionsByDate = {
       deepness: 2,
       tags: [ 'v' ],
       translations: {
-        en: 'What are you grateful for?',
-        de: 'Wofür bist du dankbar?'
+        en: 'What are you currently grateful for?',
+        de: 'Wofür bist du gerade dankbar?'
       }
     },
     {
@@ -208,14 +208,6 @@ export const questionsByDate: QuestionsByDate = {
       }
     },
     {
-      deepness: 4,
-      tags: [ 'v' ],
-      translations: {
-        en: 'What must I never forget?',
-        de: 'Was darf ich nie vergessen?'
-      }
-    },
-    {
       deepness: 5,
       translations: {
         en: 'What have you wanted to try to change about your life, but haven\'t managed?',
@@ -224,6 +216,7 @@ export const questionsByDate: QuestionsByDate = {
     },
     {
       deepness: 5,
+      tags: [ 'twoPeople' ],
       translations: {
         en: 'What blind spots of me should I change?',
         de: 'Was sind meine blinden Flecken, die ich deiner Meinung nach an mir ändern sollte?'
@@ -231,7 +224,7 @@ export const questionsByDate: QuestionsByDate = {
     },
     {
       deepness: 4,
-      tags: [ 'v' ],
+      tags: [ 'v', 'twoPeople' ],
       translations: {
         en: 'What is my best quality that I don\'t see?',
         de: 'Was ist meine beste Qualität, die ich selber nicht sehe?'
@@ -441,7 +434,7 @@ export const questionsByDate: QuestionsByDate = {
       deepness: 3,
       translations: {
         en: 'What is most important to you in a relationship?',
-        de: 'Was ist dir am einer Beziehung am wichtigsten?'
+        de: 'Was ist dir an einer Beziehung am wichtigsten?'
       }
     },
     {
@@ -737,7 +730,7 @@ export const questionsByDate: QuestionsByDate = {
       deepness: 3,
       translations: {
         en: 'What is a coping mechanism you used to rely on? What for?',
-        de: 'Was ist ein coping mechanism, den du in der Vergangenheit misbrauchst hast? Wofür?'
+        de: 'Was ist ein coping mechanism, den du in der Vergangenheit missbrauchst hast? Wofür?'
       }
     }
   ],
@@ -752,6 +745,7 @@ export const questionsByDate: QuestionsByDate = {
     },
     {
       deepness: 4,
+      tags: [ 'twoPeople' ],
       translations: {
         en: 'What do you think I need to hear?',
         de: 'Was glaubst du, müsste ich mal hören?'
@@ -767,6 +761,7 @@ export const questionsByDate: QuestionsByDate = {
     },
     {
       deepness: 2,
+      tags: [ 'twoPeople' ],
       translations: {
         en: 'What is something you think I\'m really good at?',
         de: 'Was ist etwas, was ich wirklich gut kann?'
@@ -789,6 +784,7 @@ export const questionsByDate: QuestionsByDate = {
     },
     {
       deepness: 5,
+      tags: [ 'twoPeople' ],
       translations: {
         en: 'When have you seen me the most vulnerable? What did it teach you about me?',
         de: 'Wann hast du mich am verwundbarsten gesehen? Was hat es dich über mich gelehrt?'
@@ -875,6 +871,7 @@ export const questionsByDate: QuestionsByDate = {
     },
     {
       deepness: 4,
+      tags: [ 'twoPeople' ],
       translations: {
         en: 'What is a possible challenge for me in the future? What can I do to prepare for it now?',
         de: 'Was ist eine mögliche Herausforderung, die du in meiner Zukunft siehst? Was kann ich jetzt schon machen, um dafür vorbereitet zu sein?'
@@ -898,7 +895,7 @@ export const questionsByDate: QuestionsByDate = {
     },
     {
       deepness: 3,
-      tags: [ 'v' ],
+      tags: [ 'v', 'twoPeople' ],
       translations: {
         en: 'What is a question you\'ve always wanted to ask me?',
         de: 'Was wolltest du mich schon immer mal fragen?'
@@ -1170,7 +1167,7 @@ export const questionsByDate: QuestionsByDate = {
       deepness: 3,
       translations: {
         en: 'Is there an experience in your life that made you fundamentally change your thinking?',
-        de: 'Gibt es ein Erlebnis in deinem Leben, dass dich zu einem fundamentalen Umdenken bewogen hat?'
+        de: 'Gibt es ein Erlebnis in deinem Leben, das dich zu einem fundamentalen Umdenken bewogen hat?'
       },
       author: 'Silvio'
     }
@@ -1228,7 +1225,7 @@ export const questionsByDate: QuestionsByDate = {
       deepness: 3,
       translations: {
         en: 'What\'s the most surprising discovery that you made about your own body?',
-        de: 'Was war die überaschendste Entdeckung, die du über deinen Körper gemacht hast?'
+        de: 'Was war die überraschendste Entdeckung, die du über deinen Körper gemacht hast?'
       },
       author: 'Laura'
     }
@@ -1238,7 +1235,7 @@ export const questionsByDate: QuestionsByDate = {
       deepness: 2,
       translations: {
         en: 'What was the best birthday or christmas present you\'ve ever received?',
-        de: 'Was war das beste Geburtstags- oder Weihnachtsgeschenk, dass du je bekommen hast?'
+        de: 'Was war das beste Geburtstags- oder Weihnachtsgeschenk, das du je bekommen hast?'
       },
       author: 'Noëmi'
     }
@@ -1438,6 +1435,7 @@ export const questionsByDate: QuestionsByDate = {
   '2023-10-11': [
     {
       deepness: 3,
+      tags: [ 'twoPeople' ],
       translations: {
         en: 'What thing that I did did you most appreciate?',
         de: 'Von dem, was ich für dich getan habe: Was schätzst du am meisten?'
@@ -1687,7 +1685,7 @@ export const questionsByDate: QuestionsByDate = {
       tags: [ 'v' ],
       translations: {
         en: 'What is something you haven\'t done in a little while that you really miss?',
-        de: 'Was hast du schon lange nicht mehr gemacht, was du aber eigentlich vermisst?'
+        de: 'Was hast du schon lange nicht mehr gemacht, vermisst du aber eigentlich?'
       }
     }
   ],
