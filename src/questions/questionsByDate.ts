@@ -1060,7 +1060,7 @@ export const questionsByDate: QuestionsByDate = {
     },
     {
       deepness: 3,
-      tags: [ 'dating', 'sex', 'v' ],
+      tags: [ 'twoPeople', 'dating', 'sex', 'v' ],
       translations: {
         en: 'When have you felt sexiest around me? What did it teach you about yourself?',
         de: 'Wann hast du dich in meiner Gegenwart am sexiesten gefühlt? Was hast du dabei über dich gelernt?'
@@ -1068,7 +1068,7 @@ export const questionsByDate: QuestionsByDate = {
     },
     {
       deepness: 2,
-      tags: [ 'dating' ],
+      tags: [ 'dating', 'twoPeople' ],
       translations: {
         en: 'When did you realize I was in love with you?',
         de: 'Wann hast du realisiert, dass ich dich liebe?'
@@ -1076,7 +1076,7 @@ export const questionsByDate: QuestionsByDate = {
     },
     {
       deepness: 2,
-      tags: [ 'dating', 'sex' ],
+      tags: [ 'dating', 'sex', 'twoPeople' ],
       translations: {
         en: 'What is something I do that turns you on that I don\'t realize?',
         de: 'Was ist etwas, das ich mache, und dass dich antörnt, ohne dass ich es weiss?'
@@ -2119,6 +2119,254 @@ export const questionsByDate: QuestionsByDate = {
       },
       deepness: 3,
       author: 'Myha\'la'
+    }
+  ],
+  '2024-09-27': [
+    {
+      translations: {
+        en: 'What would be the title of your autobiography? How would you title the current chapter?',
+        de: 'Wie würde der Titel deiner Autobiographie heissen? Und wie würdest du das aktuelle Kapitel betiteln?'
+      },
+      author: 'Michael',
+      deepness: 3
+    }
+  ],
+  '2024-10-02': [
+    {
+      translations: {
+        en: 'If your life were a movie, what music would play in the background of the current scene?',
+        de: 'Wenn dein Leben verfilmt würde, wie würde die Hintergrundmusik der Szene, in der deine aktuelle Gegenwart abgebildet wird, klingen?'
+      },
+      deepness: 2
+    }
+  ],
+  '2024-11-04': [
+    {
+      translations: {
+        en: 'What\'s one sentence you did not hear enough growing up? What\'s a sentence you heard too often growing up?',
+        de: 'Welchen Satz hast du nicht häufig genug gehört in deiner Kindheit? Welchen Satz hast du zu häufig gehört?'
+      },
+      deepness: 5,
+      tags: [ 'v' ]
+    }
+  ],
+  '2024-11-06': [
+    {
+      translations: {
+        en: 'What is a moment when you really felt like you mattered to me?',
+        de: 'In was für einem Moment hast du gefühlt, wie wichtig du für mich bist?'
+      },
+      tags: [ 'twoPeople' ],
+      author: 'Anna Martin',
+      deepness: 4
+    }
+  ],
+  '2024-11-10': [
+    {
+      translations: {
+        en: 'Growing up, what\'s the most incorrect thing you believed about sex?',
+        de: 'Was war das falscheste, was du je geglaubt hast, über Sex zu wissen?'
+      },
+      deepness: 3,
+      tags: [ 'sex', 'v' ]
+    },
+    {
+      translations: {
+        en: 'What is something you had to painfully learn about love?',
+        de: 'Was musstest du erst schmerzhaft lernen über Liebe?'
+      },
+      deepness: 4,
+      tags: [ 'v' ]
+    },
+  ],
+  '2024-11-13': [
+    {
+      translations: {
+        en: 'If we met in one year, what would we be celebrating?',
+        de: 'Wenn wir uns in einem Jahr noch einmal treffen würden, was gäbe es zu feiern?'
+      },
+      deepness: 2,
+      tags: [ 'twoPeople' ]
+    },
+    {
+      translations: {
+        en: 'What is the "no" you keep postponing?',
+        de: 'Welches «nein» schiebst du vor dir her?'
+      },
+      deepness: 3,
+      tags: [ 'v' ]
+    },
+    {
+      translations: {
+        en: 'What talents do you have that you\'re not currently using?',
+        de: 'Welche Talente besitzt du, ohne sie im Moment zu benutzen?'
+      },
+      deepness: 3
+    }
+  ],
+  '2024-12-06': [
+    {
+      translations: {
+        en: 'What is one thing you own that you should really throw out?',
+        de: 'Was ist das eine Ding, das du besitzt, aber eigentlich wirklich mal entsorgen solltest?'
+      },
+      deepness: 2,
+      author: 'Stephen Colbert'
+    },
+    {
+      translations: {
+        en: 'What is your favourite smell? What is your least favourite smell?',
+        de: 'Was ist dein Lieblingsgeruch? Welchen Geruch hast du am wenigsten gerne?'
+      },
+      deepness: 1,
+      author: 'Stephen Colbert'
+    }
+  ],
+  '2025-01-12': [
+    {
+      translations: {
+        en: 'What feelings are hard for you to communicate to me? What can I do to make that easier?',
+        de: 'Was für Gefühle sind schwierig für dich, mir gegenüber zu kommunizieren? Was kann ich tun, um es dir einfacher zu machen?'
+      },
+      deepness: 4,
+      tags: [ 'twoPeople' ]
+    },
+    {
+      translations: {
+        en: 'What is the most generous thing you\'ve ever done (not given) for someone?',
+        de: 'Was ist das grosszügigste, das du mal für jemanden gemacht (nicht gegeben) hast?'
+      },
+      deepness: 3,
+      tags: [ 'v' ]
+    }
+  ],
+  '2025-01-29': [
+    {
+      translations: {
+        en: 'What is something most people are afraid of but you are not?',
+        de: 'Vor was haben die meisten Menschen Angst, du aber nicht?'
+      },
+      deepness: 3,
+    }
+  ],
+  '2025-02-05': [
+    {
+      translations: {
+        en: 'What is a lesson you learned from somebody younger than you?',
+        de: 'Welche Lektion hast du von jemand jüngerem gelernt?'
+      },
+      deepness: 3
+    }
+  ],
+  '2025-02-06': [
+    {
+      translations: {
+        en: 'In your opinion, what are the most attractive shoes?',
+        de: 'Was sind deiner Meinung nach die attraktivsten Schuhe?'
+      },
+      deepness: 2
+    }
+  ],
+  '2025-02-25': [
+    {
+      translations: {
+        en: 'What is your biggest battle right now?',
+        de: 'Was ist im Moment dein grösster Kampf?'
+      },
+      deepness: 4
+    }
+  ],
+  '2025-02-26': [
+    {
+      translations: {
+        en: 'When is the last time you truly felt vulnerable?',
+        de: 'Wann hast du dich zuletzt wirklich verwundbar gefühlt?'
+      },
+      deepness: 4,
+      tags: [ 'v' ]
+    }
+  ],
+  '2025-03-01': [
+    {
+      translations: {
+        en: 'When did your life last feel like a movie?',
+        de: 'Wann hat sich dein Leben zuletzt wie ein Film angefühlt?'
+      },
+      deepness: 2
+    }
+  ],
+  '2025-03-02': [
+    {
+      translations: {
+        en: 'Tell me a story about someone you lost!',
+        de: 'Erzähle mir eine Geschichte über jemanden, den du verloren hast!'
+      },
+      deepness: 3,
+      tags: [ 'v' ]
+    }
+  ],
+  '2025-03-03': [
+    {
+      translations: {
+        en: 'When did you last feel jealous?',
+        de: 'Wann hast du dich zuletzt neidisch gefühlt?'
+      },
+      deepness: 3
+    }
+  ],
+  '2025-03-05': [
+    {
+      translations: {
+        en: 'What weird habit did you pick up from a friend?',
+        de: 'Was für eine komische Angewohntheit hast du von einem Freund oder einer Freundin übernommen?'
+      },
+      deepness: 2
+    }
+  ],
+  '2025-03-08': [
+    {
+      translations: {
+        en: 'What did you last pray for?',
+        de: 'Für was hast du zuletzt gebetet?'
+      },
+      deepness: 3,
+      tags: [ 'christians', 'v' ]
+    }
+  ],
+  '2025-03-18': [
+    {
+      translations: {
+        en: 'If you were forced to wear a warning label, what would yours say?',
+        de: 'Wenn du ein Warnungs-Schild tragen müsstest, was würde auf deinem stehen?'
+      },
+      deepness: 3,
+    },
+    {
+      translations: {
+        en: 'What is something I should tell my next partner about you?',
+        de: 'Was sollte ich meinem nächsten Partner/meiner nächsten Partnerin über dich erzählen?'
+      },
+      deepness: 3,
+      tags: [ 'twoPeople' ]
+    }
+  ],
+  '2025-03-20': [
+    {
+      translations: {
+        en: 'What is the most expensive mistake you made?',
+        de: 'Was war der teuerste Fehler, den du je gemacht hast?'
+      },
+      deepness: 2,
+      tags: [ 'v' ]
+    }
+  ],
+  '2025-03-24': [
+    {
+      translations: {
+        en: 'What past decision of yours that had an unexpected consequence?',
+        de: 'Welche vergangene Entscheidung von dir hatte unerwartete Konsequenzen?'
+      },
+      deepness: 3
     }
   ]
 }
