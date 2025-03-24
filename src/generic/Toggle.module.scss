@@ -1,4 +1,4 @@
-@import '../styles/colors';
+@use '../styles/colors';
 
 .wrapper {
     label:has(input:checked) {
@@ -14,7 +14,7 @@
     display: block;
     width: 3rem;
     height: 1.5rem;
-    border: $borderStyle;
+    border: colors.$borderStyle;
     border-radius: 9999px;
     background-color: var(--color-body-background);
     padding: 0.1rem;
@@ -31,7 +31,7 @@
         user-select: none;
         height: 100%;
         aspect-ratio: 1/1;
-        border: 1px solid $blue;
+        border: 1px solid colors.$blue;
         border-radius: 100%;
         background-color: var(--color-text);
     }

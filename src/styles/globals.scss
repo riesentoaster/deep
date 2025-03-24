@@ -1,15 +1,15 @@
+@use './colors';
+@use 'mobile';
+@use 'slider';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import './colors';
-@import './mobile';
-@import './slider';
 
 html {
     height: 100%;
 }
-
 
 body {
     color: var(--color-text);
@@ -17,14 +17,14 @@ body {
     background-color: var(--color-body-background);
     margin: 0 auto;
     min-height: 100%;
-    width: $bodyWidth;
+    width: mobile.$bodyWidth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-@media #{$mobile} {
+@media #{mobile.$mobile} {
     body {
-        width: $bodyWidthMobile;
+        width: mobile.$bodyWidthMobile;
     }
 }
 
@@ -64,7 +64,7 @@ button {
 select {
     background-color: var(--color-body-background);
     margin-top: 0.3em;
-    border: $borderStyle;
+    border: colors.$borderStyle;
 }
 
 a {

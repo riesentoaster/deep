@@ -1,3 +1,4 @@
-$bodyWidth: unquote("max(800px, 80%)");
+@use "sass:string";
+$bodyWidth: string.unquote("max(800px, 80%)");
 $bodyWidthMobile: 100%;
 $mobile: "only screen and (max-width: 800px)";

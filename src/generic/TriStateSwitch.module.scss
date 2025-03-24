@@ -1,4 +1,4 @@
-@import '../styles/colors';
+@use '../styles/colors';
 
 .wrapper {
     .switchContainer {
@@ -7,7 +7,7 @@
         justify-content: center;
         flex-direction: row;
         border-radius: 100vh;
-        border: $borderStyle;
+        border: colors.$borderStyle;
     }
 
     .switchElement {
