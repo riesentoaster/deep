@@ -2363,7 +2363,7 @@ export const questionsByDate: QuestionsByDate = {
   '2025-03-24': [
     {
       translations: {
-        en: 'What past decision of yours that had an unexpected consequence?',
+        en: 'What past decision of yours had an unexpected consequence?',
         de: 'Welche vergangene Entscheidung von dir hatte unerwartete Konsequenzen?'
       },
       deepness: 3
