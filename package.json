@@ -47,7 +47,7 @@
     "sass": "^1.86.0",
     "seedrandom": "^3.0.5",
     "tailwindcss": "^3.4.13",
-    "translation-check": "^1.1.0",
+    "translation-check": "^1.1.1",
     "typescript": "^5",
     "vite": "^6.2.3",
     "vite-plugin-eslint": "^1.8.1",
