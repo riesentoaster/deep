@@ -2368,5 +2368,14 @@ export const questionsByDate: QuestionsByDate = {
       },
       deepness: 3
     }
+  ],
+  '2025-04-01': [
+    {
+      translations: {
+        en: 'What is the dumbest way you\'ve hurt yourself?',
+        de: 'Was ist das dümmste, wobei du dich verletzt hast?'
+      },
+      deepness: 1
+    }
   ]
 }
