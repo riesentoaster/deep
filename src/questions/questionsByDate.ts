@@ -2377,5 +2377,41 @@ export const questionsByDate: QuestionsByDate = {
       },
       deepness: 1
     }
+  ],
+  '2025-04-04': [
+    {
+      translations: {
+        en: 'What do you find beautiful?',
+        de: 'Was findest du schön?'
+      },
+      deepness: 2
+    }
+  ],
+  '2025-04-13': [
+    {
+      translations: {
+        en: 'What do you remember from your last birthday?',
+        de: 'An was erinnerst du dich von deinem letzten Geburtstag?'
+      },
+      deepness: 2,
+    }
+  ],
+  '2025-04-19': [
+    {
+      translations: {
+        en: 'From which pain or injury have you already healed?',
+        de: 'Von welchem Schmerz oder welcher Verletzung wurdest du schon geheilt?'
+      },
+      deepness: 2,
+    }
+  ],
+  '2025-04-28': [
+    {
+      translations: {
+        en: 'What\'s the ugliest thing you know?',
+        de: 'Was ist das hässlichste, was du kennst?'
+      },
+      deepness: 2
+    }
   ]
 }
