@@ -2413,5 +2413,165 @@ export const questionsByDate: QuestionsByDate = {
       },
       deepness: 2
     }
+  ],
+  '2025-05-04': [
+    {
+      translations: {
+        en: 'When did your integrity last cost you?',
+        de: 'Wann hat deine Integrität dich zuletzt etwas gekostet?'
+      },
+      deepness: 4,
+    }
+  ],
+  '2025-05-19': [
+    {
+      translations: {
+        en: 'Who is the best teacher you had? Why?',
+        de: 'Wer ist der beste Lehrer, den du je hatte? Warum?'
+      },
+      deepness: 2,
+      author: 'Ester Perel',
+      tags: [ 'v' ]
+    },
+    {
+      translations: {
+        en: 'What is something you learned from a mentor?',
+        de: 'Was hast du von einem Mentor gelernt?'
+      },
+      deepness: 3,
+      tags: [ 'v' ]
+    }
+  ],
+  '2025-05-27': [
+    {
+      translations: {
+        en: 'What is the kindest thing you do that nobody sees?',
+        de: 'Was ist das netteste, was du tust, aber niemand siehst?'
+      },
+      deepness: 2,
+    }
+  ],
+  '2025-05-30': [
+    {
+      translations: {
+        en: 'What is something your parents don\'t know about you?',
+        de: 'Was wissen deine Eltern nicht über dich?'
+      },
+      deepness: 3,
+    }
+  ],
+  '2025-06-09': [
+    {
+      translations: {
+        en: 'What is the most beautiful thing you\'ve been told?',
+        de: 'Was war das schönste, was dir jemand gesagt hat?'
+      },
+      deepness: 2,
+    }
+  ],
+  '2025-06-12': [
+    {
+      translations: {
+        en: 'What\'s a moment you\'ll never forget?',
+        de: 'Welchen Moment wirst du nie vergessen?'
+      },
+      deepness: 2,
+    },
+  ],
+  '2025-06-15': [
+    {
+      translations: {
+        en: 'What generally good thing do you need less of in your life?',
+        de: 'Von welcher grundsätzlich guter Sache solltest du weniger in deinem Leben haben?'
+      },
+      deepness: 3,
+      tags: [ 'v' ]
+    }
+  ],
+  '2025-06-20': [
+    {
+      translations: {
+        en: 'What is something you take too serious?',
+        de: 'Was ist etwas, das du zu ernst nimmst?'
+      },
+      deepness: 3,
+    }
+  ],
+  '2025-06-25': [
+    {
+      translations: {
+        en: 'What would your younger self be proud of today?',
+        de: 'Auf was würde dein jüngeres Ich heute stolz sein?'
+      },
+      deepness: 3,
+    },
+    {
+      translations: {
+        en: 'What is the greatest unsolved mistery in your life?',
+        de: 'Was ist das grösste ungelöste Rätsel in deinem Leben?'
+      },
+      deepness: 3,
+    }
+  ],
+  '2025-06-27': [
+    {
+      translations: {
+        en: 'How has the choice of your friends changed who you are?',
+        de: 'Wie hat die Wahl deiner Freunde dich verändert?'
+      },
+      deepness: 4,
+    },
+    {
+      translations: {
+        en: 'How much do you have in savings? How are you feeling about it?',
+        de: 'Wie viel Geld hast du auf der Bank? Wie fühlst du dich damit?'
+      },
+      deepness: 2,
+    }
+  ],
+  '2025-07-01': [
+    {
+      translations: {
+        en: 'What is the last meal you regret eating?',
+        de: 'Welche Mahlzeit hast du zuletzt bereut, gegessen zu haben?'
+      },
+      deepness: 1,
+    }
+  ],
+  '2025-07-05': [
+    {
+      translations: {
+        en: 'How would your last ex describe your breakup?',
+        de: 'Wie würde dein:e letzte:r Ex-Partner:in eure Trennung beschreiben?'
+      },
+      deepness: 5,
+    }
+  ],
+  '2025-07-14': [
+    {
+      translations: {
+        en: 'What do you love about music?',
+        de: 'Was liebt dich an Musik?'
+      },
+      deepness: 2,
+    }
+  ],
+  '2025-07-29': [
+    {
+      translations: {
+        en: 'In which aspect are you above average? In which aspect are you below average?',
+        de: 'In welchem Aspekt bist du überdurchschnittlich? Wo bist du unterdurchschnittlich?',
+      },
+      deepness: 3,
+    }
+  ],
+  '2025-07-30': [
+    {
+      translations: {
+        en: 'When did you last do something for the last time?',
+        de: 'Wann hast du zuletzt etwas zum letzten Mal getan?',
+      },
+      deepness: 2,
+    }
   ]
 }
