@@ -7,7 +7,7 @@
     "start": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "lint": "eslint .",
+    "lint": "eslint src --fix",
     "update": "ncu -du --doctorTest \"npm run build\"",
     "analyze": "npm run build && source-map-explorer 'build/static/js/*.js'"
   },
