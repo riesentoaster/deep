@@ -1,9 +1,10 @@
+import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa'
 import eslint from 'vite-plugin-eslint'
 
-const viteConfig: Partial<VitePWAOptions> = {
+const vitePWAConfig: Partial<VitePWAOptions> = {
   registerType: 'autoUpdate',
   manifestFilename: 'manifest.json',
   manifest: {
@@ -28,8 +29,7 @@ const viteConfig: Partial<VitePWAOptions> = {
 }
 
 export default defineConfig( {
-  plugins: [ react(), eslint(), VitePWA( viteConfig ) ],
+  plugins: [ tailwindcss(), react(), eslint(), VitePWA( vitePWAConfig ) ],
   define: { __BUILD_DATE__: `"${ new Date().toISOString() }"` },
   build: { chunkSizeWarningLimit: 10000 }, // 10 MB
-  css: { preprocessorOptions: { scss: { api: 'modern-compiler' } } }, // fixing an update error message on 2024-09-28
 } )
