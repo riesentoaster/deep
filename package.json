@@ -23,7 +23,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@types/seedrandom": "^3.0.8",
     "@types/web-app-manifest": "^1.0.9",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/eslint-plugin": "^8.56.1",
     "@vitejs/plugin-react": "^5.1.4",
     "autoprefixer": "^10.4.24",
     "deep-object-diff": "^1.1.9",
